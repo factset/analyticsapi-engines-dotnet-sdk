@@ -1,0 +1,7 @@
+{
+  "packageName": "FactSet.AnalyticsAPI.Engines.v2",
+  "packageVersion": "2.0.0",
+  "packageGuid": "{D7309227-518B-45ED-896A-4853BE6A9075}",
+  "targetFramework": "netstandard2.0",
+  "caseInsensitiveResponseHeaders": true
+}

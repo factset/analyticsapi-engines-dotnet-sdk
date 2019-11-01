@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OpenAPI Library")]
-[assembly: AssemblyDescription("A library generated from a OpenAPI doc")]
+[assembly: AssemblyTitle("FactSet Analytics Engines API")]
+[assembly: AssemblyDescription("Allow clients to fetch Engines Analytics through APIs.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("OpenAPI")]
-[assembly: AssemblyProduct("OpenAPILibrary")]
-[assembly: AssemblyCopyright("No Copyright")]
+[assembly: AssemblyCompany("FactSet Research Systems Inc.")]
+[assembly: AssemblyProduct("FactSet Analytics Engines API")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

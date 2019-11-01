@@ -34,7 +34,7 @@ To customize the OpenAPI generator options and generate the library. Please go t
 * Replace vAPI_VERSION and PACKAGE_VERSION in the below command with the latest values and run it.
 ```
 javac -classpath Utilities/codegen/*; Utilities/codegen/CustomCSharpNetCoreClientCodegen.java
-java -DmodelTests=false -DapiTests=false -classpath Utilities/codegen/;Utilities/codegen/*; org.openapitools.codegen.OpenAPIGenerator generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec Utilities/codegen/openapi-schema.json --output EnginesAPI --config Utilities/codegen/openapi-generator-config.json --http-user-agent $http_user_agent/vAPI_VERSION/PACKAGE_VERSION/csharp --template-dir Utilities/codegen/templates --skip-validate-spec
+java -DmodelTests=false -DapiTests=false -classpath Utilities/codegen/;Utilities/codegen/*; org.openapitools.codegen.OpenAPIGenerator generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec Utilities/codegen/openapi-schema.json --output Engines --config Utilities/codegen/openapi-generator-config.json --http-user-agent engines/vAPI_VERSION/PACKAGE_VERSION/csharp --template-dir Utilities/codegen/templates --skip-validate-spec
 ```
 * Build the project by right clicking on the project name.
 

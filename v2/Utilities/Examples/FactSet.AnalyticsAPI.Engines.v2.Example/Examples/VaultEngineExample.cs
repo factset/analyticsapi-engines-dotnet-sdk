@@ -20,6 +20,8 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
         private const string VaultDefaultDocument = "PA3_DOCUMENTS:DEFAULT";
+        private const string VaultComponentName = "Exposures";
+        private const string VaultComponentCategory = "General / Positioning";
         private const string VaultDefaultAccount = "CLIENT:/ANALYTICS/DATA/NORDIC_EQUITY.ACCT";
         private const string VaultStartDate = "FIRST_REPOSITORY";
         private const string VaultEndDate = "LAST_REPOSITORY";
@@ -123,7 +125,7 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
                 return null;
             }
 
-            var vaultComponentId = componentsResponse.Data.First().Key;
+            var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultComponentName && component.Value.Category == VaultComponentCategory)).Key;
             Console.WriteLine($"Vault Component Id : {vaultComponentId}");
 
             var vaultAccount = new VaultIdentifier(VaultDefaultAccount);

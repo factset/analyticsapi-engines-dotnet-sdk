@@ -20,14 +20,20 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
         private const string PADefaultDocument = "PA_DOCUMENTS:DEFAULT";
+        private const string PAComponentName = "Weights";
+        private const string PAComponentCategory = "Weights / Exposures";
         private const string PABenchmarkSP50 = "BENCH:SP50";
         private const string PABenchmarkR1000 = "BENCH:R.1000";
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
+        private const string SPARComponentName = "Returns Data";
+        private const string SPARComponentCategory = "Raw Data / Returns";
         private const string SPARBenchmarkR1000 = "R.1000";
         private const string SPARBenchmarkRussellPR2000 = "RUSSELL_P:R.2000";
         private const string SPARBenchmarkRussellPrefix = "RUSSELL";
         private const string SPARBenchmarkRussellReturnType = "GTR";
         private const string VaultDefaultDocument = "PA3_DOCUMENTS:DEFAULT";
+        private const string VaultComponentName = "Exposures";
+        private const string VaultComponentCategory = "General / Positioning";
         private const string VaultDefaultAccount = "CLIENT:/ANALYTICS/DATA/NORDIC_EQUITY.ACCT";
         private const string VaultStartDate = "FIRST_REPOSITORY";
         private const string VaultEndDate = "LAST_REPOSITORY";
@@ -157,14 +163,14 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
             var componentsApi = new ComponentsApi(GetEngineApiConfiguration());
 
             var componentsResponse = componentsApi.GetPAComponentsWithHttpInfo(PADefaultDocument);
-
+            
             if (componentsResponse.StatusCode != HttpStatusCode.OK)
             {
                 LogError(componentsResponse);
                 return null;
             }
 
-            var paComponentId = componentsResponse.Data.First().Key;
+            var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == PAComponentName && component.Value.Category == PAComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
             var paAccountIdentifier = new PAIdentifier(PABenchmarkSP50);
@@ -190,7 +196,7 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
                 return null;
             }
 
-            var sparComponentId = componentsResponse.Data.First().Key;
+            var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
             Console.WriteLine($"SPAR Component Id : {sparComponentId}");
 
             var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
@@ -215,7 +221,7 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
                 return null;
             }
 
-            var vaultComponentId = componentsResponse.Data.First().Key;
+            var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultComponentName && component.Value.Category == VaultComponentCategory)).Key;
             Console.WriteLine($"Vault Component Id : {vaultComponentId}");
 
             var vaultAccount = new VaultIdentifier(VaultDefaultAccount);

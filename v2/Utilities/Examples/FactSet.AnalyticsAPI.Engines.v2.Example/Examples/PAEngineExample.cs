@@ -20,6 +20,8 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
         private const string PADefaultDocument = "PA_DOCUMENTS:DEFAULT";
+        private const string PAComponentName = "Weights";
+        private const string PAComponentCategory = "Weights / Exposures";
         private const string PABenchmarkSP50 = "BENCH:SP50";
         private const string PABenchmarkR1000 = "BENCH:R.1000";
 
@@ -114,14 +116,14 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
             var componentsApi = new ComponentsApi(GetEngineApiConfiguration());
 
             var componentsResponse = componentsApi.GetPAComponentsWithHttpInfo(PADefaultDocument);
-
+            
             if (componentsResponse.StatusCode != HttpStatusCode.OK)
             {
                 LogError(componentsResponse);
                 return null;
             }
 
-            var paComponentId = componentsResponse.Data.First().Key;
+            var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == PAComponentName && component.Value.Category == PAComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
             var paAccountIdentifier = new PAIdentifier(PABenchmarkSP50);

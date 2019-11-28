@@ -20,6 +20,8 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
+        private const string SPARComponentName = "Returns Data";
+        private const string SPARComponentCategory = "Raw Data / Returns";
         private const string SPARBenchmarkR1000 = "R.1000";
         private const string SPARBenchmarkRussellPr2000 = "RUSSELL_P:R.2000";
         private const string SPARBenchmarkRussellPrefix = "RUSSELL";
@@ -123,7 +125,7 @@ namespace FactSet.AnalyticsAPI.Engines.v2.Example.Examples
                 return null;
             }
 
-            var sparComponentId = componentsResponse.Data.First().Key;
+            var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
             Console.WriteLine($"SPAR Component Id : {sparComponentId}");
 
 

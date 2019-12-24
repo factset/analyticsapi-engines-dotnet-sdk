@@ -1,7 +1,7 @@
 # analyticsapi-engines-dotnet-sdk
 
 ## Overview
-API client library to leverage Factset's Analytics API in C#. Each API version directory contains its respective Analytics API implementation.
+API client library to leverage FactSet's PA Engine, SPAR Engine and Vault API in C#.
 
 **`Engines`** - C# library for Engines API. It is developed using [open-api-generator](https://github.com/OpenAPITools/openapi-generator).
 
@@ -12,11 +12,11 @@ API client library to leverage Factset's Analytics API in C#. Each API version d
 
 #### Current versions
 * API_VERSION - 2
-* PACKAGE_VERSION - 2.0.0
+* PACKAGE_VERSION - 3.0.0
 
 ## Steps to install library on Visual Studio
 * Go to `Tools` -> `Nuget Package Manager` -> `Manage Nuget Packages for Solution`.
-* Search for `FactSet.AnalyticsAPI.Engines.vAPI_VERSION.*.*.*.nupkg` and install it.
+* Search for `FactSet.AnalyticsAPI.Engines.*.*.*.nupkg` and install it.
 
 ## Generate library
 To customize the OpenAPI generator options and generate the library. Please go through [Open API](https://swagger.io/docs/specification/about/) and [open-api-generator](https://github.com/OpenAPITools/openapi-generator) for more details.
@@ -25,16 +25,16 @@ To customize the OpenAPI generator options and generate the library. Please go t
 * Install [Java SDK8 64 bit version](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Install Visual Studio.
 * Clone this `analyticsapi-engines-dotnet-sdk` repository.
-* Move into the `analyticsapi-engines-dotnet-sdk/vAPI_VERSION/Utilities/codegen` folder and run the `download-codegen.bat` file by double clicking it (for downloading the openapi-generator-cli.jar).
+* Move into the `analyticsapi-engines-dotnet-sdk/Utilities/codegen` folder and run the `download-codegen.bat` file by double clicking it (for downloading the openapi-generator-cli.jar).
 
 ### To update and build the library
-* Move to the `analyticsapi-engines-dotnet-sdk/vAPI_VERSION` location.
+* Move to the `analyticsapi-engines-dotnet-sdk` location.
 * Increment the package version in `Utilities/openapi-generator-config.json`.
 * Delete all the files in the `Engines` folder excluding `.openapi-generator-ignore` file. 
-* Replace vAPI_VERSION and PACKAGE_VERSION in the below command with the latest values and run it.
+* Replace PACKAGE_VERSION in the below command with its latest value and run it.
 ```
 javac -classpath Utilities/codegen/*; Utilities/codegen/CustomCSharpNetCoreClientCodegen.java
-java -DmodelTests=false -DapiTests=false -classpath Utilities/codegen/;Utilities/codegen/*; org.openapitools.codegen.OpenAPIGenerator generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec Utilities/codegen/openapi-schema.json --output Engines --config Utilities/codegen/openapi-generator-config.json --http-user-agent engines/vAPI_VERSION/PACKAGE_VERSION/csharp --template-dir Utilities/codegen/templates --skip-validate-spec
+java -DmodelTests=false -DapiTests=false -classpath Utilities/codegen/;Utilities/codegen/*; org.openapitools.codegen.OpenAPIGenerator generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec Utilities/codegen/openapi-schema.json --output Engines --config Utilities/codegen/openapi-generator-config.json --http-user-agent engines-api/PACKAGE_VERSION/csharp --template-dir Utilities/codegen/templates --skip-validate-spec
 ```
 * Build the project by right clicking on the project name.
 
@@ -43,8 +43,8 @@ java -DmodelTests=false -DapiTests=false -classpath Utilities/codegen/;Utilities
 #### Running the Test Cases using Visual Studio
 * Open the Visual Studio.
 * Goto File-> Open-> Project/Solution.
-* Open `Engines/src/FactSet.AnalyticsAPI.Engines.v*.sln` and build the project.
-* Then, open `Engines/src/FactSet.AnalyticsAPI.Engines.v*.Test.sln` and build the tests project.
+* Open `Engines/src/FactSet.AnalyticsAPI.Engines.sln` and build the project.
+* Then, open `Engines/src/FactSet.AnalyticsAPI.Engines.Test.sln` and build the tests project.
 * Set the below environment variables using `Package Manager Console`.
 ```
 $env:ANALYTICS_API_USERNAME_SERIAL = "username-serial"

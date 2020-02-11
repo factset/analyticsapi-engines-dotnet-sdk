@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string PABenchmarkSP50 = "BENCH:SP50";
         private const string PABenchmarkR1000 = "BENCH:R.1000";
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
-        private const string SPARComponentName = "Returns Data";
+        private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
         private const string SPARBenchmarkR1000 = "R.1000";
         private const string SPARBenchmarkRussellPR2000 = "RUSSELL_P:R.2000";

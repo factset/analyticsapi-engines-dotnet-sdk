@@ -20,7 +20,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
-        private const string SPARComponentName = "Returns Data";
+        private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
         private const string SPARBenchmarkR1000 = "R.1000";
         private const string SPARBenchmarkRussellPr2000 = "RUSSELL_P:R.2000";

@@ -20,9 +20,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
         private const string VaultDefaultDocument = "PA3_DOCUMENTS:DEFAULT";
-        private const string VaultComponentName = "Exposures";
+        private const string VaultComponentName = "Weights";
         private const string VaultComponentCategory = "General / Positioning";
-        private const string VaultDefaultAccount = "CLIENT:/ANALYTICS/DATA/NORDIC_EQUITY.ACCT";
+        private const string VaultDefaultAccount = "Client:/analytics/data/US_MID_CAP_CORE.ACTM";
         private const string VaultStartDate = "FIRST_REPOSITORY";
         private const string VaultEndDate = "LAST_REPOSITORY";
         private const string VaultFrequency = "Monthly";

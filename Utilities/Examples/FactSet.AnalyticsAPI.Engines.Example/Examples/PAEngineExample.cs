@@ -39,6 +39,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var runCalculationResponse = calculationApi.RunCalculationWithHttpInfo(calculationParameters);
 
                 var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
+                Console.WriteLine("Calculation Id: " + calculationId);
                 ApiResponse<CalculationStatus> getStatus = null;
 
                 while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
@@ -67,23 +68,27 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 }
                 Console.WriteLine("Calculation Completed");
 
-                // Check for failed calculations
+                
                 foreach (var paCalculationParameters in getStatus.Data.Pa)
                 {
-                    if (paCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Failed)
+                    if (paCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        Console.WriteLine($"CalculationId : {paCalculationParameters.Key} Failed!!!");
+                        PrintResult(paCalculationParameters);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Calculation Unit Id : {paCalculationParameters.Key} Failed!!!");
                         Console.WriteLine($"Error message : {paCalculationParameters.Value.Error}");
                     }
                 }
 
-                // Get result of successful calculations
-                foreach (var paCalculationParameters in getStatus.Data.Pa)
-                {
-                    PrintResult(paCalculationParameters);
-                }
-
                 Console.ReadKey();
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine($"Status Code: {e.ErrorCode}");
+                Console.WriteLine($"Reason : {e.Message}");
+                Console.WriteLine(e.StackTrace);
             }
             catch (Exception e)
             {
@@ -116,12 +121,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var componentsApi = new ComponentsApi(GetEngineApiConfiguration());
 
             var componentsResponse = componentsApi.GetPAComponentsWithHttpInfo(PADefaultDocument);
-            
-            if (componentsResponse.StatusCode != HttpStatusCode.OK)
-            {
-                LogError(componentsResponse);
-                return null;
-            }
 
             var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == PAComponentName && component.Value.Category == PAComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
@@ -143,14 +142,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var utilityApi = new UtilityApi(GetEngineApiConfiguration());
                 ApiResponse<string> resultResponse = utilityApi.GetByUrlWithHttpInfo(calculation.Value.Result);
 
-                if (resultResponse.StatusCode != HttpStatusCode.OK)
-                {
-                    LogError(resultResponse);
-                    return;
-                }
-
-                Console.WriteLine($"CalculationId : {calculation.Key} Succeeded!!!");
-                Console.WriteLine($"CalculationId : {calculation.Key} Result");
+                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Succeeded!!!");
+                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Result");
                 Console.WriteLine("/****************************************************************/");
 
                 // converting the data to Package object
@@ -168,9 +161,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             }
         }
 
-        private static void LogError<T>(ApiResponse<T> response)
+        private static void LogError<T>(ApiResponse<T> response, string message)
         {
-            Console.WriteLine("Error!!!");
+            Console.WriteLine(message);
             Console.WriteLine($"Status Code: {response.StatusCode}");
             Console.WriteLine($"Request Key: {response.Headers["X-DataDirect-Request-Key"]}");
             Console.WriteLine($"Reason: {response.Data}");

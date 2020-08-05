@@ -41,6 +41,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var runCalculationResponse = calculationApi.RunCalculationWithHttpInfo(calculationParameters);
 
                 var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
+                Console.WriteLine("Calculation Id: " + calculationId);
                 ApiResponse<CalculationStatus> getStatus = null;
 
                 while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
@@ -65,27 +66,31 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         }
                     }
 
-                    getStatus = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                    getStatus = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);                
                 }
                 Console.WriteLine("Calculation Completed");
 
-                // Check for failed calculations
+                
                 foreach (var vaultCalculationParameters in getStatus.Data.Vault)
                 {
-                    if (vaultCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Failed)
+                    if (vaultCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        Console.WriteLine($"CalculationId : {vaultCalculationParameters.Key} Failed!!!");
+                        PrintResult(vaultCalculationParameters);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Calculation Unit Id : {vaultCalculationParameters.Key} Failed!!!");
                         Console.WriteLine($"Error message : {vaultCalculationParameters.Value.Error}");
                     }
                 }
-
-                // Get result of successful calculations
-                foreach (var vaultCalculationParameters in getStatus.Data.Vault)
-                {
-                    PrintResult(vaultCalculationParameters);
-                }
-
+                
                 Console.ReadKey();
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine($"Status Code: {e.ErrorCode}");
+                Console.WriteLine($"Reason : {e.Message}");
+                Console.WriteLine(e.StackTrace);
             }
             catch (Exception e)
             {
@@ -119,12 +124,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             var componentsResponse = componentsApi.GetVaultComponentsWithHttpInfo(VaultDefaultDocument);
 
-            if (componentsResponse.StatusCode != HttpStatusCode.OK)
-            {
-                LogError(componentsResponse);
-                return null;
-            }
-
             var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultComponentName && component.Value.Category == VaultComponentCategory)).Key;
             Console.WriteLine($"Vault Component Id : {vaultComponentId}");
 
@@ -134,11 +133,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var configurationApi = new ConfigurationsApi(GetEngineApiConfiguration());
 
             var configurationResponse = configurationApi.GetVaultConfigurationsWithHttpInfo(vaultAccount.Id);
-            if (configurationResponse.StatusCode != HttpStatusCode.OK)
-            {
-                LogError(componentsResponse);
-                return null;
-            }
             var vaultConfiguration = configurationResponse.Data.First().Key;
 
             var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfiguration);
@@ -153,14 +147,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var utilityApi = new UtilityApi(GetEngineApiConfiguration());
                 ApiResponse<string> resultResponse = utilityApi.GetByUrlWithHttpInfo(calculation.Value.Result);
 
-                if (resultResponse.StatusCode != HttpStatusCode.OK)
-                {
-                    LogError(resultResponse);
-                    return;
-                }
 
-                Console.WriteLine($"CalculationId : {calculation.Key} Succeeded!!!");
-                Console.WriteLine($"CalculationId : {calculation.Key} Result");
+                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Succeeded!!!");
+                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Result");
                 Console.WriteLine("/****************************************************************/");
 
 
@@ -179,9 +168,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             }
         }
 
-        private static void LogError<T>(ApiResponse<T> response)
+        private static void LogError<T>(ApiResponse<T> response, string message)
         {
-            Console.WriteLine("Error!!!");
+            Console.WriteLine(message);
             Console.WriteLine("Status Code: " + response.StatusCode);
             Console.WriteLine("Request Key: " + response.Headers["X-DataDirect-Request-Key"]);
             Console.WriteLine($"Reason: {response.Data}");

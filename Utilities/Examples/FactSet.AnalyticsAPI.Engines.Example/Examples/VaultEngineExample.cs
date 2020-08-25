@@ -162,8 +162,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var tables = package.ConvertToTableFormat();
                 Console.WriteLine(tables[0]);
 
-                // Uncomment the following line to generate an Excel file
-                // package.GenerateCSV();
                 Console.WriteLine("/****************************************************************/");
             }
         }

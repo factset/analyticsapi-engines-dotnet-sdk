@@ -45,25 +45,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PADateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string))
         {
             // to ensure "enddate" is required (not null)
-            if (enddate == null)
-            {
-                throw new InvalidDataException("enddate is a required property for PADateParameters and cannot be null");
-            }
-            else
-            {
-                this.Enddate = enddate;
-            }
-
+            this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for PADateParameters and cannot be null");
             // to ensure "frequency" is required (not null)
-            if (frequency == null)
-            {
-                throw new InvalidDataException("frequency is a required property for PADateParameters and cannot be null");
-            }
-            else
-            {
-                this.Frequency = frequency;
-            }
-
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for PADateParameters and cannot be null");
             this.Startdate = startdate;
         }
         

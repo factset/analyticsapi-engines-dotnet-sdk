@@ -44,15 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PAIdentifier(string id = default(string), string holdingsmode = default(string))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new InvalidDataException("id is a required property for PAIdentifier and cannot be null");
-            }
-            else
-            {
-                this.Id = id;
-            }
-
+            this.Id = id ?? throw new ArgumentNullException("id is a required property for PAIdentifier and cannot be null");
             this.Holdingsmode = holdingsmode;
         }
         

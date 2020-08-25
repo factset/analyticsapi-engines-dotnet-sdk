@@ -9,7 +9,6 @@ using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
 using FactSet.Protobuf.Stach;
-using FactSet.Protobuf.Stach.Table;
 using Google.Protobuf;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
@@ -244,8 +243,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var tables = package.ConvertToTableFormat();
                 Console.WriteLine(tables[0]);
 
-                // Uncomment the following line to generate an Excel file
-                // package.GenerateCSV();
                 Console.WriteLine("/****************************************************************/");
             }
         }

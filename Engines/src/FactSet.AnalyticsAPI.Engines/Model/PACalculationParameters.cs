@@ -49,15 +49,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>))
         {
             // to ensure "componentid" is required (not null)
-            if (componentid == null)
-            {
-                throw new InvalidDataException("componentid is a required property for PACalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Componentid = componentid;
-            }
-
+            this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for PACalculationParameters and cannot be null");
             this.Accounts = accounts;
             this.Benchmarks = benchmarks;
             this.Dates = dates;

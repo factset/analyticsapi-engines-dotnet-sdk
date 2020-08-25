@@ -320,44 +320,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             if (startdate != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate));
             }
-            if (enddate != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (componentid != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (account != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -436,44 +403,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             
             if (startdate != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate));
             }
-            if (enddate != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (componentid != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (account != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -551,44 +485,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             if (startdate != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate));
             }
-            if (enddate != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (componentid != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (account != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -667,44 +568,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             
             if (startdate != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate));
             }
-            if (enddate != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (componentid != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
-            if (account != null)
-            {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account));
 
             // authentication (Basic) required
             // http basic authentication required

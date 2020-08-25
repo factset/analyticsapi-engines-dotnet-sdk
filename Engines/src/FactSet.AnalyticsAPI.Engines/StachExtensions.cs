@@ -4,18 +4,18 @@ using System.Linq;
 using FactSet.Protobuf.Stach;
 using FactSet.Protobuf.Stach.Table;
 
-namespace FactSet.AnalyticsAPI.Engines.Example.Examples
+namespace FactSet.AnalyticsAPI.Engines
 {
+    /// <summary>
+    /// The purpose of this class is to provide the helper methods for converting stach to Tabular format.
+    /// </summary>
     public static class StachExtensions
     {
-        public static void GenerateCSV(this Package package)
-        {
-            foreach (var table in package.ConvertToTableFormat())
-            {
-                System.IO.File.WriteAllText($"{Guid.NewGuid():N}.csv", table.ToString());
-            }
-        }
-
+        /// <summary>
+        /// The purpose of this function is to convert stach to Tabular format.
+        /// </summary>
+        /// <param name="package"></param>
+        /// <returns>Returns a list of tables for a given stach data.</returns>
         public static List<Table> ConvertToTableFormat(this Package package)
         {
             var tables = new List<Table>();
@@ -27,6 +27,13 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             return tables;
         }
 
+        /// <summary>
+        /// The purpose of this function is to generate Table for a given table id in the provided
+        /// stach data through the package.
+        /// </summary>
+        /// <param name="package"></param>
+        /// <param name="primaryTableId"></param>
+        /// <returns>Returns the generated Table from the package provided.</returns>
         private static Table GenerateTable(Package package, string primaryTableId)
         {
             var primaryTable = package.Tables[primaryTableId];
@@ -74,8 +81,19 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
     }
 
-    public static class SeriesDataHelper
+    /// <summary>
+    /// This class provides helper method for returning the data from the SeriesData object by handling the null values.
+    /// </summary>
+    internal static class SeriesDataHelper
     {
+        /// <summary>
+        /// The purpose of this function is to return the value from the provided SeriesData object.
+        /// </summary>
+        /// <exception cref="NotImplementedException">Thrown when datatype is not implemented</exception>
+        /// <param name="seriesData"></param>
+        /// <param name="dataType"></param>
+        /// <param name="index"></param>
+        /// <returns>Return data object from the SeriesData.</returns>
         public static object GetValueHelper(this SeriesData seriesData, DataType dataType, int index)
         {
             switch (dataType)
@@ -120,20 +138,40 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
     }
 
+    /// <summary>
+    /// Represents the custom model class for Tables to be generated from stach data.
+    /// </summary>
     public class Table
     {
+        /// <summary>
+        /// Gets or sets the Row object.
+        /// </summary>
         public List<Row> Rows { get; set; }
 
+        /// <summary>
+        /// The purpose of this function is to concatenate member of Row array with specified separator between each member i.e a newline.
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
             return string.Join(Environment.NewLine, Rows);
         }
     }
 
+    /// <summary>
+    /// Represents the custom model class for the Rows inside the generated tables.
+    /// </summary>
     public class Row
     {
+        /// <summary>
+        /// Gets or sets the Cells object.
+        /// </summary>
         public List<string> Cells { get; set; }
 
+        /// <summary>
+        /// The purpose of this function is to concatenate member of Cell array with specified separator between each member i.e ",".
+        /// </summary>
+        /// <returns>string</returns>
         public override string ToString()
         {
             return string.Join(",", Cells.Select(c => c.Replace(",", "")));

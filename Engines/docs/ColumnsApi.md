@@ -30,12 +30,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ColumnsApi(Configuration.Default);
+            var apiInstance = new ColumnsApi(config);
             var id = id_example;  // string | Unique identifier for a column
 
             try
@@ -110,12 +111,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ColumnsApi(Configuration.Default);
+            var apiInstance = new ColumnsApi(config);
             var name = name_example;  // string |  (optional) 
             var category = category_example;  // string |  (optional) 
             var directory = directory_example;  // string |  (optional) 

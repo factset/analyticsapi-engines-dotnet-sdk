@@ -31,12 +31,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new DocumentsApi(Configuration.Default);
+            var apiInstance = new DocumentsApi(config);
             var path = path_example;  // string | The directory to get the documents and sub-directories in
 
             try
@@ -111,12 +112,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new DocumentsApi(Configuration.Default);
+            var apiInstance = new DocumentsApi(config);
             var path = path_example;  // string | The directory to get the documents in
 
             try
@@ -191,12 +193,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new DocumentsApi(Configuration.Default);
+            var apiInstance = new DocumentsApi(config);
             var path = path_example;  // string | The directory to get the documents in
 
             try

@@ -46,35 +46,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public VaultCalculationParameters(string componentid = default(string), VaultIdentifier account = default(VaultIdentifier), VaultDateParameters dates = default(VaultDateParameters), string configid = default(string))
         {
             // to ensure "componentid" is required (not null)
-            if (componentid == null)
-            {
-                throw new InvalidDataException("componentid is a required property for VaultCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Componentid = componentid;
-            }
-
+            this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for VaultCalculationParameters and cannot be null");
             // to ensure "account" is required (not null)
-            if (account == null)
-            {
-                throw new InvalidDataException("account is a required property for VaultCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Account = account;
-            }
-
+            this.Account = account ?? throw new ArgumentNullException("account is a required property for VaultCalculationParameters and cannot be null");
             // to ensure "configid" is required (not null)
-            if (configid == null)
-            {
-                throw new InvalidDataException("configid is a required property for VaultCalculationParameters and cannot be null");
-            }
-            else
-            {
-                this.Configid = configid;
-            }
-
+            this.Configid = configid ?? throw new ArgumentNullException("configid is a required property for VaultCalculationParameters and cannot be null");
             this.Dates = dates;
         }
         

@@ -14,5 +14,7 @@ public class CustomCSharpNetCoreClientCodegen extends CSharpNetCoreClientCodegen
         supportingFiles.add(new SupportingFile("utility_api.mustache", packageFolder + File.separator + apiPackage, "UtilityApi.cs"));
 
         supportingFiles.add(new SupportingFile("utility_api_doc.mustache", apiDocPath, "UtilityApi.md"));
+
+        supportingFiles.add(new SupportingFile("StachExtensions.mustache", packageFolder, "StachExtensions.cs"));
     }
 }

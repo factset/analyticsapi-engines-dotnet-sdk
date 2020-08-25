@@ -45,35 +45,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public SPARDateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string))
         {
             // to ensure "startdate" is required (not null)
-            if (startdate == null)
-            {
-                throw new InvalidDataException("startdate is a required property for SPARDateParameters and cannot be null");
-            }
-            else
-            {
-                this.Startdate = startdate;
-            }
-
+            this.Startdate = startdate ?? throw new ArgumentNullException("startdate is a required property for SPARDateParameters and cannot be null");
             // to ensure "enddate" is required (not null)
-            if (enddate == null)
-            {
-                throw new InvalidDataException("enddate is a required property for SPARDateParameters and cannot be null");
-            }
-            else
-            {
-                this.Enddate = enddate;
-            }
-
+            this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for SPARDateParameters and cannot be null");
             // to ensure "frequency" is required (not null)
-            if (frequency == null)
-            {
-                throw new InvalidDataException("frequency is a required property for SPARDateParameters and cannot be null");
-            }
-            else
-            {
-                this.Frequency = frequency;
-            }
-
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for SPARDateParameters and cannot be null");
         }
         
         /// <summary>

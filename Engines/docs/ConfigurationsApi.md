@@ -30,12 +30,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ConfigurationsApi(Configuration.Default);
+            var apiInstance = new ConfigurationsApi(config);
             var id = id_example;  // string | Vault configuration id to get the details of
 
             try
@@ -110,12 +111,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "https://api.factset.com";
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
 
-            var apiInstance = new ConfigurationsApi(Configuration.Default);
+            var apiInstance = new ConfigurationsApi(config);
             var account = account_example;  // string | Required account query parameter to filter configurations for a specific account
 
             try

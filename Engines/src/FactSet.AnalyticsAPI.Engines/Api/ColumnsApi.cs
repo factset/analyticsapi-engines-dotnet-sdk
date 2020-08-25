@@ -288,8 +288,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (id != null)
-                localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -352,8 +351,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            if (id != null)
-                localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
             // http basic authentication required
@@ -417,33 +415,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             if (name != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "name", name))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
             if (category != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "category", category))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "category", category));
             }
             if (directory != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory));
             }
 
             // authentication (Basic) required
@@ -509,33 +489,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             
             if (name != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "name", name))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
             if (category != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "category", category))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "category", category));
             }
             if (directory != null)
             {
-                foreach (var _kvp in FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory));
             }
 
             // authentication (Basic) required

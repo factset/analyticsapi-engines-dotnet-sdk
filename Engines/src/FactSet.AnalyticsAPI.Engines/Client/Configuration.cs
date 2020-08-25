@@ -15,6 +15,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace FactSet.AnalyticsAPI.Engines.Client
@@ -30,7 +31,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.0.0";
+        public const string Version = "3.1.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -95,7 +96,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "engines-api/3.0.0/csharp";
+            UserAgent = "engines-api/3.1.0/csharp";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -217,6 +218,12 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             
             return apiKeyValue;
         }
+
+        /// <summary>
+        /// Gets or sets certificate collection to be sent with requests.
+        /// </summary>
+        /// <value>X509 Certificate collection.</value>
+        public X509CertificateCollection ClientCertificates { get; set; }
 
         /// <summary>
         /// Gets or sets the access token for OAuth2 authentication.
@@ -344,7 +351,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             String report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: 2\n";
-            report += "    SDK Package Version: 3.0.0\n";
+            report += "    SDK Package Version: 3.1.0\n";
 
             return report;
         }

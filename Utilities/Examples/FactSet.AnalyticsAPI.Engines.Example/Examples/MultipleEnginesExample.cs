@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -242,6 +243,12 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 // To convert package to 2D tables. ConvertToTableFormat is an extension method on Package
                 var tables = package.ConvertToTableFormat();
                 Console.WriteLine(tables[0]);
+
+                // Uncomment the following lines to generate an Excel file
+                // foreach (var table in tables)
+                // {
+                //     File.WriteAllText($"{Guid.NewGuid():N}.csv", table.ToString());
+                // }
 
                 Console.WriteLine("/****************************************************************/");
             }

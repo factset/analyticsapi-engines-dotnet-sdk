@@ -16,18 +16,17 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _datesApi = new DatesApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void DatesApi_PADatesToAbsoluteFormat_Success()
         {
+            _datesApi = new DatesApi(CommonFunctions.BuildConfiguration(Engine.PA));
             var endDate = "-1M";
             // Hard coding this as we won't know if the component requires start date
             var componentId = "918EE8207D259B54E2FDE2AAA4D3BEA9248164123A904F298B8438B76F9292EB";
-            var account = CommonParameters.DefaultDatesAccount;
+            var account = CommonParameters.DefaultPADatesAccount;
 
             var datesResponse = _datesApi.ConvertPADatesToAbsoluteFormatWithHttpInfo(endDate, componentId, account);
 
@@ -39,8 +38,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void DatesApi_VaultDatesToAbsoluteFormat_Success()
         {
+            _datesApi = new DatesApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
             var endDate = "-1M";
-            var account = CommonParameters.DefaultDatesAccount;
+            var account = CommonParameters.DefaultVaultDatesAccount;
             var vaultComponents = _componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
             var vaultComponentId = vaultComponents.Data.Keys.First();
 

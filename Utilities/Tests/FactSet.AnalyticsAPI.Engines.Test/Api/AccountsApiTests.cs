@@ -15,7 +15,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration());
+            _accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration(Engine.PA));
         }
 
         [TestMethod]

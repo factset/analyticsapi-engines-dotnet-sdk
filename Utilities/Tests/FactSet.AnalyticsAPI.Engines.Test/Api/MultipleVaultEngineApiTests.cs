@@ -13,40 +13,52 @@ using FactSet.Protobuf.Stach;
 using Google.Protobuf;
 
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
-{
-    [TestClass]
-    public class PAEngineApiTests
+{ 
+    [TestClass] 
+    public class MultipleVaultEngineApiTests
     {
         private CalculationsApi _calculationsApi;
         private UtilityApi _utilityApi;
         private ComponentsApi _componentsApi;
+        private ConfigurationsApi _configurationsApi;
 
-        [TestInitialize]
-        public void Init()
+        [TestInitialize] 
+        public void Init() 
         {
-            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.VAULT)); 
+            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
         }
 
         private ApiResponse<object> RunCalculation()
         {
             var parameters = new Calculation();
 
-            var paComponents = _componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+      
+            var vaultComponents = _componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
+            var vaultComponentId = vaultComponents.Data.Keys.First();
 
-            var paComponentId = paComponents.Data.Keys.First();
-            var paAccountIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50);
-            var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50PF);
-            var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
+            var vaultAccount = new VaultIdentifier(CommonParameters.VaultDefaultAccount);
+            var vaultAccount2 = new VaultIdentifier(CommonParameters.VaultMultiCalcAccount);
+              
+            var vaultDates = new VaultDateParameters(CommonParameters.VaultStartDate, CommonParameters.VaultEndDate, CommonParameters.VaultFrequency);
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
-            parameters.Pa = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } };
+            var vaultConfiguration = _configurationsApi.GetVaultConfigurationsWithHttpInfo(CommonParameters.VaultDefaultAccount);
+            var vaultConfigurationId = vaultConfiguration.Data.Keys.First();
+
+            var vaultConfiguration2 =
+                _configurationsApi.GetVaultConfigurationsWithHttpInfo(CommonParameters.VaultMultiCalcAccount);
+            var vaultConfiguration2Id = vaultConfiguration2.Data.Keys.First();
+
+            var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfigurationId);
+            var vaultCalculation2 = new VaultCalculationParameters(vaultComponentId, vaultAccount2, vaultDates, vaultConfiguration2Id);
+            parameters.Vault = new Dictionary<string, VaultCalculationParameters> { { "3", vaultCalculation }, {"4", vaultCalculation2} };
 
             var response = _calculationsApi.RunCalculationWithHttpInfo(parameters);
 
-            return response;
+            return response; 
         }
 
         [TestMethod]
@@ -91,25 +103,32 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             }
 
             Assert.IsTrue(getStatus.Data.Status == CalculationStatus.StatusEnum.Completed, "Response Data should have calculation status as completed.");
-            Assert.IsTrue(getStatus.Data.Pa.Values.All(p => p.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all PA calculations status as completed.");
-
-            Assert.IsTrue(getStatus.Data.Pa.Values.All(p => p.Result != null), "Response Data should have all PA Calculation results.");
-
-            foreach (var paCalculationParameters in getStatus.Data.Pa.Values)
+            Assert.IsTrue(getStatus.Data.Vault.Values.All(v => v.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all Vault calculations status as completed.");
+            
+            Assert.IsTrue(getStatus.Data.Vault.Values.All(v => v.Result != null), "Response Data should have all Vault Calculation results.");
+            
+            foreach (var vaultCalculationParameters in getStatus.Data.Vault.Values)
             {
-                ApiResponse<string> resultResponse = null;
-
-                resultResponse = _utilityApi.GetByUrlWithHttpInfo(paCalculationParameters.Result);
-
-                Assert.IsTrue(resultResponse.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
-                Assert.IsTrue(resultResponse.Data != null, "Result response data should not be null.");
-
-                var jpSettings = JsonParser.Settings.Default;
-                var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
-                var package = jp.Parse<Package>(resultResponse.Data);
-
-                Assert.IsInstanceOfType(package, typeof(Package), "Result response data should be of type Package.");
+                GetPackage(vaultCalculationParameters);
             }
+            
+        }
+
+        private Package GetPackage(CalculationUnitStatus calculationUnitStatus)
+        {
+            ApiResponse<string> resultResponse = null;
+            resultResponse = _utilityApi.GetByUrlWithHttpInfo(calculationUnitStatus.Result);
+
+            Assert.IsTrue(resultResponse.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
+            Assert.IsTrue(resultResponse.Data != null, "Result response data should not be null.");
+
+            var jpSettings = JsonParser.Settings.Default;
+            var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
+            var package = jp.Parse<Package>(resultResponse.Data);
+
+            Assert.IsInstanceOfType(package, typeof(Package), "Result response data should be of type Package.");
+
+            return package;
         }
 
         [TestMethod]

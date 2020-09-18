@@ -15,7 +15,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _groupsApi = new GroupsApi(CommonFunctions.BuildConfiguration());
+            _groupsApi = new GroupsApi(CommonFunctions.BuildConfiguration(Engine.PA));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 

@@ -25,10 +25,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration());
-            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
-            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
         }
 
         private ApiResponse<object> RunCalculation()
@@ -59,12 +59,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(runCalculationResponse.StatusCode == HttpStatusCode.Accepted, "Create response status code should be 202 - Created.");
 
-            var id = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
+            var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
 
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(id), "Create response calculation id should be present.");
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(calculationId), "Create response calculation id should be present.");
 
-            runCalculationResponse.Headers.TryGetValue("Location", out var location);
-            var calculationId = location?[0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
             ApiResponse<CalculationStatus> getStatus = null;
 
             while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)

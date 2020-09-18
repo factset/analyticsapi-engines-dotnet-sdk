@@ -15,7 +15,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _currenciesApi = new CurrenciesApi(CommonFunctions.BuildConfiguration());
+            _currenciesApi = new CurrenciesApi(CommonFunctions.BuildConfiguration(Engine.PA));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 

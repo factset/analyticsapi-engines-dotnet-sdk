@@ -15,35 +15,40 @@ using Google.Protobuf;
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {
     [TestClass]
-    public class PAEngineApiTests
+    public class MultipleSPAREngineApiTests
     {
         private CalculationsApi _calculationsApi;
         private UtilityApi _utilityApi;
         private ComponentsApi _componentsApi;
+        private ConfigurationsApi _configurationsApi;
 
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
+            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
+            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
         }
 
         private ApiResponse<object> RunCalculation()
         {
             var parameters = new Calculation();
 
-            var paComponents = _componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            var paComponentId = paComponents.Data.Keys.First();
-            var paAccountIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50);
-            var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50PF);
-            var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
+            var sparComponents = _componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
+            var sparComponentId = sparComponents.Data.Keys.First();
+            var sparComponentId2 = sparComponents.Data.Keys.Last();
+            var sparAccountIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
+            var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
+            var sparBenchmarkIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnTypeP, CommonParameters.SPARBenchmarkRussellPrefix);
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
-            parameters.Pa = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } };
+            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
+            var sparCalculation2 = new  SPARCalculationParameters(sparComponentId2, sparAccounts, sparBenchmarkIdentifier);
+            parameters.Spar = new Dictionary<string, SPARCalculationParameters> { { "2", sparCalculation }, {"3", sparCalculation2} };
 
+           
             var response = _calculationsApi.RunCalculationWithHttpInfo(parameters);
 
             return response;
@@ -91,25 +96,32 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             }
 
             Assert.IsTrue(getStatus.Data.Status == CalculationStatus.StatusEnum.Completed, "Response Data should have calculation status as completed.");
-            Assert.IsTrue(getStatus.Data.Pa.Values.All(p => p.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all PA calculations status as completed.");
-
-            Assert.IsTrue(getStatus.Data.Pa.Values.All(p => p.Result != null), "Response Data should have all PA Calculation results.");
-
-            foreach (var paCalculationParameters in getStatus.Data.Pa.Values)
+            Assert.IsTrue(getStatus.Data.Spar.Values.All(s => s.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all Spar calculations status as completed.");
+            
+            Assert.IsTrue(getStatus.Data.Spar.Values.All(s => s.Result != null), "Response Data should have all Spar Calculation results.");
+           
+            foreach (var sparCalculationParameters in getStatus.Data.Spar.Values)
             {
-                ApiResponse<string> resultResponse = null;
-
-                resultResponse = _utilityApi.GetByUrlWithHttpInfo(paCalculationParameters.Result);
-
-                Assert.IsTrue(resultResponse.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
-                Assert.IsTrue(resultResponse.Data != null, "Result response data should not be null.");
-
-                var jpSettings = JsonParser.Settings.Default;
-                var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
-                var package = jp.Parse<Package>(resultResponse.Data);
-
-                Assert.IsInstanceOfType(package, typeof(Package), "Result response data should be of type Package.");
+                GetPackage(sparCalculationParameters);
             }
+
+        }
+
+        private Package GetPackage(CalculationUnitStatus calculationUnitStatus)
+        {
+            ApiResponse<string> resultResponse = null;
+            resultResponse = _utilityApi.GetByUrlWithHttpInfo(calculationUnitStatus.Result);
+
+            Assert.IsTrue(resultResponse.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
+            Assert.IsTrue(resultResponse.Data != null, "Result response data should not be null.");
+
+            var jpSettings = JsonParser.Settings.Default;
+            var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
+            var package = jp.Parse<Package>(resultResponse.Data);
+
+            Assert.IsInstanceOfType(package, typeof(Package), "Result response data should be of type Package.");
+
+            return package;
         }
 
         [TestMethod]

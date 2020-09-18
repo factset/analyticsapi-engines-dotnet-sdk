@@ -24,9 +24,9 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration());
-            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
+            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
         }
 
         private ApiResponse<object> RunCalculation()
@@ -39,7 +39,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var sparComponentId = sparComponents.Data.Keys.First();
             var sparAccountIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkRussellPR2000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnTypeP, CommonParameters.SPARBenchmarkRussellPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
             parameters.Spar = new Dictionary<string, SPARCalculationParameters> { { "1", sparCalculation } };
@@ -56,12 +56,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(runCalculationResponse.StatusCode == HttpStatusCode.Accepted, "Create response status code should be 202 - Created.");
 
-            var id = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
+            var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
 
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(id), "Create response calculation id should be present.");
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(calculationId), "Create response calculation id should be present.");
 
-            runCalculationResponse.Headers.TryGetValue("Location", out var location);
-            var calculationId = location?[0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
             ApiResponse<CalculationStatus> getStatus = null;
 
             while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)

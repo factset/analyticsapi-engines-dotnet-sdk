@@ -15,7 +15,7 @@ using Google.Protobuf;
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {
     [TestClass]
-    public class MultipleEnginesApiTests
+    public class MultiplePAEngineApiTests
     {
         private CalculationsApi _calculationsApi;
         private UtilityApi _utilityApi;
@@ -25,10 +25,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration());
-            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration());
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
-            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration());
+            _calculationsApi = new CalculationsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            _utilityApi = new UtilityApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.PA));
         }
 
         private ApiResponse<object> RunCalculation()
@@ -39,35 +39,16 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             var paComponents = _componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
             var paComponentId = paComponents.Data.Keys.First();
+            var paComponentId2 = paComponents.Data.Keys.Last();
             var paAccountIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50);
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkR1000);
+            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50PF);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
-            parameters.Pa = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } };
-
-            var sparComponents = _componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
-            var sparComponentId = sparComponents.Data.Keys.First();
-            var sparAccountIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkR1000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
-            var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(CommonParameters.SPARBenchmarkRussellPR2000, CommonParameters.SPARBenchmarkRussellReturnType, CommonParameters.SPARBenchmarkRussellPrefix);
-
-            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
-            parameters.Spar = new Dictionary<string, SPARCalculationParameters> { { "2", sparCalculation } };
-
-            var vaultComponents = _componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
-            var vaultComponentId = vaultComponents.Data.Keys.First();
-
-            var vaultAccount = new VaultIdentifier(CommonParameters.VaultDefaultAccount);
-            var vaultDates = new VaultDateParameters(CommonParameters.VaultStartDate, CommonParameters.VaultEndDate, CommonParameters.VaultFrequency);
-
-            var vaultConfiguration = _configurationsApi.GetVaultConfigurationsWithHttpInfo(CommonParameters.VaultDefaultAccount);
-            var vaultConfigurationId = vaultConfiguration.Data.Keys.First();
-
-            var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfigurationId);
-            parameters.Vault = new Dictionary<string, VaultCalculationParameters> { { "3", vaultCalculation } };
-
+            var paCalculation2 = new PACalculationParameters(paComponentId2, paAccounts, paBenchmarks);
+            parameters.Pa = new Dictionary<string, PACalculationParameters> { { "1", paCalculation }, {"2", paCalculation2} };
+           
             var response = _calculationsApi.RunCalculationWithHttpInfo(parameters);
 
             return response;
@@ -80,12 +61,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(runCalculationResponse.StatusCode == HttpStatusCode.Accepted, "Create response status code should be 202 - Created.");
 
-            var id = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
+            var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
 
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(id), "Create response calculation id should be present.");
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(calculationId), "Create response calculation id should be present.");
 
-            runCalculationResponse.Headers.TryGetValue("Location", out var location);
-            var calculationId = location?[0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
             ApiResponse<CalculationStatus> getStatus = null;
 
             while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
@@ -118,26 +97,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(getStatus.Data.Status == CalculationStatus.StatusEnum.Completed, "Response Data should have calculation status as completed.");
             Assert.IsTrue(getStatus.Data.Pa.Values.All(p => p.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all PA calculations status as completed.");
-            Assert.IsTrue(getStatus.Data.Spar.Values.All(s => s.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all Spar calculations status as completed.");
-            Assert.IsTrue(getStatus.Data.Vault.Values.All(v => v.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all Vault calculations status as completed.");
-
+            
             Assert.IsTrue(getStatus.Data.Pa.Values.All(p => p.Result != null), "Response Data should have all PA Calculation results.");
-            Assert.IsTrue(getStatus.Data.Spar.Values.All(s => s.Result != null), "Response Data should have all Spar Calculation results.");
-            Assert.IsTrue(getStatus.Data.Vault.Values.All(v => v.Result != null), "Response Data should have all Vault Calculation results.");
-
+           
             foreach (var paCalculationParameters in getStatus.Data.Pa.Values)
             {
                 GetPackage(paCalculationParameters);
-            }
-
-            foreach (var sparCalculationParameters in getStatus.Data.Spar.Values)
-            {
-                GetPackage(sparCalculationParameters);
-            }
-
-            foreach (var vaultCalculationParameters in getStatus.Data.Vault.Values)
-            {
-                GetPackage(vaultCalculationParameters);
             }
 
         }

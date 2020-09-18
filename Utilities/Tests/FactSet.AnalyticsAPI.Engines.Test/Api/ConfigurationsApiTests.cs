@@ -16,7 +16,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration());
+            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 

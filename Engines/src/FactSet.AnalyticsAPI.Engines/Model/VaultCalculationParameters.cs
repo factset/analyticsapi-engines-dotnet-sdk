@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -43,7 +43,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="account">account (required).</param>
         /// <param name="dates">dates.</param>
         /// <param name="configid">Vault Configuration identifier. (required).</param>
-        public VaultCalculationParameters(string componentid = default(string), VaultIdentifier account = default(VaultIdentifier), VaultDateParameters dates = default(VaultDateParameters), string configid = default(string))
+        /// <param name="componentdetail">Component detail type for the Vault component. It can be GROUPS or TOTALS..</param>
+        public VaultCalculationParameters(string componentid = default(string), VaultIdentifier account = default(VaultIdentifier), VaultDateParameters dates = default(VaultDateParameters), string configid = default(string), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
             this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for VaultCalculationParameters and cannot be null");
@@ -52,6 +53,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             // to ensure "configid" is required (not null)
             this.Configid = configid ?? throw new ArgumentNullException("configid is a required property for VaultCalculationParameters and cannot be null");
             this.Dates = dates;
+            this.Componentdetail = componentdetail;
         }
         
         /// <summary>
@@ -81,6 +83,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Configid { get; set; }
 
         /// <summary>
+        /// Component detail type for the Vault component. It can be GROUPS or TOTALS.
+        /// </summary>
+        /// <value>Component detail type for the Vault component. It can be GROUPS or TOTALS.</value>
+        [DataMember(Name="componentdetail", EmitDefaultValue=false)]
+        public string Componentdetail { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Configid: ").Append(Configid).Append("\n");
+            sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +155,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Configid == input.Configid ||
                     (this.Configid != null &&
                     this.Configid.Equals(input.Configid))
+                ) && 
+                (
+                    this.Componentdetail == input.Componentdetail ||
+                    (this.Componentdetail != null &&
+                    this.Componentdetail.Equals(input.Componentdetail))
                 );
         }
 
@@ -165,6 +180,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
                 if (this.Configid != null)
                     hashCode = hashCode * 59 + this.Configid.GetHashCode();
+                if (this.Componentdetail != null)
+                    hashCode = hashCode * 59 + this.Componentdetail.GetHashCode();
                 return hashCode;
             }
         }

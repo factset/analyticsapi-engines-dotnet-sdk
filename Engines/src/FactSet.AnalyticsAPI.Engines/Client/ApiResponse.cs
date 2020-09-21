@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -56,6 +56,11 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// The raw content of this response
         /// </summary>
         string RawContent { get; }
+
+        /// <summary>
+        /// The raw bytes of this response
+        /// </summary>
+        byte[] RawBytes { get; }
     }
 
     /// <summary>
@@ -114,6 +119,11 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// </summary>
         public string RawContent { get;}
         
+        /// <summary>
+        /// The raw bytes of this response
+        /// </summary>
+        public byte[] RawBytes { get; }
+
         #endregion Properties
         
         #region Constructors
@@ -125,12 +135,13 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// <param name="headers">HTTP headers.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
         /// <param name="rawContent">Raw content.</param>
-        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data, string rawContent)
+        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data, string rawContent, byte[] rawBytes)
         {
             StatusCode = statusCode;
             Headers = headers;
             Data = data;
             RawContent = rawContent;
+            RawBytes = rawBytes;
         }
 
         /// <summary>
@@ -139,7 +150,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="headers">HTTP headers.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
-        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data) : this(statusCode, headers, data, null)
+        public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data) : this(statusCode, headers, data, null, null)
         {
         }
 
@@ -149,7 +160,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// <param name="statusCode">HTTP status code.</param>
         /// <param name="data">Data (parsed HTTP body)</param>
         /// <param name="rawContent">Raw content.</param>
-        public ApiResponse(HttpStatusCode statusCode, T data, string rawContent) : this(statusCode, null, data, rawContent)
+        public ApiResponse(HttpStatusCode statusCode, T data, string rawContent) : this(statusCode, null, data, rawContent, null)
         {
         }
 

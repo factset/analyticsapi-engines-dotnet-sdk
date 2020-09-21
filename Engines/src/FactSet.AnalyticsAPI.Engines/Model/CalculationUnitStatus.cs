@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -32,8 +32,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class CalculationUnitStatus :  IEquatable<CalculationUnitStatus>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// The status of calculation unit.
         /// </summary>
+        /// <value>The status of calculation unit.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -70,42 +71,46 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of calculation unit.
         /// </summary>
+        /// <value>The status of calculation unit.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationUnitStatus" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="points">points.</param>
-        /// <param name="error">error.</param>
-        /// <param name="result">result.</param>
-        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), int points = default(int), string error = default(string), string result = default(string))
+        /// <param name="status">The status of calculation unit..</param>
+        /// <param name="error">The error in a calculation unit..</param>
+        /// <param name="result">The result URL of the calculation..</param>
+        /// <param name="progress">The progress of the calculation unit..</param>
+        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), string error = default(string), string result = default(string), string progress = default(string))
         {
             this.Status = status;
-            this.Points = points;
             this.Error = error;
             this.Result = result;
+            this.Progress = progress;
         }
         
         /// <summary>
-        /// Gets or Sets Points
+        /// The error in a calculation unit.
         /// </summary>
-        [DataMember(Name="points", EmitDefaultValue=false)]
-        public int Points { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Error
-        /// </summary>
+        /// <value>The error in a calculation unit.</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Result
+        /// The result URL of the calculation.
         /// </summary>
+        /// <value>The result URL of the calculation.</value>
         [DataMember(Name="result", EmitDefaultValue=false)]
         public string Result { get; set; }
+
+        /// <summary>
+        /// The progress of the calculation unit.
+        /// </summary>
+        /// <value>The progress of the calculation unit.</value>
+        [DataMember(Name="progress", EmitDefaultValue=false)]
+        public string Progress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -116,9 +121,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class CalculationUnitStatus {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Points: ").Append(Points).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,10 +163,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
-                    this.Points == input.Points ||
-                    this.Points.Equals(input.Points)
-                ) && 
-                (
                     this.Error == input.Error ||
                     (this.Error != null &&
                     this.Error.Equals(input.Error))
@@ -170,6 +171,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Result == input.Result ||
                     (this.Result != null &&
                     this.Result.Equals(input.Result))
+                ) && 
+                (
+                    this.Progress == input.Progress ||
+                    (this.Progress != null &&
+                    this.Progress.Equals(input.Progress))
                 );
         }
 
@@ -183,11 +189,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Points.GetHashCode();
                 if (this.Error != null)
                     hashCode = hashCode * 59 + this.Error.GetHashCode();
                 if (this.Result != null)
                     hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.Progress != null)
+                    hashCode = hashCode * 59 + this.Progress.GetHashCode();
                 return hashCode;
             }
         }

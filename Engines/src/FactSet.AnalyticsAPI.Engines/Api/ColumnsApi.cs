@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -55,9 +55,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the PA columns that can be applied to a calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>Dictionary&lt;string, ColumnSummary&gt;</returns>
         Dictionary<string, ColumnSummary> GetPAColumns (string name = default(string), string category = default(string), string directory = default(string));
 
@@ -68,9 +68,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the PA columns that can be applied to a calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of Dictionary&lt;string, ColumnSummary&gt;</returns>
         ApiResponse<Dictionary<string, ColumnSummary>> GetPAColumnsWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string));
         #endregion Synchronous Operations
@@ -110,9 +110,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the PA columns that can be applied to a calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>Task of Dictionary&lt;string, ColumnSummary&gt;</returns>
         System.Threading.Tasks.Task<Dictionary<string, ColumnSummary>> GetPAColumnsAsync (string name = default(string), string category = default(string), string directory = default(string));
 
@@ -123,9 +123,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the PA columns that can be applied to a calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, ColumnSummary&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<Dictionary<string, ColumnSummary>>> GetPAColumnsAsyncWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string));
         #endregion Asynchronous Operations
@@ -377,9 +377,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA columns This endpoint lists all the PA columns that can be applied to a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>Dictionary&lt;string, ColumnSummary&gt;</returns>
         public Dictionary<string, ColumnSummary> GetPAColumns (string name = default(string), string category = default(string), string directory = default(string))
         {
@@ -391,9 +391,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA columns This endpoint lists all the PA columns that can be applied to a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of Dictionary&lt;string, ColumnSummary&gt;</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Dictionary<string, ColumnSummary> > GetPAColumnsWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string))
         {
@@ -449,9 +449,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA columns This endpoint lists all the PA columns that can be applied to a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>Task of Dictionary&lt;string, ColumnSummary&gt;</returns>
         public async System.Threading.Tasks.Task<Dictionary<string, ColumnSummary>> GetPAColumnsAsync (string name = default(string), string category = default(string), string directory = default(string))
         {
@@ -464,9 +464,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA columns This endpoint lists all the PA columns that can be applied to a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="name"> (optional)</param>
-        /// <param name="category"> (optional)</param>
-        /// <param name="directory"> (optional)</param>
+        /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
+        /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
+        /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, ColumnSummary&gt;)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, ColumnSummary>>> GetPAColumnsAsyncWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string))
         {

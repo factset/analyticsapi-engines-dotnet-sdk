@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -37,7 +37,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="id">Component identifier..</param>
         /// <param name="currencyisocode">currencyisocode.</param>
         /// <param name="dates">dates.</param>
-        /// <param name="snapshot">snapshot.</param>
+        /// <param name="snapshot">Is the component type snapshot or subperiod..</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
         public PAComponent(string id = default(string), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
@@ -58,14 +58,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Accounts
+        /// List of accounts saved in the PA document.
         /// </summary>
+        /// <value>List of accounts saved in the PA document.</value>
         [DataMember(Name="accounts", EmitDefaultValue=false)]
         public List<PAIdentifier> Accounts { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Benchmarks
+        /// List of benchmarks saved in the PA document.
         /// </summary>
+        /// <value>List of benchmarks saved in the PA document.</value>
         [DataMember(Name="benchmarks", EmitDefaultValue=false)]
         public List<PAIdentifier> Benchmarks { get; private set; }
 
@@ -82,8 +84,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PADateParameters Dates { get; set; }
 
         /// <summary>
-        /// Gets or Sets Snapshot
+        /// Is the component type snapshot or subperiod.
         /// </summary>
+        /// <value>Is the component type snapshot or subperiod.</value>
         [DataMember(Name="snapshot", EmitDefaultValue=false)]
         public bool Snapshot { get; set; }
 

@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -349,7 +349,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             T result = response.Data;
             string rawContent = response.Content;
 
-            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(StringComparer.OrdinalIgnoreCase), result, rawContent)
+            var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(StringComparer.OrdinalIgnoreCase), result, rawContent, response.RawBytes)
             {
                 ErrorText = response.ErrorMessage,
                 Cookies = new List<Cookie>()

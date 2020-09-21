@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -32,8 +32,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class CalculationStatusSummary :  IEquatable<CalculationStatusSummary>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// The status of the calculation.
         /// </summary>
+        /// <value>The status of the calculation.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -64,21 +65,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the calculation.
         /// </summary>
+        /// <value>The status of the calculation.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationStatusSummary" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="points">Number of calculation units in batch..</param>
+        /// <param name="status">The status of the calculation..</param>
+        /// <param name="units">Number of calculation units in batch..</param>
         /// <param name="requestTime">Request time of calculation..</param>
         /// <param name="lastPollTime">Last poll time of calculation..</param>
-        public CalculationStatusSummary(StatusEnum? status = default(StatusEnum?), int points = default(int), DateTime requestTime = default(DateTime), DateTime lastPollTime = default(DateTime))
+        public CalculationStatusSummary(StatusEnum? status = default(StatusEnum?), int units = default(int), DateTime requestTime = default(DateTime), DateTime lastPollTime = default(DateTime))
         {
             this.Status = status;
-            this.Points = points;
+            this.Units = units;
             this.RequestTime = requestTime;
             this.LastPollTime = lastPollTime;
         }
@@ -87,8 +89,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Number of calculation units in batch.
         /// </summary>
         /// <value>Number of calculation units in batch.</value>
-        [DataMember(Name="points", EmitDefaultValue=false)]
-        public int Points { get; set; }
+        [DataMember(Name="units", EmitDefaultValue=false)]
+        public int Units { get; set; }
 
         /// <summary>
         /// Request time of calculation.
@@ -113,7 +115,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class CalculationStatusSummary {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Points: ").Append(Points).Append("\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  RequestTime: ").Append(RequestTime).Append("\n");
             sb.Append("  LastPollTime: ").Append(LastPollTime).Append("\n");
             sb.Append("}\n");
@@ -155,8 +157,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
-                    this.Points == input.Points ||
-                    this.Points.Equals(input.Points)
+                    this.Units == input.Units ||
+                    this.Units.Equals(input.Units)
                 ) && 
                 (
                     this.RequestTime == input.RequestTime ||
@@ -180,7 +182,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Points.GetHashCode();
+                hashCode = hashCode * 59 + this.Units.GetHashCode();
                 if (this.RequestTime != null)
                     hashCode = hashCode * 59 + this.RequestTime.GetHashCode();
                 if (this.LastPollTime != null)

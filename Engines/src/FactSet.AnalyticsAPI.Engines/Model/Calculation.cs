@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -34,33 +34,45 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Calculation" /> class.
         /// </summary>
-        /// <param name="pa">pa.</param>
-        /// <param name="spar">spar.</param>
-        /// <param name="vault">vault.</param>
-        public Calculation(Dictionary<string, PACalculationParameters> pa = default(Dictionary<string, PACalculationParameters>), Dictionary<string, SPARCalculationParameters> spar = default(Dictionary<string, SPARCalculationParameters>), Dictionary<string, VaultCalculationParameters> vault = default(Dictionary<string, VaultCalculationParameters>))
+        /// <param name="pa">List of PA calculation parameters..</param>
+        /// <param name="spar">List of SPAR calculation parameters..</param>
+        /// <param name="vault">List of Vault calculation parameters..</param>
+        /// <param name="pub">List of Publisher calculation parameters..</param>
+        public Calculation(Dictionary<string, PACalculationParameters> pa = default(Dictionary<string, PACalculationParameters>), Dictionary<string, SPARCalculationParameters> spar = default(Dictionary<string, SPARCalculationParameters>), Dictionary<string, VaultCalculationParameters> vault = default(Dictionary<string, VaultCalculationParameters>), Dictionary<string, PubCalculationParameters> pub = default(Dictionary<string, PubCalculationParameters>))
         {
             this.Pa = pa;
             this.Spar = spar;
             this.Vault = vault;
+            this.Pub = pub;
         }
         
         /// <summary>
-        /// Gets or Sets Pa
+        /// List of PA calculation parameters.
         /// </summary>
+        /// <value>List of PA calculation parameters.</value>
         [DataMember(Name="pa", EmitDefaultValue=false)]
         public Dictionary<string, PACalculationParameters> Pa { get; set; }
 
         /// <summary>
-        /// Gets or Sets Spar
+        /// List of SPAR calculation parameters.
         /// </summary>
+        /// <value>List of SPAR calculation parameters.</value>
         [DataMember(Name="spar", EmitDefaultValue=false)]
         public Dictionary<string, SPARCalculationParameters> Spar { get; set; }
 
         /// <summary>
-        /// Gets or Sets Vault
+        /// List of Vault calculation parameters.
         /// </summary>
+        /// <value>List of Vault calculation parameters.</value>
         [DataMember(Name="vault", EmitDefaultValue=false)]
         public Dictionary<string, VaultCalculationParameters> Vault { get; set; }
+
+        /// <summary>
+        /// List of Publisher calculation parameters.
+        /// </summary>
+        /// <value>List of Publisher calculation parameters.</value>
+        [DataMember(Name="pub", EmitDefaultValue=false)]
+        public Dictionary<string, PubCalculationParameters> Pub { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,6 +85,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Pa: ").Append(Pa).Append("\n");
             sb.Append("  Spar: ").Append(Spar).Append("\n");
             sb.Append("  Vault: ").Append(Vault).Append("\n");
+            sb.Append("  Pub: ").Append(Pub).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +137,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Vault != null &&
                     input.Vault != null &&
                     this.Vault.SequenceEqual(input.Vault)
+                ) && 
+                (
+                    this.Pub == input.Pub ||
+                    this.Pub != null &&
+                    input.Pub != null &&
+                    this.Pub.SequenceEqual(input.Pub)
                 );
         }
 
@@ -142,6 +161,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Spar.GetHashCode();
                 if (this.Vault != null)
                     hashCode = hashCode * 59 + this.Vault.GetHashCode();
+                if (this.Pub != null)
+                    hashCode = hashCode * 59 + this.Pub.GetHashCode();
                 return hashCode;
             }
         }

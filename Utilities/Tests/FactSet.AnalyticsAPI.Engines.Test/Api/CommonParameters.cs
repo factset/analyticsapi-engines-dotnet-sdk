@@ -7,7 +7,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     {
         PA,
         SPAR,
-        VAULT
+        VAULT,
+        PUB
     }
     
     public static class CommonParameters
@@ -23,7 +24,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
        public static readonly IDictionary<Enum, (string, string)> Credentials = new Dictionary<Enum, (string , string) >{
             {Engine.PA, (DefaultUsername, DefaultPassword)},
             {Engine.SPAR, (DefaultUsername, DefaultPassword)},
-            {Engine.VAULT, (VaultPubUsername, VaultPubPassword)}
+            {Engine.VAULT, (VaultPubUsername, VaultPubPassword)},
+            {Engine.PUB, (VaultPubUsername, VaultPubPassword)}
         };
 
         // Add 'ANALYTICS_API_URL' environment variable with api url as value
@@ -46,5 +48,9 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public const string VaultFrequency = "Monthly";
         public const string VaultStartDate = "FIRST_REPOSITORY";
         public const string VaultMultiCalcAccount = "CLIENT:/BISAM/REPOSITORY/QA/GLOBAL.ACCT";
+        public const string PubDocumentName = "Client:/AAPI/Puma Test Doc.Pub_bridge_pdf";
+        public const string PubAccountName = "BENCH:SP50";
+        public const string PubStartDate = "-1M";
+        public const string PubEndDate = "0M";
     }
 }

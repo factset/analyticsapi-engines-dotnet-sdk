@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -72,42 +72,55 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="CalculationStatus" /> class.
         /// </summary>
         /// <param name="status">status.</param>
-        /// <param name="points">points.</param>
-        /// <param name="pa">pa.</param>
-        /// <param name="spar">spar.</param>
-        /// <param name="vault">vault.</param>
-        public CalculationStatus(StatusEnum? status = default(StatusEnum?), int points = default(int), Dictionary<string, CalculationUnitStatus> pa = default(Dictionary<string, CalculationUnitStatus>), Dictionary<string, CalculationUnitStatus> spar = default(Dictionary<string, CalculationUnitStatus>), Dictionary<string, CalculationUnitStatus> vault = default(Dictionary<string, CalculationUnitStatus>))
+        /// <param name="units">Number of calculation units in batch..</param>
+        /// <param name="pa">List of statuses for PA calculation units..</param>
+        /// <param name="spar">List of statuses for SPAR calculation units..</param>
+        /// <param name="vault">List of statuses for Vault calculation units..</param>
+        /// <param name="pub">List of statuses for Publisher calculation units..</param>
+        public CalculationStatus(StatusEnum? status = default(StatusEnum?), int units = default(int), Dictionary<string, CalculationUnitStatus> pa = default(Dictionary<string, CalculationUnitStatus>), Dictionary<string, CalculationUnitStatus> spar = default(Dictionary<string, CalculationUnitStatus>), Dictionary<string, CalculationUnitStatus> vault = default(Dictionary<string, CalculationUnitStatus>), Dictionary<string, CalculationUnitStatus> pub = default(Dictionary<string, CalculationUnitStatus>))
         {
             this.Status = status;
-            this.Points = points;
+            this.Units = units;
             this.Pa = pa;
             this.Spar = spar;
             this.Vault = vault;
+            this.Pub = pub;
         }
         
         /// <summary>
-        /// Gets or Sets Points
+        /// Number of calculation units in batch.
         /// </summary>
-        [DataMember(Name="points", EmitDefaultValue=false)]
-        public int Points { get; set; }
+        /// <value>Number of calculation units in batch.</value>
+        [DataMember(Name="units", EmitDefaultValue=false)]
+        public int Units { get; set; }
 
         /// <summary>
-        /// Gets or Sets Pa
+        /// List of statuses for PA calculation units.
         /// </summary>
+        /// <value>List of statuses for PA calculation units.</value>
         [DataMember(Name="pa", EmitDefaultValue=false)]
         public Dictionary<string, CalculationUnitStatus> Pa { get; set; }
 
         /// <summary>
-        /// Gets or Sets Spar
+        /// List of statuses for SPAR calculation units.
         /// </summary>
+        /// <value>List of statuses for SPAR calculation units.</value>
         [DataMember(Name="spar", EmitDefaultValue=false)]
         public Dictionary<string, CalculationUnitStatus> Spar { get; set; }
 
         /// <summary>
-        /// Gets or Sets Vault
+        /// List of statuses for Vault calculation units.
         /// </summary>
+        /// <value>List of statuses for Vault calculation units.</value>
         [DataMember(Name="vault", EmitDefaultValue=false)]
         public Dictionary<string, CalculationUnitStatus> Vault { get; set; }
+
+        /// <summary>
+        /// List of statuses for Publisher calculation units.
+        /// </summary>
+        /// <value>List of statuses for Publisher calculation units.</value>
+        [DataMember(Name="pub", EmitDefaultValue=false)]
+        public Dictionary<string, CalculationUnitStatus> Pub { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -118,10 +131,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class CalculationStatus {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Points: ").Append(Points).Append("\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  Pa: ").Append(Pa).Append("\n");
             sb.Append("  Spar: ").Append(Spar).Append("\n");
             sb.Append("  Vault: ").Append(Vault).Append("\n");
+            sb.Append("  Pub: ").Append(Pub).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,8 +175,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
-                    this.Points == input.Points ||
-                    this.Points.Equals(input.Points)
+                    this.Units == input.Units ||
+                    this.Units.Equals(input.Units)
                 ) && 
                 (
                     this.Pa == input.Pa ||
@@ -181,6 +195,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Vault != null &&
                     input.Vault != null &&
                     this.Vault.SequenceEqual(input.Vault)
+                ) && 
+                (
+                    this.Pub == input.Pub ||
+                    this.Pub != null &&
+                    input.Pub != null &&
+                    this.Pub.SequenceEqual(input.Pub)
                 );
         }
 
@@ -194,13 +214,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Points.GetHashCode();
+                hashCode = hashCode * 59 + this.Units.GetHashCode();
                 if (this.Pa != null)
                     hashCode = hashCode * 59 + this.Pa.GetHashCode();
                 if (this.Spar != null)
                     hashCode = hashCode * 59 + this.Spar.GetHashCode();
                 if (this.Vault != null)
                     hashCode = hashCode * 59 + this.Vault.GetHashCode();
+                if (this.Pub != null)
+                    hashCode = hashCode * 59 + this.Pub.GetHashCode();
                 return hashCode;
             }
         }

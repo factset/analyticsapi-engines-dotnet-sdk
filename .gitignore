@@ -1,6 +1,10 @@
 # Visual Studio settings folder
 .vs/
 
+# Rider settings folder
+.idea/
+*.user
+
 # Build results
 bin/
 obj/

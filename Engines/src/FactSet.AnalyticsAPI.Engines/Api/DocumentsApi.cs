@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -48,6 +48,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
         ApiResponse<DocumentDirectories> GetPA3DocumentsWithHttpInfo (string path);
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>DocumentDirectories</returns>
+        DocumentDirectories GetPubDocuments (string path);
+
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>ApiResponse of DocumentDirectories</returns>
+        ApiResponse<DocumentDirectories> GetPubDocumentsWithHttpInfo (string path);
         /// <summary>
         /// Gets SPAR3 documents and sub-directories in a directory
         /// </summary>
@@ -120,6 +141,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
         System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetPA3DocumentsAsyncWithHttpInfo (string path);
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>Task of DocumentDirectories</returns>
+        System.Threading.Tasks.Task<DocumentDirectories> GetPubDocumentsAsync (string path);
+
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetPubDocumentsAsyncWithHttpInfo (string path);
         /// <summary>
         /// Gets SPAR3 documents and sub-directories in a directory
         /// </summary>
@@ -401,6 +443,131 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetPA3Documents", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>DocumentDirectories</returns>
+        public DocumentDirectories GetPubDocuments (string path)
+        {
+             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetPubDocumentsWithHttpInfo(path);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>ApiResponse of DocumentDirectories</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< DocumentDirectories > GetPubDocumentsWithHttpInfo (string path)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'path' when calling DocumentsApi->GetPubDocuments");
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< DocumentDirectories >("/analytics/lookups/v2/engines/pub/documents/{path}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPubDocuments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>Task of DocumentDirectories</returns>
+        public async System.Threading.Tasks.Task<DocumentDirectories> GetPubDocumentsAsync (string path)
+        {
+             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetPubDocumentsAsyncWithHttpInfo(path);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Gets Publisher documents and sub-directories in a directory This endpoint looks up all Publisher documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the documents in</param>
+        /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetPubDocumentsAsyncWithHttpInfo (string path)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'path' when calling DocumentsApi->GetPubDocuments");
+
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/lookups/v2/engines/pub/documents/{path}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPubDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

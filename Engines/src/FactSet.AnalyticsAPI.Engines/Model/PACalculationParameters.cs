@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -40,13 +40,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="PACalculationParameters" /> class.
         /// </summary>
         /// <param name="componentid">The PA Engine component identifier to analyze. (required).</param>
-        /// <param name="accounts">accounts.</param>
-        /// <param name="benchmarks">benchmarks.</param>
+        /// <param name="accounts">List of accounts..</param>
+        /// <param name="benchmarks">List of benchmarks..</param>
         /// <param name="dates">dates.</param>
-        /// <param name="groups">groups.</param>
+        /// <param name="groups">List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document..</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
-        /// <param name="columns">columns.</param>
-        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>))
+        /// <param name="columns">List of columns for the PA calculation. This will take precedence over the columns saved in the PA document..</param>
+        /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or TOTALS..</param>
+        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
             this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for PACalculationParameters and cannot be null");
@@ -56,6 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Groups = groups;
             this.Currencyisocode = currencyisocode;
             this.Columns = columns;
+            this.Componentdetail = componentdetail;
         }
         
         /// <summary>
@@ -66,14 +68,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Componentid { get; set; }
 
         /// <summary>
-        /// Gets or Sets Accounts
+        /// List of accounts.
         /// </summary>
+        /// <value>List of accounts.</value>
         [DataMember(Name="accounts", EmitDefaultValue=false)]
         public List<PAIdentifier> Accounts { get; set; }
 
         /// <summary>
-        /// Gets or Sets Benchmarks
+        /// List of benchmarks.
         /// </summary>
+        /// <value>List of benchmarks.</value>
         [DataMember(Name="benchmarks", EmitDefaultValue=false)]
         public List<PAIdentifier> Benchmarks { get; set; }
 
@@ -84,8 +88,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PADateParameters Dates { get; set; }
 
         /// <summary>
-        /// Gets or Sets Groups
+        /// List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document.
         /// </summary>
+        /// <value>List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document.</value>
         [DataMember(Name="groups", EmitDefaultValue=false)]
         public List<PACalculationGroup> Groups { get; set; }
 
@@ -97,10 +102,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Currencyisocode { get; set; }
 
         /// <summary>
-        /// Gets or Sets Columns
+        /// List of columns for the PA calculation. This will take precedence over the columns saved in the PA document.
         /// </summary>
+        /// <value>List of columns for the PA calculation. This will take precedence over the columns saved in the PA document.</value>
         [DataMember(Name="columns", EmitDefaultValue=false)]
         public List<PACalculationColumn> Columns { get; set; }
+
+        /// <summary>
+        /// Component detail type for the PA component. It can be GROUPS or TOTALS.
+        /// </summary>
+        /// <value>Component detail type for the PA component. It can be GROUPS or TOTALS.</value>
+        [DataMember(Name="componentdetail", EmitDefaultValue=false)]
+        public string Componentdetail { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,6 +130,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Columns: ").Append(Columns).Append("\n");
+            sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -189,6 +203,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Columns != null &&
                     input.Columns != null &&
                     this.Columns.SequenceEqual(input.Columns)
+                ) && 
+                (
+                    this.Componentdetail == input.Componentdetail ||
+                    (this.Componentdetail != null &&
+                    this.Componentdetail.Equals(input.Componentdetail))
                 );
         }
 
@@ -215,6 +234,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
                 if (this.Columns != null)
                     hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                if (this.Componentdetail != null)
+                    hashCode = hashCode * 59 + this.Componentdetail.GetHashCode();
                 return hashCode;
             }
         }

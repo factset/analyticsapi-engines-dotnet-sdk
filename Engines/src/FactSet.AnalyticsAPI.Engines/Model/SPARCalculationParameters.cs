@@ -1,7 +1,7 @@
 /* 
  * Engines API
  *
- * Allow clients to fetch Engines Analytics through APIs.
+ * Allow clients to fetch Analytics through APIs.
  *
  * The version of the OpenAPI document: 2
  * Contact: analytics.api.support@factset.com
@@ -40,7 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="SPARCalculationParameters" /> class.
         /// </summary>
         /// <param name="componentid">The SPAR Engine component identifier to analyze. (required).</param>
-        /// <param name="accounts">accounts.</param>
+        /// <param name="accounts">List of accounts for SPAR calculation..</param>
         /// <param name="benchmark">benchmark.</param>
         /// <param name="dates">dates.</param>
         public SPARCalculationParameters(string componentid = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters))
@@ -60,8 +60,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Componentid { get; set; }
 
         /// <summary>
-        /// Gets or Sets Accounts
+        /// List of accounts for SPAR calculation.
         /// </summary>
+        /// <value>List of accounts for SPAR calculation.</value>
         [DataMember(Name="accounts", EmitDefaultValue=false)]
         public List<SPARIdentifier> Accounts { get; set; }
 

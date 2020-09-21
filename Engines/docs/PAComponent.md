@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Component identifier. | [optional] 
-**Accounts** | [**List&lt;PAIdentifier&gt;**](PAIdentifier.md) |  | [optional] [readonly] 
-**Benchmarks** | [**List&lt;PAIdentifier&gt;**](PAIdentifier.md) |  | [optional] [readonly] 
+**Accounts** | [**List&lt;PAIdentifier&gt;**](PAIdentifier.md) | List of accounts saved in the PA document. | [optional] [readonly] 
+**Benchmarks** | [**List&lt;PAIdentifier&gt;**](PAIdentifier.md) | List of benchmarks saved in the PA document. | [optional] [readonly] 
 **Currencyisocode** | **string** |  | [optional] 
 **Dates** | [**PADateParameters**](PADateParameters.md) |  | [optional] 
-**Snapshot** | **bool** |  | [optional] 
+**Snapshot** | **bool** | Is the component type snapshot or subperiod. | [optional] 
 **Name** | **string** | Component name. | [optional] 
 **Category** | **string** | Component category. | [optional] 
 

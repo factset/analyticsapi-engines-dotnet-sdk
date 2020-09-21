@@ -11,8 +11,8 @@ API client library to leverage FactSet's PA Engine, SPAR Engine and Vault API in
 * .Net Standard 2.0
 
 #### Current versions
-* API_VERSION - 2
-* PACKAGE_VERSION - 3.0.0
+* API_VERSION - v2
+* PACKAGE_VERSION - 4.0.0
 
 ## Steps to install library on Visual Studio
 * Go to `Tools` -> `Nuget Package Manager` -> `Manage Nuget Packages for Solution`.

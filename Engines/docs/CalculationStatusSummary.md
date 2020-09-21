@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** |  | [optional] 
-**Points** | **int** | Number of calculation units in batch. | [optional] 
+**Status** | **string** | The status of the calculation. | [optional] 
+**Units** | **int** | Number of calculation units in batch. | [optional] 
 **RequestTime** | **DateTime** | Request time of calculation. | [optional] 
 **LastPollTime** | **DateTime** | Last poll time of calculation. | [optional] 
 

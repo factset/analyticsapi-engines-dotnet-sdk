@@ -47,7 +47,8 @@ namespace FactSet.AnalyticsAPI.Engines
 
             var table = new Table
             {
-                Rows = new List<Row>()
+                Rows = new List<Row>(),
+                Metadata = new Dictionary<string, string>()
             };
             // Constructs the column headers by considering dimension columns and header rows
             foreach (var columnId in headerColumnIds)
@@ -63,6 +64,7 @@ namespace FactSet.AnalyticsAPI.Engines
                     headerRow.Cells.Add(Convert.ToString(headerTable.Data.Columns[columnId]
                         .GetValueHelper(headerTable.Definition.Columns.First(c => c.Id == columnId).Type, i)));
                 }
+                headerRow.isHeader = true;
                 table.Rows.Add(headerRow);
             }
             // Constructs the column data
@@ -75,6 +77,14 @@ namespace FactSet.AnalyticsAPI.Engines
                         .GetValueHelper(primaryTable.Definition.Columns.First(c => c.Id == columnId).Type, i)));
                 }
                 table.Rows.Add(dataRow);
+            }
+
+            var metadataItems = primaryTable.Data.Metadata.Items;
+            var tableMetadataLocations = primaryTable.Data.Metadata.Locations.Table;
+
+            foreach (var location in tableMetadataLocations)
+            {
+                table.Metadata.Add(metadataItems[location].Name, metadataItems[location].StringValue);
             }
 
             return table;
@@ -149,6 +159,11 @@ namespace FactSet.AnalyticsAPI.Engines
         public List<Row> Rows { get; set; }
 
         /// <summary>
+        /// Metadata of the table.
+        /// </summary>
+        public Dictionary<string, string> Metadata { get; set; }
+
+        /// <summary>
         /// The purpose of this function is to concatenate member of Row array with specified separator between each member i.e a newline.
         /// </summary>
         /// <returns>string</returns>
@@ -167,6 +182,11 @@ namespace FactSet.AnalyticsAPI.Engines
         /// Gets or sets the Cells object.
         /// </summary>
         public List<string> Cells { get; set; }
+
+        /// <summary>
+        /// To know whether a row is a header row.
+        /// </summary>
+        public bool isHeader { get; set; }
 
         /// <summary>
         /// The purpose of this function is to concatenate member of Cell array with specified separator between each member i.e ",".

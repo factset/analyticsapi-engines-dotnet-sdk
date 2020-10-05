@@ -1,55 +1,83 @@
-# analyticsapi-engines-dotnet-sdk
+<img alt="FactSet" src="https://www.factset.com/hubfs/Assets/images/factset-logo.svg" height="56" width="290">
 
-## Overview
-API client library to leverage FactSet's PA Engine, SPAR Engine and Vault API in C#.
+# Analytics API Engines .NET SDK
 
-**`Engines`** - C# library for Engines API. It is developed using [open-api-generator](https://github.com/OpenAPITools/openapi-generator).
+[![build](https://img.shields.io/github/workflow/status/factset/analyticsapi-engines-dotnet-sdk/CI)](https://github.com/factset/analyticsapi-engines-dotnet-sdk/actions?query=workflow%3ACI)
+[![nuget](https://img.shields.io/nuget/v/FactSet.AnalyticsAPI.Engines)](https://www.nuget.org/packages/FactSet.AnalyticsAPI.Engines)
+![API version](https://img.shields.io/badge/API-v2-blue)
+[![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-**`Utilities`** - Contains the EnginesAPI's OpenAPI schema (openapi-schema.json), OpenAPI's csharp edited templates, configuration file (openapi-generator-config.json) and End-to-End tests of library. 
+Use this library to integrate with FactSet's Analytics APIs. Below APIs are supported by this SDK.
 
-#### Recommended framework
-* .Net Standard 2.0
+* [PA Engine API](https://developer.factset.com/api-catalog/pa-engine-api)
+* [SPAR Engine API](https://developer.factset.com/api-catalog/spar-engine-api)
+* [Vault API](https://developer.factset.com/api-catalog/vault-api)
 
-#### Current versions
-* API_VERSION - v2
-* PACKAGE_VERSION - 4.0.0
+## Contents
 
-## Steps to install library on Visual Studio
-* Go to `Tools` -> `Nuget Package Manager` -> `Manage Nuget Packages for Solution`.
-* Search for `FactSet.AnalyticsAPI.Engines.*.*.*.nupkg` and install it.
+* [auto-generated-sdk](auto-generated-sdk) - Auto-generated code using [Analytics API Engines SDK Generator](https://github.com/factset/analyticsapi-engines-sdk-generator)
+* [examples](examples) - Sample project containing code snippets to quickly get started with the SDK  
+* [tests](tests) - Integration tests
 
-## Generate library
-To customize the OpenAPI generator options and generate the library. Please go through [Open API](https://swagger.io/docs/specification/about/) and [open-api-generator](https://github.com/OpenAPITools/openapi-generator) for more details.
+## Requirements
 
-### Pre-requisites
-* Install [Java SDK8 64 bit version](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Install Visual Studio.
-* Clone this `analyticsapi-engines-dotnet-sdk` repository.
-* Move into the `analyticsapi-engines-dotnet-sdk/Utilities/codegen` folder and run the `download-codegen.bat` file by double clicking it (for downloading the openapi-generator-cli.jar).
+* .Net Standard 2.0 or higher
 
-### To update and build the library
-* Move to the `analyticsapi-engines-dotnet-sdk` location.
-* Increment the package version in `Utilities/openapi-generator-config.json`.
-* Delete all the files in the `Engines` folder excluding `.openapi-generator-ignore` file. 
-* Replace PACKAGE_VERSION in the below command with its latest value and run it.
+## Installation
+
+* Install with Package Manager Console:
+
+  ```sh
+  Install-Package FactSet.AnalyticsAPI.Engines
+  ```
+
+* Install with NuGet:
+
+  ```sh
+  nuget install FactSet.AnalyticsAPI.Engines
+  ```
+
+* Install with .NET Core:
+
+  ```sh
+  dotnet add package FactSet.AnalyticsAPI.Engines
+  ```
+
+* Alternatively, download or clone this repository, build the SDK and add it as reference to your project:
+
+  ```sh
+  git clone https://github.com/factset/analyticsapi-engines-dotnet-sdk.git
+  cd auto-generated-sdk
+  dotnet build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines
+  ```
+
+## Usage
+
+Refer [examples](examples) project for sample code snippets to quickly get started with the SDK
+
+## Tests
+
+First, clone the repo locally and `cd` into the directory.
+
+```sh
+git clone https://github.com/factset/analyticsapi-engines-dotnet-sdk.git
+cd tests
 ```
-javac -classpath Utilities/codegen/*; Utilities/codegen/CustomCSharpNetCoreClientCodegen.java
-java -DmodelTests=false -DapiTests=false -classpath Utilities/codegen/;Utilities/codegen/*; org.openapitools.codegen.OpenAPIGenerator generate --generator-name CustomCSharpNetCoreClientCodegen --input-spec Utilities/codegen/openapi-schema.json --output Engines --config Utilities/codegen/openapi-generator-config.json --http-user-agent engines-api/PACKAGE_VERSION/csharp --template-dir Utilities/codegen/templates --skip-validate-spec
-```
-* Build the project by right clicking on the project name.
 
-### Run End-to-End tests
+Before running the tests, set the below environment variables. Use the [Developer Portal Manage API Keys page](https://developer.factset.com/manage-api-keys) to get these values.
 
-#### Running the Test Cases using Visual Studio
-* Open the Visual Studio.
-* Goto File-> Open-> Project/Solution.
-* Open `Engines/src/FactSet.AnalyticsAPI.Engines.sln` and build the project.
-* Then, open `Engines/src/FactSet.AnalyticsAPI.Engines.Test.sln` and build the tests project.
-* Set the below environment variables using `Package Manager Console`.
+```sh
+export ANALYTICS_API_USERNAME_SERIAL = "username-serial"
+export ANALYTICS_API_PASSWORD = "apikey"
 ```
-$env:ANALYTICS_API_USERNAME_SERIAL = "username-serial"
-$env:ANALYTICS_API_PASSWORD = "apikey" // Generated on developer portal
+
+Run the tests with below command.
+
+```sh
+dotnet test
 ```
-* For running test cases, Goto `Test` -> `Windows` -> `Test Explorer`.
-* Test Explorer contains the Test Cases for the Api.
-* Run the test case by right clicking it and choose for `Run Selected Tests` option.
+
+## Contributing
+
+* Files in [auto-generated-sdk](auto-generated-sdk) directory are auto-generated and should not be manually edited here. Refer [Analytics API Engines SDK Generator](https://github.com/factset/analyticsapi-engines-sdk-generator) for instructions on how to modify these files.
+* Projects [examples](examples) and [tests](tests) are open to enhancements and bug fixes. Please create a pull requests with the proposed changes.

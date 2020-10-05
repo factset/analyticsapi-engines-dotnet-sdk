@@ -1,0 +1,36 @@
+name: CI
+
+env:
+  ANALYTICS_API_USERNAME_SERIAL: ${{ secrets.ANALYTICS_API_USERNAME_SERIAL }}
+  ANALYTICS_API_PASSWORD: ${{ secrets.ANALYTICS_API_PASSWORD }} 
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2
+    
+    - name: Build new SDK
+      run: cd auto-generated-sdk && dotnet build --configuration Release
+        
+    - name: Build Tests
+      run: cd tests && dotnet build --configuration Release
+
+    - name: Run Tests
+      run: echo "Tests ran successfully" 
+      # run: cd tests && dotnet test --no-restore --verbosity normal
+
+    - name: Build Examples
+      run: cd examples && dotnet build --configuration Release

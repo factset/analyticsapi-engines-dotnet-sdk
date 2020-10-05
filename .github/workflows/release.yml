@@ -1,0 +1,38 @@
+name: Release
+
+env:
+  NUGET_API: ${{ secrets.NUGET_API }}
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-api-key: ${{ env.NUGET_API }}
+        nuget-version: '5.x'
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2
+        source-url: https://api.nuget.org/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ env.NUGET_API }}
+    
+    - name: Install dependencies
+      run: nuget restore auto-generated-sdk/FactSet.AnalyticsAPI.Engines.sln
+      
+    - name: Build and create the package
+      run: nuget pack -Build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
+
+    - name: Publish the package to Nuget
+      run: dotnet nuget push FactSet.AnalyticsAPI.Engines.${GITHUB_REF}.nupkg

@@ -18,7 +18,8 @@
 
   <ItemGroup>
     <Reference Include="FactSet.AnalyticsAPI.Engines">
-      <HintPath>..\..\..\Engines\src\FactSet.AnalyticsAPI.Engines\bin\Debug\netstandard2.0\FactSet.AnalyticsAPI.Engines.dll</HintPath>
+      <HintPath Condition="Exists('..\..\auto-generated-sdk\src\FactSet.AnalyticsAPI.Engines\bin\Release\netstandard2.0')">..\..\auto-generated-sdk\src\FactSet.AnalyticsAPI.Engines\bin\Release\netstandard2.0\FactSet.AnalyticsAPI.Engines.dll</HintPath>
+      <HintPath Condition="Exists('..\..\auto-generated-sdk\src\FactSet.AnalyticsAPI.Engines\bin\Debug\netstandard2.0')">..\..\auto-generated-sdk\src\FactSet.AnalyticsAPI.Engines\bin\Debug\netstandard2.0\FactSet.AnalyticsAPI.Engines.dll</HintPath>
     </Reference>
   </ItemGroup>
 

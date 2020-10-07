@@ -29,8 +29,7 @@ jobs:
       run: cd tests && dotnet build --configuration Release
 
     - name: Run Tests
-      run: echo "Tests ran successfully" 
-      # run: cd tests && dotnet test --no-restore --verbosity normal
+      run: cd tests && dotnet test --no-restore --verbosity normal
 
     - name: Build Examples
       run: cd examples && dotnet build --configuration Release

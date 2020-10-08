@@ -52,7 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get SPAR calculation by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get SPAR calculation by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -73,7 +73,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run SPAR Calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -84,7 +84,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run SPAR Calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -124,7 +124,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get SPAR calculation by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -135,7 +135,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get SPAR calculation by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -145,7 +145,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run SPAR Calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -156,7 +156,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run SPAR Calculation
         /// </summary>
         /// <remarks>
-        /// This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -404,7 +404,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -416,7 +416,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -465,7 +465,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -478,7 +478,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.\\nIf the calculation has finished computing, the body of the response will contain the requested document in JSON.
+        /// Get SPAR calculation by id This is the endpoint to check on the progress of a previously requested calculation.  If the calculation has finished computing, the body of the response will contain the requested document in JSON.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Calculation endpoint</param>
@@ -529,7 +529,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -541,7 +541,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -587,7 +587,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>
@@ -600,7 +600,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.\\nIt must be used first before polling or cancelling endpoints. \\nA successful response will contain the URL to poll for the result of the calculation.\\n\\nRemarks:\\n\\n* Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
+        /// Run SPAR Calculation This endpoint runs the SPAR calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.   A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the SPAR template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sPARCalculationParameters"> (optional)</param>

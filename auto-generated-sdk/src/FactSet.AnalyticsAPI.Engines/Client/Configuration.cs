@@ -31,7 +31,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "4.0.0";
+        public const string Version = "4.1.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -96,7 +96,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Configuration()
         {
-            UserAgent = "engines-api/4.0.0/csharp";
+            UserAgent = "engines-api/4.1.0/csharp";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -351,7 +351,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             String report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: v2:[pa,spar,vault,pub],v1:[fiab,fi,axp,afi,npo,bpm,fpo]\n";
-            report += "    SDK Package Version: 4.0.0\n";
+            report += "    SDK Package Version: 4.1.0\n";
 
             return report;
         }

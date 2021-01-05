@@ -67,8 +67,10 @@ cd tests
 Before running the tests, set the below environment variables. Use the [Developer Portal Manage API Keys page](https://developer.factset.com/manage-api-keys) to get these values.
 
 ```sh
-export ANALYTICS_API_USERNAME_SERIAL = "username-serial"
-export ANALYTICS_API_PASSWORD = "apikey"
+export ANALYTICS_API_DEFAULT_USERNAME_SERIAL = "default username-serial"
+export ANALYTICS_API_DEFAULT_PASSWORD = "default apikey"
+export ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL = "vault_pub username-serial"
+export ANALYTICS_API_VAULT_PUB_PASSWORD = "vault_pub apikey"
 ```
 
 Run the tests with below command.

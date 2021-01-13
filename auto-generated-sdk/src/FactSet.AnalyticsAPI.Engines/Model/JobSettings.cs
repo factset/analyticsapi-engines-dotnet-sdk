@@ -40,10 +40,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="JobSettings" /> class.
         /// </summary>
         /// <param name="yieldCurveDate">yieldCurveDate (required).</param>
-        public JobSettings(string yieldCurveDate = default(string))
+        /// <param name="partialDurationMonths">partialDurationMonths.</param>
+        public JobSettings(string yieldCurveDate = default(string), List<int> partialDurationMonths = default(List<int>))
         {
             // to ensure "yieldCurveDate" is required (not null)
             this.YieldCurveDate = yieldCurveDate ?? throw new ArgumentNullException("yieldCurveDate is a required property for JobSettings and cannot be null");
+            this.PartialDurationMonths = partialDurationMonths;
         }
         
         /// <summary>
@@ -51,6 +53,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         [DataMember(Name="yieldCurveDate", EmitDefaultValue=false)]
         public string YieldCurveDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PartialDurationMonths
+        /// </summary>
+        [DataMember(Name="partialDurationMonths", EmitDefaultValue=false)]
+        public List<int> PartialDurationMonths { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,6 +69,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class JobSettings {\n");
             sb.Append("  YieldCurveDate: ").Append(YieldCurveDate).Append("\n");
+            sb.Append("  PartialDurationMonths: ").Append(PartialDurationMonths).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,6 +108,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.YieldCurveDate == input.YieldCurveDate ||
                     (this.YieldCurveDate != null &&
                     this.YieldCurveDate.Equals(input.YieldCurveDate))
+                ) && 
+                (
+                    this.PartialDurationMonths == input.PartialDurationMonths ||
+                    this.PartialDurationMonths != null &&
+                    input.PartialDurationMonths != null &&
+                    this.PartialDurationMonths.SequenceEqual(input.PartialDurationMonths)
                 );
         }
 
@@ -113,6 +128,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.YieldCurveDate != null)
                     hashCode = hashCode * 59 + this.YieldCurveDate.GetHashCode();
+                if (this.PartialDurationMonths != null)
+                    hashCode = hashCode * 59 + this.PartialDurationMonths.GetHashCode();
                 return hashCode;
             }
         }

@@ -76,9 +76,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>Object</returns>
-        Object RunPACalculation (PACalculationParameters pACalculationParameters = default(PACalculationParameters));
+        Object RunPACalculation (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters));
 
         /// <summary>
         /// Run PA Calculation
@@ -87,9 +89,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> RunPACalculationWithHttpInfo (PACalculationParameters pACalculationParameters = default(PACalculationParameters));
+        ApiResponse<Object> RunPACalculationWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters));
         #endregion Synchronous Operations
     }
 
@@ -148,9 +152,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> RunPACalculationAsync (PACalculationParameters pACalculationParameters = default(PACalculationParameters));
+        System.Threading.Tasks.Task<Object> RunPACalculationAsync (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters));
 
         /// <summary>
         /// Run PA Calculation
@@ -159,9 +165,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RunPACalculationAsyncWithHttpInfo (PACalculationParameters pACalculationParameters = default(PACalculationParameters));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RunPACalculationAsyncWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters));
         #endregion Asynchronous Operations
     }
 
@@ -532,11 +540,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run PA Calculation This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>Object</returns>
-        public Object RunPACalculation (PACalculationParameters pACalculationParameters = default(PACalculationParameters))
+        public Object RunPACalculation (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = RunPACalculationWithHttpInfo(pACalculationParameters);
+             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = RunPACalculationWithHttpInfo(xFactsetContentOrganization, xFactsetContentType, pACalculationParameters);
              return localVarResponse.Data;
         }
 
@@ -544,9 +554,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run PA Calculation This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Object > RunPACalculationWithHttpInfo (PACalculationParameters pACalculationParameters = default(PACalculationParameters))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Object > RunPACalculationWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -565,6 +577,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xFactsetContentOrganization != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-organization", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentOrganization)); // header parameter
+            }
+            if (xFactsetContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-type", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentType)); // header parameter
+            }
             localVarRequestOptions.Data = pACalculationParameters;
 
             // authentication (Basic) required
@@ -590,11 +610,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run PA Calculation This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> RunPACalculationAsync (PACalculationParameters pACalculationParameters = default(PACalculationParameters))
+        public async System.Threading.Tasks.Task<Object> RunPACalculationAsync (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = await RunPACalculationAsyncWithHttpInfo(pACalculationParameters);
+             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = await RunPACalculationAsyncWithHttpInfo(xFactsetContentOrganization, xFactsetContentType, pACalculationParameters);
              return localVarResponse.Data;
 
         }
@@ -603,9 +625,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run PA Calculation This endpoint runs the PA calculation specified in the POST body parameters.  It must be used first before polling or cancelling endpoints.  A successful response will contain the URL to poll for the result of the calculation.    Remarks:    * Any settings in POST body will act as a one-time override over the settings saved in the PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="pACalculationParameters"> (optional)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunPACalculationAsyncWithHttpInfo (PACalculationParameters pACalculationParameters = default(PACalculationParameters))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunPACalculationAsyncWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), PACalculationParameters pACalculationParameters = default(PACalculationParameters))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -625,6 +649,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
+            if (xFactsetContentOrganization != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-organization", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentOrganization)); // header parameter
+            }
+            if (xFactsetContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-type", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentType)); // header parameter
+            }
             localVarRequestOptions.Data = pACalculationParameters;
 
             // authentication (Basic) required

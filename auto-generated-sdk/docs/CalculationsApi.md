@@ -250,7 +250,7 @@ This endpoint does not need any parameter.
 
 <a name="runcalculation"></a>
 # **RunCalculation**
-> void RunCalculation (Calculation calculation = null)
+> void RunCalculation (string xFactsetContentOrganization = null, string xFactsetContentType = null, Calculation calculation = null)
 
 Run calculation
 
@@ -277,12 +277,14 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new CalculationsApi(config);
+            var xFactsetContentOrganization = xFactsetContentOrganization_example;  // string | For specifying the format of the calculation result. Accepted values are \"column\" or \"row\" or \"simplifiedrow\" (optional) 
+            var xFactsetContentType = xFactsetContentType_example;  // string | For specifying the content type of the calculation result. Accepted values are either \"application/json\" or \"application/x-protobuf\" (optional) 
             var calculation = new Calculation(); // Calculation |  (optional) 
 
             try
             {
                 // Run calculation
-                apiInstance.RunCalculation(calculation);
+                apiInstance.RunCalculation(xFactsetContentOrganization, xFactsetContentType, calculation);
             }
             catch (ApiException  e)
             {
@@ -299,6 +301,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xFactsetContentOrganization** | **string**| For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; | [optional] 
+ **xFactsetContentType** | **string**| For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; | [optional] 
  **calculation** | [**Calculation**](Calculation.md)|  | [optional] 
 
 ### Return type

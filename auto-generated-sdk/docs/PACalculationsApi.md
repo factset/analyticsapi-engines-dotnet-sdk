@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 <a name="runpacalculation"></a>
 # **RunPACalculation**
-> Object RunPACalculation (PACalculationParameters pACalculationParameters = null)
+> Object RunPACalculation (string xFactsetContentOrganization = null, string xFactsetContentType = null, PACalculationParameters pACalculationParameters = null)
 
 Run PA Calculation
 
@@ -198,12 +198,14 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new PACalculationsApi(config);
+            var xFactsetContentOrganization = xFactsetContentOrganization_example;  // string | For specifying the format of the calculation result. Accepted values are \"column\" or \"row\" or \"simplifiedrow\" (optional) 
+            var xFactsetContentType = xFactsetContentType_example;  // string | For specifying the content type of the calculation result. Accepted values are either \"application/json\" or \"application/x-protobuf\" (optional) 
             var pACalculationParameters = new PACalculationParameters(); // PACalculationParameters |  (optional) 
 
             try
             {
                 // Run PA Calculation
-                Object result = apiInstance.RunPACalculation(pACalculationParameters);
+                Object result = apiInstance.RunPACalculation(xFactsetContentOrganization, xFactsetContentType, pACalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -221,6 +223,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xFactsetContentOrganization** | **string**| For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; | [optional] 
+ **xFactsetContentType** | **string**| For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; | [optional] 
  **pACalculationParameters** | [**PACalculationParameters**](PACalculationParameters.md)|  | [optional] 
 
 ### Return type

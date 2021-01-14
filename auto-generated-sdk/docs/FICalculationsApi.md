@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 <a name="runficalculation"></a>
 # **RunFICalculation**
-> Object RunFICalculation (FICalculationParameters fICalculationParameters = null)
+> Object RunFICalculation (string xFactsetContentOrganization = null, string xFactsetContentType = null, FICalculationParameters fICalculationParameters = null)
 
 Run FI calculation
 
@@ -198,12 +198,14 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new FICalculationsApi(config);
+            var xFactsetContentOrganization = xFactsetContentOrganization_example;  // string | For specifying the format of the calculation result. Accepted values are \"column\" or \"row\" or \"simplifiedrow\" (optional) 
+            var xFactsetContentType = xFactsetContentType_example;  // string | For specifying the content type of the calculation result. Accepted values are either \"application/json\" or \"application/x-protobuf\" (optional) 
             var fICalculationParameters = new FICalculationParameters(); // FICalculationParameters |  (optional) 
 
             try
             {
                 // Run FI calculation
-                Object result = apiInstance.RunFICalculation(fICalculationParameters);
+                Object result = apiInstance.RunFICalculation(xFactsetContentOrganization, xFactsetContentType, fICalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -221,6 +223,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xFactsetContentOrganization** | **string**| For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; | [optional] 
+ **xFactsetContentType** | **string**| For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; | [optional] 
  **fICalculationParameters** | [**FICalculationParameters**](FICalculationParameters.md)|  | [optional] 
 
 ### Return type

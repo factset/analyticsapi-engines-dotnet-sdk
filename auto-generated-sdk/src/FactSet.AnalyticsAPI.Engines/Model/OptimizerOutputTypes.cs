@@ -26,34 +26,41 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Account
+    /// OptimizerOutputTypes
     /// </summary>
     [DataContract]
-    public partial class Account :  IEquatable<Account>, IValidatableObject
+    public partial class OptimizerOutputTypes :  IEquatable<OptimizerOutputTypes>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Account" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerOutputTypes" /> class.
         /// </summary>
-        /// <param name="id">Account path.</param>
-        /// <param name="overrides">overrides.</param>
-        public Account(string id = default(string), AccountOverrides overrides = default(AccountOverrides))
+        /// <param name="trades">trades.</param>
+        /// <param name="optimal">optimal.</param>
+        /// <param name="account">account.</param>
+        public OptimizerOutputTypes(OptimizerTradesList trades = default(OptimizerTradesList), OptimizerOptimalHoldings optimal = default(OptimizerOptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio))
         {
-            this.Id = id;
-            this.Overrides = overrides;
+            this.Trades = trades;
+            this.Optimal = optimal;
+            this.Account = account;
         }
         
         /// <summary>
-        /// Account path
+        /// Gets or Sets Trades
         /// </summary>
-        /// <value>Account path</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        [DataMember(Name="trades", EmitDefaultValue=false)]
+        public OptimizerTradesList Trades { get; set; }
 
         /// <summary>
-        /// Gets or Sets Overrides
+        /// Gets or Sets Optimal
         /// </summary>
-        [DataMember(Name="overrides", EmitDefaultValue=false)]
-        public AccountOverrides Overrides { get; set; }
+        [DataMember(Name="optimal", EmitDefaultValue=false)]
+        public OptimizerOptimalHoldings Optimal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Account
+        /// </summary>
+        [DataMember(Name="account", EmitDefaultValue=false)]
+        public OptimalPortfolio Account { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +69,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Account {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("class OptimizerOutputTypes {\n");
+            sb.Append("  Trades: ").Append(Trades).Append("\n");
+            sb.Append("  Optimal: ").Append(Optimal).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +93,34 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Account);
+            return this.Equals(input as OptimizerOutputTypes);
         }
 
         /// <summary>
-        /// Returns true if Account instances are equal
+        /// Returns true if OptimizerOutputTypes instances are equal
         /// </summary>
-        /// <param name="input">Instance of Account to be compared</param>
+        /// <param name="input">Instance of OptimizerOutputTypes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Account input)
+        public bool Equals(OptimizerOutputTypes input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Trades == input.Trades ||
+                    (this.Trades != null &&
+                    this.Trades.Equals(input.Trades))
                 ) && 
                 (
-                    this.Overrides == input.Overrides ||
-                    (this.Overrides != null &&
-                    this.Overrides.Equals(input.Overrides))
+                    this.Optimal == input.Optimal ||
+                    (this.Optimal != null &&
+                    this.Optimal.Equals(input.Optimal))
+                ) && 
+                (
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
                 );
         }
 
@@ -120,10 +133,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                if (this.Trades != null)
+                    hashCode = hashCode * 59 + this.Trades.GetHashCode();
+                if (this.Optimal != null)
+                    hashCode = hashCode * 59 + this.Optimal.GetHashCode();
+                if (this.Account != null)
+                    hashCode = hashCode * 59 + this.Account.GetHashCode();
                 return hashCode;
             }
         }

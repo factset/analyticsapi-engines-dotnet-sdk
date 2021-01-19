@@ -3,9 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Securities** | [**List&lt;Security&gt;**](Security.md) |  | 
+**Securities** | [**List&lt;FISecurity&gt;**](FISecurity.md) |  | 
 **Calculations** | **List&lt;string&gt;** |  | 
-**JobSettings** | [**JobSettings**](JobSettings.md) |  | 
+**JobSettings** | [**FIJobSettings**](FIJobSettings.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

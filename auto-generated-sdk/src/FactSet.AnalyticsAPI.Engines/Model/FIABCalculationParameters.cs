@@ -42,7 +42,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="fiabdocument">FiabDocument (optional) - FIAB document to use as a template. Should  be a path to a FIAB document. Expects a GUI-style path (Client:/foo/bar).</param>
         /// <param name="account">account (required).</param>
         /// <param name="dates">dates (required).</param>
-        /// <param name="msl">Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar).</param>
+        /// <param name="msl">Master FISecurity List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar).</param>
         /// <param name="fisettingsdocument">FISettingsDocument (optional) - The given @FIS document will be used to  configure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar).</param>
         public FIABCalculationParameters(string fiabdocument = default(string), FIABIdentifier account = default(FIABIdentifier), FIABDateParameters dates = default(FIABDateParameters), string msl = default(string), string fisettingsdocument = default(string))
         {
@@ -75,9 +75,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FIABDateParameters Dates { get; set; }
 
         /// <summary>
-        /// Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)
+        /// Master FISecurity List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)
         /// </summary>
-        /// <value>Master Security List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)</value>
+        /// <value>Master FISecurity List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)</value>
         [DataMember(Name="msl", EmitDefaultValue=false)]
         public string Msl { get; set; }
 

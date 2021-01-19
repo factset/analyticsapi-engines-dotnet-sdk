@@ -26,10 +26,10 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// StrategyOverrides
+    /// OptimizerStrategyOverrides
     /// </summary>
     [DataContract]
-    public partial class StrategyOverrides :  IEquatable<StrategyOverrides>, IValidatableObject
+    public partial class OptimizerStrategyOverrides :  IEquatable<OptimizerStrategyOverrides>, IValidatableObject
     {
         /// <summary>
         /// Defines Inner
@@ -59,14 +59,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name="constraints", EmitDefaultValue=false)]
         public Dictionary<string, InnerEnum> Constraints { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StrategyOverrides" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerStrategyOverrides" /> class.
         /// </summary>
         /// <param name="objective">Objective.</param>
         /// <param name="constraints">List of constraints.</param>
         /// <param name="alpha">Alpha.</param>
         /// <param name="transactioncost">Transaction cost.</param>
         /// <param name="tax">Tax.</param>
-        public StrategyOverrides(string objective = default(string), Dictionary<string, InnerEnum> constraints = default(Dictionary<string, InnerEnum>), string alpha = default(string), string transactioncost = default(string), string tax = default(string))
+        public OptimizerStrategyOverrides(string objective = default(string), Dictionary<string, InnerEnum> constraints = default(Dictionary<string, InnerEnum>), string alpha = default(string), string transactioncost = default(string), string tax = default(string))
         {
             this.Objective = objective;
             this.Constraints = constraints;
@@ -110,7 +110,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StrategyOverrides {\n");
+            sb.Append("class OptimizerStrategyOverrides {\n");
             sb.Append("  Objective: ").Append(Objective).Append("\n");
             sb.Append("  Constraints: ").Append(Constraints).Append("\n");
             sb.Append("  Alpha: ").Append(Alpha).Append("\n");
@@ -136,15 +136,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StrategyOverrides);
+            return this.Equals(input as OptimizerStrategyOverrides);
         }
 
         /// <summary>
-        /// Returns true if StrategyOverrides instances are equal
+        /// Returns true if OptimizerStrategyOverrides instances are equal
         /// </summary>
-        /// <param name="input">Instance of StrategyOverrides to be compared</param>
+        /// <param name="input">Instance of OptimizerStrategyOverrides to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StrategyOverrides input)
+        public bool Equals(OptimizerStrategyOverrides input)
         {
             if (input == null)
                 return false;

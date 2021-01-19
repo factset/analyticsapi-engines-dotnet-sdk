@@ -1,10 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.TradesList
+# FactSet.AnalyticsAPI.Engines.Model.OptimizerStrategy
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identifiertype** | **string** | Identifier type | [optional] 
-**Includecash** | **bool** | Include cash | [optional] 
+**Id** | **string** | OptimizerStrategy document path | 
+**Overrides** | [**OptimizerStrategyOverrides**](OptimizerStrategyOverrides.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

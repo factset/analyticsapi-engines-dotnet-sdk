@@ -76,9 +76,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>Object</returns>
-        Object RunFICalculation (FICalculationParameters fICalculationParameters = default(FICalculationParameters));
+        Object RunFICalculation (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters));
 
         /// <summary>
         /// Run FI calculation
@@ -87,9 +89,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> RunFICalculationWithHttpInfo (FICalculationParameters fICalculationParameters = default(FICalculationParameters));
+        ApiResponse<Object> RunFICalculationWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters));
         #endregion Synchronous Operations
     }
 
@@ -148,9 +152,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> RunFICalculationAsync (FICalculationParameters fICalculationParameters = default(FICalculationParameters));
+        System.Threading.Tasks.Task<Object> RunFICalculationAsync (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters));
 
         /// <summary>
         /// Run FI calculation
@@ -159,9 +165,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RunFICalculationAsyncWithHttpInfo (FICalculationParameters fICalculationParameters = default(FICalculationParameters));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RunFICalculationAsyncWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters));
         #endregion Asynchronous Operations
     }
 
@@ -532,11 +540,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run FI calculation This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>Object</returns>
-        public Object RunFICalculation (FICalculationParameters fICalculationParameters = default(FICalculationParameters))
+        public Object RunFICalculation (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = RunFICalculationWithHttpInfo(fICalculationParameters);
+             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = RunFICalculationWithHttpInfo(xFactsetContentOrganization, xFactsetContentType, fICalculationParameters);
              return localVarResponse.Data;
         }
 
@@ -544,9 +554,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run FI calculation This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Object > RunFICalculationWithHttpInfo (FICalculationParameters fICalculationParameters = default(FICalculationParameters))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Object > RunFICalculationWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -565,6 +577,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xFactsetContentOrganization != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-organization", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentOrganization)); // header parameter
+            }
+            if (xFactsetContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-type", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentType)); // header parameter
+            }
             localVarRequestOptions.Data = fICalculationParameters;
 
             // authentication (Basic) required
@@ -590,11 +610,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run FI calculation This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> RunFICalculationAsync (FICalculationParameters fICalculationParameters = default(FICalculationParameters))
+        public async System.Threading.Tasks.Task<Object> RunFICalculationAsync (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = await RunFICalculationAsyncWithHttpInfo(fICalculationParameters);
+             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> localVarResponse = await RunFICalculationAsyncWithHttpInfo(xFactsetContentOrganization, xFactsetContentType, fICalculationParameters);
              return localVarResponse.Data;
 
         }
@@ -603,9 +625,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run FI calculation This endpoint creates a new FI calculation.  This must be used first before get status or cancelling endpoints with a calculation id.  A successful response will contain the resulting FI calculation or a polling URL in location header if the request takes too long.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="fICalculationParameters"> (optional)</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunFICalculationAsyncWithHttpInfo (FICalculationParameters fICalculationParameters = default(FICalculationParameters))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunFICalculationAsyncWithHttpInfo (string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), FICalculationParameters fICalculationParameters = default(FICalculationParameters))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -625,6 +649,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
+            if (xFactsetContentOrganization != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-organization", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentOrganization)); // header parameter
+            }
+            if (xFactsetContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-type", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentType)); // header parameter
+            }
             localVarRequestOptions.Data = fICalculationParameters;
 
             // authentication (Basic) required

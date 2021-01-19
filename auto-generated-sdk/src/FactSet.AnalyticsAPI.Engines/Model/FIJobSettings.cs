@@ -26,40 +26,39 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Strategy
+    /// FIJobSettings
     /// </summary>
     [DataContract]
-    public partial class Strategy :  IEquatable<Strategy>, IValidatableObject
+    public partial class FIJobSettings :  IEquatable<FIJobSettings>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Strategy" /> class.
+        /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Strategy() { }
+        protected FIJobSettings() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Strategy" /> class.
+        /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
         /// </summary>
-        /// <param name="id">Strategy document path (required).</param>
-        /// <param name="overrides">overrides.</param>
-        public Strategy(string id = default(string), StrategyOverrides overrides = default(StrategyOverrides))
+        /// <param name="yieldCurveDate">yieldCurveDate (required).</param>
+        /// <param name="partialDurationMonths">partialDurationMonths.</param>
+        public FIJobSettings(string yieldCurveDate = default(string), List<int> partialDurationMonths = default(List<int>))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for Strategy and cannot be null");
-            this.Overrides = overrides;
+            // to ensure "yieldCurveDate" is required (not null)
+            this.YieldCurveDate = yieldCurveDate ?? throw new ArgumentNullException("yieldCurveDate is a required property for FIJobSettings and cannot be null");
+            this.PartialDurationMonths = partialDurationMonths;
         }
         
         /// <summary>
-        /// Strategy document path
+        /// Gets or Sets YieldCurveDate
         /// </summary>
-        /// <value>Strategy document path</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        [DataMember(Name="yieldCurveDate", EmitDefaultValue=false)]
+        public string YieldCurveDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Overrides
+        /// Gets or Sets PartialDurationMonths
         /// </summary>
-        [DataMember(Name="overrides", EmitDefaultValue=false)]
-        public StrategyOverrides Overrides { get; set; }
+        [DataMember(Name="partialDurationMonths", EmitDefaultValue=false)]
+        public List<int> PartialDurationMonths { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +67,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Strategy {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("class FIJobSettings {\n");
+            sb.Append("  YieldCurveDate: ").Append(YieldCurveDate).Append("\n");
+            sb.Append("  PartialDurationMonths: ").Append(PartialDurationMonths).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,29 +90,30 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Strategy);
+            return this.Equals(input as FIJobSettings);
         }
 
         /// <summary>
-        /// Returns true if Strategy instances are equal
+        /// Returns true if FIJobSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of Strategy to be compared</param>
+        /// <param name="input">Instance of FIJobSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Strategy input)
+        public bool Equals(FIJobSettings input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.YieldCurveDate == input.YieldCurveDate ||
+                    (this.YieldCurveDate != null &&
+                    this.YieldCurveDate.Equals(input.YieldCurveDate))
                 ) && 
                 (
-                    this.Overrides == input.Overrides ||
-                    (this.Overrides != null &&
-                    this.Overrides.Equals(input.Overrides))
+                    this.PartialDurationMonths == input.PartialDurationMonths ||
+                    this.PartialDurationMonths != null &&
+                    input.PartialDurationMonths != null &&
+                    this.PartialDurationMonths.SequenceEqual(input.PartialDurationMonths)
                 );
         }
 
@@ -126,10 +126,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                if (this.YieldCurveDate != null)
+                    hashCode = hashCode * 59 + this.YieldCurveDate.GetHashCode();
+                if (this.PartialDurationMonths != null)
+                    hashCode = hashCode * 59 + this.PartialDurationMonths.GetHashCode();
                 return hashCode;
             }
         }

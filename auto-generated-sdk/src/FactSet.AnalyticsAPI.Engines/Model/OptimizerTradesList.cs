@@ -26,10 +26,10 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// TradesList
+    /// OptimizerTradesList
     /// </summary>
     [DataContract]
-    public partial class TradesList :  IEquatable<TradesList>, IValidatableObject
+    public partial class OptimizerTradesList :  IEquatable<OptimizerTradesList>, IValidatableObject
     {
         /// <summary>
         /// Identifier type
@@ -107,11 +107,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name="identifiertype", EmitDefaultValue=false)]
         public IdentifiertypeEnum? Identifiertype { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TradesList" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerTradesList" /> class.
         /// </summary>
         /// <param name="identifiertype">Identifier type.</param>
         /// <param name="includecash">Include cash.</param>
-        public TradesList(IdentifiertypeEnum? identifiertype = default(IdentifiertypeEnum?), bool includecash = default(bool))
+        public OptimizerTradesList(IdentifiertypeEnum? identifiertype = default(IdentifiertypeEnum?), bool includecash = default(bool))
         {
             this.Identifiertype = identifiertype;
             this.Includecash = includecash;
@@ -131,7 +131,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TradesList {\n");
+            sb.Append("class OptimizerTradesList {\n");
             sb.Append("  Identifiertype: ").Append(Identifiertype).Append("\n");
             sb.Append("  Includecash: ").Append(Includecash).Append("\n");
             sb.Append("}\n");
@@ -154,15 +154,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TradesList);
+            return this.Equals(input as OptimizerTradesList);
         }
 
         /// <summary>
-        /// Returns true if TradesList instances are equal
+        /// Returns true if OptimizerTradesList instances are equal
         /// </summary>
-        /// <param name="input">Instance of TradesList to be compared</param>
+        /// <param name="input">Instance of OptimizerTradesList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TradesList input)
+        public bool Equals(OptimizerTradesList input)
         {
             if (input == null)
                 return false;

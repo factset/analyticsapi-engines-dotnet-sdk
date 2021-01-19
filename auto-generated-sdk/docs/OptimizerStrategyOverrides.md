@@ -1,4 +1,4 @@
-# FactSet.AnalyticsAPI.Engines.Model.StrategyOverrides
+# FactSet.AnalyticsAPI.Engines.Model.OptimizerStrategyOverrides
 ## Properties
 
 Name | Type | Description | Notes

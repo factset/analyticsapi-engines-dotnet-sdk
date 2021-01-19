@@ -1,14 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.Security
+# FactSet.AnalyticsAPI.Engines.Model.OptimizerAccount
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CalcFromMethod** | **string** |  | 
-**CalcFromValue** | **double** |  | 
-**Face** | **double** |  | 
-**Symbol** | **string** |  | 
-**SettlementDate** | **string** |  | 
-**DiscountCurve** | **string** |  | 
+**Id** | **string** | Account path | [optional] 
+**Overrides** | [**OptimizerAccountOverrides**](OptimizerAccountOverrides.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

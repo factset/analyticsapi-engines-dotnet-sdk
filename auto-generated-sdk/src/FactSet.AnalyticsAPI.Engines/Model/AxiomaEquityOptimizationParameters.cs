@@ -43,7 +43,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="account">account.</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputtypes">outputtypes (required).</param>
-        public AxiomaEquityOptimizationParameters(Strategy strategy = default(Strategy), Account account = default(Account), Optimization optimization = default(Optimization), OutputTypes outputtypes = default(OutputTypes))
+        public AxiomaEquityOptimizationParameters(OptimizerStrategy strategy = default(OptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputtypes = default(OptimizerOutputTypes))
         {
             // to ensure "strategy" is required (not null)
             this.Strategy = strategy ?? throw new ArgumentNullException("strategy is a required property for AxiomaEquityOptimizationParameters and cannot be null");
@@ -57,13 +57,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Strategy
         /// </summary>
         [DataMember(Name="strategy", EmitDefaultValue=false)]
-        public Strategy Strategy { get; set; }
+        public OptimizerStrategy Strategy { get; set; }
 
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
         [DataMember(Name="account", EmitDefaultValue=false)]
-        public Account Account { get; set; }
+        public OptimizerAccount Account { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimization
@@ -75,7 +75,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Outputtypes
         /// </summary>
         [DataMember(Name="outputtypes", EmitDefaultValue=false)]
-        public OutputTypes Outputtypes { get; set; }
+        public OptimizerOutputTypes Outputtypes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

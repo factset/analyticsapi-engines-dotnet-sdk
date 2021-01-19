@@ -26,41 +26,40 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OutputTypes
+    /// OptimizerStrategy
     /// </summary>
     [DataContract]
-    public partial class OutputTypes :  IEquatable<OutputTypes>, IValidatableObject
+    public partial class OptimizerStrategy :  IEquatable<OptimizerStrategy>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OutputTypes" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
         /// </summary>
-        /// <param name="trades">trades.</param>
-        /// <param name="optimal">optimal.</param>
-        /// <param name="account">account.</param>
-        public OutputTypes(TradesList trades = default(TradesList), OptimalHoldings optimal = default(OptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio))
+        [JsonConstructorAttribute]
+        protected OptimizerStrategy() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
+        /// </summary>
+        /// <param name="id">OptimizerStrategy document path (required).</param>
+        /// <param name="overrides">overrides.</param>
+        public OptimizerStrategy(string id = default(string), OptimizerStrategyOverrides overrides = default(OptimizerStrategyOverrides))
         {
-            this.Trades = trades;
-            this.Optimal = optimal;
-            this.Account = account;
+            // to ensure "id" is required (not null)
+            this.Id = id ?? throw new ArgumentNullException("id is a required property for OptimizerStrategy and cannot be null");
+            this.Overrides = overrides;
         }
         
         /// <summary>
-        /// Gets or Sets Trades
+        /// OptimizerStrategy document path
         /// </summary>
-        [DataMember(Name="trades", EmitDefaultValue=false)]
-        public TradesList Trades { get; set; }
+        /// <value>OptimizerStrategy document path</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Optimal
+        /// Gets or Sets Overrides
         /// </summary>
-        [DataMember(Name="optimal", EmitDefaultValue=false)]
-        public OptimalHoldings Optimal { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Account
-        /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
-        public OptimalPortfolio Account { get; set; }
+        [DataMember(Name="overrides", EmitDefaultValue=false)]
+        public OptimizerStrategyOverrides Overrides { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,10 +68,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OutputTypes {\n");
-            sb.Append("  Trades: ").Append(Trades).Append("\n");
-            sb.Append("  Optimal: ").Append(Optimal).Append("\n");
-            sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("class OptimizerStrategy {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,34 +91,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OutputTypes);
+            return this.Equals(input as OptimizerStrategy);
         }
 
         /// <summary>
-        /// Returns true if OutputTypes instances are equal
+        /// Returns true if OptimizerStrategy instances are equal
         /// </summary>
-        /// <param name="input">Instance of OutputTypes to be compared</param>
+        /// <param name="input">Instance of OptimizerStrategy to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OutputTypes input)
+        public bool Equals(OptimizerStrategy input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Trades == input.Trades ||
-                    (this.Trades != null &&
-                    this.Trades.Equals(input.Trades))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Optimal == input.Optimal ||
-                    (this.Optimal != null &&
-                    this.Optimal.Equals(input.Optimal))
-                ) && 
-                (
-                    this.Account == input.Account ||
-                    (this.Account != null &&
-                    this.Account.Equals(input.Account))
+                    this.Overrides == input.Overrides ||
+                    (this.Overrides != null &&
+                    this.Overrides.Equals(input.Overrides))
                 );
         }
 
@@ -133,12 +126,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Trades != null)
-                    hashCode = hashCode * 59 + this.Trades.GetHashCode();
-                if (this.Optimal != null)
-                    hashCode = hashCode * 59 + this.Optimal.GetHashCode();
-                if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Overrides != null)
+                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
                 return hashCode;
             }
         }

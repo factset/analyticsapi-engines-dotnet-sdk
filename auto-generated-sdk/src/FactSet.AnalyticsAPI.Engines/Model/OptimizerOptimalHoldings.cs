@@ -26,10 +26,10 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OptimalHoldings
+    /// OptimizerOptimalHoldings
     /// </summary>
     [DataContract]
-    public partial class OptimalHoldings :  IEquatable<OptimalHoldings>, IValidatableObject
+    public partial class OptimizerOptimalHoldings :  IEquatable<OptimizerOptimalHoldings>, IValidatableObject
     {
         /// <summary>
         /// Identifier type
@@ -107,12 +107,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name="identifiertype", EmitDefaultValue=false)]
         public IdentifiertypeEnum? Identifiertype { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimalHoldings" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerOptimalHoldings" /> class.
         /// </summary>
         /// <param name="identifiertype">Identifier type.</param>
         /// <param name="includecash">Include cash.</param>
         /// <param name="excludezero">Exclude zero.</param>
-        public OptimalHoldings(IdentifiertypeEnum? identifiertype = default(IdentifiertypeEnum?), bool includecash = default(bool), bool excludezero = default(bool))
+        public OptimizerOptimalHoldings(IdentifiertypeEnum? identifiertype = default(IdentifiertypeEnum?), bool includecash = default(bool), bool excludezero = default(bool))
         {
             this.Identifiertype = identifiertype;
             this.Includecash = includecash;
@@ -140,7 +140,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OptimalHoldings {\n");
+            sb.Append("class OptimizerOptimalHoldings {\n");
             sb.Append("  Identifiertype: ").Append(Identifiertype).Append("\n");
             sb.Append("  Includecash: ").Append(Includecash).Append("\n");
             sb.Append("  Excludezero: ").Append(Excludezero).Append("\n");
@@ -164,15 +164,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptimalHoldings);
+            return this.Equals(input as OptimizerOptimalHoldings);
         }
 
         /// <summary>
-        /// Returns true if OptimalHoldings instances are equal
+        /// Returns true if OptimizerOptimalHoldings instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptimalHoldings to be compared</param>
+        /// <param name="input">Instance of OptimizerOptimalHoldings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptimalHoldings input)
+        public bool Equals(OptimizerOptimalHoldings input)
         {
             if (input == null)
                 return false;

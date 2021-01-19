@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 <a name="runsparcalculation"></a>
 # **RunSPARCalculation**
-> Object RunSPARCalculation (SPARCalculationParameters sPARCalculationParameters = null)
+> Object RunSPARCalculation (string xFactsetContentOrganization = null, string xFactsetContentType = null, SPARCalculationParameters sPARCalculationParameters = null)
 
 Run SPAR Calculation
 
@@ -198,12 +198,14 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new SPARCalculationsApi(config);
+            var xFactsetContentOrganization = xFactsetContentOrganization_example;  // string | For specifying the format of the calculation result. Accepted values are \"column\" or \"row\" or \"simplifiedrow\" (optional) 
+            var xFactsetContentType = xFactsetContentType_example;  // string | For specifying the content type of the calculation result. Accepted values are either \"application/json\" or \"application/x-protobuf\" (optional) 
             var sPARCalculationParameters = new SPARCalculationParameters(); // SPARCalculationParameters |  (optional) 
 
             try
             {
                 // Run SPAR Calculation
-                Object result = apiInstance.RunSPARCalculation(sPARCalculationParameters);
+                Object result = apiInstance.RunSPARCalculation(xFactsetContentOrganization, xFactsetContentType, sPARCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -221,6 +223,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xFactsetContentOrganization** | **string**| For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; | [optional] 
+ **xFactsetContentType** | **string**| For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; | [optional] 
  **sPARCalculationParameters** | [**SPARCalculationParameters**](SPARCalculationParameters.md)|  | [optional] 
 
 ### Return type

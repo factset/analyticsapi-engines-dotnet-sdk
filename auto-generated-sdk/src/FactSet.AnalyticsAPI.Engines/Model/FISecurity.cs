@@ -26,18 +26,18 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Security
+    /// FISecurity
     /// </summary>
     [DataContract]
-    public partial class Security :  IEquatable<Security>, IValidatableObject
+    public partial class FISecurity :  IEquatable<FISecurity>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Security" /> class.
+        /// Initializes a new instance of the <see cref="FISecurity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Security() { }
+        protected FISecurity() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Security" /> class.
+        /// Initializes a new instance of the <see cref="FISecurity" /> class.
         /// </summary>
         /// <param name="calcFromMethod">calcFromMethod (required).</param>
         /// <param name="calcFromValue">calcFromValue (required).</param>
@@ -45,18 +45,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="symbol">symbol (required).</param>
         /// <param name="settlementDate">settlementDate (required).</param>
         /// <param name="discountCurve">discountCurve (required).</param>
-        public Security(string calcFromMethod = default(string), double calcFromValue = default(double), double face = default(double), string symbol = default(string), string settlementDate = default(string), string discountCurve = default(string))
+        public FISecurity(string calcFromMethod = default(string), double calcFromValue = default(double), double face = default(double), string symbol = default(string), string settlementDate = default(string), string discountCurve = default(string))
         {
             // to ensure "calcFromMethod" is required (not null)
-            this.CalcFromMethod = calcFromMethod ?? throw new ArgumentNullException("calcFromMethod is a required property for Security and cannot be null");
+            this.CalcFromMethod = calcFromMethod ?? throw new ArgumentNullException("calcFromMethod is a required property for FISecurity and cannot be null");
             this.CalcFromValue = calcFromValue;
             this.Face = face;
             // to ensure "symbol" is required (not null)
-            this.Symbol = symbol ?? throw new ArgumentNullException("symbol is a required property for Security and cannot be null");
+            this.Symbol = symbol ?? throw new ArgumentNullException("symbol is a required property for FISecurity and cannot be null");
             // to ensure "settlementDate" is required (not null)
-            this.SettlementDate = settlementDate ?? throw new ArgumentNullException("settlementDate is a required property for Security and cannot be null");
+            this.SettlementDate = settlementDate ?? throw new ArgumentNullException("settlementDate is a required property for FISecurity and cannot be null");
             // to ensure "discountCurve" is required (not null)
-            this.DiscountCurve = discountCurve ?? throw new ArgumentNullException("discountCurve is a required property for Security and cannot be null");
+            this.DiscountCurve = discountCurve ?? throw new ArgumentNullException("discountCurve is a required property for FISecurity and cannot be null");
         }
         
         /// <summary>
@@ -102,7 +102,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Security {\n");
+            sb.Append("class FISecurity {\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
             sb.Append("  CalcFromValue: ").Append(CalcFromValue).Append("\n");
             sb.Append("  Face: ").Append(Face).Append("\n");
@@ -129,15 +129,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Security);
+            return this.Equals(input as FISecurity);
         }
 
         /// <summary>
-        /// Returns true if Security instances are equal
+        /// Returns true if FISecurity instances are equal
         /// </summary>
-        /// <param name="input">Instance of Security to be compared</param>
+        /// <param name="input">Instance of FISecurity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Security input)
+        public bool Equals(FISecurity input)
         {
             if (input == null)
                 return false;

@@ -26,31 +26,34 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// JobSettings
+    /// OptimizerAccount
     /// </summary>
     [DataContract]
-    public partial class JobSettings :  IEquatable<JobSettings>, IValidatableObject
+    public partial class OptimizerAccount :  IEquatable<OptimizerAccount>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobSettings" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerAccount" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected JobSettings() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JobSettings" /> class.
-        /// </summary>
-        /// <param name="yieldCurveDate">yieldCurveDate (required).</param>
-        public JobSettings(string yieldCurveDate = default(string))
+        /// <param name="id">Account path.</param>
+        /// <param name="overrides">overrides.</param>
+        public OptimizerAccount(string id = default(string), OptimizerAccountOverrides overrides = default(OptimizerAccountOverrides))
         {
-            // to ensure "yieldCurveDate" is required (not null)
-            this.YieldCurveDate = yieldCurveDate ?? throw new ArgumentNullException("yieldCurveDate is a required property for JobSettings and cannot be null");
+            this.Id = id;
+            this.Overrides = overrides;
         }
         
         /// <summary>
-        /// Gets or Sets YieldCurveDate
+        /// Account path
         /// </summary>
-        [DataMember(Name="yieldCurveDate", EmitDefaultValue=false)]
-        public string YieldCurveDate { get; set; }
+        /// <value>Account path</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Overrides
+        /// </summary>
+        [DataMember(Name="overrides", EmitDefaultValue=false)]
+        public OptimizerAccountOverrides Overrides { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,8 +62,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JobSettings {\n");
-            sb.Append("  YieldCurveDate: ").Append(YieldCurveDate).Append("\n");
+            sb.Append("class OptimizerAccount {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,24 +85,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as JobSettings);
+            return this.Equals(input as OptimizerAccount);
         }
 
         /// <summary>
-        /// Returns true if JobSettings instances are equal
+        /// Returns true if OptimizerAccount instances are equal
         /// </summary>
-        /// <param name="input">Instance of JobSettings to be compared</param>
+        /// <param name="input">Instance of OptimizerAccount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JobSettings input)
+        public bool Equals(OptimizerAccount input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.YieldCurveDate == input.YieldCurveDate ||
-                    (this.YieldCurveDate != null &&
-                    this.YieldCurveDate.Equals(input.YieldCurveDate))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Overrides == input.Overrides ||
+                    (this.Overrides != null &&
+                    this.Overrides.Equals(input.Overrides))
                 );
         }
 
@@ -111,8 +120,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.YieldCurveDate != null)
-                    hashCode = hashCode * 59 + this.YieldCurveDate.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Overrides != null)
+                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
                 return hashCode;
             }
         }

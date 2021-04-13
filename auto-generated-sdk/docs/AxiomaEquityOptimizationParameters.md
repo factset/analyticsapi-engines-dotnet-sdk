@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Strategy** | [**Strategy**](Strategy.md) |  | 
-**Account** | [**Account**](Account.md) |  | [optional] 
+**Strategy** | [**OptimizerStrategy**](OptimizerStrategy.md) |  | 
+**Account** | [**OptimizerAccount**](OptimizerAccount.md) |  | [optional] 
 **Optimization** | [**Optimization**](Optimization.md) |  | [optional] 
-**Outputtypes** | [**OutputTypes**](OutputTypes.md) |  | 
+**OutputTypes** | [**OptimizerOutputTypes**](OptimizerOutputTypes.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

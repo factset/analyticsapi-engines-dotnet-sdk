@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.FIJobSettings
+
 ## Properties
 
 Name | Type | Description | Notes

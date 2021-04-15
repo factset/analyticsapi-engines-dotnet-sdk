@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// PAComponent
     /// </summary>
-    [DataContract]
-    public partial class PAComponent :  IEquatable<PAComponent>, IValidatableObject
+    [DataContract(Name = "PAComponent")]
+    public partial class PAComponent : IEquatable<PAComponent>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PAComponent" /> class.
@@ -53,59 +54,59 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Name = name;
             this.Category = category;
         }
-        
+
         /// <summary>
         /// Component identifier.
         /// </summary>
         /// <value>Component identifier.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// List of accounts saved in the PA document.
         /// </summary>
         /// <value>List of accounts saved in the PA document.</value>
-        [DataMember(Name="accounts", EmitDefaultValue=false)]
+        [DataMember(Name = "accounts", EmitDefaultValue = false)]
         public List<PAIdentifier> Accounts { get; set; }
 
         /// <summary>
         /// List of benchmarks saved in the PA document.
         /// </summary>
         /// <value>List of benchmarks saved in the PA document.</value>
-        [DataMember(Name="benchmarks", EmitDefaultValue=false)]
+        [DataMember(Name = "benchmarks", EmitDefaultValue = false)]
         public List<PAIdentifier> Benchmarks { get; set; }
 
         /// <summary>
         /// Gets or Sets Currencyisocode
         /// </summary>
-        [DataMember(Name="currencyisocode", EmitDefaultValue=false)]
+        [DataMember(Name = "currencyisocode", EmitDefaultValue = false)]
         public string Currencyisocode { get; set; }
 
         /// <summary>
         /// Gets or Sets Dates
         /// </summary>
-        [DataMember(Name="dates", EmitDefaultValue=false)]
+        [DataMember(Name = "dates", EmitDefaultValue = false)]
         public PADateParameters Dates { get; set; }
 
         /// <summary>
         /// Is the component type snapshot or subperiod.
         /// </summary>
         /// <value>Is the component type snapshot or subperiod.</value>
-        [DataMember(Name="snapshot", EmitDefaultValue=false)]
+        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
         public bool Snapshot { get; set; }
 
         /// <summary>
         /// Component name.
         /// </summary>
         /// <value>Component name.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Component category.
         /// </summary>
         /// <value>Component category.</value>
-        [DataMember(Name="category", EmitDefaultValue=false)]
+        [DataMember(Name = "category", EmitDefaultValue = false)]
         public string Category { get; set; }
 
         /// <summary>
@@ -127,14 +128,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

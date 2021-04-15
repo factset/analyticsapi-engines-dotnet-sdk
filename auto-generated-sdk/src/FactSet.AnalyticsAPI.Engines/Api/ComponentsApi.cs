@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
         /// <returns>PAComponentRoot</returns>
-        PAComponentRoot GetPAComponentById (string id);
+        PAComponentRoot GetPAComponentById(string id);
 
         /// <summary>
         /// Get PA component by id
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
         /// <returns>ApiResponse of PAComponentRoot</returns>
-        ApiResponse<PAComponentRoot> GetPAComponentByIdWithHttpInfo (string id);
+        ApiResponse<PAComponentRoot> GetPAComponentByIdWithHttpInfo(string id);
         /// <summary>
         /// Get PA components
         /// </summary>
@@ -57,7 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ComponentSummaryRoot</returns>
-        ComponentSummaryRoot GetPAComponents (string document);
+        ComponentSummaryRoot GetPAComponents(string document);
 
         /// <summary>
         /// Get PA components
@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo (string document);
+        ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo(string document);
         /// <summary>
         /// Get SPAR components
         /// </summary>
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ComponentSummaryRoot</returns>
-        ComponentSummaryRoot GetSPARComponents (string document);
+        ComponentSummaryRoot GetSPARComponents(string document);
 
         /// <summary>
         /// Get SPAR components
@@ -89,7 +89,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        ApiResponse<ComponentSummaryRoot> GetSPARComponentsWithHttpInfo (string document);
+        ApiResponse<ComponentSummaryRoot> GetSPARComponentsWithHttpInfo(string document);
         /// <summary>
         /// Get Vault component by id
         /// </summary>
@@ -99,7 +99,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
         /// <returns>VaultComponentRoot</returns>
-        VaultComponentRoot GetVaultComponentById (string id);
+        VaultComponentRoot GetVaultComponentById(string id);
 
         /// <summary>
         /// Get Vault component by id
@@ -110,7 +110,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
         /// <returns>ApiResponse of VaultComponentRoot</returns>
-        ApiResponse<VaultComponentRoot> GetVaultComponentByIdWithHttpInfo (string id);
+        ApiResponse<VaultComponentRoot> GetVaultComponentByIdWithHttpInfo(string id);
         /// <summary>
         /// Get Vault components
         /// </summary>
@@ -120,7 +120,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ComponentSummaryRoot</returns>
-        ComponentSummaryRoot GetVaultComponents (string document);
+        ComponentSummaryRoot GetVaultComponents(string document);
 
         /// <summary>
         /// Get Vault components
@@ -131,7 +131,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        ApiResponse<ComponentSummaryRoot> GetVaultComponentsWithHttpInfo (string document);
+        ApiResponse<ComponentSummaryRoot> GetVaultComponentsWithHttpInfo(string document);
         #endregion Synchronous Operations
     }
 
@@ -149,8 +149,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PAComponentRoot</returns>
-        System.Threading.Tasks.Task<PAComponentRoot> GetPAComponentByIdAsync (string id);
+        System.Threading.Tasks.Task<PAComponentRoot> GetPAComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA component by id
@@ -160,8 +161,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PAComponentRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PAComponentRoot>> GetPAComponentByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<PAComponentRoot>> GetPAComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get PA components
         /// </summary>
@@ -170,8 +172,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync (string document);
+        System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA components
@@ -181,8 +184,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComponentSummaryRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetPAComponentsAsyncWithHttpInfo (string document);
+        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR components
         /// </summary>
@@ -191,8 +195,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<ComponentSummaryRoot> GetSPARComponentsAsync (string document);
+        System.Threading.Tasks.Task<ComponentSummaryRoot> GetSPARComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get SPAR components
@@ -202,8 +207,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComponentSummaryRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetSPARComponentsAsyncWithHttpInfo (string document);
+        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetSPARComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault component by id
         /// </summary>
@@ -212,8 +218,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VaultComponentRoot</returns>
-        System.Threading.Tasks.Task<VaultComponentRoot> GetVaultComponentByIdAsync (string id);
+        System.Threading.Tasks.Task<VaultComponentRoot> GetVaultComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Vault component by id
@@ -223,8 +230,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VaultComponentRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VaultComponentRoot>> GetVaultComponentByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<VaultComponentRoot>> GetVaultComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault components
         /// </summary>
@@ -233,8 +241,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<ComponentSummaryRoot> GetVaultComponentsAsync (string document);
+        System.Threading.Tasks.Task<ComponentSummaryRoot> GetVaultComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Vault components
@@ -244,8 +253,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComponentSummaryRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetVaultComponentsAsyncWithHttpInfo (string document);
+        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetVaultComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -268,7 +278,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="ComponentsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ComponentsApi() : this((string) null)
+        public ComponentsApi() : this((string)null)
         {
         }
 
@@ -313,11 +323,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ComponentsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public ComponentsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -348,7 +358,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -372,10 +382,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
         /// <returns>PAComponentRoot</returns>
-        public PAComponentRoot GetPAComponentById (string id)
+        public PAComponentRoot GetPAComponentById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot> localVarResponse = GetPAComponentByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot> localVarResponse = GetPAComponentByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -384,7 +394,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
         /// <returns>ApiResponse of PAComponentRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< PAComponentRoot > GetPAComponentByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot> GetPAComponentByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -416,7 +426,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< PAComponentRoot >("/analytics/engines/pa/v3/components/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PAComponentRoot>("/analytics/engines/pa/v3/components/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -432,12 +442,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PAComponentRoot</returns>
-        public async System.Threading.Tasks.Task<PAComponentRoot> GetPAComponentByIdAsync (string id)
+        public async System.Threading.Tasks.Task<PAComponentRoot> GetPAComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot> localVarResponse = await GetPAComponentByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot> localVarResponse = await GetPAComponentByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -445,8 +455,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a PA component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PAComponentRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot>> GetPAComponentByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PAComponentRoot>> GetPAComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -462,13 +473,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -480,7 +492,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PAComponentRoot>("/analytics/engines/pa/v3/components/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PAComponentRoot>("/analytics/engines/pa/v3/components/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -497,10 +509,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ComponentSummaryRoot</returns>
-        public ComponentSummaryRoot GetPAComponents (string document)
+        public ComponentSummaryRoot GetPAComponents(string document)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetPAComponentsWithHttpInfo(document);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetPAComponentsWithHttpInfo(document);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -509,7 +521,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< ComponentSummaryRoot > GetPAComponentsWithHttpInfo (string document)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo(string document)
         {
             // verify the required parameter 'document' is set
             if (document == null)
@@ -541,7 +553,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< ComponentSummaryRoot >("/analytics/engines/pa/v3/components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ComponentSummaryRoot>("/analytics/engines/pa/v3/components", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -557,12 +569,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync (string document)
+        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetPAComponentsAsyncWithHttpInfo(document);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetPAComponentsWithHttpInfoAsync(document, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -570,8 +582,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComponentSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetPAComponentsAsyncWithHttpInfo (string document)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'document' is set
             if (document == null)
@@ -587,13 +600,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
 
             // authentication (Basic) required
@@ -605,7 +619,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ComponentSummaryRoot>("/analytics/engines/pa/v3/components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComponentSummaryRoot>("/analytics/engines/pa/v3/components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -622,10 +636,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ComponentSummaryRoot</returns>
-        public ComponentSummaryRoot GetSPARComponents (string document)
+        public ComponentSummaryRoot GetSPARComponents(string document)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetSPARComponentsWithHttpInfo(document);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetSPARComponentsWithHttpInfo(document);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -634,7 +648,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< ComponentSummaryRoot > GetSPARComponentsWithHttpInfo (string document)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> GetSPARComponentsWithHttpInfo(string document)
         {
             // verify the required parameter 'document' is set
             if (document == null)
@@ -666,7 +680,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< ComponentSummaryRoot >("/analytics/engines/spar/v3/components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ComponentSummaryRoot>("/analytics/engines/spar/v3/components", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -682,12 +696,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetSPARComponentsAsync (string document)
+        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetSPARComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetSPARComponentsAsyncWithHttpInfo(document);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetSPARComponentsWithHttpInfoAsync(document, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -695,8 +709,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComponentSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetSPARComponentsAsyncWithHttpInfo (string document)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetSPARComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'document' is set
             if (document == null)
@@ -712,13 +727,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
 
             // authentication (Basic) required
@@ -730,7 +746,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ComponentSummaryRoot>("/analytics/engines/spar/v3/components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComponentSummaryRoot>("/analytics/engines/spar/v3/components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -747,10 +763,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
         /// <returns>VaultComponentRoot</returns>
-        public VaultComponentRoot GetVaultComponentById (string id)
+        public VaultComponentRoot GetVaultComponentById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot> localVarResponse = GetVaultComponentByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot> localVarResponse = GetVaultComponentByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -759,7 +775,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
         /// <returns>ApiResponse of VaultComponentRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< VaultComponentRoot > GetVaultComponentByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot> GetVaultComponentByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -791,7 +807,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< VaultComponentRoot >("/analytics/engines/vault/v3/components/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<VaultComponentRoot>("/analytics/engines/vault/v3/components/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -807,12 +823,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VaultComponentRoot</returns>
-        public async System.Threading.Tasks.Task<VaultComponentRoot> GetVaultComponentByIdAsync (string id)
+        public async System.Threading.Tasks.Task<VaultComponentRoot> GetVaultComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot> localVarResponse = await GetVaultComponentByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot> localVarResponse = await GetVaultComponentByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -820,8 +836,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a vault component</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (VaultComponentRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot>> GetVaultComponentByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultComponentRoot>> GetVaultComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -837,13 +854,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -855,7 +873,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VaultComponentRoot>("/analytics/engines/vault/v3/components/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<VaultComponentRoot>("/analytics/engines/vault/v3/components/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -872,10 +890,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ComponentSummaryRoot</returns>
-        public ComponentSummaryRoot GetVaultComponents (string document)
+        public ComponentSummaryRoot GetVaultComponents(string document)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetVaultComponentsWithHttpInfo(document);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetVaultComponentsWithHttpInfo(document);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -884,7 +902,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< ComponentSummaryRoot > GetVaultComponentsWithHttpInfo (string document)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> GetVaultComponentsWithHttpInfo(string document)
         {
             // verify the required parameter 'document' is set
             if (document == null)
@@ -916,7 +934,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< ComponentSummaryRoot >("/analytics/engines/vault/v3/components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ComponentSummaryRoot>("/analytics/engines/vault/v3/components", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -932,12 +950,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetVaultComponentsAsync (string document)
+        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetVaultComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetVaultComponentsAsyncWithHttpInfo(document);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetVaultComponentsWithHttpInfoAsync(document, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -945,8 +963,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ComponentSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetVaultComponentsAsyncWithHttpInfo (string document)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetVaultComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'document' is set
             if (document == null)
@@ -962,13 +981,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
 
             // authentication (Basic) required
@@ -980,7 +1000,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ComponentSummaryRoot>("/analytics/engines/vault/v3/components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ComponentSummaryRoot>("/analytics/engines/vault/v3/components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

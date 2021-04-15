@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// ErrorSource
     /// </summary>
-    [DataContract]
-    public partial class ErrorSource :  IEquatable<ErrorSource>, IValidatableObject
+    [DataContract(Name = "ErrorSource")]
+    public partial class ErrorSource : IEquatable<ErrorSource>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorSource" /> class.
@@ -41,17 +42,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Pointer = pointer;
             this.Parameter = _parameter;
         }
-        
+
         /// <summary>
         /// Gets or Sets Pointer
         /// </summary>
-        [DataMember(Name="pointer", EmitDefaultValue=false)]
+        [DataMember(Name = "pointer", EmitDefaultValue = false)]
         public string Pointer { get; set; }
 
         /// <summary>
         /// Gets or Sets Parameter
         /// </summary>
-        [DataMember(Name="parameter", EmitDefaultValue=false)]
+        [DataMember(Name = "parameter", EmitDefaultValue = false)]
         public string Parameter { get; set; }
 
         /// <summary>
@@ -67,14 +68,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

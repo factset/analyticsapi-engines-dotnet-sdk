@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.Optimization
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimizerStrategyOverrides
     /// </summary>
-    [DataContract]
-    public partial class OptimizerStrategyOverrides :  IEquatable<OptimizerStrategyOverrides>, IValidatableObject
+    [DataContract(Name = "OptimizerStrategyOverrides")]
+    public partial class OptimizerStrategyOverrides : IEquatable<OptimizerStrategyOverrides>, IValidatableObject
     {
         /// <summary>
         /// Defines Inner
@@ -56,7 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// List of constraints
         /// </summary>
         /// <value>List of constraints</value>
-        [DataMember(Name="constraints", EmitDefaultValue=false)]
+        [DataMember(Name = "constraints", EmitDefaultValue = false)]
         public Dictionary<string, InnerEnum> Constraints { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizerStrategyOverrides" /> class.
@@ -74,33 +75,33 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Alpha = alpha;
             this.TransactionCost = transactionCost;
         }
-        
+
         /// <summary>
         /// Tax
         /// </summary>
         /// <value>Tax</value>
-        [DataMember(Name="tax", EmitDefaultValue=false)]
+        [DataMember(Name = "tax", EmitDefaultValue = false)]
         public string Tax { get; set; }
 
         /// <summary>
         /// Objective
         /// </summary>
         /// <value>Objective</value>
-        [DataMember(Name="objective", EmitDefaultValue=false)]
+        [DataMember(Name = "objective", EmitDefaultValue = false)]
         public string Objective { get; set; }
 
         /// <summary>
         /// Alpha
         /// </summary>
         /// <value>Alpha</value>
-        [DataMember(Name="alpha", EmitDefaultValue=false)]
+        [DataMember(Name = "alpha", EmitDefaultValue = false)]
         public string Alpha { get; set; }
 
         /// <summary>
         /// Transaction cost
         /// </summary>
         /// <value>Transaction cost</value>
-        [DataMember(Name="transactionCost", EmitDefaultValue=false)]
+        [DataMember(Name = "transactionCost", EmitDefaultValue = false)]
         public string TransactionCost { get; set; }
 
         /// <summary>
@@ -119,14 +120,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

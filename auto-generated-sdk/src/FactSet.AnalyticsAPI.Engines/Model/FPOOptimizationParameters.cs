@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FPOOptimizationParameters
     /// </summary>
-    [DataContract]
-    public partial class FPOOptimizationParameters :  IEquatable<FPOOptimizationParameters>, IValidatableObject
+    [DataContract(Name = "FPOOptimizationParameters")]
+    public partial class FPOOptimizationParameters : IEquatable<FPOOptimizationParameters>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FPOOptimizationParameters" /> class.
@@ -52,29 +53,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Account = account;
             this.Optimization = optimization;
         }
-        
+
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name = "account", EmitDefaultValue = false)]
         public FPOAccount Account { get; set; }
 
         /// <summary>
         /// Gets or Sets Strategy
         /// </summary>
-        [DataMember(Name="strategy", EmitDefaultValue=false)]
+        [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = false)]
         public OptimizerStrategy Strategy { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimization
         /// </summary>
-        [DataMember(Name="optimization", EmitDefaultValue=false)]
+        [DataMember(Name = "optimization", EmitDefaultValue = false)]
         public Optimization Optimization { get; set; }
 
         /// <summary>
         /// Gets or Sets OutputTypes
         /// </summary>
-        [DataMember(Name="outputTypes", EmitDefaultValue=false)]
+        [DataMember(Name = "outputTypes", IsRequired = true, EmitDefaultValue = false)]
         public OptimizerOutputTypes OutputTypes { get; set; }
 
         /// <summary>
@@ -92,14 +93,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

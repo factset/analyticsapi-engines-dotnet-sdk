@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.AxiomaEquityOptimizationParameters
+
 ## Properties
 
 Name | Type | Description | Notes

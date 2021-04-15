@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimizerStrategy
     /// </summary>
-    [DataContract]
-    public partial class OptimizerStrategy :  IEquatable<OptimizerStrategy>, IValidatableObject
+    [DataContract(Name = "OptimizerStrategy")]
+    public partial class OptimizerStrategy : IEquatable<OptimizerStrategy>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
@@ -47,18 +48,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Id = id ?? throw new ArgumentNullException("id is a required property for OptimizerStrategy and cannot be null");
             this.Overrides = overrides;
         }
-        
+
         /// <summary>
         /// OptimizerStrategy document path
         /// </summary>
         /// <value>OptimizerStrategy document path</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Overrides
         /// </summary>
-        [DataMember(Name="overrides", EmitDefaultValue=false)]
+        [DataMember(Name = "overrides", EmitDefaultValue = false)]
         public OptimizerStrategyOverrides Overrides { get; set; }
 
         /// <summary>
@@ -74,14 +75,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

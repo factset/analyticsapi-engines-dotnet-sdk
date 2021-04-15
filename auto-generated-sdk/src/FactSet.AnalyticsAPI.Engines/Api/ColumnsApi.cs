@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
         /// <returns>ColumnRoot</returns>
-        ColumnRoot GetPAColumnById (string id);
+        ColumnRoot GetPAColumnById(string id);
 
         /// <summary>
         /// Get PA column settings
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
         /// <returns>ApiResponse of ColumnRoot</returns>
-        ApiResponse<ColumnRoot> GetPAColumnByIdWithHttpInfo (string id);
+        ApiResponse<ColumnRoot> GetPAColumnByIdWithHttpInfo(string id);
         /// <summary>
         /// Get PA columns
         /// </summary>
@@ -59,7 +59,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>ColumnSummaryRoot</returns>
-        ColumnSummaryRoot GetPAColumns (string name = default(string), string category = default(string), string directory = default(string));
+        ColumnSummaryRoot GetPAColumns(string name = default(string), string category = default(string), string directory = default(string));
 
         /// <summary>
         /// Get PA columns
@@ -72,7 +72,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of ColumnSummaryRoot</returns>
-        ApiResponse<ColumnSummaryRoot> GetPAColumnsWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string));
+        ApiResponse<ColumnSummaryRoot> GetPAColumnsWithHttpInfo(string name = default(string), string category = default(string), string directory = default(string));
         #endregion Synchronous Operations
     }
 
@@ -90,8 +90,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ColumnRoot</returns>
-        System.Threading.Tasks.Task<ColumnRoot> GetPAColumnByIdAsync (string id);
+        System.Threading.Tasks.Task<ColumnRoot> GetPAColumnByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA column settings
@@ -101,8 +102,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ColumnRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ColumnRoot>> GetPAColumnByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ColumnRoot>> GetPAColumnByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get PA columns
         /// </summary>
@@ -113,8 +115,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ColumnSummaryRoot</returns>
-        System.Threading.Tasks.Task<ColumnSummaryRoot> GetPAColumnsAsync (string name = default(string), string category = default(string), string directory = default(string));
+        System.Threading.Tasks.Task<ColumnSummaryRoot> GetPAColumnsAsync(string name = default(string), string category = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA columns
@@ -126,8 +129,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ColumnSummaryRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ColumnSummaryRoot>> GetPAColumnsAsyncWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string));
+        System.Threading.Tasks.Task<ApiResponse<ColumnSummaryRoot>> GetPAColumnsWithHttpInfoAsync(string name = default(string), string category = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -150,7 +154,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="ColumnsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public ColumnsApi() : this((string) null)
+        public ColumnsApi() : this((string)null)
         {
         }
 
@@ -195,11 +199,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public ColumnsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public ColumnsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -230,7 +234,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -254,10 +258,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
         /// <returns>ColumnRoot</returns>
-        public ColumnRoot GetPAColumnById (string id)
+        public ColumnRoot GetPAColumnById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot> localVarResponse = GetPAColumnByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot> localVarResponse = GetPAColumnByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -266,7 +270,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
         /// <returns>ApiResponse of ColumnRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< ColumnRoot > GetPAColumnByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot> GetPAColumnByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -298,7 +302,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< ColumnRoot >("/analytics/engines/pa/v3/columns/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ColumnRoot>("/analytics/engines/pa/v3/columns/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -314,12 +318,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ColumnRoot</returns>
-        public async System.Threading.Tasks.Task<ColumnRoot> GetPAColumnByIdAsync (string id)
+        public async System.Threading.Tasks.Task<ColumnRoot> GetPAColumnByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot> localVarResponse = await GetPAColumnByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot> localVarResponse = await GetPAColumnByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -327,8 +331,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a column</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ColumnRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot>> GetPAColumnByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnRoot>> GetPAColumnByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -344,13 +349,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -362,7 +368,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ColumnRoot>("/analytics/engines/pa/v3/columns/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ColumnRoot>("/analytics/engines/pa/v3/columns/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -381,10 +387,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>ColumnSummaryRoot</returns>
-        public ColumnSummaryRoot GetPAColumns (string name = default(string), string category = default(string), string directory = default(string))
+        public ColumnSummaryRoot GetPAColumns(string name = default(string), string category = default(string), string directory = default(string))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot> localVarResponse = GetPAColumnsWithHttpInfo(name, category, directory);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot> localVarResponse = GetPAColumnsWithHttpInfo(name, category, directory);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -395,7 +401,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of ColumnSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< ColumnSummaryRoot > GetPAColumnsWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot> GetPAColumnsWithHttpInfo(string name = default(string), string category = default(string), string directory = default(string))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -434,7 +440,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< ColumnSummaryRoot >("/analytics/engines/pa/v3/columns", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ColumnSummaryRoot>("/analytics/engines/pa/v3/columns", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -452,12 +458,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ColumnSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<ColumnSummaryRoot> GetPAColumnsAsync (string name = default(string), string category = default(string), string directory = default(string))
+        public async System.Threading.Tasks.Task<ColumnSummaryRoot> GetPAColumnsAsync(string name = default(string), string category = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot> localVarResponse = await GetPAColumnsAsyncWithHttpInfo(name, category, directory);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot> localVarResponse = await GetPAColumnsWithHttpInfoAsync(name, category, directory, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -467,8 +473,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="name">Column name (optional, default to &quot;&quot;)</param>
         /// <param name="category">Column category (optional, default to &quot;&quot;)</param>
         /// <param name="directory">The directory to get the columns in (optional, default to &quot;&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ColumnSummaryRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot>> GetPAColumnsAsyncWithHttpInfo (string name = default(string), string category = default(string), string directory = default(string))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ColumnSummaryRoot>> GetPAColumnsWithHttpInfoAsync(string name = default(string), string category = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -480,13 +487,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             if (name != null)
             {
                 localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "name", name));
@@ -509,7 +517,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ColumnSummaryRoot>("/analytics/engines/pa/v3/columns", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ColumnSummaryRoot>("/analytics/engines/pa/v3/columns", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

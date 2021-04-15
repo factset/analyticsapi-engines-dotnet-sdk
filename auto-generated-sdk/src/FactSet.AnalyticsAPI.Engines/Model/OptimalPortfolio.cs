@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimalPortfolio
     /// </summary>
-    [DataContract]
-    public partial class OptimalPortfolio :  IEquatable<OptimalPortfolio>, IValidatableObject
+    [DataContract(Name = "OptimalPortfolio")]
+    public partial class OptimalPortfolio : IEquatable<OptimalPortfolio>, IValidatableObject
     {
         /// <summary>
         /// Archive action if account exists
@@ -62,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Archive action if account exists
         /// </summary>
         /// <value>Archive action if account exists</value>
-        [DataMember(Name="ifAcctExists", EmitDefaultValue=false)]
+        [DataMember(Name = "ifAcctExists", EmitDefaultValue = false)]
         public IfAcctExistsEnum? IfAcctExists { get; set; }
         /// <summary>
         /// Action if ofdb date exists
@@ -95,7 +96,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Action if ofdb date exists
         /// </summary>
         /// <value>Action if ofdb date exists</value>
-        [DataMember(Name="ifOfdbDateExists", EmitDefaultValue=false)]
+        [DataMember(Name = "ifOfdbDateExists", EmitDefaultValue = false)]
         public IfOfdbDateExistsEnum? IfOfdbDateExists { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimalPortfolio" /> class.
@@ -113,26 +114,26 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.IfAcctExists = ifAcctExists;
             this.IfOfdbDateExists = ifOfdbDateExists;
         }
-        
+
         /// <summary>
         /// Account path
         /// </summary>
         /// <value>Account path</value>
-        [DataMember(Name="acctName", EmitDefaultValue=false)]
+        [DataMember(Name = "acctName", EmitDefaultValue = false)]
         public string AcctName { get; set; }
 
         /// <summary>
         /// Exclude zero
         /// </summary>
         /// <value>Exclude zero</value>
-        [DataMember(Name="excludeZero", EmitDefaultValue=false)]
+        [DataMember(Name = "excludeZero", EmitDefaultValue = false)]
         public bool ExcludeZero { get; set; }
 
         /// <summary>
         /// Archive date
         /// </summary>
         /// <value>Archive date</value>
-        [DataMember(Name="archiveDate", EmitDefaultValue=false)]
+        [DataMember(Name = "archiveDate", EmitDefaultValue = false)]
         public string ArchiveDate { get; set; }
 
         /// <summary>
@@ -151,14 +152,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

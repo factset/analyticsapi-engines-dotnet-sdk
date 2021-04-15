@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FIABCalculationStatus
     /// </summary>
-    [DataContract]
-    public partial class FIABCalculationStatus :  IEquatable<FIABCalculationStatus>, IValidatableObject
+    [DataContract(Name = "FIABCalculationStatus")]
+    public partial class FIABCalculationStatus : IEquatable<FIABCalculationStatus>, IValidatableObject
     {
         /// <summary>
         /// FIAB service batch status integer definitions.  See https://pages.github.factset.com/FactSet/fipa-inf-docs/service/fiab_batch_api.html#lt-uuid-gt.
@@ -80,7 +81,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// FIAB service batch status integer definitions.  See https://pages.github.factset.com/FactSet/fipa-inf-docs/service/fiab_batch_api.html#lt-uuid-gt.
         /// </summary>
         /// <value>FIAB service batch status integer definitions.  See https://pages.github.factset.com/FactSet/fipa-inf-docs/service/fiab_batch_api.html#lt-uuid-gt.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FIABCalculationStatus" /> class.
@@ -100,35 +101,35 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Progress = progress;
             this.Batchevents = batchevents;
         }
-        
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Startdatetime
         /// </summary>
-        [DataMember(Name="startdatetime", EmitDefaultValue=false)]
+        [DataMember(Name = "startdatetime", EmitDefaultValue = false)]
         public DateTime Startdatetime { get; set; }
 
         /// <summary>
         /// Gets or Sets Completiondatetime
         /// </summary>
-        [DataMember(Name="completiondatetime", EmitDefaultValue=false)]
+        [DataMember(Name = "completiondatetime", EmitDefaultValue = false)]
         public DateTime Completiondatetime { get; set; }
 
         /// <summary>
         /// Gets or Sets Progress
         /// </summary>
-        [DataMember(Name="progress", EmitDefaultValue=false)]
+        [DataMember(Name = "progress", EmitDefaultValue = false)]
         public int Progress { get; set; }
 
         /// <summary>
         /// Gets or Sets Batchevents
         /// </summary>
-        [DataMember(Name="batchevents", EmitDefaultValue=false)]
+        [DataMember(Name = "batchevents", EmitDefaultValue = false)]
         public List<EventSummary> Batchevents { get; set; }
 
         /// <summary>
@@ -148,14 +149,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

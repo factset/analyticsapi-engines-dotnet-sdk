@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.FISecurity
+
 ## Properties
 
 Name | Type | Description | Notes

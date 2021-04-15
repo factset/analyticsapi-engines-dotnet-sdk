@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.FrequencyRoot
+
 ## Properties
 
 Name | Type | Description | Notes

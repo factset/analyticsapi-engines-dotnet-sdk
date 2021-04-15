@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// The date parameters for Vault calculation
     /// </summary>
-    [DataContract]
-    public partial class VaultDateParameters :  IEquatable<VaultDateParameters>, IValidatableObject
+    [DataContract(Name = "VaultDateParameters")]
+    public partial class VaultDateParameters : IEquatable<VaultDateParameters>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="VaultDateParameters" /> class.
@@ -50,26 +51,26 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for VaultDateParameters and cannot be null");
             this.Startdate = startdate;
         }
-        
+
         /// <summary>
         /// Calculation&#39;s start date.
         /// </summary>
         /// <value>Calculation&#39;s start date.</value>
-        [DataMember(Name="startdate", EmitDefaultValue=false)]
+        [DataMember(Name = "startdate", EmitDefaultValue = false)]
         public string Startdate { get; set; }
 
         /// <summary>
         /// Calculation&#39;s end date.
         /// </summary>
         /// <value>Calculation&#39;s end date.</value>
-        [DataMember(Name="enddate", EmitDefaultValue=false)]
+        [DataMember(Name = "enddate", IsRequired = true, EmitDefaultValue = false)]
         public string Enddate { get; set; }
 
         /// <summary>
         /// Calculation&#39;s frequency.
         /// </summary>
         /// <value>Calculation&#39;s frequency.</value>
-        [DataMember(Name="frequency", EmitDefaultValue=false)]
+        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = false)]
         public string Frequency { get; set; }
 
         /// <summary>
@@ -86,14 +87,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

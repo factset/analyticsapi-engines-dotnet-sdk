@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -35,7 +35,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FrequencyRoot</returns>
-        FrequencyRoot GetPAFrequencies ();
+        FrequencyRoot GetPAFrequencies();
 
         /// <summary>
         /// Get PA frequencies
@@ -45,7 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FrequencyRoot</returns>
-        ApiResponse<FrequencyRoot> GetPAFrequenciesWithHttpInfo ();
+        ApiResponse<FrequencyRoot> GetPAFrequenciesWithHttpInfo();
         /// <summary>
         /// Get SPAR frequencies
         /// </summary>
@@ -54,7 +54,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FrequencyRoot</returns>
-        FrequencyRoot GetSPARFrequencies ();
+        FrequencyRoot GetSPARFrequencies();
 
         /// <summary>
         /// Get SPAR frequencies
@@ -64,7 +64,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FrequencyRoot</returns>
-        ApiResponse<FrequencyRoot> GetSPARFrequenciesWithHttpInfo ();
+        ApiResponse<FrequencyRoot> GetSPARFrequenciesWithHttpInfo();
         /// <summary>
         /// Get Vault frequencies
         /// </summary>
@@ -73,7 +73,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FrequencyRoot</returns>
-        FrequencyRoot GetVaultFrequencies ();
+        FrequencyRoot GetVaultFrequencies();
 
         /// <summary>
         /// Get Vault frequencies
@@ -83,7 +83,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FrequencyRoot</returns>
-        ApiResponse<FrequencyRoot> GetVaultFrequenciesWithHttpInfo ();
+        ApiResponse<FrequencyRoot> GetVaultFrequenciesWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -100,8 +100,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the frequencies that can be applied to a PA calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FrequencyRoot</returns>
-        System.Threading.Tasks.Task<FrequencyRoot> GetPAFrequenciesAsync ();
+        System.Threading.Tasks.Task<FrequencyRoot> GetPAFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA frequencies
@@ -110,8 +111,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the frequencies that can be applied to a PA calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetPAFrequenciesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetPAFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR frequencies
         /// </summary>
@@ -119,8 +121,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FrequencyRoot</returns>
-        System.Threading.Tasks.Task<FrequencyRoot> GetSPARFrequenciesAsync ();
+        System.Threading.Tasks.Task<FrequencyRoot> GetSPARFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get SPAR frequencies
@@ -129,8 +132,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetSPARFrequenciesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault frequencies
         /// </summary>
@@ -138,8 +142,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the frequencies that can be applied to a Vault calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FrequencyRoot</returns>
-        System.Threading.Tasks.Task<FrequencyRoot> GetVaultFrequenciesAsync ();
+        System.Threading.Tasks.Task<FrequencyRoot> GetVaultFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Vault frequencies
@@ -148,8 +153,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the frequencies that can be applied to a Vault calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetVaultFrequenciesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetVaultFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -172,7 +178,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="FrequenciesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FrequenciesApi() : this((string) null)
+        public FrequenciesApi() : this((string)null)
         {
         }
 
@@ -217,11 +223,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FrequenciesApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public FrequenciesApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -252,7 +258,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -275,10 +281,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FrequencyRoot</returns>
-        public FrequencyRoot GetPAFrequencies ()
+        public FrequencyRoot GetPAFrequencies()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = GetPAFrequenciesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = GetPAFrequenciesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -286,7 +292,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FrequencyRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< FrequencyRoot > GetPAFrequenciesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> GetPAFrequenciesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -313,7 +319,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< FrequencyRoot >("/analytics/engines/pa/v3/frequencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FrequencyRoot>("/analytics/engines/pa/v3/frequencies", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -328,20 +334,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA frequencies This endpoint lists all the frequencies that can be applied to a PA calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FrequencyRoot</returns>
-        public async System.Threading.Tasks.Task<FrequencyRoot> GetPAFrequenciesAsync ()
+        public async System.Threading.Tasks.Task<FrequencyRoot> GetPAFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = await GetPAFrequenciesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = await GetPAFrequenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get PA frequencies This endpoint lists all the frequencies that can be applied to a PA calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetPAFrequenciesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetPAFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -353,13 +360,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -370,7 +378,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FrequencyRoot>("/analytics/engines/pa/v3/frequencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FrequencyRoot>("/analytics/engines/pa/v3/frequencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -386,10 +394,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FrequencyRoot</returns>
-        public FrequencyRoot GetSPARFrequencies ()
+        public FrequencyRoot GetSPARFrequencies()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = GetSPARFrequenciesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = GetSPARFrequenciesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -397,7 +405,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FrequencyRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< FrequencyRoot > GetSPARFrequenciesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> GetSPARFrequenciesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -424,7 +432,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< FrequencyRoot >("/analytics/engines/spar/v3/frequencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FrequencyRoot>("/analytics/engines/spar/v3/frequencies", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -439,20 +447,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get SPAR frequencies This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FrequencyRoot</returns>
-        public async System.Threading.Tasks.Task<FrequencyRoot> GetSPARFrequenciesAsync ()
+        public async System.Threading.Tasks.Task<FrequencyRoot> GetSPARFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = await GetSPARFrequenciesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = await GetSPARFrequenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get SPAR frequencies This endpoint lists all the frequencies that can be applied to a SPAR calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetSPARFrequenciesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -464,13 +473,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -481,7 +491,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FrequencyRoot>("/analytics/engines/spar/v3/frequencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FrequencyRoot>("/analytics/engines/spar/v3/frequencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -497,10 +507,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FrequencyRoot</returns>
-        public FrequencyRoot GetVaultFrequencies ()
+        public FrequencyRoot GetVaultFrequencies()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = GetVaultFrequenciesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = GetVaultFrequenciesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -508,7 +518,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FrequencyRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< FrequencyRoot > GetVaultFrequenciesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> GetVaultFrequenciesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -535,7 +545,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< FrequencyRoot >("/analytics/engines/vault/v3/frequencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FrequencyRoot>("/analytics/engines/vault/v3/frequencies", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -550,20 +560,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get Vault frequencies This endpoint lists all the frequencies that can be applied to a Vault calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FrequencyRoot</returns>
-        public async System.Threading.Tasks.Task<FrequencyRoot> GetVaultFrequenciesAsync ()
+        public async System.Threading.Tasks.Task<FrequencyRoot> GetVaultFrequenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = await GetVaultFrequenciesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot> localVarResponse = await GetVaultFrequenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get Vault frequencies This endpoint lists all the frequencies that can be applied to a Vault calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetVaultFrequenciesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetVaultFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -575,13 +586,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -592,7 +604,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FrequencyRoot>("/analytics/engines/vault/v3/frequencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FrequencyRoot>("/analytics/engines/vault/v3/frequencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

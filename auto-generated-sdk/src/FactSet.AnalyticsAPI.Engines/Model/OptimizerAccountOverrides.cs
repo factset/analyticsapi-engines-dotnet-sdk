@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimizerAccountOverrides
     /// </summary>
-    [DataContract]
-    public partial class OptimizerAccountOverrides :  IEquatable<OptimizerAccountOverrides>, IValidatableObject
+    [DataContract(Name = "OptimizerAccountOverrides")]
+    public partial class OptimizerAccountOverrides : IEquatable<OptimizerAccountOverrides>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizerAccountOverrides" /> class.
@@ -45,33 +46,33 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.RiskModelId = riskModelId;
             this.Currency = currency;
         }
-        
+
         /// <summary>
         /// Portfolio
         /// </summary>
         /// <value>Portfolio</value>
-        [DataMember(Name="portfolio", EmitDefaultValue=false)]
+        [DataMember(Name = "portfolio", EmitDefaultValue = false)]
         public string Portfolio { get; set; }
 
         /// <summary>
         /// Benchmark
         /// </summary>
         /// <value>Benchmark</value>
-        [DataMember(Name="benchmark", EmitDefaultValue=false)]
+        [DataMember(Name = "benchmark", EmitDefaultValue = false)]
         public string Benchmark { get; set; }
 
         /// <summary>
         /// Risk model
         /// </summary>
         /// <value>Risk model</value>
-        [DataMember(Name="riskModelId", EmitDefaultValue=false)]
+        [DataMember(Name = "riskModelId", EmitDefaultValue = false)]
         public string RiskModelId { get; set; }
 
         /// <summary>
         /// Currency
         /// </summary>
         /// <value>Currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -89,14 +90,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

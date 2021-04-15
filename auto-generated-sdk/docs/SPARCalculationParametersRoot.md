@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.SPARCalculationParametersRoot
+
 ## Properties
 
 Name | Type | Description | Notes

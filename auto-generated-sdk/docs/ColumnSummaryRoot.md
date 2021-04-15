@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.ColumnSummaryRoot
+
 ## Properties
 
 Name | Type | Description | Notes

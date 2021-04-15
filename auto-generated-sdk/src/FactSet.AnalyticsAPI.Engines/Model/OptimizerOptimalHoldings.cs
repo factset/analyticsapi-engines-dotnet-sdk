@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimizerOptimalHoldings
     /// </summary>
-    [DataContract]
-    public partial class OptimizerOptimalHoldings :  IEquatable<OptimizerOptimalHoldings>, IValidatableObject
+    [DataContract(Name = "OptimizerOptimalHoldings")]
+    public partial class OptimizerOptimalHoldings : IEquatable<OptimizerOptimalHoldings>, IValidatableObject
     {
         /// <summary>
         /// Identifier type
@@ -104,7 +105,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Identifier type
         /// </summary>
         /// <value>Identifier type</value>
-        [DataMember(Name="identifierType", EmitDefaultValue=false)]
+        [DataMember(Name = "identifierType", EmitDefaultValue = false)]
         public IdentifierTypeEnum? IdentifierType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizerOptimalHoldings" /> class.
@@ -118,19 +119,19 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.IncludeCash = includeCash;
             this.ExcludeZero = excludeZero;
         }
-        
+
         /// <summary>
         /// Include cash
         /// </summary>
         /// <value>Include cash</value>
-        [DataMember(Name="includeCash", EmitDefaultValue=false)]
+        [DataMember(Name = "includeCash", EmitDefaultValue = false)]
         public bool IncludeCash { get; set; }
 
         /// <summary>
         /// Exclude zero
         /// </summary>
         /// <value>Exclude zero</value>
-        [DataMember(Name="excludeZero", EmitDefaultValue=false)]
+        [DataMember(Name = "excludeZero", EmitDefaultValue = false)]
         public bool ExcludeZero { get; set; }
 
         /// <summary>
@@ -147,14 +148,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

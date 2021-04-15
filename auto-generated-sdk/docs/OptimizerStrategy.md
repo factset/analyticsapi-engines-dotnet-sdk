@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.OptimizerStrategy
+
 ## Properties
 
 Name | Type | Description | Notes

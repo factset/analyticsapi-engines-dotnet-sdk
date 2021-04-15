@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// ConfigurationAccount
     /// </summary>
-    [DataContract]
-    public partial class ConfigurationAccount :  IEquatable<ConfigurationAccount>, IValidatableObject
+    [DataContract(Name = "ConfigurationAccount")]
+    public partial class ConfigurationAccount : IEquatable<ConfigurationAccount>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationAccount" /> class.
@@ -49,47 +50,47 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.LockingDate = lockingDate;
             this.Name = name;
         }
-        
+
         /// <summary>
         /// Benchmark code.
         /// </summary>
         /// <value>Benchmark code.</value>
-        [DataMember(Name="benchmarkCode", EmitDefaultValue=false)]
+        [DataMember(Name = "benchmarkCode", EmitDefaultValue = false)]
         public string BenchmarkCode { get; set; }
 
         /// <summary>
         /// Benchmark name.
         /// </summary>
         /// <value>Benchmark name.</value>
-        [DataMember(Name="benchmarkName", EmitDefaultValue=false)]
+        [DataMember(Name = "benchmarkName", EmitDefaultValue = false)]
         public string BenchmarkName { get; set; }
 
         /// <summary>
         /// Maximum end date.
         /// </summary>
         /// <value>Maximum end date.</value>
-        [DataMember(Name="maxEndDate", EmitDefaultValue=false)]
+        [DataMember(Name = "maxEndDate", EmitDefaultValue = false)]
         public string MaxEndDate { get; set; }
 
         /// <summary>
         /// Minimum start date.
         /// </summary>
         /// <value>Minimum start date.</value>
-        [DataMember(Name="minStartDate", EmitDefaultValue=false)]
+        [DataMember(Name = "minStartDate", EmitDefaultValue = false)]
         public string MinStartDate { get; set; }
 
         /// <summary>
         /// Locking date.
         /// </summary>
         /// <value>Locking date.</value>
-        [DataMember(Name="lockingDate", EmitDefaultValue=false)]
+        [DataMember(Name = "lockingDate", EmitDefaultValue = false)]
         public string LockingDate { get; set; }
 
         /// <summary>
         /// Account name.
         /// </summary>
         /// <value>Account name.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -109,14 +110,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

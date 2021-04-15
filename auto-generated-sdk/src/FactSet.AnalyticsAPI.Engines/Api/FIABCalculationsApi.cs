@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
         /// <returns>FIABCalculationStatus</returns>
-        FIABCalculationStatus GetCalculationById (string id);
+        FIABCalculationStatus GetCalculationById(string id);
 
         /// <summary>
         /// Get FIAB calculation by id
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
         /// <returns>ApiResponse of FIABCalculationStatus</returns>
-        ApiResponse<FIABCalculationStatus> GetCalculationByIdWithHttpInfo (string id);
+        ApiResponse<FIABCalculationStatus> GetCalculationByIdWithHttpInfo(string id);
         /// <summary>
         /// Get all FIAB calculation summaries
         /// </summary>
@@ -56,7 +56,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Dictionary&lt;string, FIABCalculationStatusSummary&gt;</returns>
-        Dictionary<string, FIABCalculationStatusSummary> GetCalculationStatusSummaries ();
+        Dictionary<string, FIABCalculationStatusSummary> GetCalculationStatusSummaries();
 
         /// <summary>
         /// Get all FIAB calculation summaries
@@ -66,7 +66,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, FIABCalculationStatusSummary&gt;</returns>
-        ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesWithHttpInfo ();
+        ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesWithHttpInfo();
         /// <summary>
         /// Run FIAB calculation
         /// </summary>
@@ -76,7 +76,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
         /// <returns></returns>
-        void RunCalculation (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters));
+        void RunCalculation(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters));
 
         /// <summary>
         /// Run FIAB calculation
@@ -87,7 +87,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RunCalculationWithHttpInfo (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters));
+        ApiResponse<Object> RunCalculationWithHttpInfo(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters));
         #endregion Synchronous Operations
     }
 
@@ -105,8 +105,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FIABCalculationStatus</returns>
-        System.Threading.Tasks.Task<FIABCalculationStatus> GetCalculationByIdAsync (string id);
+        System.Threading.Tasks.Task<FIABCalculationStatus> GetCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get FIAB calculation by id
@@ -116,8 +117,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FIABCalculationStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FIABCalculationStatus>> GetCalculationByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<FIABCalculationStatus>> GetCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get all FIAB calculation summaries
         /// </summary>
@@ -125,8 +127,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all FIAB calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, FIABCalculationStatusSummary&gt;</returns>
-        System.Threading.Tasks.Task<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesAsync ();
+        System.Threading.Tasks.Task<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all FIAB calculation summaries
@@ -135,8 +138,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all FIAB calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, FIABCalculationStatusSummary&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, FIABCalculationStatusSummary>>> GetCalculationStatusSummariesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, FIABCalculationStatusSummary>>> GetCalculationStatusSummariesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Run FIAB calculation
         /// </summary>
@@ -145,8 +149,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RunCalculationAsync (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters));
+        System.Threading.Tasks.Task RunCalculationAsync(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Run FIAB calculation
@@ -156,8 +161,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RunCalculationAsyncWithHttpInfo (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RunCalculationWithHttpInfoAsync(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -180,7 +186,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="FIABCalculationsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public FIABCalculationsApi() : this((string) null)
+        public FIABCalculationsApi() : this((string)null)
         {
         }
 
@@ -225,11 +231,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public FIABCalculationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public FIABCalculationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -260,7 +266,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -284,10 +290,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
         /// <returns>FIABCalculationStatus</returns>
-        public FIABCalculationStatus GetCalculationById (string id)
+        public FIABCalculationStatus GetCalculationById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus> localVarResponse = GetCalculationByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus> localVarResponse = GetCalculationByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -296,7 +302,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
         /// <returns>ApiResponse of FIABCalculationStatus</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< FIABCalculationStatus > GetCalculationByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus> GetCalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -328,7 +334,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< FIABCalculationStatus >("/analytics/engines/fiab/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<FIABCalculationStatus>("/analytics/engines/fiab/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -344,12 +350,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FIABCalculationStatus</returns>
-        public async System.Threading.Tasks.Task<FIABCalculationStatus> GetCalculationByIdAsync (string id)
+        public async System.Threading.Tasks.Task<FIABCalculationStatus> GetCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus> localVarResponse = await GetCalculationByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus> localVarResponse = await GetCalculationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -357,8 +363,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run FIAB Calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FIABCalculationStatus)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus>> GetCalculationByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FIABCalculationStatus>> GetCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -374,13 +381,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -392,7 +400,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FIABCalculationStatus>("/analytics/engines/fiab/v1/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<FIABCalculationStatus>("/analytics/engines/fiab/v1/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -408,10 +416,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Dictionary&lt;string, FIABCalculationStatusSummary&gt;</returns>
-        public Dictionary<string, FIABCalculationStatusSummary> GetCalculationStatusSummaries ()
+        public Dictionary<string, FIABCalculationStatusSummary> GetCalculationStatusSummaries()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> localVarResponse = GetCalculationStatusSummariesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> localVarResponse = GetCalculationStatusSummariesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -419,7 +427,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, FIABCalculationStatusSummary&gt;</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Dictionary<string, FIABCalculationStatusSummary> > GetCalculationStatusSummariesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -446,7 +454,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Dictionary<string, FIABCalculationStatusSummary> >("/analytics/engines/fiab/v1/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Dictionary<string, FIABCalculationStatusSummary>>("/analytics/engines/fiab/v1/calculations", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -461,20 +469,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all FIAB calculation summaries This endpoints returns all FIAB calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, FIABCalculationStatusSummary&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesAsync ()
+        public async System.Threading.Tasks.Task<Dictionary<string, FIABCalculationStatusSummary>> GetCalculationStatusSummariesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> localVarResponse = await GetCalculationStatusSummariesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>> localVarResponse = await GetCalculationStatusSummariesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get all FIAB calculation summaries This endpoints returns all FIAB calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, FIABCalculationStatusSummary&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>>> GetCalculationStatusSummariesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, FIABCalculationStatusSummary>>> GetCalculationStatusSummariesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -486,13 +495,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -503,7 +513,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, FIABCalculationStatusSummary>>("/analytics/engines/fiab/v1/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, FIABCalculationStatusSummary>>("/analytics/engines/fiab/v1/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -520,9 +530,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
         /// <returns></returns>
-        public void RunCalculation (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters))
+        public void RunCalculation(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters))
         {
-             RunCalculationWithHttpInfo(fIABCalculationParameters);
+            RunCalculationWithHttpInfo(fIABCalculationParameters);
         }
 
         /// <summary>
@@ -531,7 +541,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> RunCalculationWithHttpInfo (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> RunCalculationWithHttpInfo(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -575,11 +585,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RunCalculationAsync (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters))
+        public async System.Threading.Tasks.Task RunCalculationAsync(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await RunCalculationAsyncWithHttpInfo(fIABCalculationParameters);
-
+            await RunCalculationWithHttpInfoAsync(fIABCalculationParameters, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -587,8 +597,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fIABCalculationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunCalculationAsyncWithHttpInfo (FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunCalculationWithHttpInfoAsync(FIABCalculationParameters fIABCalculationParameters = default(FIABCalculationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -600,13 +611,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.Data = fIABCalculationParameters;
 
             // authentication (Basic) required
@@ -618,7 +630,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/fiab/v1/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/fiab/v1/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

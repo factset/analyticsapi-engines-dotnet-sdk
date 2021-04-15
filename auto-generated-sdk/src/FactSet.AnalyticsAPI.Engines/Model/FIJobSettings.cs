@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FIJobSettings
     /// </summary>
-    [DataContract]
-    public partial class FIJobSettings :  IEquatable<FIJobSettings>, IValidatableObject
+    [DataContract(Name = "FIJobSettings")]
+    public partial class FIJobSettings : IEquatable<FIJobSettings>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
@@ -47,17 +48,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.AsOfDate = asOfDate ?? throw new ArgumentNullException("asOfDate is a required property for FIJobSettings and cannot be null");
             this.PartialDurationMonths = partialDurationMonths;
         }
-        
+
         /// <summary>
         /// Gets or Sets AsOfDate
         /// </summary>
-        [DataMember(Name="asOfDate", EmitDefaultValue=false)]
+        [DataMember(Name = "asOfDate", IsRequired = true, EmitDefaultValue = false)]
         public string AsOfDate { get; set; }
 
         /// <summary>
         /// Gets or Sets PartialDurationMonths
         /// </summary>
-        [DataMember(Name="partialDurationMonths", EmitDefaultValue=false)]
+        [DataMember(Name = "partialDurationMonths", EmitDefaultValue = false)]
         public List<int> PartialDurationMonths { get; set; }
 
         /// <summary>
@@ -73,14 +74,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

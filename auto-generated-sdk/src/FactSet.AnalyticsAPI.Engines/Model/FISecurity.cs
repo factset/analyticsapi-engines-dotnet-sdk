@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FISecurity
     /// </summary>
-    [DataContract]
-    public partial class FISecurity :  IEquatable<FISecurity>, IValidatableObject
+    [DataContract(Name = "FISecurity")]
+    public partial class FISecurity : IEquatable<FISecurity>, IValidatableObject
     {
         /// <summary>
         /// Defines FaceType
@@ -54,7 +55,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets FaceType
         /// </summary>
-        [DataMember(Name="faceType", EmitDefaultValue=false)]
+        [DataMember(Name = "faceType", EmitDefaultValue = false)]
         public FaceTypeEnum? FaceType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FISecurity" /> class.
@@ -83,41 +84,41 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.FaceType = faceType;
             this.DiscountCurve = discountCurve;
         }
-        
+
         /// <summary>
         /// Gets or Sets Settlement
         /// </summary>
-        [DataMember(Name="settlement", EmitDefaultValue=false)]
+        [DataMember(Name = "settlement", EmitDefaultValue = false)]
         public string Settlement { get; set; }
 
         /// <summary>
         /// Gets or Sets CalcFromMethod
         /// </summary>
-        [DataMember(Name="calcFromMethod", EmitDefaultValue=false)]
+        [DataMember(Name = "calcFromMethod", IsRequired = true, EmitDefaultValue = false)]
         public string CalcFromMethod { get; set; }
 
         /// <summary>
         /// Gets or Sets CalcFromValue
         /// </summary>
-        [DataMember(Name="calcFromValue", EmitDefaultValue=false)]
+        [DataMember(Name = "calcFromValue", IsRequired = true, EmitDefaultValue = false)]
         public double CalcFromValue { get; set; }
 
         /// <summary>
         /// Gets or Sets Face
         /// </summary>
-        [DataMember(Name="face", EmitDefaultValue=false)]
+        [DataMember(Name = "face", EmitDefaultValue = false)]
         public double Face { get; set; }
 
         /// <summary>
         /// Gets or Sets Symbol
         /// </summary>
-        [DataMember(Name="symbol", EmitDefaultValue=false)]
+        [DataMember(Name = "symbol", IsRequired = true, EmitDefaultValue = false)]
         public string Symbol { get; set; }
 
         /// <summary>
         /// Gets or Sets DiscountCurve
         /// </summary>
-        [DataMember(Name="discountCurve", EmitDefaultValue=false)]
+        [DataMember(Name = "discountCurve", EmitDefaultValue = false)]
         public string DiscountCurve { get; set; }
 
         /// <summary>
@@ -138,14 +139,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

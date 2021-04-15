@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -35,7 +35,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrencyRoot</returns>
-        CurrencyRoot GetCurrencies ();
+        CurrencyRoot GetCurrencies();
 
         /// <summary>
         /// Get currencies
@@ -45,7 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrencyRoot</returns>
-        ApiResponse<CurrencyRoot> GetCurrenciesWithHttpInfo ();
+        ApiResponse<CurrencyRoot> GetCurrenciesWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -62,8 +62,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the currencies that can be applied to any calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrencyRoot</returns>
-        System.Threading.Tasks.Task<CurrencyRoot> GetCurrenciesAsync ();
+        System.Threading.Tasks.Task<CurrencyRoot> GetCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get currencies
@@ -72,8 +73,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the currencies that can be applied to any calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrencyRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrencyRoot>> GetCurrenciesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<CurrencyRoot>> GetCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -96,7 +98,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="CurrenciesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CurrenciesApi() : this((string) null)
+        public CurrenciesApi() : this((string)null)
         {
         }
 
@@ -141,11 +143,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public CurrenciesApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public CurrenciesApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -176,7 +178,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -199,10 +201,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrencyRoot</returns>
-        public CurrencyRoot GetCurrencies ()
+        public CurrencyRoot GetCurrencies()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot> localVarResponse = GetCurrenciesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot> localVarResponse = GetCurrenciesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -210,7 +212,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrencyRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< CurrencyRoot > GetCurrenciesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot> GetCurrenciesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -237,7 +239,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< CurrencyRoot >("/analytics/lookups/v3/currencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<CurrencyRoot>("/analytics/lookups/v3/currencies", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -252,20 +254,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get currencies This endpoint lists all the currencies that can be applied to any calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CurrencyRoot</returns>
-        public async System.Threading.Tasks.Task<CurrencyRoot> GetCurrenciesAsync ()
+        public async System.Threading.Tasks.Task<CurrencyRoot> GetCurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot> localVarResponse = await GetCurrenciesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot> localVarResponse = await GetCurrenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get currencies This endpoint lists all the currencies that can be applied to any calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrencyRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot>> GetCurrenciesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CurrencyRoot>> GetCurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -277,13 +280,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -294,7 +298,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CurrencyRoot>("/analytics/lookups/v3/currencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CurrencyRoot>("/analytics/lookups/v3/currencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

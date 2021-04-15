@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns></returns>
-        void CancelCalculationById (string id);
+        void CancelCalculationById(string id);
 
         /// <summary>
         /// Cancel SPAR calculation
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CancelCalculationByIdWithHttpInfo (string id);
+        ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id);
         /// <summary>
         /// Get SPAR calculation parameters by id
         /// </summary>
@@ -57,7 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>SPARCalculationParametersRoot</returns>
-        SPARCalculationParametersRoot GetCalculationParameters (string id);
+        SPARCalculationParametersRoot GetCalculationParameters(string id);
 
         /// <summary>
         /// Get SPAR calculation parameters by id
@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>ApiResponse of SPARCalculationParametersRoot</returns>
-        ApiResponse<SPARCalculationParametersRoot> GetCalculationParametersWithHttpInfo (string id);
+        ApiResponse<SPARCalculationParametersRoot> GetCalculationParametersWithHttpInfo(string id);
         /// <summary>
         /// Get SPAR calculation status by id
         /// </summary>
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot GetCalculationStatusById (string id);
+        CalculationStatusRoot GetCalculationStatusById(string id);
 
         /// <summary>
         /// Get SPAR calculation status by id
@@ -89,7 +89,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> GetCalculationStatusByIdWithHttpInfo (string id);
+        ApiResponse<CalculationStatusRoot> GetCalculationStatusByIdWithHttpInfo(string id);
         /// <summary>
         /// Get SPAR calculation result by id
         /// </summary>
@@ -101,7 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ObjectRoot</returns>
-        ObjectRoot GetCalculationUnitResultById (string id, string unitId, string accept = default(string));
+        ObjectRoot GetCalculationUnitResultById(string id, string unitId, string accept = default(string));
 
         /// <summary>
         /// Get SPAR calculation result by id
@@ -114,7 +114,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo (string id, string unitId, string accept = default(string));
+        ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId, string accept = default(string));
         /// <summary>
         /// Create and Run SPAR calculation
         /// </summary>
@@ -126,7 +126,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        CalculationStatusRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
 
         /// <summary>
         /// Create and Run SPAR calculation
@@ -139,7 +139,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
         /// <summary>
         /// Create or Update SPAR calculation and run it.
         /// </summary>
@@ -152,7 +152,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        CalculationStatusRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
 
         /// <summary>
         /// Create or Update SPAR calculation and run it.
@@ -166,7 +166,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
         #endregion Synchronous Operations
     }
 
@@ -184,8 +184,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CancelCalculationByIdAsync (string id);
+        System.Threading.Tasks.Task CancelCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel SPAR calculation
@@ -195,8 +196,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR calculation parameters by id
         /// </summary>
@@ -205,8 +207,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SPARCalculationParametersRoot</returns>
-        System.Threading.Tasks.Task<SPARCalculationParametersRoot> GetCalculationParametersAsync (string id);
+        System.Threading.Tasks.Task<SPARCalculationParametersRoot> GetCalculationParametersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get SPAR calculation parameters by id
@@ -216,8 +219,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SPARCalculationParametersRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SPARCalculationParametersRoot>> GetCalculationParametersAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<SPARCalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR calculation status by id
         /// </summary>
@@ -226,8 +230,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> GetCalculationStatusByIdAsync (string id);
+        System.Threading.Tasks.Task<CalculationStatusRoot> GetCalculationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get SPAR calculation status by id
@@ -237,8 +242,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR calculation result by id
         /// </summary>
@@ -249,8 +255,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync (string id, string unitId, string accept = default(string));
+        System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync(string id, string unitId, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get SPAR calculation result by id
@@ -262,8 +269,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdAsyncWithHttpInfo (string id, string unitId, string accept = default(string));
+        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create and Run SPAR calculation
         /// </summary>
@@ -274,8 +282,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and Run SPAR calculation
@@ -287,8 +296,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PostAndCalculateAsyncWithHttpInfo (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or Update SPAR calculation and run it.
         /// </summary>
@@ -300,8 +310,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create or Update SPAR calculation and run it.
@@ -314,8 +325,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PutAndCalculateAsyncWithHttpInfo (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot));
+        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -338,7 +350,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="SPARCalculationsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SPARCalculationsApi() : this((string) null)
+        public SPARCalculationsApi() : this((string)null)
         {
         }
 
@@ -383,11 +395,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public SPARCalculationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public SPARCalculationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -418,7 +430,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -442,9 +454,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns></returns>
-        public void CancelCalculationById (string id)
+        public void CancelCalculationById(string id)
         {
-             CancelCalculationByIdWithHttpInfo(id);
+            CancelCalculationByIdWithHttpInfo(id);
         }
 
         /// <summary>
@@ -453,7 +465,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -503,11 +515,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CancelCalculationByIdAsync (string id)
+        public async System.Threading.Tasks.Task CancelCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await CancelCalculationByIdAsyncWithHttpInfo(id);
-
+            await CancelCalculationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -515,8 +527,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelCalculationByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -534,13 +547,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json",
                 "text/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -552,7 +566,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -569,10 +583,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>SPARCalculationParametersRoot</returns>
-        public SPARCalculationParametersRoot GetCalculationParameters (string id)
+        public SPARCalculationParametersRoot GetCalculationParameters(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot> localVarResponse = GetCalculationParametersWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot> localVarResponse = GetCalculationParametersWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -581,7 +595,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>ApiResponse of SPARCalculationParametersRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< SPARCalculationParametersRoot > GetCalculationParametersWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot> GetCalculationParametersWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -613,7 +627,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< SPARCalculationParametersRoot >("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SPARCalculationParametersRoot>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -629,12 +643,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SPARCalculationParametersRoot</returns>
-        public async System.Threading.Tasks.Task<SPARCalculationParametersRoot> GetCalculationParametersAsync (string id)
+        public async System.Threading.Tasks.Task<SPARCalculationParametersRoot> GetCalculationParametersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot> localVarResponse = await GetCalculationParametersAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot> localVarResponse = await GetCalculationParametersWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -642,8 +656,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SPARCalculationParametersRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot>> GetCalculationParametersAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARCalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -659,13 +674,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -677,7 +693,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SPARCalculationParametersRoot>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SPARCalculationParametersRoot>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -694,10 +710,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot GetCalculationStatusById (string id)
+        public CalculationStatusRoot GetCalculationStatusById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = GetCalculationStatusByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = GetCalculationStatusByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -706,7 +722,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< CalculationStatusRoot > GetCalculationStatusByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> GetCalculationStatusByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -738,7 +754,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< CalculationStatusRoot >("/analytics/engines/spar/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -754,12 +770,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> GetCalculationStatusByIdAsync (string id)
+        public async System.Threading.Tasks.Task<CalculationStatusRoot> GetCalculationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await GetCalculationStatusByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await GetCalculationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -767,8 +783,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run SPAR calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -784,13 +801,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -802,7 +820,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -821,10 +839,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ObjectRoot</returns>
-        public ObjectRoot GetCalculationUnitResultById (string id, string unitId, string accept = default(string))
+        public ObjectRoot GetCalculationUnitResultById(string id, string unitId, string accept = default(string))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId, accept);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId, accept);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -835,7 +853,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< ObjectRoot > GetCalculationUnitResultByIdWithHttpInfo (string id, string unitId, string accept = default(string))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId, string accept = default(string))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -877,7 +895,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< ObjectRoot >("/analytics/engines/spar/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/spar/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -895,12 +913,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync (string id, string unitId, string accept = default(string))
+        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync(string id, string unitId, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationUnitResultByIdAsyncWithHttpInfo(id, unitId, accept);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, accept, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -910,8 +928,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get SPAR calculation status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdAsyncWithHttpInfo (string id, string unitId, string accept = default(string))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -932,13 +951,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json",
                 "application/x-protobuf"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.PathParameters.Add("unitId", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(unitId)); // path parameter
             if (accept != null)
@@ -955,7 +975,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/spar/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/spar/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -974,10 +994,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public CalculationStatusRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -988,7 +1008,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< CalculationStatusRoot > PostAndCalculateWithHttpInfo (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -1026,7 +1046,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post< CalculationStatusRoot >("/analytics/engines/spar/v3/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1044,12 +1064,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public async System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PostAndCalculateAsyncWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PostAndCalculateWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1059,8 +1079,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PostAndCalculateAsyncWithHttpInfo (int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -1074,13 +1095,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json",
                 "application/x-protobuf"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             if (xFactSetApiLongRunningDeadline != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("X-FactSet-Api-Long-Running-Deadline", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactSetApiLongRunningDeadline)); // header parameter
@@ -1100,7 +1122,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1120,10 +1142,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public CalculationStatusRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PutAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PutAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1135,7 +1157,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< CalculationStatusRoot > PutAndCalculateWithHttpInfo (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1178,7 +1200,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put< CalculationStatusRoot >("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1197,12 +1219,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public async System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PutAndCalculateAsyncWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, sPARCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1213,8 +1235,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
         /// <param name="sPARCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PutAndCalculateAsyncWithHttpInfo (string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), SPARCalculationParametersRoot sPARCalculationParametersRoot = default(SPARCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1232,13 +1255,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json",
                 "application/x-protobuf"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
             if (xFactSetApiLongRunningDeadline != null)
             {
@@ -1259,7 +1283,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<CalculationStatusRoot>("/analytics/engines/spar/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

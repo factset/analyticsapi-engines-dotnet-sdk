@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimizerTradesList
     /// </summary>
-    [DataContract]
-    public partial class OptimizerTradesList :  IEquatable<OptimizerTradesList>, IValidatableObject
+    [DataContract(Name = "OptimizerTradesList")]
+    public partial class OptimizerTradesList : IEquatable<OptimizerTradesList>, IValidatableObject
     {
         /// <summary>
         /// Identifier type
@@ -104,7 +105,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Identifier type
         /// </summary>
         /// <value>Identifier type</value>
-        [DataMember(Name="identifierType", EmitDefaultValue=false)]
+        [DataMember(Name = "identifierType", EmitDefaultValue = false)]
         public IdentifierTypeEnum? IdentifierType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizerTradesList" /> class.
@@ -116,12 +117,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.IdentifierType = identifierType;
             this.IncludeCash = includeCash;
         }
-        
+
         /// <summary>
         /// Include cash
         /// </summary>
         /// <value>Include cash</value>
-        [DataMember(Name="includeCash", EmitDefaultValue=false)]
+        [DataMember(Name = "includeCash", EmitDefaultValue = false)]
         public bool IncludeCash { get; set; }
 
         /// <summary>
@@ -137,14 +138,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.OptimizerOutputTypes
+
 ## Properties
 
 Name | Type | Description | Notes

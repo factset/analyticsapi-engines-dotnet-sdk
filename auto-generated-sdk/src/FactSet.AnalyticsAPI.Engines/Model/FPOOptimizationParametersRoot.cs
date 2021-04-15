@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FPOOptimizationParametersRoot
     /// </summary>
-    [DataContract]
-    public partial class FPOOptimizationParametersRoot :  IEquatable<FPOOptimizationParametersRoot>, IValidatableObject
+    [DataContract(Name = "FPOOptimizationParametersRoot")]
+    public partial class FPOOptimizationParametersRoot : IEquatable<FPOOptimizationParametersRoot>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FPOOptimizationParametersRoot" /> class.
@@ -41,17 +42,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Data = data;
             this.Meta = meta;
         }
-        
+
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public FPOOptimizationParameters Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name="meta", EmitDefaultValue=false)]
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
         public Object Meta { get; set; }
 
         /// <summary>
@@ -67,14 +68,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

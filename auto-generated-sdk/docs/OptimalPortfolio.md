@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.OptimalPortfolio
+
 ## Properties
 
 Name | Type | Description | Notes

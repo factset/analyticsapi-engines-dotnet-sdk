@@ -78,6 +78,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json, text/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -157,6 +158,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -240,6 +242,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/x-protobuf
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -319,6 +322,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/x-protobuf
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -404,6 +408,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json, application/x-protobuf
+
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -493,6 +498,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json, application/x-protobuf
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

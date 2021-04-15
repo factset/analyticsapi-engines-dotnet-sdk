@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.OptimizerOptimalHoldings
+
 ## Properties
 
 Name | Type | Description | Notes

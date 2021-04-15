@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.CalculationUnitStatus
+
 ## Properties
 
 Name | Type | Description | Notes

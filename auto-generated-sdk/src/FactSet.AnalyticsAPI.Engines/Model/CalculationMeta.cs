@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// CalculationMeta
     /// </summary>
-    [DataContract]
-    public partial class CalculationMeta :  IEquatable<CalculationMeta>, IValidatableObject
+    [DataContract(Name = "CalculationMeta")]
+    public partial class CalculationMeta : IEquatable<CalculationMeta>, IValidatableObject
     {
         /// <summary>
         /// Defines Contentorganization
@@ -66,7 +67,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Contentorganization
         /// </summary>
-        [DataMember(Name="contentorganization", EmitDefaultValue=false)]
+        [DataMember(Name = "contentorganization", EmitDefaultValue = false)]
         public ContentorganizationEnum? Contentorganization { get; set; }
         /// <summary>
         /// Defines Contenttype
@@ -91,7 +92,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Contenttype
         /// </summary>
-        [DataMember(Name="contenttype", EmitDefaultValue=false)]
+        [DataMember(Name = "contenttype", EmitDefaultValue = false)]
         public ContenttypeEnum? Contenttype { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationMeta" /> class.
@@ -103,7 +104,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Contentorganization = contentorganization;
             this.Contenttype = contenttype;
         }
-        
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -117,14 +118,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

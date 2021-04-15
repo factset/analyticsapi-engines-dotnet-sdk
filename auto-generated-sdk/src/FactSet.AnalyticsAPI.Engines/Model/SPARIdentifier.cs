@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// The account/benchmark parameter for SPAR calculation.
     /// </summary>
-    [DataContract]
-    public partial class SPARIdentifier :  IEquatable<SPARIdentifier>, IValidatableObject
+    [DataContract(Name = "SPARIdentifier")]
+    public partial class SPARIdentifier : IEquatable<SPARIdentifier>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SPARIdentifier" /> class.
@@ -49,26 +50,26 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Returntype = returntype;
             this.Prefix = prefix;
         }
-        
+
         /// <summary>
         /// User&#39;s FactSet account OR benchmark id.
         /// </summary>
         /// <value>User&#39;s FactSet account OR benchmark id.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Benchmark return type.
         /// </summary>
         /// <value>Benchmark return type.</value>
-        [DataMember(Name="returntype", EmitDefaultValue=false)]
+        [DataMember(Name = "returntype", EmitDefaultValue = false)]
         public string Returntype { get; set; }
 
         /// <summary>
         /// Benchmark prefix.
         /// </summary>
         /// <value>Benchmark prefix.</value>
-        [DataMember(Name="prefix", EmitDefaultValue=false)]
+        [DataMember(Name = "prefix", EmitDefaultValue = false)]
         public string Prefix { get; set; }
 
         /// <summary>
@@ -85,14 +86,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

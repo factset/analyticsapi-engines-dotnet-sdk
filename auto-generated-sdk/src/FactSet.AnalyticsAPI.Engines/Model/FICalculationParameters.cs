@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FICalculationParameters
     /// </summary>
-    [DataContract]
-    public partial class FICalculationParameters :  IEquatable<FICalculationParameters>, IValidatableObject
+    [DataContract(Name = "FICalculationParameters")]
+    public partial class FICalculationParameters : IEquatable<FICalculationParameters>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FICalculationParameters" /> class.
@@ -51,23 +52,23 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             // to ensure "jobSettings" is required (not null)
             this.JobSettings = jobSettings ?? throw new ArgumentNullException("jobSettings is a required property for FICalculationParameters and cannot be null");
         }
-        
+
         /// <summary>
         /// Gets or Sets Securities
         /// </summary>
-        [DataMember(Name="securities", EmitDefaultValue=false)]
+        [DataMember(Name = "securities", IsRequired = true, EmitDefaultValue = false)]
         public List<FISecurity> Securities { get; set; }
 
         /// <summary>
         /// Gets or Sets Calculations
         /// </summary>
-        [DataMember(Name="calculations", EmitDefaultValue=false)]
+        [DataMember(Name = "calculations", IsRequired = true, EmitDefaultValue = false)]
         public List<string> Calculations { get; set; }
 
         /// <summary>
         /// Gets or Sets JobSettings
         /// </summary>
-        [DataMember(Name="jobSettings", EmitDefaultValue=false)]
+        [DataMember(Name = "jobSettings", IsRequired = true, EmitDefaultValue = false)]
         public FIJobSettings JobSettings { get; set; }
 
         /// <summary>
@@ -84,14 +85,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

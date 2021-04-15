@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.VaultConfigurationSummaryRoot
+
 ## Properties
 
 Name | Type | Description | Notes

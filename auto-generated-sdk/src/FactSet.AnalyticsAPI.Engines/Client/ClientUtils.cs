@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         }
 
         /// <summary>
-        /// Convert params to key/value pairs. 
+        /// Convert params to key/value pairs.
         /// Use collectionFormat to properly format lists and collections.
         /// </summary>
         /// <param name="collectionFormat">The swagger-supported collection format, one of: csv, tsv, ssv, pipes, multi</param>
@@ -53,6 +54,21 @@ namespace FactSet.AnalyticsAPI.Engines.Client
                     parameters.Add(name, ParameterToString(item));
                 }
             }
+            else if (value is IDictionary dictionary)
+            {
+                if(collectionFormat == "deepObject") {
+                    foreach (DictionaryEntry entry in dictionary)
+                    {
+                        parameters.Add(name + "[" + entry.Key + "]", ParameterToString(entry.Value));
+                    }
+                }
+                else {
+                    foreach (DictionaryEntry entry in dictionary)
+                    {
+                        parameters.Add(entry.Key.ToString(), ParameterToString(entry.Value));
+                    }
+                }
+            }
             else
             {
                 parameters.Add(name, ParameterToString(value));
@@ -60,7 +76,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
 
             return parameters;
         }
-        
+
         /// <summary>
         /// If parameter is DateTime, output in a formatted string (default ISO 8601), customizable with Configuration.DateTime.
         /// If parameter is a list, join the list with ",".
@@ -88,7 +104,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             if (obj is ICollection collection)
                 return string.Join(",", collection.Cast<object>());
 
-            return Convert.ToString(obj);
+            return Convert.ToString(obj, CultureInfo.InvariantCulture);
         }
 
         /// <summary>

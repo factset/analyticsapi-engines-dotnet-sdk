@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.CalculationMeta
+
 ## Properties
 
 Name | Type | Description | Notes

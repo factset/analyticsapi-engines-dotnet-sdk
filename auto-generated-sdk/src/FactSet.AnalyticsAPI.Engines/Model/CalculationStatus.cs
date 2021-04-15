@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// CalculationStatus
     /// </summary>
-    [DataContract]
-    public partial class CalculationStatus :  IEquatable<CalculationStatus>, IValidatableObject
+    [DataContract(Name = "CalculationStatus")]
+    public partial class CalculationStatus : IEquatable<CalculationStatus>, IValidatableObject
     {
         /// <summary>
         /// Defines Status
@@ -66,7 +67,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationStatus" /> class.
@@ -80,18 +81,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Status = status;
             this.Units = units;
         }
-        
+
         /// <summary>
         /// Gets or Sets Calculationid
         /// </summary>
-        [DataMember(Name="calculationid", EmitDefaultValue=false)]
+        [DataMember(Name = "calculationid", EmitDefaultValue = false)]
         public string Calculationid { get; set; }
 
         /// <summary>
         /// Number of calculation units in batch.
         /// </summary>
         /// <value>Number of calculation units in batch.</value>
-        [DataMember(Name="units", EmitDefaultValue=false)]
+        [DataMember(Name = "units", EmitDefaultValue = false)]
         public Dictionary<string, CalculationUnitStatus> Units { get; set; }
 
         /// <summary>
@@ -108,14 +109,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

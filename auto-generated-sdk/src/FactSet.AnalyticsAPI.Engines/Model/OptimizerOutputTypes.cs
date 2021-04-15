@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimizerOutputTypes
     /// </summary>
-    [DataContract]
-    public partial class OptimizerOutputTypes :  IEquatable<OptimizerOutputTypes>, IValidatableObject
+    [DataContract(Name = "OptimizerOutputTypes")]
+    public partial class OptimizerOutputTypes : IEquatable<OptimizerOutputTypes>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimizerOutputTypes" /> class.
@@ -43,23 +44,23 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Optimal = optimal;
             this.Account = account;
         }
-        
+
         /// <summary>
         /// Gets or Sets Trades
         /// </summary>
-        [DataMember(Name="trades", EmitDefaultValue=false)]
+        [DataMember(Name = "trades", EmitDefaultValue = false)]
         public OptimizerTradesList Trades { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimal
         /// </summary>
-        [DataMember(Name="optimal", EmitDefaultValue=false)]
+        [DataMember(Name = "optimal", EmitDefaultValue = false)]
         public OptimizerOptimalHoldings Optimal { get; set; }
 
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name = "account", EmitDefaultValue = false)]
         public OptimalPortfolio Account { get; set; }
 
         /// <summary>
@@ -76,14 +77,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

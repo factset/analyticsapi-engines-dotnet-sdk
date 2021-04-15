@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FIABCalculationParameters
     /// </summary>
-    [DataContract]
-    public partial class FIABCalculationParameters :  IEquatable<FIABCalculationParameters>, IValidatableObject
+    [DataContract(Name = "FIABCalculationParameters")]
+    public partial class FIABCalculationParameters : IEquatable<FIABCalculationParameters>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FIABCalculationParameters" /> class.
@@ -54,38 +55,38 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Msl = msl;
             this.Fisettingsdocument = fisettingsdocument;
         }
-        
+
         /// <summary>
         /// FiabDocument (optional) - FIAB document to use as a template. Should  be a path to a FIAB document. Expects a GUI-style path (Client:/foo/bar)
         /// </summary>
         /// <value>FiabDocument (optional) - FIAB document to use as a template. Should  be a path to a FIAB document. Expects a GUI-style path (Client:/foo/bar)</value>
-        [DataMember(Name="fiabdocument", EmitDefaultValue=false)]
+        [DataMember(Name = "fiabdocument", EmitDefaultValue = false)]
         public string Fiabdocument { get; set; }
 
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name = "account", IsRequired = true, EmitDefaultValue = false)]
         public FIABIdentifier Account { get; set; }
 
         /// <summary>
         /// Gets or Sets Dates
         /// </summary>
-        [DataMember(Name="dates", EmitDefaultValue=false)]
+        [DataMember(Name = "dates", IsRequired = true, EmitDefaultValue = false)]
         public FIABDateParameters Dates { get; set; }
 
         /// <summary>
         /// Master FISecurity List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)
         /// </summary>
         /// <value>Master FISecurity List. Analytics results will be written to the selected MSL. Expects a GUI-style path (Client:/foo/bar)</value>
-        [DataMember(Name="msl", EmitDefaultValue=false)]
+        [DataMember(Name = "msl", EmitDefaultValue = false)]
         public string Msl { get; set; }
 
         /// <summary>
         /// FISettingsDocument (optional) - The given @FIS document will be used to  configure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar)
         /// </summary>
         /// <value>FISettingsDocument (optional) - The given @FIS document will be used to  configure analytics assumptions and settings. Expects a GUI-style path (Client:/foo/bar)</value>
-        [DataMember(Name="fisettingsdocument", EmitDefaultValue=false)]
+        [DataMember(Name = "fisettingsdocument", EmitDefaultValue = false)]
         public string Fisettingsdocument { get; set; }
 
         /// <summary>
@@ -104,14 +105,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

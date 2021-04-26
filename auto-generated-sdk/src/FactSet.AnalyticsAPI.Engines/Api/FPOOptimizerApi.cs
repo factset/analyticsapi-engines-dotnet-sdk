@@ -52,7 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get FPO optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get FPO optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -121,8 +121,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
 
@@ -134,8 +134,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
         /// <summary>
@@ -147,8 +147,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
 
@@ -161,8 +161,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
         #endregion Synchronous Operations
@@ -201,7 +201,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get FPO optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -213,7 +213,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get FPO optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -276,8 +276,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -290,8 +290,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -304,8 +304,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -319,8 +319,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -574,7 +574,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -586,7 +586,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -635,7 +635,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -648,7 +648,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get FPO optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
@@ -971,8 +971,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         public ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
@@ -985,8 +985,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
@@ -1041,8 +1041,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         public async System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1056,8 +1056,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1117,8 +1117,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         public ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
@@ -1132,8 +1132,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
@@ -1194,8 +1194,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         public async System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1210,8 +1210,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="fPOOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

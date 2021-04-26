@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ColumnRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected ColumnRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ColumnRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public ColumnRoot(Column data = default(Column))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for ColumnRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Column Data { get; set; }
 
         /// <summary>

@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected GroupRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public GroupRoot(Dictionary<string, Group> data = default(Dictionary<string, Group>))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for GroupRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Dictionary<string, Group> Data { get; set; }
 
         /// <summary>

@@ -35,15 +35,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationInfo" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
+        /// <param name="id">Calculation identifier.</param>
         public CalculationInfo(string id = default(string))
         {
             this.Id = id;
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Calculation identifier
         /// </summary>
+        /// <value>Calculation identifier</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 

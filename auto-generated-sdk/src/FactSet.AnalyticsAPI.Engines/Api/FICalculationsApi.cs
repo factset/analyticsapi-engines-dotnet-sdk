@@ -77,9 +77,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ObjectRoot</returns>
-        ObjectRoot GetCalculationResult(string id, string accept = default(string));
+        ObjectRoot GetCalculationResult(string id);
 
         /// <summary>
         /// Get FI calculation result by id
@@ -89,9 +88,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> GetCalculationResultWithHttpInfo(string id, string accept = default(string));
+        ApiResponse<ObjectRoot> GetCalculationResultWithHttpInfo(string id);
         /// <summary>
         /// Get FI calculation status by id
         /// </summary>
@@ -121,7 +119,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         ObjectRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot));
@@ -134,7 +132,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         ApiResponse<ObjectRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot));
@@ -147,7 +145,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         ObjectRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot));
@@ -161,7 +159,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         ApiResponse<ObjectRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot));
@@ -228,10 +226,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> GetCalculationResultAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectRoot> GetCalculationResultAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get FI calculation result by id
@@ -241,10 +238,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationResultWithHttpInfoAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationResultWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get FI calculation status by id
         /// </summary>
@@ -276,7 +272,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
@@ -290,7 +286,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
@@ -304,7 +300,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
@@ -319,7 +315,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
@@ -705,11 +701,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ObjectRoot</returns>
-        public ObjectRoot GetCalculationResult(string id, string accept = default(string))
+        public ObjectRoot GetCalculationResult(string id)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationResultWithHttpInfo(id, accept);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationResultWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -718,9 +713,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetCalculationResultWithHttpInfo(string id, string accept = default(string))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetCalculationResultWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -744,10 +738,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(accept)); // header parameter
-            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -773,12 +763,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationResultAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationResultAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationResultWithHttpInfoAsync(id, accept, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationResultWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -787,10 +776,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get FI calculation status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationResultWithHttpInfoAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationResultWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -816,10 +804,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(accept)); // header parameter
-            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -975,7 +959,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         public ObjectRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot))
@@ -989,7 +973,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot))
@@ -1046,7 +1030,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
@@ -1061,7 +1045,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
@@ -1123,7 +1107,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         public ObjectRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot))
@@ -1138,7 +1122,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FICalculationParametersRoot fICalculationParametersRoot = default(FICalculationParametersRoot))
@@ -1201,7 +1185,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
@@ -1217,7 +1201,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>

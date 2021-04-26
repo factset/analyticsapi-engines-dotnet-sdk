@@ -33,8 +33,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class FISecurity : IEquatable<FISecurity>, IValidatableObject
     {
         /// <summary>
-        /// Defines FaceType
+        /// Face type
         /// </summary>
+        /// <value>Face type</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FaceTypeEnum
         {
@@ -53,8 +54,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets FaceType
+        /// Face type
         /// </summary>
+        /// <value>Face type</value>
         [DataMember(Name = "faceType", EmitDefaultValue = false)]
         public FaceTypeEnum? FaceType { get; set; }
         /// <summary>
@@ -65,13 +67,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FISecurity" /> class.
         /// </summary>
-        /// <param name="settlement">settlement.</param>
-        /// <param name="calcFromMethod">calcFromMethod (required).</param>
-        /// <param name="calcFromValue">calcFromValue (required).</param>
-        /// <param name="face">face (default to 1D).</param>
-        /// <param name="faceType">faceType (default to FaceTypeEnum.Current).</param>
-        /// <param name="symbol">symbol (required).</param>
-        /// <param name="discountCurve">discountCurve.</param>
+        /// <param name="settlement">Settlement date.</param>
+        /// <param name="calcFromMethod">Calculation from method (required).</param>
+        /// <param name="calcFromValue">Calculation from value (required).</param>
+        /// <param name="face">Face (default to 1D).</param>
+        /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
+        /// <param name="symbol">Symbol (required).</param>
+        /// <param name="discountCurve">Discount curve.</param>
         public FISecurity(string settlement = default(string), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
         {
             // to ensure "calcFromMethod" is required (not null)
@@ -86,38 +88,44 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Settlement
+        /// Settlement date
         /// </summary>
+        /// <value>Settlement date</value>
         [DataMember(Name = "settlement", EmitDefaultValue = false)]
         public string Settlement { get; set; }
 
         /// <summary>
-        /// Gets or Sets CalcFromMethod
+        /// Calculation from method
         /// </summary>
+        /// <value>Calculation from method</value>
         [DataMember(Name = "calcFromMethod", IsRequired = true, EmitDefaultValue = false)]
         public string CalcFromMethod { get; set; }
 
         /// <summary>
-        /// Gets or Sets CalcFromValue
+        /// Calculation from value
         /// </summary>
+        /// <value>Calculation from value</value>
         [DataMember(Name = "calcFromValue", IsRequired = true, EmitDefaultValue = false)]
         public double CalcFromValue { get; set; }
 
         /// <summary>
-        /// Gets or Sets Face
+        /// Face
         /// </summary>
+        /// <value>Face</value>
         [DataMember(Name = "face", EmitDefaultValue = false)]
         public double Face { get; set; }
 
         /// <summary>
-        /// Gets or Sets Symbol
+        /// Symbol
         /// </summary>
+        /// <value>Symbol</value>
         [DataMember(Name = "symbol", IsRequired = true, EmitDefaultValue = false)]
         public string Symbol { get; set; }
 
         /// <summary>
-        /// Gets or Sets DiscountCurve
+        /// Discount curve
         /// </summary>
+        /// <value>Discount curve</value>
         [DataMember(Name = "discountCurve", EmitDefaultValue = false)]
         public string DiscountCurve { get; set; }
 

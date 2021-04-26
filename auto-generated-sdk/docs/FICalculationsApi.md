@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationresult"></a>
 # **GetCalculationResult**
-> ObjectRoot GetCalculationResult (string id, string accept = null)
+> ObjectRoot GetCalculationResult (string id)
 
 Get FI calculation result by id
 
@@ -203,12 +203,11 @@ namespace Example
 
             var apiInstance = new FICalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Get FI calculation status by id endpoint
-            var accept = accept_example;  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
 
             try
             {
                 // Get FI calculation result by id
-                ObjectRoot result = apiInstance.GetCalculationResult(id, accept);
+                ObjectRoot result = apiInstance.GetCalculationResult(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -227,7 +226,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Get FI calculation status by id endpoint | 
- **accept** | **string**| Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * | [optional] 
 
 ### Return type
 
@@ -368,7 +366,7 @@ namespace Example
 
             var apiInstance = new FICalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -393,7 +391,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
@@ -457,7 +455,7 @@ namespace Example
             var apiInstance = new FICalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run FI calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -483,7 +481,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run FI calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
@@ -507,6 +505,7 @@ Name | Type | Description  | Notes
 | **201** | Expected response if calculation is completed in a short span, returns JSON in the format specified in the Calculation parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **400** | Invalid Calculation Parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **404** | One or more calculation settings were unavailable. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **409** | Duplicate calculation exists with same parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |

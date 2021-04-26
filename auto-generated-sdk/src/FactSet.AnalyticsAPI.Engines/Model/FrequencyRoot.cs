@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FrequencyRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected FrequencyRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FrequencyRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public FrequencyRoot(Dictionary<string, Frequency> data = default(Dictionary<string, Frequency>))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for FrequencyRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Dictionary<string, Frequency> Data { get; set; }
 
         /// <summary>

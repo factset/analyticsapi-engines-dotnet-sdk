@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VaultConfigurationRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected VaultConfigurationRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VaultConfigurationRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public VaultConfigurationRoot(VaultConfiguration data = default(VaultConfiguration))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for VaultConfigurationRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public VaultConfiguration Data { get; set; }
 
         /// <summary>

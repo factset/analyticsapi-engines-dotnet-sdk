@@ -40,8 +40,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
         /// </summary>
-        /// <param name="asOfDate">asOfDate (required).</param>
-        /// <param name="partialDurationMonths">partialDurationMonths.</param>
+        /// <param name="asOfDate">As of date (required).</param>
+        /// <param name="partialDurationMonths">Partial duration months.</param>
         public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>))
         {
             // to ensure "asOfDate" is required (not null)
@@ -50,14 +50,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets AsOfDate
+        /// As of date
         /// </summary>
+        /// <value>As of date</value>
         [DataMember(Name = "asOfDate", IsRequired = true, EmitDefaultValue = false)]
         public string AsOfDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets PartialDurationMonths
+        /// Partial duration months
         /// </summary>
+        /// <value>Partial duration months</value>
         [DataMember(Name = "partialDurationMonths", EmitDefaultValue = false)]
         public List<int> PartialDurationMonths { get; set; }
 

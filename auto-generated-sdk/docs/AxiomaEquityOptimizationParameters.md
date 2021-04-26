@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Strategy** | [**OptimizerStrategy**](OptimizerStrategy.md) |  | 
+**Strategy** | [**AxiomaEquityOptimizerStrategy**](AxiomaEquityOptimizerStrategy.md) |  | 
 **Account** | [**OptimizerAccount**](OptimizerAccount.md) |  | [optional] 
 **Optimization** | [**Optimization**](Optimization.md) |  | [optional] 
 **OutputTypes** | [**OptimizerOutputTypes**](OptimizerOutputTypes.md) |  | 

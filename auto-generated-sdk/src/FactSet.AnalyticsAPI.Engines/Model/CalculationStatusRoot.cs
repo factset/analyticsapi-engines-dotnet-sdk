@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationStatusRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected CalculationStatusRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CalculationStatusRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public CalculationStatusRoot(CalculationStatus data = default(CalculationStatus))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for CalculationStatusRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public CalculationStatus Data { get; set; }
 
         /// <summary>

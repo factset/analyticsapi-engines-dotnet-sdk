@@ -35,7 +35,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentDirectories" /> class.
         /// </summary>
-        /// <param name="documents">documents.</param>
+        /// <param name="documents">List of documents.</param>
         /// <param name="directories">List of directories..</param>
         public DocumentDirectories(List<string> documents = default(List<string>), List<string> directories = default(List<string>))
         {
@@ -44,8 +44,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Documents
+        /// List of documents
         /// </summary>
+        /// <value>List of documents</value>
         [DataMember(Name = "documents", EmitDefaultValue = false)]
         public List<string> Documents { get; set; }
 

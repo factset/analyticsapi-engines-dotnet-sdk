@@ -35,9 +35,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventSummary" /> class.
         /// </summary>
-        /// <param name="message">message.</param>
-        /// <param name="submissiondatetime">submissiondatetime.</param>
-        /// <param name="type">type.</param>
+        /// <param name="message">Event&#39;s message.</param>
+        /// <param name="submissiondatetime">Event&#39;s submission time.</param>
+        /// <param name="type">Event&#39;s type.</param>
         public EventSummary(string message = default(string), DateTime submissiondatetime = default(DateTime), string type = default(string))
         {
             this.Message = message;
@@ -46,20 +46,23 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Event&#39;s message
         /// </summary>
+        /// <value>Event&#39;s message</value>
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets Submissiondatetime
+        /// Event&#39;s submission time
         /// </summary>
+        /// <value>Event&#39;s submission time</value>
         [DataMember(Name = "submissiondatetime", EmitDefaultValue = false)]
         public DateTime Submissiondatetime { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Event&#39;s type
         /// </summary>
+        /// <value>Event&#39;s type</value>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

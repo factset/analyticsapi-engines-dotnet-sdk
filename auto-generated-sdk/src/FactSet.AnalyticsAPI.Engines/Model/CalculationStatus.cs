@@ -33,8 +33,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class CalculationStatus : IEquatable<CalculationStatus>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// Calculation&#39;s status
         /// </summary>
+        /// <value>Calculation&#39;s status</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -65,15 +66,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Calculation&#39;s status
         /// </summary>
+        /// <value>Calculation&#39;s status</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationStatus" /> class.
         /// </summary>
-        /// <param name="calculationid">calculationid.</param>
-        /// <param name="status">status.</param>
+        /// <param name="calculationid">Calculation&#39;s identifier.</param>
+        /// <param name="status">Calculation&#39;s status.</param>
         /// <param name="units">Number of calculation units in batch..</param>
         public CalculationStatus(string calculationid = default(string), StatusEnum? status = default(StatusEnum?), Dictionary<string, CalculationUnitStatus> units = default(Dictionary<string, CalculationUnitStatus>))
         {
@@ -83,8 +85,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Calculationid
+        /// Calculation&#39;s identifier
         /// </summary>
+        /// <value>Calculation&#39;s identifier</value>
         [DataMember(Name = "calculationid", EmitDefaultValue = false)]
         public string Calculationid { get; set; }
 

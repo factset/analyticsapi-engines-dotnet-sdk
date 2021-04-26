@@ -52,7 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get Axioma optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get Axioma optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -77,9 +77,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ObjectRoot</returns>
-        ObjectRoot GetOptimizationResult(string id, string accept = default(string));
+        ObjectRoot GetOptimizationResult(string id);
 
         /// <summary>
         /// Get Axioma optimization result by id
@@ -89,9 +88,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> GetOptimizationResultWithHttpInfo(string id, string accept = default(string));
+        ApiResponse<ObjectRoot> GetOptimizationResultWithHttpInfo(string id);
         /// <summary>
         /// Get Axioma optimization status by id
         /// </summary>
@@ -121,8 +119,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot));
 
@@ -134,8 +132,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot));
         /// <summary>
@@ -147,8 +145,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot));
 
@@ -161,8 +159,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot));
         #endregion Synchronous Operations
@@ -201,7 +199,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get Axioma optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -213,7 +211,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get Axioma optimization parameters by id
         /// </summary>
         /// <remarks>
-        /// This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -228,10 +226,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> GetOptimizationResultAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectRoot> GetOptimizationResultAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Axioma optimization result by id
@@ -241,10 +238,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Axioma optimization status by id
         /// </summary>
@@ -276,8 +272,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -290,8 +286,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -304,8 +300,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -319,8 +315,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -574,7 +570,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -586,7 +582,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -635,7 +631,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -648,7 +644,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for a calculation.
+        /// Get Axioma optimization parameters by id This is the endpoint that returns the optimization parameters passed for an optimization.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
@@ -705,11 +701,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ObjectRoot</returns>
-        public ObjectRoot GetOptimizationResult(string id, string accept = default(string))
+        public ObjectRoot GetOptimizationResult(string id)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetOptimizationResultWithHttpInfo(id, accept);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetOptimizationResultWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -718,9 +713,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetOptimizationResultWithHttpInfo(string id, string accept = default(string))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetOptimizationResultWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -743,10 +737,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(accept)); // header parameter
-            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -772,12 +762,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetOptimizationResultAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectRoot> GetOptimizationResultAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetOptimizationResultWithHttpInfoAsync(id, accept, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetOptimizationResultWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -786,10 +775,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Axioma optimization status by id endpoint</param>
-        /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -814,10 +802,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
-            if (accept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(accept)); // header parameter
-            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -971,8 +955,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         public ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot))
         {
@@ -985,8 +969,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot))
         {
@@ -1041,8 +1025,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         public async System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1056,8 +1040,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1117,8 +1101,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ObjectRoot</returns>
         public ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot))
         {
@@ -1132,8 +1116,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of ObjectRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot))
         {
@@ -1194,8 +1178,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ObjectRoot</returns>
         public async System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1210,8 +1194,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Axioma optimization endpoint</param>
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
-        /// <param name="cacheControl">Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional)</param>
-        /// <param name="axiomaEquityOptimizationParametersRoot">Calculation Parameters (optional)</param>
+        /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
+        /// <param name="axiomaEquityOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), AxiomaEquityOptimizationParametersRoot axiomaEquityOptimizationParametersRoot = default(AxiomaEquityOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

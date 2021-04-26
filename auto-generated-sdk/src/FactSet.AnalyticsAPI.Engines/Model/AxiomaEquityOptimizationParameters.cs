@@ -44,7 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="account">account.</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public AxiomaEquityOptimizationParameters(OptimizerStrategy strategy = default(OptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public AxiomaEquityOptimizationParameters(AxiomaEquityOptimizerStrategy strategy = default(AxiomaEquityOptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
         {
             // to ensure "strategy" is required (not null)
             this.Strategy = strategy ?? throw new ArgumentNullException("strategy is a required property for AxiomaEquityOptimizationParameters and cannot be null");
@@ -58,7 +58,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Strategy
         /// </summary>
         [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = false)]
-        public OptimizerStrategy Strategy { get; set; }
+        public AxiomaEquityOptimizerStrategy Strategy { get; set; }
 
         /// <summary>
         /// Gets or Sets Account

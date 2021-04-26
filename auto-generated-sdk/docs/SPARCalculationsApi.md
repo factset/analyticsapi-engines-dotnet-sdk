@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationunitresultbyid"></a>
 # **GetCalculationUnitResultById**
-> ObjectRoot GetCalculationUnitResultById (string id, string unitId, string accept = null)
+> ObjectRoot GetCalculationUnitResultById (string id, string unitId)
 
 Get SPAR calculation result by id
 
@@ -286,12 +286,11 @@ namespace Example
             var apiInstance = new SPARCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Get SPAR calculation status by id endpoint
             var unitId = unitId_example;  // string | from url, provided from the location header in the Get SPAR calculation status by id endpoint
-            var accept = accept_example;  // string | Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional) 
 
             try
             {
                 // Get SPAR calculation result by id
-                ObjectRoot result = apiInstance.GetCalculationUnitResultById(id, unitId, accept);
+                ObjectRoot result = apiInstance.GetCalculationUnitResultById(id, unitId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -311,7 +310,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Get SPAR calculation status by id endpoint | 
  **unitId** | **string**| from url, provided from the location header in the Get SPAR calculation status by id endpoint | 
- **accept** | **string**| Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * | [optional] 
 
 ### Return type
 
@@ -370,7 +368,7 @@ namespace Example
 
             var apiInstance = new SPARCalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var sPARCalculationParametersRoot = new SPARCalculationParametersRoot(); // SPARCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -395,7 +393,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
  **sPARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
@@ -460,7 +458,7 @@ namespace Example
             var apiInstance = new SPARCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run SPAR calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
             var sPARCalculationParametersRoot = new SPARCalculationParametersRoot(); // SPARCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -486,7 +484,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run SPAR calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-cache, no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
  **sPARCalculationParametersRoot** | [**SPARCalculationParametersRoot**](SPARCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
@@ -511,6 +509,7 @@ Name | Type | Description  | Notes
 | **201** | Expected response if the calculation has one unit and is completed in a short span, returns JSON in the format specified in the Calculation parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **400** | Invalid Calculation Parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **404** | One or more calculation settings were unavailable. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **409** | Duplicate calculation exists with same parameters. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **415** | Missing/Invalid Content-Type header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |

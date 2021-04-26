@@ -63,14 +63,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="OptimizerStrategyOverrides" /> class.
         /// </summary>
         /// <param name="tax">Tax.</param>
-        /// <param name="objective">Objective.</param>
         /// <param name="constraints">List of constraints.</param>
         /// <param name="alpha">Alpha.</param>
         /// <param name="transactionCost">Transaction cost.</param>
-        public OptimizerStrategyOverrides(string tax = default(string), string objective = default(string), Dictionary<string, InnerEnum> constraints = default(Dictionary<string, InnerEnum>), string alpha = default(string), string transactionCost = default(string))
+        public OptimizerStrategyOverrides(string tax = default(string), Dictionary<string, InnerEnum> constraints = default(Dictionary<string, InnerEnum>), string alpha = default(string), string transactionCost = default(string))
         {
             this.Tax = tax;
-            this.Objective = objective;
             this.Constraints = constraints;
             this.Alpha = alpha;
             this.TransactionCost = transactionCost;
@@ -82,13 +80,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <value>Tax</value>
         [DataMember(Name = "tax", EmitDefaultValue = false)]
         public string Tax { get; set; }
-
-        /// <summary>
-        /// Objective
-        /// </summary>
-        /// <value>Objective</value>
-        [DataMember(Name = "objective", EmitDefaultValue = false)]
-        public string Objective { get; set; }
 
         /// <summary>
         /// Alpha
@@ -113,7 +104,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class OptimizerStrategyOverrides {\n");
             sb.Append("  Tax: ").Append(Tax).Append("\n");
-            sb.Append("  Objective: ").Append(Objective).Append("\n");
             sb.Append("  Constraints: ").Append(Constraints).Append("\n");
             sb.Append("  Alpha: ").Append(Alpha).Append("\n");
             sb.Append("  TransactionCost: ").Append(TransactionCost).Append("\n");
@@ -157,11 +147,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Tax.Equals(input.Tax))
                 ) && 
                 (
-                    this.Objective == input.Objective ||
-                    (this.Objective != null &&
-                    this.Objective.Equals(input.Objective))
-                ) && 
-                (
                     this.Constraints == input.Constraints ||
                     this.Constraints.SequenceEqual(input.Constraints)
                 ) && 
@@ -188,8 +173,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Tax != null)
                     hashCode = hashCode * 59 + this.Tax.GetHashCode();
-                if (this.Objective != null)
-                    hashCode = hashCode * 59 + this.Objective.GetHashCode();
                 hashCode = hashCode * 59 + this.Constraints.GetHashCode();
                 if (this.Alpha != null)
                     hashCode = hashCode * 59 + this.Alpha.GetHashCode();

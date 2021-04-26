@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrencyRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected CurrencyRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrencyRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public CurrencyRoot(Dictionary<string, Currency> data = default(Dictionary<string, Currency>))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for CurrencyRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Dictionary<string, Currency> Data { get; set; }
 
         /// <summary>

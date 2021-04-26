@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Tax** | **string** | Tax | [optional] 
-**Objective** | **string** | Objective | [optional] 
 **Constraints** | **Dictionary&lt;string, string&gt;** | List of constraints | [optional] 
 **Alpha** | **string** | Alpha | [optional] 
 **TransactionCost** | **string** | Transaction cost | [optional] 

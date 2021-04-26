@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DateParametersSummaryRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected DateParametersSummaryRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DateParametersSummaryRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public DateParametersSummaryRoot(DateParametersSummary data = default(DateParametersSummary))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for DateParametersSummaryRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public DateParametersSummary Data { get; set; }
 
         /// <summary>

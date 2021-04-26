@@ -35,12 +35,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VaultComponent" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
+        /// <param name="id">Vault component identifier.</param>
         /// <param name="account">account.</param>
         /// <param name="benchmark">benchmark.</param>
-        /// <param name="currencyisocode">currencyisocode.</param>
+        /// <param name="currencyisocode">Currency iso code saved in the document.</param>
         /// <param name="dates">dates.</param>
-        /// <param name="snapshot">snapshot.</param>
+        /// <param name="snapshot">Snapshot.</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
         public VaultComponent(string id = default(string), VaultIdentifier account = default(VaultIdentifier), VaultIdentifier benchmark = default(VaultIdentifier), string currencyisocode = default(string), VaultDateParameters dates = default(VaultDateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
@@ -56,8 +56,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Vault component identifier
         /// </summary>
+        /// <value>Vault component identifier</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -74,8 +75,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public VaultIdentifier Benchmark { get; set; }
 
         /// <summary>
-        /// Gets or Sets Currencyisocode
+        /// Currency iso code saved in the document
         /// </summary>
+        /// <value>Currency iso code saved in the document</value>
         [DataMember(Name = "currencyisocode", EmitDefaultValue = false)]
         public string Currencyisocode { get; set; }
 
@@ -86,8 +88,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public VaultDateParameters Dates { get; set; }
 
         /// <summary>
-        /// Gets or Sets Snapshot
+        /// Snapshot
         /// </summary>
+        /// <value>Snapshot</value>
         [DataMember(Name = "snapshot", EmitDefaultValue = false)]
         public bool Snapshot { get; set; }
 

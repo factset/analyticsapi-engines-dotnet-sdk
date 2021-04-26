@@ -35,16 +35,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SPARBenchmarkRoot" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected SPARBenchmarkRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SPARBenchmarkRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
         public SPARBenchmarkRoot(SPARBenchmark data = default(SPARBenchmark))
         {
-            this.Data = data;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for SPARBenchmarkRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public SPARBenchmark Data { get; set; }
 
         /// <summary>

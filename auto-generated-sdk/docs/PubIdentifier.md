@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.PubIdentifier
+
 ## Properties
 
 Name | Type | Description | Notes

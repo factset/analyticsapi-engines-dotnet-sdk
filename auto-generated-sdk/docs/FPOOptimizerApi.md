@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationresult"></a>
 # **GetOptimizationResult**
-> StringRoot GetOptimizationResult (string id, string accept = null)
+> ObjectRoot GetOptimizationResult (string id, string accept = null)
 
 Get FPO optimization result by id
 
@@ -208,7 +208,7 @@ namespace Example
             try
             {
                 // Get FPO optimization result by id
-                StringRoot result = apiInstance.GetOptimizationResult(id, accept);
+                ObjectRoot result = apiInstance.GetOptimizationResult(id, accept);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationstatusbyid"></a>
 # **GetOptimizationStatusById**
-> StringRoot GetOptimizationStatusById (string id)
+> ObjectRoot GetOptimizationStatusById (string id)
 
 Get FPO optimization status by id
 
@@ -290,7 +290,7 @@ namespace Example
             try
             {
                 // Get FPO optimization status by id
-                StringRoot result = apiInstance.GetOptimizationStatusById(id);
+                ObjectRoot result = apiInstance.GetOptimizationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 <a name="postandoptimize"></a>
 # **PostAndOptimize**
-> StringRoot PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersRoot fPOOptimizationParametersRoot = null)
+> ObjectRoot PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersRoot fPOOptimizationParametersRoot = null)
 
 Create and Run FPO optimization
 
@@ -374,7 +374,7 @@ namespace Example
             try
             {
                 // Create and Run FPO optimization
-                StringRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
+                ObjectRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -428,7 +428,7 @@ Name | Type | Description  | Notes
 
 <a name="putandoptimize"></a>
 # **PutAndOptimize**
-> StringRoot PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersRoot fPOOptimizationParametersRoot = null)
+> ObjectRoot PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersRoot fPOOptimizationParametersRoot = null)
 
 Create or Update FPO optimization and run it.
 
@@ -463,7 +463,7 @@ namespace Example
             try
             {
                 // Create or Update FPO optimization and run it.
-                StringRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
+                ObjectRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 

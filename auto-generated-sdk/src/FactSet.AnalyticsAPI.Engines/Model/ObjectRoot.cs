@@ -27,31 +27,31 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// StringRoot
+    /// ObjectRoot
     /// </summary>
-    [DataContract(Name = "StringRoot")]
-    public partial class StringRoot : IEquatable<StringRoot>, IValidatableObject
+    [DataContract(Name = "ObjectRoot")]
+    public partial class ObjectRoot : IEquatable<ObjectRoot>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringRoot" /> class.
+        /// Initializes a new instance of the <see cref="ObjectRoot" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StringRoot() { }
+        protected ObjectRoot() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringRoot" /> class.
+        /// Initializes a new instance of the <see cref="ObjectRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public StringRoot(string data = default(string))
+        public ObjectRoot(Object data = default(Object))
         {
             // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for StringRoot and cannot be null");
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for ObjectRoot and cannot be null");
         }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public string Data { get; set; }
+        public Object Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,7 +60,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StringRoot {\n");
+            sb.Append("class ObjectRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -82,15 +82,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StringRoot);
+            return this.Equals(input as ObjectRoot);
         }
 
         /// <summary>
-        /// Returns true if StringRoot instances are equal
+        /// Returns true if ObjectRoot instances are equal
         /// </summary>
-        /// <param name="input">Instance of StringRoot to be compared</param>
+        /// <param name="input">Instance of ObjectRoot to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StringRoot input)
+        public bool Equals(ObjectRoot input)
         {
             if (input == null)
                 return false;

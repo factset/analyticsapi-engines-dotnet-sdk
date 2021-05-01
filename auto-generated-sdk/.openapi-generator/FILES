@@ -73,6 +73,7 @@ docs/FrequencyRoot.md
 docs/Group.md
 docs/GroupRoot.md
 docs/GroupsApi.md
+docs/ObjectRoot.md
 docs/OptimalPortfolio.md
 docs/Optimization.md
 docs/OptimizerAccount.md
@@ -105,7 +106,6 @@ docs/SPARCalculationsApi.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
 docs/StrategyDocumentsApi.md
-docs/StringRoot.md
 docs/UtilityApi.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
@@ -213,6 +213,7 @@ src/FactSet.AnalyticsAPI.Engines/Model/Frequency.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FrequencyRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Group.cs
 src/FactSet.AnalyticsAPI.Engines/Model/GroupRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/ObjectRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OptimalPortfolio.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Optimization.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OptimizerAccount.cs
@@ -241,7 +242,6 @@ src/FactSet.AnalyticsAPI.Engines/Model/SPARCalculationParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARCalculationParametersRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARDateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARIdentifier.cs
-src/FactSet.AnalyticsAPI.Engines/Model/StringRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultCalculationParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultCalculationParametersRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultComponent.cs

@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationunitresultbyid"></a>
 # **GetCalculationUnitResultById**
-> StringRoot GetCalculationUnitResultById (string id, string unitId)
+> ObjectRoot GetCalculationUnitResultById (string id, string unitId)
 
 Get PA calculation result by id
 
@@ -290,7 +290,7 @@ namespace Example
             try
             {
                 // Get PA calculation result by id
-                StringRoot result = apiInstance.GetCalculationUnitResultById(id, unitId);
+                ObjectRoot result = apiInstance.GetCalculationUnitResultById(id, unitId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 

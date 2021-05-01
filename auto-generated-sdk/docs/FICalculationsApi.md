@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationresult"></a>
 # **GetCalculationResult**
-> StringRoot GetCalculationResult (string id)
+> ObjectRoot GetCalculationResult (string id)
 
 Get FI calculation result by id
 
@@ -207,7 +207,7 @@ namespace Example
             try
             {
                 // Get FI calculation result by id
-                StringRoot result = apiInstance.GetCalculationResult(id);
+                ObjectRoot result = apiInstance.GetCalculationResult(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationstatusbyid"></a>
 # **GetCalculationStatusById**
-> StringRoot GetCalculationStatusById (string id)
+> ObjectRoot GetCalculationStatusById (string id)
 
 Get FI calculation status by id
 
@@ -288,7 +288,7 @@ namespace Example
             try
             {
                 // Get FI calculation status by id
-                StringRoot result = apiInstance.GetCalculationStatusById(id);
+                ObjectRoot result = apiInstance.GetCalculationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 
 <a name="postandcalculate"></a>
 # **PostAndCalculate**
-> StringRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersRoot fICalculationParametersRoot = null)
+> ObjectRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersRoot fICalculationParametersRoot = null)
 
 Create and Run FI calculation
 
@@ -372,7 +372,7 @@ namespace Example
             try
             {
                 // Create and Run FI calculation
-                StringRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersRoot);
+                ObjectRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 <a name="putandcalculate"></a>
 # **PutAndCalculate**
-> StringRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersRoot fICalculationParametersRoot = null)
+> ObjectRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersRoot fICalculationParametersRoot = null)
 
 Create or Update FI calculation and run it.
 
@@ -461,7 +461,7 @@ namespace Example
             try
             {
                 // Create or Update FI calculation and run it.
-                StringRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersRoot);
+                ObjectRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StringRoot**](StringRoot.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 

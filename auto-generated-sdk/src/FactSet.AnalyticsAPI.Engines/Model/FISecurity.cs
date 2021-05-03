@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,34 +10,35 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Security
+    /// FISecurity
     /// </summary>
-    [DataContract]
-    public partial class Security :  IEquatable<Security>, IValidatableObject
+    [DataContract(Name = "FISecurity")]
+    public partial class FISecurity : IEquatable<FISecurity>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Security" /> class.
+        /// Initializes a new instance of the <see cref="FISecurity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Security() { }
+        protected FISecurity() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Security" /> class.
+        /// Initializes a new instance of the <see cref="FISecurity" /> class.
         /// </summary>
         /// <param name="calcFromMethod">calcFromMethod (required).</param>
         /// <param name="calcFromValue">calcFromValue (required).</param>
@@ -45,54 +46,54 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="symbol">symbol (required).</param>
         /// <param name="settlementDate">settlementDate (required).</param>
         /// <param name="discountCurve">discountCurve (required).</param>
-        public Security(string calcFromMethod = default(string), double calcFromValue = default(double), double face = default(double), string symbol = default(string), string settlementDate = default(string), string discountCurve = default(string))
+        public FISecurity(string calcFromMethod = default(string), double calcFromValue = default(double), double face = default(double), string symbol = default(string), string settlementDate = default(string), string discountCurve = default(string))
         {
             // to ensure "calcFromMethod" is required (not null)
-            this.CalcFromMethod = calcFromMethod ?? throw new ArgumentNullException("calcFromMethod is a required property for Security and cannot be null");
+            this.CalcFromMethod = calcFromMethod ?? throw new ArgumentNullException("calcFromMethod is a required property for FISecurity and cannot be null");
             this.CalcFromValue = calcFromValue;
             this.Face = face;
             // to ensure "symbol" is required (not null)
-            this.Symbol = symbol ?? throw new ArgumentNullException("symbol is a required property for Security and cannot be null");
+            this.Symbol = symbol ?? throw new ArgumentNullException("symbol is a required property for FISecurity and cannot be null");
             // to ensure "settlementDate" is required (not null)
-            this.SettlementDate = settlementDate ?? throw new ArgumentNullException("settlementDate is a required property for Security and cannot be null");
+            this.SettlementDate = settlementDate ?? throw new ArgumentNullException("settlementDate is a required property for FISecurity and cannot be null");
             // to ensure "discountCurve" is required (not null)
-            this.DiscountCurve = discountCurve ?? throw new ArgumentNullException("discountCurve is a required property for Security and cannot be null");
+            this.DiscountCurve = discountCurve ?? throw new ArgumentNullException("discountCurve is a required property for FISecurity and cannot be null");
         }
-        
+
         /// <summary>
         /// Gets or Sets CalcFromMethod
         /// </summary>
-        [DataMember(Name="calcFromMethod", EmitDefaultValue=false)]
+        [DataMember(Name = "calcFromMethod", IsRequired = true, EmitDefaultValue = false)]
         public string CalcFromMethod { get; set; }
 
         /// <summary>
         /// Gets or Sets CalcFromValue
         /// </summary>
-        [DataMember(Name="calcFromValue", EmitDefaultValue=false)]
+        [DataMember(Name = "calcFromValue", IsRequired = true, EmitDefaultValue = false)]
         public double CalcFromValue { get; set; }
 
         /// <summary>
         /// Gets or Sets Face
         /// </summary>
-        [DataMember(Name="face", EmitDefaultValue=false)]
+        [DataMember(Name = "face", IsRequired = true, EmitDefaultValue = false)]
         public double Face { get; set; }
 
         /// <summary>
         /// Gets or Sets Symbol
         /// </summary>
-        [DataMember(Name="symbol", EmitDefaultValue=false)]
+        [DataMember(Name = "symbol", IsRequired = true, EmitDefaultValue = false)]
         public string Symbol { get; set; }
 
         /// <summary>
         /// Gets or Sets SettlementDate
         /// </summary>
-        [DataMember(Name="settlementDate", EmitDefaultValue=false)]
+        [DataMember(Name = "settlementDate", IsRequired = true, EmitDefaultValue = false)]
         public string SettlementDate { get; set; }
 
         /// <summary>
         /// Gets or Sets DiscountCurve
         /// </summary>
-        [DataMember(Name="discountCurve", EmitDefaultValue=false)]
+        [DataMember(Name = "discountCurve", IsRequired = true, EmitDefaultValue = false)]
         public string DiscountCurve { get; set; }
 
         /// <summary>
@@ -102,7 +103,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Security {\n");
+            sb.Append("class FISecurity {\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
             sb.Append("  CalcFromValue: ").Append(CalcFromValue).Append("\n");
             sb.Append("  Face: ").Append(Face).Append("\n");
@@ -112,14 +113,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -129,15 +130,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Security);
+            return this.Equals(input as FISecurity);
         }
 
         /// <summary>
-        /// Returns true if Security instances are equal
+        /// Returns true if FISecurity instances are equal
         /// </summary>
-        /// <param name="input">Instance of Security to be compared</param>
+        /// <param name="input">Instance of FISecurity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Security input)
+        public bool Equals(FISecurity input)
         {
             if (input == null)
                 return false;

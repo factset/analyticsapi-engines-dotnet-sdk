@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// AxiomaEquityOptimizationParameters
     /// </summary>
-    [DataContract]
-    public partial class AxiomaEquityOptimizationParameters :  IEquatable<AxiomaEquityOptimizationParameters>, IValidatableObject
+    [DataContract(Name = "AxiomaEquityOptimizationParameters")]
+    public partial class AxiomaEquityOptimizationParameters : IEquatable<AxiomaEquityOptimizationParameters>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AxiomaEquityOptimizationParameters" /> class.
@@ -43,7 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="account">account.</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputtypes">outputtypes (required).</param>
-        public AxiomaEquityOptimizationParameters(Strategy strategy = default(Strategy), Account account = default(Account), Optimization optimization = default(Optimization), OutputTypes outputtypes = default(OutputTypes))
+        public AxiomaEquityOptimizationParameters(OptimizerStrategy strategy = default(OptimizerStrategy), OptimizerAccount account = default(OptimizerAccount), Optimization optimization = default(Optimization), OptimizerOutputTypes outputtypes = default(OptimizerOutputTypes))
         {
             // to ensure "strategy" is required (not null)
             this.Strategy = strategy ?? throw new ArgumentNullException("strategy is a required property for AxiomaEquityOptimizationParameters and cannot be null");
@@ -52,30 +53,30 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Account = account;
             this.Optimization = optimization;
         }
-        
+
         /// <summary>
         /// Gets or Sets Strategy
         /// </summary>
-        [DataMember(Name="strategy", EmitDefaultValue=false)]
-        public Strategy Strategy { get; set; }
+        [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = false)]
+        public OptimizerStrategy Strategy { get; set; }
 
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
-        public Account Account { get; set; }
+        [DataMember(Name = "account", EmitDefaultValue = false)]
+        public OptimizerAccount Account { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimization
         /// </summary>
-        [DataMember(Name="optimization", EmitDefaultValue=false)]
+        [DataMember(Name = "optimization", EmitDefaultValue = false)]
         public Optimization Optimization { get; set; }
 
         /// <summary>
         /// Gets or Sets Outputtypes
         /// </summary>
-        [DataMember(Name="outputtypes", EmitDefaultValue=false)]
-        public OutputTypes Outputtypes { get; set; }
+        [DataMember(Name = "outputtypes", IsRequired = true, EmitDefaultValue = false)]
+        public OptimizerOutputTypes Outputtypes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,14 +93,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

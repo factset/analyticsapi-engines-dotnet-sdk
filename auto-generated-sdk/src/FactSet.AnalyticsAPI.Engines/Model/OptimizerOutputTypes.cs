@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,56 +10,57 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OutputTypes
+    /// OptimizerOutputTypes
     /// </summary>
-    [DataContract]
-    public partial class OutputTypes :  IEquatable<OutputTypes>, IValidatableObject
+    [DataContract(Name = "OptimizerOutputTypes")]
+    public partial class OptimizerOutputTypes : IEquatable<OptimizerOutputTypes>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OutputTypes" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerOutputTypes" /> class.
         /// </summary>
         /// <param name="trades">trades.</param>
         /// <param name="optimal">optimal.</param>
         /// <param name="account">account.</param>
-        public OutputTypes(TradesList trades = default(TradesList), OptimalHoldings optimal = default(OptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio))
+        public OptimizerOutputTypes(OptimizerTradesList trades = default(OptimizerTradesList), OptimizerOptimalHoldings optimal = default(OptimizerOptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio))
         {
             this.Trades = trades;
             this.Optimal = optimal;
             this.Account = account;
         }
-        
+
         /// <summary>
         /// Gets or Sets Trades
         /// </summary>
-        [DataMember(Name="trades", EmitDefaultValue=false)]
-        public TradesList Trades { get; set; }
+        [DataMember(Name = "trades", EmitDefaultValue = false)]
+        public OptimizerTradesList Trades { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimal
         /// </summary>
-        [DataMember(Name="optimal", EmitDefaultValue=false)]
-        public OptimalHoldings Optimal { get; set; }
+        [DataMember(Name = "optimal", EmitDefaultValue = false)]
+        public OptimizerOptimalHoldings Optimal { get; set; }
 
         /// <summary>
         /// Gets or Sets Account
         /// </summary>
-        [DataMember(Name="account", EmitDefaultValue=false)]
+        [DataMember(Name = "account", EmitDefaultValue = false)]
         public OptimalPortfolio Account { get; set; }
 
         /// <summary>
@@ -69,21 +70,21 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OutputTypes {\n");
+            sb.Append("class OptimizerOutputTypes {\n");
             sb.Append("  Trades: ").Append(Trades).Append("\n");
             sb.Append("  Optimal: ").Append(Optimal).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -93,15 +94,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OutputTypes);
+            return this.Equals(input as OptimizerOutputTypes);
         }
 
         /// <summary>
-        /// Returns true if OutputTypes instances are equal
+        /// Returns true if OptimizerOutputTypes instances are equal
         /// </summary>
-        /// <param name="input">Instance of OutputTypes to be compared</param>
+        /// <param name="input">Instance of OptimizerOutputTypes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OutputTypes input)
+        public bool Equals(OptimizerOutputTypes input)
         {
             if (input == null)
                 return false;

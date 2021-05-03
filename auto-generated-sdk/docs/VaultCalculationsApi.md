@@ -75,6 +75,7 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -155,6 +156,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -171,7 +173,7 @@ Name | Type | Description  | Notes
 
 <a name="runvaultcalculation"></a>
 # **RunVaultCalculation**
-> Object RunVaultCalculation (VaultCalculationParameters vaultCalculationParameters = null)
+> Object RunVaultCalculation (string xFactsetContentOrganization = null, string xFactsetContentType = null, VaultCalculationParameters vaultCalculationParameters = null)
 
 Run Vault Calculation
 
@@ -198,12 +200,14 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new VaultCalculationsApi(config);
+            var xFactsetContentOrganization = xFactsetContentOrganization_example;  // string | For specifying the format of the calculation result. Accepted values are \"column\" or \"row\" or \"simplifiedrow\" (optional) 
+            var xFactsetContentType = xFactsetContentType_example;  // string | For specifying the content type of the calculation result. Accepted values are either \"application/json\" or \"application/x-protobuf\" (optional) 
             var vaultCalculationParameters = new VaultCalculationParameters(); // VaultCalculationParameters |  (optional) 
 
             try
             {
                 // Run Vault Calculation
-                Object result = apiInstance.RunVaultCalculation(vaultCalculationParameters);
+                Object result = apiInstance.RunVaultCalculation(xFactsetContentOrganization, xFactsetContentType, vaultCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -221,6 +225,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xFactsetContentOrganization** | **string**| For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; | [optional] 
+ **xFactsetContentType** | **string**| For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; | [optional] 
  **vaultCalculationParameters** | [**VaultCalculationParameters**](VaultCalculationParameters.md)|  | [optional] 
 
 ### Return type
@@ -235,6 +241,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

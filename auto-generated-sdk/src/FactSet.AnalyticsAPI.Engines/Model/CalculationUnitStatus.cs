@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// CalculationUnitStatus
     /// </summary>
-    [DataContract]
-    public partial class CalculationUnitStatus :  IEquatable<CalculationUnitStatus>, IValidatableObject
+    [DataContract(Name = "CalculationUnitStatus")]
+    public partial class CalculationUnitStatus : IEquatable<CalculationUnitStatus>, IValidatableObject
     {
         /// <summary>
         /// The status of calculation unit.
@@ -74,7 +75,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// The status of calculation unit.
         /// </summary>
         /// <value>The status of calculation unit.</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationUnitStatus" /> class.
@@ -90,26 +91,26 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Result = result;
             this.Progress = progress;
         }
-        
+
         /// <summary>
         /// The error in a calculation unit.
         /// </summary>
         /// <value>The error in a calculation unit.</value>
-        [DataMember(Name="error", EmitDefaultValue=false)]
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
         /// The result URL of the calculation.
         /// </summary>
         /// <value>The result URL of the calculation.</value>
-        [DataMember(Name="result", EmitDefaultValue=false)]
+        [DataMember(Name = "result", EmitDefaultValue = false)]
         public string Result { get; set; }
 
         /// <summary>
         /// The progress of the calculation unit.
         /// </summary>
         /// <value>The progress of the calculation unit.</value>
-        [DataMember(Name="progress", EmitDefaultValue=false)]
+        [DataMember(Name = "progress", EmitDefaultValue = false)]
         public string Progress { get; set; }
 
         /// <summary>
@@ -127,14 +128,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

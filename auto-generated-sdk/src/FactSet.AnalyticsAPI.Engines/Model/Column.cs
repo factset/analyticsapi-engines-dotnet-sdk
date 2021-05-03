@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// Column
     /// </summary>
-    [DataContract]
-    public partial class Column :  IEquatable<Column>, IValidatableObject
+    [DataContract(Name = "Column")]
+    public partial class Column : IEquatable<Column>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Column" /> class.
@@ -45,33 +46,33 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Directory = directory;
             this.Category = category;
         }
-        
+
         /// <summary>
         /// Column statistic Id
         /// </summary>
         /// <value>Column statistic Id</value>
-        [DataMember(Name="defaultstatisticsids", EmitDefaultValue=false)]
+        [DataMember(Name = "defaultstatisticsids", EmitDefaultValue = false)]
         public List<string> Defaultstatisticsids { get; set; }
 
         /// <summary>
         /// Column Name
         /// </summary>
         /// <value>Column Name</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Column Directory
         /// </summary>
         /// <value>Column Directory</value>
-        [DataMember(Name="directory", EmitDefaultValue=false)]
+        [DataMember(Name = "directory", EmitDefaultValue = false)]
         public string Directory { get; set; }
 
         /// <summary>
         /// Column Category
         /// </summary>
         /// <value>Column Category</value>
-        [DataMember(Name="category", EmitDefaultValue=false)]
+        [DataMember(Name = "category", EmitDefaultValue = false)]
         public string Category { get; set; }
 
         /// <summary>
@@ -89,14 +90,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

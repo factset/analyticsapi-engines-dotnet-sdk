@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationunitresultbyid"></a>
 # **GetCalculationUnitResultById**
-> string GetCalculationUnitResultById (string id, string unitId)
+> System.IO.Stream GetCalculationUnitResultById (string id, string unitId)
 
 Get Pub calculation result by id
 
@@ -290,7 +290,7 @@ namespace Example
             try
             {
                 // Get Pub calculation result by id
-                string result = apiInstance.GetCalculationUnitResultById(id, unitId);
+                System.IO.Stream result = apiInstance.GetCalculationUnitResultById(id, unitId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+**System.IO.Stream**
 
 ### Authorization
 

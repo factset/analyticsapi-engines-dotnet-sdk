@@ -99,8 +99,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
-        /// <returns>string</returns>
-        string GetCalculationUnitResultById(string id, string unitId);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetCalculationUnitResultById(string id, string unitId);
 
         /// <summary>
         /// Get Pub calculation result by id
@@ -111,8 +111,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
-        /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId);
         /// <summary>
         /// Create and Run Pub calculation
         /// </summary>
@@ -253,8 +253,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Pub calculation result by id
@@ -266,8 +266,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create and Run Pub calculation
         /// </summary>
@@ -833,10 +833,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
-        /// <returns>string</returns>
-        public string GetCalculationUnitResultById(string id, string unitId)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetCalculationUnitResultById(string id, string unitId)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<string> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId);
             return localVarResponse.Data;
         }
 
@@ -846,8 +846,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
-        /// <returns>ApiResponse of string</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<string> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -886,7 +886,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/analytics/engines/pub/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/analytics/engines/pub/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -904,10 +904,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<string> localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -918,8 +918,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Pub calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<string>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -961,7 +961,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/analytics/engines/pub/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/analytics/engines/pub/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

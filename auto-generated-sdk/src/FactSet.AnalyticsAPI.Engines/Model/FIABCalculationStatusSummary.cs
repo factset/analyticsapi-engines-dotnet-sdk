@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FIABCalculationStatusSummary
     /// </summary>
-    [DataContract]
-    public partial class FIABCalculationStatusSummary :  IEquatable<FIABCalculationStatusSummary>, IValidatableObject
+    [DataContract(Name = "FIABCalculationStatusSummary")]
+    public partial class FIABCalculationStatusSummary : IEquatable<FIABCalculationStatusSummary>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FIABCalculationStatusSummary" /> class.
@@ -41,19 +42,19 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Requesttime = requesttime;
             this.Lastpolltime = lastpolltime;
         }
-        
+
         /// <summary>
         /// Request time of calculation.
         /// </summary>
         /// <value>Request time of calculation.</value>
-        [DataMember(Name="requesttime", EmitDefaultValue=false)]
+        [DataMember(Name = "requesttime", EmitDefaultValue = false)]
         public DateTime Requesttime { get; set; }
 
         /// <summary>
         /// Last poll time of calculation.
         /// </summary>
         /// <value>Last poll time of calculation.</value>
-        [DataMember(Name="lastpolltime", EmitDefaultValue=false)]
+        [DataMember(Name = "lastpolltime", EmitDefaultValue = false)]
         public DateTime Lastpolltime { get; set; }
 
         /// <summary>
@@ -69,14 +70,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

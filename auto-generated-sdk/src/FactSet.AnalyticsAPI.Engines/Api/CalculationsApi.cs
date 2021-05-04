@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns></returns>
-        void CancelCalculationById (string id);
+        void CancelCalculationById(string id);
 
         /// <summary>
         /// Cancel calculation by id
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CancelCalculationByIdWithHttpInfo (string id);
+        ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id);
         /// <summary>
         /// Get calculation status by id
         /// </summary>
@@ -57,7 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns>CalculationStatus</returns>
-        CalculationStatus GetCalculationStatusById (string id);
+        CalculationStatus GetCalculationStatusById(string id);
 
         /// <summary>
         /// Get calculation status by id
@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns>ApiResponse of CalculationStatus</returns>
-        ApiResponse<CalculationStatus> GetCalculationStatusByIdWithHttpInfo (string id);
+        ApiResponse<CalculationStatus> GetCalculationStatusByIdWithHttpInfo(string id);
         /// <summary>
         /// Get all calculation statuses
         /// </summary>
@@ -77,7 +77,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Dictionary&lt;string, CalculationStatusSummary&gt;</returns>
-        Dictionary<string, CalculationStatusSummary> GetCalculationStatusSummaries ();
+        Dictionary<string, CalculationStatusSummary> GetCalculationStatusSummaries();
 
         /// <summary>
         /// Get all calculation statuses
@@ -87,7 +87,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, CalculationStatusSummary&gt;</returns>
-        ApiResponse<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesWithHttpInfo ();
+        ApiResponse<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesWithHttpInfo();
         /// <summary>
         /// Run calculation
         /// </summary>
@@ -95,9 +95,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
         /// <returns></returns>
-        void RunCalculation (Calculation calculation = default(Calculation));
+        void RunCalculation(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation));
 
         /// <summary>
         /// Run calculation
@@ -106,9 +108,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RunCalculationWithHttpInfo (Calculation calculation = default(Calculation));
+        ApiResponse<Object> RunCalculationWithHttpInfo(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation));
         #endregion Synchronous Operations
     }
 
@@ -126,8 +130,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CancelCalculationByIdAsync (string id);
+        System.Threading.Tasks.Task CancelCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel calculation by id
@@ -137,8 +142,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get calculation status by id
         /// </summary>
@@ -147,8 +153,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatus</returns>
-        System.Threading.Tasks.Task<CalculationStatus> GetCalculationStatusByIdAsync (string id);
+        System.Threading.Tasks.Task<CalculationStatus> GetCalculationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get calculation status by id
@@ -158,8 +165,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatus>> GetCalculationStatusByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<CalculationStatus>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get all calculation statuses
         /// </summary>
@@ -167,8 +175,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all active calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, CalculationStatusSummary&gt;</returns>
-        System.Threading.Tasks.Task<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesAsync ();
+        System.Threading.Tasks.Task<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all calculation statuses
@@ -177,8 +186,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all active calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, CalculationStatusSummary&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, CalculationStatusSummary>>> GetCalculationStatusSummariesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, CalculationStatusSummary>>> GetCalculationStatusSummariesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Run calculation
         /// </summary>
@@ -186,9 +196,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RunCalculationAsync (Calculation calculation = default(Calculation));
+        System.Threading.Tasks.Task RunCalculationAsync(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Run calculation
@@ -197,9 +210,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RunCalculationAsyncWithHttpInfo (Calculation calculation = default(Calculation));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RunCalculationWithHttpInfoAsync(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -222,7 +238,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="CalculationsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CalculationsApi() : this((string) null)
+        public CalculationsApi() : this((string)null)
         {
         }
 
@@ -267,11 +283,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public CalculationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public CalculationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -302,7 +318,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -326,9 +342,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns></returns>
-        public void CancelCalculationById (string id)
+        public void CancelCalculationById(string id)
         {
-             CancelCalculationByIdWithHttpInfo(id);
+            CancelCalculationByIdWithHttpInfo(id);
         }
 
         /// <summary>
@@ -337,7 +353,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -384,11 +400,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CancelCalculationByIdAsync (string id)
+        public async System.Threading.Tasks.Task CancelCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await CancelCalculationByIdAsyncWithHttpInfo(id);
-
+            await CancelCalculationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -396,8 +412,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelCalculationByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -412,13 +429,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -430,7 +448,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/v2/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/v2/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -447,10 +465,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns>CalculationStatus</returns>
-        public CalculationStatus GetCalculationStatusById (string id)
+        public CalculationStatus GetCalculationStatusById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus> localVarResponse = GetCalculationStatusByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus> localVarResponse = GetCalculationStatusByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -459,7 +477,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
         /// <returns>ApiResponse of CalculationStatus</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< CalculationStatus > GetCalculationStatusByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus> GetCalculationStatusByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -491,7 +509,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< CalculationStatus >("/analytics/engines/v2/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<CalculationStatus>("/analytics/engines/v2/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -507,12 +525,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationStatus</returns>
-        public async System.Threading.Tasks.Task<CalculationStatus> GetCalculationStatusByIdAsync (string id)
+        public async System.Threading.Tasks.Task<CalculationStatus> GetCalculationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus> localVarResponse = await GetCalculationStatusByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus> localVarResponse = await GetCalculationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -520,8 +538,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">From url, provided from the location header in the Run Multiple Calculations endpoint.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalculationStatus)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus>> GetCalculationStatusByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatus>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -537,13 +556,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -555,7 +575,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<CalculationStatus>("/analytics/engines/v2/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<CalculationStatus>("/analytics/engines/v2/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -571,10 +591,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Dictionary&lt;string, CalculationStatusSummary&gt;</returns>
-        public Dictionary<string, CalculationStatusSummary> GetCalculationStatusSummaries ()
+        public Dictionary<string, CalculationStatusSummary> GetCalculationStatusSummaries()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>> localVarResponse = GetCalculationStatusSummariesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>> localVarResponse = GetCalculationStatusSummariesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -582,7 +602,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, CalculationStatusSummary&gt;</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Dictionary<string, CalculationStatusSummary> > GetCalculationStatusSummariesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -609,7 +629,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Dictionary<string, CalculationStatusSummary> >("/analytics/engines/v2/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Dictionary<string, CalculationStatusSummary>>("/analytics/engines/v2/calculations", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -624,20 +644,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculation statuses This endpoints returns all active calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, CalculationStatusSummary&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesAsync ()
+        public async System.Threading.Tasks.Task<Dictionary<string, CalculationStatusSummary>> GetCalculationStatusSummariesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>> localVarResponse = await GetCalculationStatusSummariesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>> localVarResponse = await GetCalculationStatusSummariesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get all calculation statuses This endpoints returns all active calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, CalculationStatusSummary&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>>> GetCalculationStatusSummariesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, CalculationStatusSummary>>> GetCalculationStatusSummariesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -649,13 +670,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -666,7 +688,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, CalculationStatusSummary>>("/analytics/engines/v2/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, CalculationStatusSummary>>("/analytics/engines/v2/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -681,20 +703,24 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run calculation This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
         /// <returns></returns>
-        public void RunCalculation (Calculation calculation = default(Calculation))
+        public void RunCalculation(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation))
         {
-             RunCalculationWithHttpInfo(calculation);
+            RunCalculationWithHttpInfo(xFactsetContentOrganization, xFactsetContentType, calculation);
         }
 
         /// <summary>
         /// Run calculation This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> RunCalculationWithHttpInfo (Calculation calculation = default(Calculation))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> RunCalculationWithHttpInfo(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -712,6 +738,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (xFactsetContentOrganization != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-organization", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentOrganization)); // header parameter
+            }
+            if (xFactsetContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-type", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentType)); // header parameter
+            }
             localVarRequestOptions.Data = calculation;
 
             // authentication (Basic) required
@@ -737,21 +771,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Run calculation This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RunCalculationAsync (Calculation calculation = default(Calculation))
+        public async System.Threading.Tasks.Task RunCalculationAsync(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await RunCalculationAsyncWithHttpInfo(calculation);
-
+            await RunCalculationWithHttpInfoAsync(xFactsetContentOrganization, xFactsetContentType, calculation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Run calculation This endpoint creates a new calculation and runs the set of calculation units specified in the POST body.  This must be used first before get status or cancelling endpoints with a calculation id.   A successful response will contain the URL to check the status of the calculation request.    Remarks:  * Maximum 500 units allowed across all simultaneous calculations. (Refer API documentation for more information)                * Any settings in POST body will act as a one-time override over the settings saved in the PA/SPAR/Vault template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="xFactsetContentOrganization">For specifying the format of the calculation result. Accepted values are \&quot;column\&quot; or \&quot;row\&quot; or \&quot;simplifiedrow\&quot; (optional)</param>
+        /// <param name="xFactsetContentType">For specifying the content type of the calculation result. Accepted values are either \&quot;application/json\&quot; or \&quot;application/x-protobuf\&quot; (optional)</param>
         /// <param name="calculation"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunCalculationAsyncWithHttpInfo (Calculation calculation = default(Calculation))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunCalculationWithHttpInfoAsync(string xFactsetContentOrganization = default(string), string xFactsetContentType = default(string), Calculation calculation = default(Calculation), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -763,13 +802,22 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (xFactsetContentOrganization != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-organization", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentOrganization)); // header parameter
+            }
+            if (xFactsetContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("x-factset-content-type", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(xFactsetContentType)); // header parameter
+            }
             localVarRequestOptions.Data = calculation;
 
             // authentication (Basic) required
@@ -781,7 +829,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/v2/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/v2/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

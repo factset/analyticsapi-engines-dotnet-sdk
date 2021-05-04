@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// OptimalPortfolio
     /// </summary>
-    [DataContract]
-    public partial class OptimalPortfolio :  IEquatable<OptimalPortfolio>, IValidatableObject
+    [DataContract(Name = "OptimalPortfolio")]
+    public partial class OptimalPortfolio : IEquatable<OptimalPortfolio>, IValidatableObject
     {
         /// <summary>
         /// Archive action if account exists
@@ -62,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Archive action if account exists
         /// </summary>
         /// <value>Archive action if account exists</value>
-        [DataMember(Name="ifexists", EmitDefaultValue=false)]
+        [DataMember(Name = "ifexists", EmitDefaultValue = false)]
         public IfexistsEnum? Ifexists { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="OptimalPortfolio" /> class.
@@ -78,26 +79,26 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Archivedate = archivedate;
             this.Ifexists = ifexists;
         }
-        
+
         /// <summary>
         /// Account path
         /// </summary>
         /// <value>Account path</value>
-        [DataMember(Name="acctname", EmitDefaultValue=false)]
+        [DataMember(Name = "acctname", EmitDefaultValue = false)]
         public string Acctname { get; set; }
 
         /// <summary>
         /// Exclude zero
         /// </summary>
         /// <value>Exclude zero</value>
-        [DataMember(Name="excludezero", EmitDefaultValue=false)]
+        [DataMember(Name = "excludezero", EmitDefaultValue = false)]
         public bool Excludezero { get; set; }
 
         /// <summary>
         /// Archive date
         /// </summary>
         /// <value>Archive date</value>
-        [DataMember(Name="archivedate", EmitDefaultValue=false)]
+        [DataMember(Name = "archivedate", EmitDefaultValue = false)]
         public string Archivedate { get; set; }
 
         /// <summary>
@@ -115,14 +116,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

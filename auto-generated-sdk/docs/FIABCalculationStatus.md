@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.FIABCalculationStatus
+
 ## Properties
 
 Name | Type | Description | Notes

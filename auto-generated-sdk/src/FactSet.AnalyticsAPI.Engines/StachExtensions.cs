@@ -71,6 +71,7 @@ namespace FactSet.AnalyticsAPI.Engines
                     var value = headerTable.Data.Columns[headerTableSeriesDefinition.Id].GetValueHelper(headerTableSeriesDefinition.Type, index);
                     headerRow.Cells.Add(value.ToString());
                 }
+                headerRow.isHeader = true;
                 table.Rows.Add(headerRow);
             }
             

@@ -1,3 +1,42 @@
+4.1.1 (05/06/2021)
+
+Supported API versions:
+* v2
+
+Summary:
+* Adding bug fix for column names 
+
+Breaking changes:
+* No Changes
+
+Functionality Additions:
+* No Changes
+
+Bug Fixes:
+* Fixing the empty column names for dimension columns
+* Fixing the order of dimensions column
+
+-----------------------
+
+4.1.0 (11/17/2020)
+
+Supported API versions:
+* v2
+
+Summary:
+* Adding FIAB, Fixed Income and AXP Optimizer API support
+
+Breaking changes:
+* No Changes
+
+Functionality Additions:
+* Adding FIAB, Fixed Income and AXP Optimizer API support
+
+Bug Fixes:
+* No Changes
+
+-----------------------
+
 4.0.0 (08/27/2020)
 
 Supported API versions:

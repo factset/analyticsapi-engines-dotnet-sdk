@@ -50,6 +50,29 @@ namespace FactSet.AnalyticsAPI.Engines
                 Rows = new List<Row>(),
                 Metadata = new Dictionary<string, string>()
             };
+
+            var headerDataRowList = headerTable.Data.Rows.Select(x => x.Id).ToList();
+            foreach (var headerTableSeriesDefinition in headerTable.Definition.Columns)
+            {
+                var headerRow = new Row { Cells = new List<string>() };
+                foreach (var primaryTableSeriesDefinition in primaryTable.Definition.Columns)
+                {
+                    if (primaryTableSeriesDefinition.IsDimension)
+                    {
+                        var description = string.IsNullOrEmpty(primaryTableSeriesDefinition.Description)
+                            ? primaryTableSeriesDefinition.Name
+                            : primaryTableSeriesDefinition.Description;
+                        
+                        headerRow.Cells.Add(description);
+                        continue;
+                    }
+                    
+                    var index = headerDataRowList.IndexOf(primaryTableSeriesDefinition.HeaderId);
+                    var value = headerTable.Data.Columns[headerTableSeriesDefinition.Id].GetValueHelper(headerTableSeriesDefinition.Type, index);
+                    headerRow.Cells.Add(value.ToString());
+                }
+            }
+            
             // Constructs the column headers by considering dimension columns and header rows
             foreach (var columnId in headerColumnIds)
             {

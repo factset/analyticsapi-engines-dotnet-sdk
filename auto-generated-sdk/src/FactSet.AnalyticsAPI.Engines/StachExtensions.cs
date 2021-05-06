@@ -71,25 +71,9 @@ namespace FactSet.AnalyticsAPI.Engines
                     var value = headerTable.Data.Columns[headerTableSeriesDefinition.Id].GetValueHelper(headerTableSeriesDefinition.Type, index);
                     headerRow.Cells.Add(value.ToString());
                 }
-            }
-            
-            // Constructs the column headers by considering dimension columns and header rows
-            foreach (var columnId in headerColumnIds)
-            {
-                var headerRow = new Row { Cells = new List<string>() };
-                for (int j = 0; j < dimensionColumnsCount; j++)
-                {
-                    headerRow.Cells.Add("");
-                }
-
-                for (int i = 0; i < headerRowCount; i++)
-                {
-                    headerRow.Cells.Add(Convert.ToString(headerTable.Data.Columns[columnId]
-                        .GetValueHelper(headerTable.Definition.Columns.First(c => c.Id == columnId).Type, i)));
-                }
-                headerRow.isHeader = true;
                 table.Rows.Add(headerRow);
             }
+            
             // Constructs the column data
             for (int i = 0; i < rowCount; i++)
             {

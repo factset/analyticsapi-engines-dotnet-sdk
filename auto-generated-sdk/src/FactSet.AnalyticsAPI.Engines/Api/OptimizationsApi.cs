@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns></returns>
-        void CancelAxiomaOptimizationById (string id);
+        void CancelAxiomaOptimizationById(string id);
 
         /// <summary>
         /// Cancel Axioma optimization by id
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CancelAxiomaOptimizationByIdWithHttpInfo (string id);
+        ApiResponse<Object> CancelAxiomaOptimizationByIdWithHttpInfo(string id);
         /// <summary>
         /// Get Axioma optimization by id
         /// </summary>
@@ -57,7 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns></returns>
-        void GetAxiomaOptimizationById (string id);
+        void GetAxiomaOptimizationById(string id);
 
         /// <summary>
         /// Get Axioma optimization by id
@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GetAxiomaOptimizationByIdWithHttpInfo (string id);
+        ApiResponse<Object> GetAxiomaOptimizationByIdWithHttpInfo(string id);
         /// <summary>
         /// Run Axioma optimization
         /// </summary>
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
         /// <returns></returns>
-        void RunAxiomaOptimization (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
+        void RunAxiomaOptimization(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
 
         /// <summary>
         /// Run Axioma optimization
@@ -89,7 +89,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> RunAxiomaOptimizationWithHttpInfo (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
+        ApiResponse<Object> RunAxiomaOptimizationWithHttpInfo(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
         #endregion Synchronous Operations
     }
 
@@ -107,8 +107,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CancelAxiomaOptimizationByIdAsync (string id);
+        System.Threading.Tasks.Task CancelAxiomaOptimizationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel Axioma optimization by id
@@ -118,8 +119,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CancelAxiomaOptimizationByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Axioma optimization by id
         /// </summary>
@@ -128,8 +130,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task GetAxiomaOptimizationByIdAsync (string id);
+        System.Threading.Tasks.Task GetAxiomaOptimizationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Axioma optimization by id
@@ -139,8 +142,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetAxiomaOptimizationByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Run Axioma optimization
         /// </summary>
@@ -149,8 +153,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task RunAxiomaOptimizationAsync (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
+        System.Threading.Tasks.Task RunAxiomaOptimizationAsync(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Run Axioma optimization
@@ -160,8 +165,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> RunAxiomaOptimizationAsyncWithHttpInfo (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters));
+        System.Threading.Tasks.Task<ApiResponse<Object>> RunAxiomaOptimizationWithHttpInfoAsync(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -184,7 +190,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="OptimizationsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public OptimizationsApi() : this((string) null)
+        public OptimizationsApi() : this((string)null)
         {
         }
 
@@ -229,11 +235,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public OptimizationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public OptimizationsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -264,7 +270,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -288,9 +294,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns></returns>
-        public void CancelAxiomaOptimizationById (string id)
+        public void CancelAxiomaOptimizationById(string id)
         {
-             CancelAxiomaOptimizationByIdWithHttpInfo(id);
+            CancelAxiomaOptimizationByIdWithHttpInfo(id);
         }
 
         /// <summary>
@@ -299,7 +305,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelAxiomaOptimizationByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelAxiomaOptimizationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -346,11 +352,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CancelAxiomaOptimizationByIdAsync (string id)
+        public async System.Threading.Tasks.Task CancelAxiomaOptimizationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await CancelAxiomaOptimizationByIdAsyncWithHttpInfo(id);
-
+            await CancelAxiomaOptimizationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -358,8 +364,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelAxiomaOptimizationByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -374,13 +381,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -392,7 +400,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -409,9 +417,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns></returns>
-        public void GetAxiomaOptimizationById (string id)
+        public void GetAxiomaOptimizationById(string id)
         {
-             GetAxiomaOptimizationByIdWithHttpInfo(id);
+            GetAxiomaOptimizationByIdWithHttpInfo(id);
         }
 
         /// <summary>
@@ -420,7 +428,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> GetAxiomaOptimizationByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> GetAxiomaOptimizationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -467,11 +475,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task GetAxiomaOptimizationByIdAsync (string id)
+        public async System.Threading.Tasks.Task GetAxiomaOptimizationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await GetAxiomaOptimizationByIdAsyncWithHttpInfo(id);
-
+            await GetAxiomaOptimizationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -479,8 +487,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Run Optimization endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> GetAxiomaOptimizationByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> GetAxiomaOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -495,13 +504,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
 
             // authentication (Basic) required
@@ -513,7 +523,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/analytics/engines/axp/v1/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -530,9 +540,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
         /// <returns></returns>
-        public void RunAxiomaOptimization (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
+        public void RunAxiomaOptimization(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
         {
-             RunAxiomaOptimizationWithHttpInfo(axiomaEquityOptimizationParameters);
+            RunAxiomaOptimizationWithHttpInfo(axiomaEquityOptimizationParameters);
         }
 
         /// <summary>
@@ -541,7 +551,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> RunAxiomaOptimizationWithHttpInfo (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> RunAxiomaOptimizationWithHttpInfo(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -585,11 +595,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task RunAxiomaOptimizationAsync (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
+        public async System.Threading.Tasks.Task RunAxiomaOptimizationAsync(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             await RunAxiomaOptimizationAsyncWithHttpInfo(axiomaEquityOptimizationParameters);
-
+            await RunAxiomaOptimizationWithHttpInfoAsync(axiomaEquityOptimizationParameters, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -597,8 +607,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="axiomaEquityOptimizationParameters"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunAxiomaOptimizationAsyncWithHttpInfo (AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> RunAxiomaOptimizationWithHttpInfoAsync(AxiomaEquityOptimizationParameters axiomaEquityOptimizationParameters = default(AxiomaEquityOptimizationParameters), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -610,13 +621,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.Data = axiomaEquityOptimizationParameters;
 
             // authentication (Basic) required
@@ -628,7 +640,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/axp/v1/optimizations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/analytics/engines/axp/v1/optimizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
         /// <returns>SPARBenchmark</returns>
-        SPARBenchmark GetSPARBenchmarkById (string id);
+        SPARBenchmark GetSPARBenchmarkById(string id);
 
         /// <summary>
         /// Get SPAR benchmark details
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
         /// <returns>ApiResponse of SPARBenchmark</returns>
-        ApiResponse<SPARBenchmark> GetSPARBenchmarkByIdWithHttpInfo (string id);
+        ApiResponse<SPARBenchmark> GetSPARBenchmarkByIdWithHttpInfo(string id);
         #endregion Synchronous Operations
     }
 
@@ -65,8 +65,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SPARBenchmark</returns>
-        System.Threading.Tasks.Task<SPARBenchmark> GetSPARBenchmarkByIdAsync (string id);
+        System.Threading.Tasks.Task<SPARBenchmark> GetSPARBenchmarkByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get SPAR benchmark details
@@ -76,8 +77,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SPARBenchmark)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SPARBenchmark>> GetSPARBenchmarkByIdAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<SPARBenchmark>> GetSPARBenchmarkByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -100,7 +102,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="SPARBenchmarkApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SPARBenchmarkApi() : this((string) null)
+        public SPARBenchmarkApi() : this((string)null)
         {
         }
 
@@ -145,11 +147,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public SPARBenchmarkApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public SPARBenchmarkApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -180,7 +182,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -204,10 +206,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
         /// <returns>SPARBenchmark</returns>
-        public SPARBenchmark GetSPARBenchmarkById (string id)
+        public SPARBenchmark GetSPARBenchmarkById(string id)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark> localVarResponse = GetSPARBenchmarkByIdWithHttpInfo(id);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark> localVarResponse = GetSPARBenchmarkByIdWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -216,7 +218,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
         /// <returns>ApiResponse of SPARBenchmark</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< SPARBenchmark > GetSPARBenchmarkByIdWithHttpInfo (string id)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark> GetSPARBenchmarkByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -248,7 +250,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< SPARBenchmark >("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SPARBenchmark>("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -264,12 +266,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SPARBenchmark</returns>
-        public async System.Threading.Tasks.Task<SPARBenchmark> GetSPARBenchmarkByIdAsync (string id)
+        public async System.Threading.Tasks.Task<SPARBenchmark> GetSPARBenchmarkByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark> localVarResponse = await GetSPARBenchmarkByIdAsyncWithHttpInfo(id);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark> localVarResponse = await GetSPARBenchmarkByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -277,8 +279,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Benchmark Identifier</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SPARBenchmark)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark>> GetSPARBenchmarkByIdAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARBenchmark>> GetSPARBenchmarkByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -294,13 +297,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (Basic) required
@@ -312,7 +316,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SPARBenchmark>("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SPARBenchmark>("/analytics/lookups/v2/engines/spar/benchmarks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

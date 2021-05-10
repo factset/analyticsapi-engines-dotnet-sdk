@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// FIABIdentifier
     /// </summary>
-    [DataContract]
-    public partial class FIABIdentifier :  IEquatable<FIABIdentifier>, IValidatableObject
+    [DataContract(Name = "FIABIdentifier")]
+    public partial class FIABIdentifier : IEquatable<FIABIdentifier>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FIABIdentifier" /> class.
@@ -45,12 +46,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             // to ensure "id" is required (not null)
             this.Id = id ?? throw new ArgumentNullException("id is a required property for FIABIdentifier and cannot be null");
         }
-        
+
         /// <summary>
         /// User&#39;s FactSet account path.
         /// </summary>
         /// <value>User&#39;s FactSet account path.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -65,14 +66,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

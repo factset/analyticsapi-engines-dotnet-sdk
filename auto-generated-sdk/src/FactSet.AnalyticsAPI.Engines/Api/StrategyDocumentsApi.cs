@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        DocumentDirectories GetAxiomaEquityStrategyDocuments (string path);
+        DocumentDirectories GetAxiomaEquityStrategyDocuments(string path);
 
         /// <summary>
         /// Get Axioma Equity strategy documents and sub-directories in a directory
@@ -47,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        ApiResponse<DocumentDirectories> GetAxiomaEquityStrategyDocumentsWithHttpInfo (string path);
+        ApiResponse<DocumentDirectories> GetAxiomaEquityStrategyDocumentsWithHttpInfo(string path);
         /// <summary>
         /// Get Axioma FI strategy documents and sub-directories in a directory
         /// </summary>
@@ -57,7 +57,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        DocumentDirectories GetAxiomaFIStrategyDocuments (string path);
+        DocumentDirectories GetAxiomaFIStrategyDocuments(string path);
 
         /// <summary>
         /// Get Axioma FI strategy documents and sub-directories in a directory
@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        ApiResponse<DocumentDirectories> GetAxiomaFIStrategyDocumentsWithHttpInfo (string path);
+        ApiResponse<DocumentDirectories> GetAxiomaFIStrategyDocumentsWithHttpInfo(string path);
         /// <summary>
         /// Get Barra strategy documents and sub-directories in a directory
         /// </summary>
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        DocumentDirectories GetBarraStrategyDocuments (string path);
+        DocumentDirectories GetBarraStrategyDocuments(string path);
 
         /// <summary>
         /// Get Barra strategy documents and sub-directories in a directory
@@ -89,7 +89,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        ApiResponse<DocumentDirectories> GetBarraStrategyDocumentsWithHttpInfo (string path);
+        ApiResponse<DocumentDirectories> GetBarraStrategyDocumentsWithHttpInfo(string path);
         /// <summary>
         /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
         /// </summary>
@@ -99,7 +99,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        DocumentDirectories GetFPOStrategyDocuments (string path);
+        DocumentDirectories GetFPOStrategyDocuments(string path);
 
         /// <summary>
         /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
@@ -110,7 +110,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        ApiResponse<DocumentDirectories> GetFPOStrategyDocumentsWithHttpInfo (string path);
+        ApiResponse<DocumentDirectories> GetFPOStrategyDocumentsWithHttpInfo(string path);
         /// <summary>
         /// Get Northfield strategy documents and sub-directories in a directory
         /// </summary>
@@ -120,7 +120,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        DocumentDirectories GetNorthfieldStrategyDocuments (string path);
+        DocumentDirectories GetNorthfieldStrategyDocuments(string path);
 
         /// <summary>
         /// Get Northfield strategy documents and sub-directories in a directory
@@ -131,7 +131,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        ApiResponse<DocumentDirectories> GetNorthfieldStrategyDocumentsWithHttpInfo (string path);
+        ApiResponse<DocumentDirectories> GetNorthfieldStrategyDocumentsWithHttpInfo(string path);
         #endregion Synchronous Operations
     }
 
@@ -149,8 +149,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaEquityStrategyDocumentsAsync (string path);
+        System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaEquityStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Axioma Equity strategy documents and sub-directories in a directory
@@ -160,8 +161,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetAxiomaEquityStrategyDocumentsAsyncWithHttpInfo (string path);
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetAxiomaEquityStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Axioma FI strategy documents and sub-directories in a directory
         /// </summary>
@@ -170,8 +172,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaFIStrategyDocumentsAsync (string path);
+        System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaFIStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Axioma FI strategy documents and sub-directories in a directory
@@ -181,8 +184,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetAxiomaFIStrategyDocumentsAsyncWithHttpInfo (string path);
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetAxiomaFIStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Barra strategy documents and sub-directories in a directory
         /// </summary>
@@ -191,8 +195,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        System.Threading.Tasks.Task<DocumentDirectories> GetBarraStrategyDocumentsAsync (string path);
+        System.Threading.Tasks.Task<DocumentDirectories> GetBarraStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Barra strategy documents and sub-directories in a directory
@@ -202,8 +207,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetBarraStrategyDocumentsAsyncWithHttpInfo (string path);
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetBarraStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
         /// </summary>
@@ -212,8 +218,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        System.Threading.Tasks.Task<DocumentDirectories> GetFPOStrategyDocumentsAsync (string path);
+        System.Threading.Tasks.Task<DocumentDirectories> GetFPOStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
@@ -223,8 +230,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetFPOStrategyDocumentsAsyncWithHttpInfo (string path);
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetFPOStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Northfield strategy documents and sub-directories in a directory
         /// </summary>
@@ -233,8 +241,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        System.Threading.Tasks.Task<DocumentDirectories> GetNorthfieldStrategyDocumentsAsync (string path);
+        System.Threading.Tasks.Task<DocumentDirectories> GetNorthfieldStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Northfield strategy documents and sub-directories in a directory
@@ -244,8 +253,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetNorthfieldStrategyDocumentsAsyncWithHttpInfo (string path);
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectories>> GetNorthfieldStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -268,7 +278,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="StrategyDocumentsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public StrategyDocumentsApi() : this((string) null)
+        public StrategyDocumentsApi() : this((string)null)
         {
         }
 
@@ -313,11 +323,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public StrategyDocumentsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public StrategyDocumentsApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -348,7 +358,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -372,10 +382,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        public DocumentDirectories GetAxiomaEquityStrategyDocuments (string path)
+        public DocumentDirectories GetAxiomaEquityStrategyDocuments(string path)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetAxiomaEquityStrategyDocumentsWithHttpInfo(path);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetAxiomaEquityStrategyDocumentsWithHttpInfo(path);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -384,7 +394,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< DocumentDirectories > GetAxiomaEquityStrategyDocumentsWithHttpInfo (string path)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> GetAxiomaEquityStrategyDocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -416,7 +426,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< DocumentDirectories >("/analytics/engines/axp/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<DocumentDirectories>("/analytics/engines/axp/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -432,12 +442,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaEquityStrategyDocumentsAsync (string path)
+        public async System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaEquityStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetAxiomaEquityStrategyDocumentsAsyncWithHttpInfo(path);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetAxiomaEquityStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -445,8 +455,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetAxiomaEquityStrategyDocumentsAsyncWithHttpInfo (string path)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetAxiomaEquityStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -462,13 +473,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (Basic) required
@@ -480,7 +492,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/axp/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/axp/v1/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -497,10 +509,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        public DocumentDirectories GetAxiomaFIStrategyDocuments (string path)
+        public DocumentDirectories GetAxiomaFIStrategyDocuments(string path)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetAxiomaFIStrategyDocumentsWithHttpInfo(path);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetAxiomaFIStrategyDocumentsWithHttpInfo(path);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -509,7 +521,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< DocumentDirectories > GetAxiomaFIStrategyDocumentsWithHttpInfo (string path)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> GetAxiomaFIStrategyDocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -541,7 +553,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< DocumentDirectories >("/analytics/engines/afi/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<DocumentDirectories>("/analytics/engines/afi/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -557,12 +569,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaFIStrategyDocumentsAsync (string path)
+        public async System.Threading.Tasks.Task<DocumentDirectories> GetAxiomaFIStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetAxiomaFIStrategyDocumentsAsyncWithHttpInfo(path);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetAxiomaFIStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -570,8 +582,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetAxiomaFIStrategyDocumentsAsyncWithHttpInfo (string path)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetAxiomaFIStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -587,13 +600,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (Basic) required
@@ -605,7 +619,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/afi/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/afi/v1/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -622,10 +636,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        public DocumentDirectories GetBarraStrategyDocuments (string path)
+        public DocumentDirectories GetBarraStrategyDocuments(string path)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetBarraStrategyDocumentsWithHttpInfo(path);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetBarraStrategyDocumentsWithHttpInfo(path);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -634,7 +648,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< DocumentDirectories > GetBarraStrategyDocumentsWithHttpInfo (string path)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> GetBarraStrategyDocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -666,7 +680,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< DocumentDirectories >("/analytics/engines/bpm/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<DocumentDirectories>("/analytics/engines/bpm/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -682,12 +696,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectories> GetBarraStrategyDocumentsAsync (string path)
+        public async System.Threading.Tasks.Task<DocumentDirectories> GetBarraStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetBarraStrategyDocumentsAsyncWithHttpInfo(path);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetBarraStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -695,8 +709,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetBarraStrategyDocumentsAsyncWithHttpInfo (string path)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetBarraStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -712,13 +727,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (Basic) required
@@ -730,7 +746,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/bpm/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/bpm/v1/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -747,10 +763,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        public DocumentDirectories GetFPOStrategyDocuments (string path)
+        public DocumentDirectories GetFPOStrategyDocuments(string path)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetFPOStrategyDocumentsWithHttpInfo(path);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetFPOStrategyDocumentsWithHttpInfo(path);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -759,7 +775,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< DocumentDirectories > GetFPOStrategyDocumentsWithHttpInfo (string path)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> GetFPOStrategyDocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -791,7 +807,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< DocumentDirectories >("/analytics/engines/fpo/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<DocumentDirectories>("/analytics/engines/fpo/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -807,12 +823,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectories> GetFPOStrategyDocumentsAsync (string path)
+        public async System.Threading.Tasks.Task<DocumentDirectories> GetFPOStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetFPOStrategyDocumentsAsyncWithHttpInfo(path);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetFPOStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -820,8 +836,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetFPOStrategyDocumentsAsyncWithHttpInfo (string path)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetFPOStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -837,13 +854,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (Basic) required
@@ -855,7 +873,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/fpo/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/fpo/v1/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -872,10 +890,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>DocumentDirectories</returns>
-        public DocumentDirectories GetNorthfieldStrategyDocuments (string path)
+        public DocumentDirectories GetNorthfieldStrategyDocuments(string path)
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetNorthfieldStrategyDocumentsWithHttpInfo(path);
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = GetNorthfieldStrategyDocumentsWithHttpInfo(path);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -884,7 +902,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
         /// <returns>ApiResponse of DocumentDirectories</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< DocumentDirectories > GetNorthfieldStrategyDocumentsWithHttpInfo (string path)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> GetNorthfieldStrategyDocumentsWithHttpInfo(string path)
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -916,7 +934,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< DocumentDirectories >("/analytics/engines/npo/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<DocumentDirectories>("/analytics/engines/npo/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -932,12 +950,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DocumentDirectories</returns>
-        public async System.Threading.Tasks.Task<DocumentDirectories> GetNorthfieldStrategyDocumentsAsync (string path)
+        public async System.Threading.Tasks.Task<DocumentDirectories> GetNorthfieldStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetNorthfieldStrategyDocumentsAsyncWithHttpInfo(path);
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories> localVarResponse = await GetNorthfieldStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -945,8 +963,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DocumentDirectories)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetNorthfieldStrategyDocumentsAsyncWithHttpInfo (string path)
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectories>> GetNorthfieldStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
             if (path == null)
@@ -962,13 +981,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
             localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
 
             // authentication (Basic) required
@@ -980,7 +1000,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/npo/v1/strategies/{path}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectories>("/analytics/engines/npo/v1/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

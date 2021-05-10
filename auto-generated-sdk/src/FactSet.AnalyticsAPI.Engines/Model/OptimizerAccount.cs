@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,56 +10,51 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Strategy
+    /// OptimizerAccount
     /// </summary>
-    [DataContract]
-    public partial class Strategy :  IEquatable<Strategy>, IValidatableObject
+    [DataContract(Name = "OptimizerAccount")]
+    public partial class OptimizerAccount : IEquatable<OptimizerAccount>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Strategy" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerAccount" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected Strategy() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Strategy" /> class.
-        /// </summary>
-        /// <param name="id">Strategy document path (required).</param>
+        /// <param name="id">Account path.</param>
         /// <param name="overrides">overrides.</param>
-        public Strategy(string id = default(string), StrategyOverrides overrides = default(StrategyOverrides))
+        public OptimizerAccount(string id = default(string), OptimizerAccountOverrides overrides = default(OptimizerAccountOverrides))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for Strategy and cannot be null");
+            this.Id = id;
             this.Overrides = overrides;
         }
-        
+
         /// <summary>
-        /// Strategy document path
+        /// Account path
         /// </summary>
-        /// <value>Strategy document path</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        /// <value>Account path</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Overrides
         /// </summary>
-        [DataMember(Name="overrides", EmitDefaultValue=false)]
-        public StrategyOverrides Overrides { get; set; }
+        [DataMember(Name = "overrides", EmitDefaultValue = false)]
+        public OptimizerAccountOverrides Overrides { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,20 +63,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Strategy {\n");
+            sb.Append("class OptimizerAccount {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -91,15 +86,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Strategy);
+            return this.Equals(input as OptimizerAccount);
         }
 
         /// <summary>
-        /// Returns true if Strategy instances are equal
+        /// Returns true if OptimizerAccount instances are equal
         /// </summary>
-        /// <param name="input">Instance of Strategy to be compared</param>
+        /// <param name="input">Instance of OptimizerAccount to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Strategy input)
+        public bool Equals(OptimizerAccount input)
         {
             if (input == null)
                 return false;

@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// PubIdentifier
     /// </summary>
-    [DataContract]
-    public partial class PubIdentifier :  IEquatable<PubIdentifier>, IValidatableObject
+    [DataContract(Name = "PubIdentifier")]
+    public partial class PubIdentifier : IEquatable<PubIdentifier>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PubIdentifier" /> class.
@@ -47,19 +48,19 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Id = id ?? throw new ArgumentNullException("id is a required property for PubIdentifier and cannot be null");
             this.Holdingsmode = holdingsmode;
         }
-        
+
         /// <summary>
         /// User&#39;s FactSet account path OR benchmark.
         /// </summary>
         /// <value>User&#39;s FactSet account path OR benchmark.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// Holdings Mode can be B&amp;H, TBR, OMS or EXT.
         /// </summary>
         /// <value>Holdings Mode can be B&amp;H, TBR, OMS or EXT.</value>
-        [DataMember(Name="holdingsmode", EmitDefaultValue=false)]
+        [DataMember(Name = "holdingsmode", EmitDefaultValue = false)]
         public string Holdingsmode { get; set; }
 
         /// <summary>
@@ -75,14 +76,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

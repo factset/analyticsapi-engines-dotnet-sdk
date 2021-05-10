@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,68 +10,69 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// AccountOverrides
+    /// OptimizerAccountOverrides
     /// </summary>
-    [DataContract]
-    public partial class AccountOverrides :  IEquatable<AccountOverrides>, IValidatableObject
+    [DataContract(Name = "OptimizerAccountOverrides")]
+    public partial class OptimizerAccountOverrides : IEquatable<OptimizerAccountOverrides>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AccountOverrides" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerAccountOverrides" /> class.
         /// </summary>
         /// <param name="portfolio">Portfolio.</param>
         /// <param name="benchmark">Benchmark.</param>
         /// <param name="riskmodelid">Risk model.</param>
         /// <param name="currency">Currency.</param>
-        public AccountOverrides(string portfolio = default(string), string benchmark = default(string), string riskmodelid = default(string), string currency = default(string))
+        public OptimizerAccountOverrides(string portfolio = default(string), string benchmark = default(string), string riskmodelid = default(string), string currency = default(string))
         {
             this.Portfolio = portfolio;
             this.Benchmark = benchmark;
             this.Riskmodelid = riskmodelid;
             this.Currency = currency;
         }
-        
+
         /// <summary>
         /// Portfolio
         /// </summary>
         /// <value>Portfolio</value>
-        [DataMember(Name="portfolio", EmitDefaultValue=false)]
+        [DataMember(Name = "portfolio", EmitDefaultValue = false)]
         public string Portfolio { get; set; }
 
         /// <summary>
         /// Benchmark
         /// </summary>
         /// <value>Benchmark</value>
-        [DataMember(Name="benchmark", EmitDefaultValue=false)]
+        [DataMember(Name = "benchmark", EmitDefaultValue = false)]
         public string Benchmark { get; set; }
 
         /// <summary>
         /// Risk model
         /// </summary>
         /// <value>Risk model</value>
-        [DataMember(Name="riskmodelid", EmitDefaultValue=false)]
+        [DataMember(Name = "riskmodelid", EmitDefaultValue = false)]
         public string Riskmodelid { get; set; }
 
         /// <summary>
         /// Currency
         /// </summary>
         /// <value>Currency</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -81,7 +82,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AccountOverrides {\n");
+            sb.Append("class OptimizerAccountOverrides {\n");
             sb.Append("  Portfolio: ").Append(Portfolio).Append("\n");
             sb.Append("  Benchmark: ").Append(Benchmark).Append("\n");
             sb.Append("  Riskmodelid: ").Append(Riskmodelid).Append("\n");
@@ -89,14 +90,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -106,15 +107,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AccountOverrides);
+            return this.Equals(input as OptimizerAccountOverrides);
         }
 
         /// <summary>
-        /// Returns true if AccountOverrides instances are equal
+        /// Returns true if OptimizerAccountOverrides instances are equal
         /// </summary>
-        /// <param name="input">Instance of AccountOverrides to be compared</param>
+        /// <param name="input">Instance of OptimizerAccountOverrides to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AccountOverrides input)
+        public bool Equals(OptimizerAccountOverrides input)
         {
             if (input == null)
                 return false;

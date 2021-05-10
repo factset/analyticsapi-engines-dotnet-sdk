@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -35,7 +35,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Dictionary&lt;string, Currency&gt;</returns>
-        Dictionary<string, Currency> GetPACurrencies ();
+        Dictionary<string, Currency> GetPACurrencies();
 
         /// <summary>
         /// Get PA currencies
@@ -45,7 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, Currency&gt;</returns>
-        ApiResponse<Dictionary<string, Currency>> GetPACurrenciesWithHttpInfo ();
+        ApiResponse<Dictionary<string, Currency>> GetPACurrenciesWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -62,8 +62,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the PA currencies that can be applied to a calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, Currency&gt;</returns>
-        System.Threading.Tasks.Task<Dictionary<string, Currency>> GetPACurrenciesAsync ();
+        System.Threading.Tasks.Task<Dictionary<string, Currency>> GetPACurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA currencies
@@ -72,8 +73,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint lists all the PA currencies that can be applied to a calculation.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Currency&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Currency>>> GetPACurrenciesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Currency>>> GetPACurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -96,7 +98,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Initializes a new instance of the <see cref="CurrenciesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CurrenciesApi() : this((string) null)
+        public CurrenciesApi() : this((string)null)
         {
         }
 
@@ -141,11 +143,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public CurrenciesApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client,FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
+        public CurrenciesApi(FactSet.AnalyticsAPI.Engines.Client.ISynchronousClient client, FactSet.AnalyticsAPI.Engines.Client.IAsynchronousClient asyncClient, FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration configuration)
         {
-            if(client == null) throw new ArgumentNullException("client");
-            if(asyncClient == null) throw new ArgumentNullException("asyncClient");
-            if(configuration == null) throw new ArgumentNullException("configuration");
+            if (client == null) throw new ArgumentNullException("client");
+            if (asyncClient == null) throw new ArgumentNullException("asyncClient");
+            if (configuration == null) throw new ArgumentNullException("configuration");
 
             this.Client = client;
             this.AsynchronousClient = asyncClient;
@@ -176,7 +178,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration {get; set;}
+        public FactSet.AnalyticsAPI.Engines.Client.IReadableConfiguration Configuration { get; set; }
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -199,10 +201,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Dictionary&lt;string, Currency&gt;</returns>
-        public Dictionary<string, Currency> GetPACurrencies ()
+        public Dictionary<string, Currency> GetPACurrencies()
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>> localVarResponse = GetPACurrenciesWithHttpInfo();
-             return localVarResponse.Data;
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>> localVarResponse = GetPACurrenciesWithHttpInfo();
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -210,7 +212,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Dictionary&lt;string, Currency&gt;</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse< Dictionary<string, Currency> > GetPACurrenciesWithHttpInfo ()
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>> GetPACurrenciesWithHttpInfo()
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -237,7 +239,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Dictionary<string, Currency> >("/analytics/lookups/v2/engines/pa/currencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Dictionary<string, Currency>>("/analytics/lookups/v2/engines/pa/currencies", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -252,20 +254,21 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA currencies This endpoint lists all the PA currencies that can be applied to a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Dictionary&lt;string, Currency&gt;</returns>
-        public async System.Threading.Tasks.Task<Dictionary<string, Currency>> GetPACurrenciesAsync ()
+        public async System.Threading.Tasks.Task<Dictionary<string, Currency>> GetPACurrenciesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>> localVarResponse = await GetPACurrenciesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>> localVarResponse = await GetPACurrenciesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
         /// Get PA currencies This endpoint lists all the PA currencies that can be applied to a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, Currency&gt;)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>>> GetPACurrenciesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Dictionary<string, Currency>>> GetPACurrenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -277,13 +280,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json"
             };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
 
             // authentication (Basic) required
             // http basic authentication required
@@ -294,7 +298,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, Currency>>("/analytics/lookups/v2/engines/pa/currencies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, Currency>>("/analytics/lookups/v2/engines/pa/currencies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,47 +10,56 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// JobSettings
+    /// FIJobSettings
     /// </summary>
-    [DataContract]
-    public partial class JobSettings :  IEquatable<JobSettings>, IValidatableObject
+    [DataContract(Name = "FIJobSettings")]
+    public partial class FIJobSettings : IEquatable<FIJobSettings>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobSettings" /> class.
+        /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected JobSettings() { }
+        protected FIJobSettings() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="JobSettings" /> class.
+        /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
         /// </summary>
         /// <param name="yieldCurveDate">yieldCurveDate (required).</param>
-        public JobSettings(string yieldCurveDate = default(string))
+        /// <param name="partialDurationMonths">partialDurationMonths.</param>
+        public FIJobSettings(string yieldCurveDate = default(string), List<int> partialDurationMonths = default(List<int>))
         {
             // to ensure "yieldCurveDate" is required (not null)
-            this.YieldCurveDate = yieldCurveDate ?? throw new ArgumentNullException("yieldCurveDate is a required property for JobSettings and cannot be null");
+            this.YieldCurveDate = yieldCurveDate ?? throw new ArgumentNullException("yieldCurveDate is a required property for FIJobSettings and cannot be null");
+            this.PartialDurationMonths = partialDurationMonths;
         }
-        
+
         /// <summary>
         /// Gets or Sets YieldCurveDate
         /// </summary>
-        [DataMember(Name="yieldCurveDate", EmitDefaultValue=false)]
+        [DataMember(Name = "yieldCurveDate", IsRequired = true, EmitDefaultValue = false)]
         public string YieldCurveDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PartialDurationMonths
+        /// </summary>
+        [DataMember(Name = "partialDurationMonths", EmitDefaultValue = false)]
+        public List<int> PartialDurationMonths { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,19 +68,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JobSettings {\n");
+            sb.Append("class FIJobSettings {\n");
             sb.Append("  YieldCurveDate: ").Append(YieldCurveDate).Append("\n");
+            sb.Append("  PartialDurationMonths: ").Append(PartialDurationMonths).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -81,15 +91,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as JobSettings);
+            return this.Equals(input as FIJobSettings);
         }
 
         /// <summary>
-        /// Returns true if JobSettings instances are equal
+        /// Returns true if FIJobSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of JobSettings to be compared</param>
+        /// <param name="input">Instance of FIJobSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JobSettings input)
+        public bool Equals(FIJobSettings input)
         {
             if (input == null)
                 return false;
@@ -99,6 +109,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.YieldCurveDate == input.YieldCurveDate ||
                     (this.YieldCurveDate != null &&
                     this.YieldCurveDate.Equals(input.YieldCurveDate))
+                ) && 
+                (
+                    this.PartialDurationMonths == input.PartialDurationMonths ||
+                    this.PartialDurationMonths != null &&
+                    input.PartialDurationMonths != null &&
+                    this.PartialDurationMonths.SequenceEqual(input.PartialDurationMonths)
                 );
         }
 
@@ -113,6 +129,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.YieldCurveDate != null)
                     hashCode = hashCode * 59 + this.YieldCurveDate.GetHashCode();
+                if (this.PartialDurationMonths != null)
+                    hashCode = hashCode * 59 + this.PartialDurationMonths.GetHashCode();
                 return hashCode;
             }
         }

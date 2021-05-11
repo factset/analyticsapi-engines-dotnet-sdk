@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,26 +10,27 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OptimalHoldings
+    /// OptimizerTradesList
     /// </summary>
-    [DataContract]
-    public partial class OptimalHoldings :  IEquatable<OptimalHoldings>, IValidatableObject
+    [DataContract(Name = "OptimizerTradesList")]
+    public partial class OptimizerTradesList : IEquatable<OptimizerTradesList>, IValidatableObject
     {
         /// <summary>
         /// Identifier type
@@ -104,34 +105,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Identifier type
         /// </summary>
         /// <value>Identifier type</value>
-        [DataMember(Name="identifiertype", EmitDefaultValue=false)]
+        [DataMember(Name = "identifiertype", EmitDefaultValue = false)]
         public IdentifiertypeEnum? Identifiertype { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimalHoldings" /> class.
+        /// Initializes a new instance of the <see cref="OptimizerTradesList" /> class.
         /// </summary>
         /// <param name="identifiertype">Identifier type.</param>
         /// <param name="includecash">Include cash.</param>
-        /// <param name="excludezero">Exclude zero.</param>
-        public OptimalHoldings(IdentifiertypeEnum? identifiertype = default(IdentifiertypeEnum?), bool includecash = default(bool), bool excludezero = default(bool))
+        public OptimizerTradesList(IdentifiertypeEnum? identifiertype = default(IdentifiertypeEnum?), bool includecash = default(bool))
         {
             this.Identifiertype = identifiertype;
             this.Includecash = includecash;
-            this.Excludezero = excludezero;
         }
-        
+
         /// <summary>
         /// Include cash
         /// </summary>
         /// <value>Include cash</value>
-        [DataMember(Name="includecash", EmitDefaultValue=false)]
+        [DataMember(Name = "includecash", EmitDefaultValue = false)]
         public bool Includecash { get; set; }
-
-        /// <summary>
-        /// Exclude zero
-        /// </summary>
-        /// <value>Exclude zero</value>
-        [DataMember(Name="excludezero", EmitDefaultValue=false)]
-        public bool Excludezero { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,21 +132,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OptimalHoldings {\n");
+            sb.Append("class OptimizerTradesList {\n");
             sb.Append("  Identifiertype: ").Append(Identifiertype).Append("\n");
             sb.Append("  Includecash: ").Append(Includecash).Append("\n");
-            sb.Append("  Excludezero: ").Append(Excludezero).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -164,15 +155,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptimalHoldings);
+            return this.Equals(input as OptimizerTradesList);
         }
 
         /// <summary>
-        /// Returns true if OptimalHoldings instances are equal
+        /// Returns true if OptimizerTradesList instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptimalHoldings to be compared</param>
+        /// <param name="input">Instance of OptimizerTradesList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptimalHoldings input)
+        public bool Equals(OptimizerTradesList input)
         {
             if (input == null)
                 return false;
@@ -185,10 +176,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 (
                     this.Includecash == input.Includecash ||
                     this.Includecash.Equals(input.Includecash)
-                ) && 
-                (
-                    this.Excludezero == input.Excludezero ||
-                    this.Excludezero.Equals(input.Excludezero)
                 );
         }
 
@@ -203,7 +190,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Identifiertype.GetHashCode();
                 hashCode = hashCode * 59 + this.Includecash.GetHashCode();
-                hashCode = hashCode * 59 + this.Excludezero.GetHashCode();
                 return hashCode;
             }
         }

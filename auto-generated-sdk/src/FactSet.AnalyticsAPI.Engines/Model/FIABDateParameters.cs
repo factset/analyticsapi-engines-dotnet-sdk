@@ -1,4 +1,4 @@
-/* 
+/*
  * Engines API
  *
  * Allow clients to fetch Analytics through APIs.
@@ -10,16 +10,17 @@
 
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -28,8 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// <summary>
     /// The date parameters for FIAB calculations.
     /// </summary>
-    [DataContract]
-    public partial class FIABDateParameters :  IEquatable<FIABDateParameters>, IValidatableObject
+    [DataContract(Name = "FIABDateParameters")]
+    public partial class FIABDateParameters : IEquatable<FIABDateParameters>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FIABDateParameters" /> class.
@@ -48,19 +49,19 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             // to ensure "enddate" is required (not null)
             this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for FIABDateParameters and cannot be null");
         }
-        
+
         /// <summary>
         /// Calculation&#39;s start date.
         /// </summary>
         /// <value>Calculation&#39;s start date.</value>
-        [DataMember(Name="startdate", EmitDefaultValue=false)]
+        [DataMember(Name = "startdate", IsRequired = true, EmitDefaultValue = false)]
         public string Startdate { get; set; }
 
         /// <summary>
         /// Calculation&#39;s end date.
         /// </summary>
         /// <value>Calculation&#39;s end date.</value>
-        [DataMember(Name="enddate", EmitDefaultValue=false)]
+        [DataMember(Name = "enddate", IsRequired = true, EmitDefaultValue = false)]
         public string Enddate { get; set; }
 
         /// <summary>
@@ -76,14 +77,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

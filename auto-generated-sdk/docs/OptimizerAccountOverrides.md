@@ -1,4 +1,5 @@
-# FactSet.AnalyticsAPI.Engines.Model.AccountOverrides
+# FactSet.AnalyticsAPI.Engines.Model.OptimizerAccountOverrides
+
 ## Properties
 
 Name | Type | Description | Notes

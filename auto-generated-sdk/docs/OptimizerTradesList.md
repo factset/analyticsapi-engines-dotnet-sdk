@@ -1,4 +1,5 @@
-# FactSet.AnalyticsAPI.Engines.Model.TradesList
+# FactSet.AnalyticsAPI.Engines.Model.OptimizerTradesList
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.Group
+
 ## Properties
 
 Name | Type | Description | Notes

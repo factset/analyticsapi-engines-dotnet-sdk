@@ -551,6 +551,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -610,6 +613,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
             };
 
 

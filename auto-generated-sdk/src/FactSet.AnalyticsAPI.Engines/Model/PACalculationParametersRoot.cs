@@ -35,17 +35,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PACalculationParametersRoot" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PACalculationParametersRoot() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PACalculationParametersRoot" /> class.
-        /// </summary>
-        /// <param name="data">List of calculation parameters. (required).</param>
+        /// <param name="data">List of calculation parameters..</param>
         /// <param name="meta">meta.</param>
         public PACalculationParametersRoot(Dictionary<string, PACalculationParameters> data = default(Dictionary<string, PACalculationParameters>), CalculationMeta meta = default(CalculationMeta))
         {
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for PACalculationParametersRoot and cannot be null");
+            this.Data = data;
             this.Meta = meta;
         }
 
@@ -53,7 +47,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// List of calculation parameters.
         /// </summary>
         /// <value>List of calculation parameters.</value>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "data", EmitDefaultValue = false)]
         public Dictionary<string, PACalculationParameters> Data { get; set; }
 
         /// <summary>

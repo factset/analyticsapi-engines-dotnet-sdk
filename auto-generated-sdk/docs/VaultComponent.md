@@ -1,14 +1,15 @@
 # FactSet.AnalyticsAPI.Engines.Model.VaultComponent
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] 
+**Id** | **string** | Vault component identifier | [optional] 
 **Account** | [**VaultIdentifier**](VaultIdentifier.md) |  | [optional] 
 **Benchmark** | [**VaultIdentifier**](VaultIdentifier.md) |  | [optional] 
-**Currencyisocode** | **string** |  | [optional] 
+**Currencyisocode** | **string** | Currency iso code saved in the document | [optional] 
 **Dates** | [**VaultDateParameters**](VaultDateParameters.md) |  | [optional] 
-**Snapshot** | **bool** |  | [optional] 
+**Snapshot** | **bool** | Snapshot | [optional] 
 **Name** | **string** | Component name. | [optional] 
 **Category** | **string** | Component category. | [optional] 
 

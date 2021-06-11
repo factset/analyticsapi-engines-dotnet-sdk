@@ -1,11 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.ScreeningExpression
+# FactSet.AnalyticsAPI.Engines.Model.QuantUniversalScreenUniverse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Expr** | **string** |  | 
-**Name** | **string** |  | 
+**Screen** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

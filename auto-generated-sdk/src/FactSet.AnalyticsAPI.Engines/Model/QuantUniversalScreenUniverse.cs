@@ -27,40 +27,31 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// FqlExpression
+    /// QuantUniversalScreenUniverse
     /// </summary>
-    [DataContract(Name = "FqlExpression")]
-    public partial class FqlExpression : IEquatable<FqlExpression>, IValidatableObject
+    [DataContract(Name = "QuantUniversalScreenUniverse")]
+    public partial class QuantUniversalScreenUniverse : IEquatable<QuantUniversalScreenUniverse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FqlExpression" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected FqlExpression() { }
+        protected QuantUniversalScreenUniverse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="FqlExpression" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
-        /// <param name="expr">expr (required).</param>
-        /// <param name="name">name (required).</param>
-        public FqlExpression(string expr = default(string), string name = default(string))
+        /// <param name="screen">screen (required).</param>
+        public QuantUniversalScreenUniverse(string screen = default(string))
         {
-            // to ensure "expr" is required (not null)
-            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for FqlExpression and cannot be null");
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for FqlExpression and cannot be null");
+            // to ensure "screen" is required (not null)
+            this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverse and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets Expr
+        /// Gets or Sets Screen
         /// </summary>
-        [DataMember(Name = "expr", IsRequired = true, EmitDefaultValue = false)]
-        public string Expr { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
+        [DataMember(Name = "screen", IsRequired = true, EmitDefaultValue = false)]
+        public string Screen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +60,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FqlExpression {\n");
-            sb.Append("  Expr: ").Append(Expr).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class QuantUniversalScreenUniverse {\n");
+            sb.Append("  Screen: ").Append(Screen).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +82,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FqlExpression);
+            return this.Equals(input as QuantUniversalScreenUniverse);
         }
 
         /// <summary>
-        /// Returns true if FqlExpression instances are equal
+        /// Returns true if QuantUniversalScreenUniverse instances are equal
         /// </summary>
-        /// <param name="input">Instance of FqlExpression to be compared</param>
+        /// <param name="input">Instance of QuantUniversalScreenUniverse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FqlExpression input)
+        public bool Equals(QuantUniversalScreenUniverse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expr == input.Expr ||
-                    (this.Expr != null &&
-                    this.Expr.Equals(input.Expr))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Screen == input.Screen ||
+                    (this.Screen != null &&
+                    this.Screen.Equals(input.Screen))
                 );
         }
 
@@ -127,10 +112,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Expr != null)
-                    hashCode = hashCode * 59 + this.Expr.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Screen != null)
+                    hashCode = hashCode * 59 + this.Screen.GetHashCode();
                 return hashCode;
             }
         }

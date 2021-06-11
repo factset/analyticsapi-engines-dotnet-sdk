@@ -27,34 +27,34 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// UniversalScreenParameter
+    /// QuantFqlExpression
     /// </summary>
-    [DataContract(Name = "UniversalScreenParameter")]
-    public partial class UniversalScreenParameter : IEquatable<UniversalScreenParameter>, IValidatableObject
+    [DataContract(Name = "QuantFqlExpression")]
+    public partial class QuantFqlExpression : IEquatable<QuantFqlExpression>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniversalScreenParameter" /> class.
+        /// Initializes a new instance of the <see cref="QuantFqlExpression" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UniversalScreenParameter() { }
+        protected QuantFqlExpression() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniversalScreenParameter" /> class.
+        /// Initializes a new instance of the <see cref="QuantFqlExpression" /> class.
         /// </summary>
-        /// <param name="referenceName">referenceName (required).</param>
+        /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
-        public UniversalScreenParameter(string referenceName = default(string), string name = default(string))
+        public QuantFqlExpression(string expr = default(string), string name = default(string))
         {
-            // to ensure "referenceName" is required (not null)
-            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for UniversalScreenParameter and cannot be null");
+            // to ensure "expr" is required (not null)
+            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for UniversalScreenParameter and cannot be null");
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpression and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets ReferenceName
+        /// Gets or Sets Expr
         /// </summary>
-        [DataMember(Name = "referenceName", IsRequired = true, EmitDefaultValue = false)]
-        public string ReferenceName { get; set; }
+        [DataMember(Name = "expr", IsRequired = true, EmitDefaultValue = false)]
+        public string Expr { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -69,8 +69,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UniversalScreenParameter {\n");
-            sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
+            sb.Append("class QuantFqlExpression {\n");
+            sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -92,24 +92,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UniversalScreenParameter);
+            return this.Equals(input as QuantFqlExpression);
         }
 
         /// <summary>
-        /// Returns true if UniversalScreenParameter instances are equal
+        /// Returns true if QuantFqlExpression instances are equal
         /// </summary>
-        /// <param name="input">Instance of UniversalScreenParameter to be compared</param>
+        /// <param name="input">Instance of QuantFqlExpression to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UniversalScreenParameter input)
+        public bool Equals(QuantFqlExpression input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReferenceName == input.ReferenceName ||
-                    (this.ReferenceName != null &&
-                    this.ReferenceName.Equals(input.ReferenceName))
+                    this.Expr == input.Expr ||
+                    (this.Expr != null &&
+                    this.Expr.Equals(input.Expr))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -127,8 +127,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ReferenceName != null)
-                    hashCode = hashCode * 59 + this.ReferenceName.GetHashCode();
+                if (this.Expr != null)
+                    hashCode = hashCode * 59 + this.Expr.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;

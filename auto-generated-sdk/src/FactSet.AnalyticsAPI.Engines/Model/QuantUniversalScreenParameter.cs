@@ -27,31 +27,40 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// UniversalScreenUniverse
+    /// QuantUniversalScreenParameter
     /// </summary>
-    [DataContract(Name = "UniversalScreenUniverse")]
-    public partial class UniversalScreenUniverse : IEquatable<UniversalScreenUniverse>, IValidatableObject
+    [DataContract(Name = "QuantUniversalScreenParameter")]
+    public partial class QuantUniversalScreenParameter : IEquatable<QuantUniversalScreenParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniversalScreenUniverse" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UniversalScreenUniverse() { }
+        protected QuantUniversalScreenParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniversalScreenUniverse" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameter" /> class.
         /// </summary>
-        /// <param name="screen">screen (required).</param>
-        public UniversalScreenUniverse(string screen = default(string))
+        /// <param name="referenceName">referenceName (required).</param>
+        /// <param name="name">name (required).</param>
+        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string))
         {
-            // to ensure "screen" is required (not null)
-            this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for UniversalScreenUniverse and cannot be null");
+            // to ensure "referenceName" is required (not null)
+            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameter and cannot be null");
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameter and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets Screen
+        /// Gets or Sets ReferenceName
         /// </summary>
-        [DataMember(Name = "screen", IsRequired = true, EmitDefaultValue = false)]
-        public string Screen { get; set; }
+        [DataMember(Name = "referenceName", IsRequired = true, EmitDefaultValue = false)]
+        public string ReferenceName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,8 +69,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UniversalScreenUniverse {\n");
-            sb.Append("  Screen: ").Append(Screen).Append("\n");
+            sb.Append("class QuantUniversalScreenParameter {\n");
+            sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,24 +92,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UniversalScreenUniverse);
+            return this.Equals(input as QuantUniversalScreenParameter);
         }
 
         /// <summary>
-        /// Returns true if UniversalScreenUniverse instances are equal
+        /// Returns true if QuantUniversalScreenParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of UniversalScreenUniverse to be compared</param>
+        /// <param name="input">Instance of QuantUniversalScreenParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UniversalScreenUniverse input)
+        public bool Equals(QuantUniversalScreenParameter input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Screen == input.Screen ||
-                    (this.Screen != null &&
-                    this.Screen.Equals(input.Screen))
+                    this.ReferenceName == input.ReferenceName ||
+                    (this.ReferenceName != null &&
+                    this.ReferenceName.Equals(input.ReferenceName))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -112,8 +127,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Screen != null)
-                    hashCode = hashCode * 59 + this.Screen.GetHashCode();
+                if (this.ReferenceName != null)
+                    hashCode = hashCode * 59 + this.ReferenceName.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

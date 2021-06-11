@@ -27,28 +27,28 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// DateList
+    /// QuantDateList
     /// </summary>
-    [DataContract(Name = "DateList")]
-    public partial class DateList : IEquatable<DateList>, IValidatableObject
+    [DataContract(Name = "QuantDateList")]
+    public partial class QuantDateList : IEquatable<QuantDateList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateList" /> class.
+        /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DateList() { }
+        protected QuantDateList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateList" /> class.
+        /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         /// <param name="dates">dates.</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public DateList(List<string> dates = default(List<string>), string frequency = default(string), string calendar = default(string))
+        public QuantDateList(List<string> dates = default(List<string>), string frequency = default(string), string calendar = default(string))
         {
             // to ensure "frequency" is required (not null)
-            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for DateList and cannot be null");
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantDateList and cannot be null");
             // to ensure "calendar" is required (not null)
-            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for DateList and cannot be null");
+            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantDateList and cannot be null");
             this.Dates = dates;
         }
 
@@ -77,7 +77,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DateList {\n");
+            sb.Append("class QuantDateList {\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  Calendar: ").Append(Calendar).Append("\n");
@@ -101,15 +101,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DateList);
+            return this.Equals(input as QuantDateList);
         }
 
         /// <summary>
-        /// Returns true if DateList instances are equal
+        /// Returns true if QuantDateList instances are equal
         /// </summary>
-        /// <param name="input">Instance of DateList to be compared</param>
+        /// <param name="input">Instance of QuantDateList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DateList input)
+        public bool Equals(QuantDateList input)
         {
             if (input == null)
                 return false;

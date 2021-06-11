@@ -368,7 +368,7 @@ namespace Example
 
             var apiInstance = new FPOOptimizerApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var fPOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Optimization Parameters (optional) 
 
             try
@@ -393,7 +393,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fPOOptimizationParametersRoot** | [**FPOOptimizationParametersRoot**](FPOOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
 ### Return type
@@ -457,7 +457,7 @@ namespace Example
             var apiInstance = new FPOOptimizerApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run FPO optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var fPOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Optimization Parameters (optional) 
 
             try
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run FPO optimization endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fPOOptimizationParametersRoot** | [**FPOOptimizationParametersRoot**](FPOOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
 ### Return type

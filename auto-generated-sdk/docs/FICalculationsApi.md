@@ -366,7 +366,7 @@ namespace Example
 
             var apiInstance = new FICalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -391,7 +391,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
@@ -455,7 +455,7 @@ namespace Example
             var apiInstance = new FICalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run FI calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run FI calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type

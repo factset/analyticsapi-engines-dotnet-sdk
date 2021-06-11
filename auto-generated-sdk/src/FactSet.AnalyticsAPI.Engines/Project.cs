@@ -4,7 +4,7 @@ Engines API
 
 Allow clients to fetch Analytics through APIs.
 
-The version of the OpenAPI document: v3:[pa,spar,vault,pub,fi,axp,afi,npo,bpm,fpo,others],v1:[fiab]
+The version of the OpenAPI document: v3:[pa,spar,vault,pub,quant,fi,axp,afi,npo,bpm,fpo,others],v1:[fiab]
 Contact: analytics.api.support@factset.com
 -->
 <Project Sdk="Microsoft.NET.Sdk">

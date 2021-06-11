@@ -368,7 +368,7 @@ namespace Example
 
             var apiInstance = new VaultCalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -393,7 +393,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
@@ -458,7 +458,7 @@ namespace Example
             var apiInstance = new VaultCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
-            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
+            var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
- **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
+ **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type

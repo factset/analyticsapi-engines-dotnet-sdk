@@ -41,10 +41,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="ObjectRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        public ObjectRoot(Object data = default(Object))
+        /// <param name="meta">meta.</param>
+        public ObjectRoot(Object data = default(Object), Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for ObjectRoot and cannot be null");
+            this.Meta = meta;
         }
 
         /// <summary>
@@ -52,6 +54,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Object Data { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,6 +70,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class ObjectRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +109,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Data == input.Data ||
                     (this.Data != null &&
                     this.Data.Equals(input.Data))
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -114,6 +128,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Meta != null)
+                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 return hashCode;
             }
         }

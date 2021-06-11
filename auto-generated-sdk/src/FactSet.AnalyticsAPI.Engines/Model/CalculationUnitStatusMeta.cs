@@ -27,39 +27,26 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// DateParametersSummaryRoot
+    /// CalculationUnitStatusMeta
     /// </summary>
-    [DataContract(Name = "DateParametersSummaryRoot")]
-    public partial class DateParametersSummaryRoot : IEquatable<DateParametersSummaryRoot>, IValidatableObject
+    [DataContract(Name = "CalculationUnitStatusMeta")]
+    public partial class CalculationUnitStatusMeta : IEquatable<CalculationUnitStatusMeta>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateParametersSummaryRoot" /> class.
+        /// Initializes a new instance of the <see cref="CalculationUnitStatusMeta" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DateParametersSummaryRoot() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DateParametersSummaryRoot" /> class.
-        /// </summary>
-        /// <param name="data">data (required).</param>
-        /// <param name="meta">meta.</param>
-        public DateParametersSummaryRoot(DateParametersSummary data = default(DateParametersSummary), Object meta = default(Object))
+        /// <param name="info">The Info URL of the calculation..</param>
+        public CalculationUnitStatusMeta(string info = default(string))
         {
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for DateParametersSummaryRoot and cannot be null");
-            this.Meta = meta;
+            this.Info = info;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// The Info URL of the calculation.
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public DateParametersSummary Data { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Meta
-        /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public Object Meta { get; set; }
+        /// <value>The Info URL of the calculation.</value>
+        [DataMember(Name = "info", EmitDefaultValue = false)]
+        public string Info { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +55,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DateParametersSummaryRoot {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
+            sb.Append("class CalculationUnitStatusMeta {\n");
+            sb.Append("  Info: ").Append(Info).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,29 +77,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DateParametersSummaryRoot);
+            return this.Equals(input as CalculationUnitStatusMeta);
         }
 
         /// <summary>
-        /// Returns true if DateParametersSummaryRoot instances are equal
+        /// Returns true if CalculationUnitStatusMeta instances are equal
         /// </summary>
-        /// <param name="input">Instance of DateParametersSummaryRoot to be compared</param>
+        /// <param name="input">Instance of CalculationUnitStatusMeta to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DateParametersSummaryRoot input)
+        public bool Equals(CalculationUnitStatusMeta input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
-                ) && 
-                (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
+                    this.Info == input.Info ||
+                    (this.Info != null &&
+                    this.Info.Equals(input.Info))
                 );
         }
 
@@ -126,10 +107,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
-                if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                if (this.Info != null)
+                    hashCode = hashCode * 59 + this.Info.GetHashCode();
                 return hashCode;
             }
         }

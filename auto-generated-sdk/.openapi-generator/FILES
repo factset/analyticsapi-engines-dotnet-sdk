@@ -28,8 +28,10 @@ docs/CalculationInfo.md
 docs/CalculationInfoRoot.md
 docs/CalculationMeta.md
 docs/CalculationStatus.md
+docs/CalculationStatusMeta.md
 docs/CalculationStatusRoot.md
 docs/CalculationUnitStatus.md
+docs/CalculationUnitStatusMeta.md
 docs/ClientErrorResponse.md
 docs/Column.md
 docs/ColumnRoot.md
@@ -204,8 +206,10 @@ src/FactSet.AnalyticsAPI.Engines/Model/CalculationInfo.cs
 src/FactSet.AnalyticsAPI.Engines/Model/CalculationInfoRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/CalculationMeta.cs
 src/FactSet.AnalyticsAPI.Engines/Model/CalculationStatus.cs
+src/FactSet.AnalyticsAPI.Engines/Model/CalculationStatusMeta.cs
 src/FactSet.AnalyticsAPI.Engines/Model/CalculationStatusRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/CalculationUnitStatus.cs
+src/FactSet.AnalyticsAPI.Engines/Model/CalculationUnitStatusMeta.cs
 src/FactSet.AnalyticsAPI.Engines/Model/ClientErrorResponse.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Column.cs
 src/FactSet.AnalyticsAPI.Engines/Model/ColumnRoot.cs

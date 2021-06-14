@@ -27,40 +27,48 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantFqlExpression
+    /// DateList
     /// </summary>
-    [DataContract(Name = "QuantFqlExpression")]
-    public partial class QuantFqlExpression : IEquatable<QuantFqlExpression>, IValidatableObject
+    [DataContract(Name = "DateList")]
+    public partial class DateList : IEquatable<DateList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFqlExpression" /> class.
+        /// Initializes a new instance of the <see cref="DateList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantFqlExpression() { }
+        protected DateList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFqlExpression" /> class.
+        /// Initializes a new instance of the <see cref="DateList" /> class.
         /// </summary>
-        /// <param name="expr">expr (required).</param>
-        /// <param name="name">name (required).</param>
-        public QuantFqlExpression(string expr = default(string), string name = default(string))
+        /// <param name="dates">dates.</param>
+        /// <param name="frequency">frequency (required).</param>
+        /// <param name="calendar">calendar (required).</param>
+        public DateList(List<string> dates = default(List<string>), string frequency = default(string), string calendar = default(string))
         {
-            // to ensure "expr" is required (not null)
-            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpression and cannot be null");
+            // to ensure "frequency" is required (not null)
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for DateList and cannot be null");
+            // to ensure "calendar" is required (not null)
+            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for DateList and cannot be null");
+            this.Dates = dates;
         }
 
         /// <summary>
-        /// Gets or Sets Expr
+        /// Gets or Sets Dates
         /// </summary>
-        [DataMember(Name = "expr", IsRequired = true, EmitDefaultValue = false)]
-        public string Expr { get; set; }
+        [DataMember(Name = "dates", EmitDefaultValue = false)]
+        public List<string> Dates { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Frequency
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
+        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Calendar
+        /// </summary>
+        [DataMember(Name = "calendar", IsRequired = true, EmitDefaultValue = false)]
+        public string Calendar { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +77,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantFqlExpression {\n");
-            sb.Append("  Expr: ").Append(Expr).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class DateList {\n");
+            sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +101,35 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantFqlExpression);
+            return this.Equals(input as DateList);
         }
 
         /// <summary>
-        /// Returns true if QuantFqlExpression instances are equal
+        /// Returns true if DateList instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantFqlExpression to be compared</param>
+        /// <param name="input">Instance of DateList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantFqlExpression input)
+        public bool Equals(DateList input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expr == input.Expr ||
-                    (this.Expr != null &&
-                    this.Expr.Equals(input.Expr))
+                    this.Dates == input.Dates ||
+                    this.Dates != null &&
+                    input.Dates != null &&
+                    this.Dates.SequenceEqual(input.Dates)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Frequency == input.Frequency ||
+                    (this.Frequency != null &&
+                    this.Frequency.Equals(input.Frequency))
+                ) && 
+                (
+                    this.Calendar == input.Calendar ||
+                    (this.Calendar != null &&
+                    this.Calendar.Equals(input.Calendar))
                 );
         }
 
@@ -127,10 +142,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Expr != null)
-                    hashCode = hashCode * 59 + this.Expr.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Dates != null)
+                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                if (this.Frequency != null)
+                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                if (this.Calendar != null)
+                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
                 return hashCode;
             }
         }

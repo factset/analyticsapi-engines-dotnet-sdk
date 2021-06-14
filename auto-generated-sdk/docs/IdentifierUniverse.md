@@ -1,10 +1,11 @@
-# FactSet.AnalyticsAPI.Engines.Model.CalculationStatusMeta
+# FactSet.AnalyticsAPI.Engines.Model.IdentifierUniverse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Units** | [**Dictionary&lt;string, CalculationUnitStatusMeta&gt;**](CalculationUnitStatusMeta.md) | Meta of calculation units in batch. | [optional] 
+**UniverseType** | **string** |  | 
+**Identifiers** | **List&lt;string&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

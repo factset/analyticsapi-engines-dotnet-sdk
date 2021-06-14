@@ -27,33 +27,33 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantFdsDate
+    /// FdsDate
     /// </summary>
-    [DataContract(Name = "QuantFdsDate")]
-    public partial class QuantFdsDate : IEquatable<QuantFdsDate>, IValidatableObject
+    [DataContract(Name = "FdsDate")]
+    public partial class FdsDate : IEquatable<FdsDate>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFdsDate" /> class.
+        /// Initializes a new instance of the <see cref="FdsDate" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantFdsDate() { }
+        protected FdsDate() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFdsDate" /> class.
+        /// Initializes a new instance of the <see cref="FdsDate" /> class.
         /// </summary>
         /// <param name="startDate">startDate (required).</param>
         /// <param name="endDate">endDate (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantFdsDate(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string))
+        public FdsDate(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string))
         {
             // to ensure "startDate" is required (not null)
-            this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for QuantFdsDate and cannot be null");
+            this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for FdsDate and cannot be null");
             // to ensure "endDate" is required (not null)
-            this.EndDate = endDate ?? throw new ArgumentNullException("endDate is a required property for QuantFdsDate and cannot be null");
+            this.EndDate = endDate ?? throw new ArgumentNullException("endDate is a required property for FdsDate and cannot be null");
             // to ensure "frequency" is required (not null)
-            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantFdsDate and cannot be null");
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for FdsDate and cannot be null");
             // to ensure "calendar" is required (not null)
-            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantFdsDate and cannot be null");
+            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for FdsDate and cannot be null");
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantFdsDate {\n");
+            sb.Append("class FdsDate {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
@@ -112,15 +112,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantFdsDate);
+            return this.Equals(input as FdsDate);
         }
 
         /// <summary>
-        /// Returns true if QuantFdsDate instances are equal
+        /// Returns true if FdsDate instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantFdsDate to be compared</param>
+        /// <param name="input">Instance of FdsDate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantFdsDate input)
+        public bool Equals(FdsDate input)
         {
             if (input == null)
                 return false;

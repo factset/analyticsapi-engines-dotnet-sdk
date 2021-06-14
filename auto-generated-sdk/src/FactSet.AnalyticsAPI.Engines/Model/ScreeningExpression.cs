@@ -27,26 +27,40 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// CalculationUnitStatusMeta
+    /// ScreeningExpression
     /// </summary>
-    [DataContract(Name = "CalculationUnitStatusMeta")]
-    public partial class CalculationUnitStatusMeta : IEquatable<CalculationUnitStatusMeta>, IValidatableObject
+    [DataContract(Name = "ScreeningExpression")]
+    public partial class ScreeningExpression : IEquatable<ScreeningExpression>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalculationUnitStatusMeta" /> class.
+        /// Initializes a new instance of the <see cref="ScreeningExpression" /> class.
         /// </summary>
-        /// <param name="info">The Info URL of the calculation..</param>
-        public CalculationUnitStatusMeta(string info = default(string))
+        [JsonConstructorAttribute]
+        protected ScreeningExpression() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScreeningExpression" /> class.
+        /// </summary>
+        /// <param name="expr">expr (required).</param>
+        /// <param name="name">name (required).</param>
+        public ScreeningExpression(string expr = default(string), string name = default(string))
         {
-            this.Info = info;
+            // to ensure "expr" is required (not null)
+            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for ScreeningExpression and cannot be null");
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for ScreeningExpression and cannot be null");
         }
 
         /// <summary>
-        /// The Info URL of the calculation.
+        /// Gets or Sets Expr
         /// </summary>
-        /// <value>The Info URL of the calculation.</value>
-        [DataMember(Name = "info", EmitDefaultValue = false)]
-        public string Info { get; set; }
+        [DataMember(Name = "expr", IsRequired = true, EmitDefaultValue = false)]
+        public string Expr { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,8 +69,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CalculationUnitStatusMeta {\n");
-            sb.Append("  Info: ").Append(Info).Append("\n");
+            sb.Append("class ScreeningExpression {\n");
+            sb.Append("  Expr: ").Append(Expr).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,24 +92,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CalculationUnitStatusMeta);
+            return this.Equals(input as ScreeningExpression);
         }
 
         /// <summary>
-        /// Returns true if CalculationUnitStatusMeta instances are equal
+        /// Returns true if ScreeningExpression instances are equal
         /// </summary>
-        /// <param name="input">Instance of CalculationUnitStatusMeta to be compared</param>
+        /// <param name="input">Instance of ScreeningExpression to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CalculationUnitStatusMeta input)
+        public bool Equals(ScreeningExpression input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Info == input.Info ||
-                    (this.Info != null &&
-                    this.Info.Equals(input.Info))
+                    this.Expr == input.Expr ||
+                    (this.Expr != null &&
+                    this.Expr.Equals(input.Expr))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -107,8 +127,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Info != null)
-                    hashCode = hashCode * 59 + this.Info.GetHashCode();
+                if (this.Expr != null)
+                    hashCode = hashCode * 59 + this.Expr.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

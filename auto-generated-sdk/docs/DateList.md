@@ -1,11 +1,12 @@
-# FactSet.AnalyticsAPI.Engines.Model.QuantScreeningExpression
+# FactSet.AnalyticsAPI.Engines.Model.DateList
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Expr** | **string** |  | 
-**Name** | **string** |  | 
+**Dates** | **List&lt;string&gt;** |  | [optional] 
+**Frequency** | **string** |  | 
+**Calendar** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

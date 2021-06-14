@@ -1,4 +1,4 @@
-# FactSet.AnalyticsAPI.Engines.Model.QuantFqlExpression
+# FactSet.AnalyticsAPI.Engines.Model.FqlExpression
 
 ## Properties
 

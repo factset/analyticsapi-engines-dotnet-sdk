@@ -27,10 +27,10 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantIdentifierUniverse
+    /// ScreeningExpressionUniverse
     /// </summary>
-    [DataContract(Name = "QuantIdentifierUniverse")]
-    public partial class QuantIdentifierUniverse : IEquatable<QuantIdentifierUniverse>, IValidatableObject
+    [DataContract(Name = "ScreeningExpressionUniverse")]
+    public partial class ScreeningExpressionUniverse : IEquatable<ScreeningExpressionUniverse>, IValidatableObject
     {
         /// <summary>
         /// Defines UniverseType
@@ -58,27 +58,35 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name = "universeType", IsRequired = true, EmitDefaultValue = false)]
         public UniverseTypeEnum UniverseType { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantIdentifierUniverse" /> class.
+        /// Initializes a new instance of the <see cref="ScreeningExpressionUniverse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantIdentifierUniverse() { }
+        protected ScreeningExpressionUniverse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantIdentifierUniverse" /> class.
+        /// Initializes a new instance of the <see cref="ScreeningExpressionUniverse" /> class.
         /// </summary>
+        /// <param name="universeExpr">universeExpr (required).</param>
         /// <param name="universeType">universeType (required).</param>
-        /// <param name="identifiers">identifiers (required).</param>
-        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>))
+        /// <param name="securityExpr">securityExpr.</param>
+        public ScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string))
         {
+            // to ensure "universeExpr" is required (not null)
+            this.UniverseExpr = universeExpr ?? throw new ArgumentNullException("universeExpr is a required property for ScreeningExpressionUniverse and cannot be null");
             this.UniverseType = universeType;
-            // to ensure "identifiers" is required (not null)
-            this.Identifiers = identifiers ?? throw new ArgumentNullException("identifiers is a required property for QuantIdentifierUniverse and cannot be null");
+            this.SecurityExpr = securityExpr;
         }
 
         /// <summary>
-        /// Gets or Sets Identifiers
+        /// Gets or Sets UniverseExpr
         /// </summary>
-        [DataMember(Name = "identifiers", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Identifiers { get; set; }
+        [DataMember(Name = "universeExpr", IsRequired = true, EmitDefaultValue = false)]
+        public string UniverseExpr { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SecurityExpr
+        /// </summary>
+        [DataMember(Name = "securityExpr", EmitDefaultValue = false)]
+        public string SecurityExpr { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,9 +95,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantIdentifierUniverse {\n");
+            sb.Append("class ScreeningExpressionUniverse {\n");
+            sb.Append("  UniverseExpr: ").Append(UniverseExpr).Append("\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
-            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
+            sb.Append("  SecurityExpr: ").Append(SecurityExpr).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,29 +119,33 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantIdentifierUniverse);
+            return this.Equals(input as ScreeningExpressionUniverse);
         }
 
         /// <summary>
-        /// Returns true if QuantIdentifierUniverse instances are equal
+        /// Returns true if ScreeningExpressionUniverse instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantIdentifierUniverse to be compared</param>
+        /// <param name="input">Instance of ScreeningExpressionUniverse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantIdentifierUniverse input)
+        public bool Equals(ScreeningExpressionUniverse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
+                    this.UniverseExpr == input.UniverseExpr ||
+                    (this.UniverseExpr != null &&
+                    this.UniverseExpr.Equals(input.UniverseExpr))
+                ) && 
+                (
                     this.UniverseType == input.UniverseType ||
                     this.UniverseType.Equals(input.UniverseType)
                 ) && 
                 (
-                    this.Identifiers == input.Identifiers ||
-                    this.Identifiers != null &&
-                    input.Identifiers != null &&
-                    this.Identifiers.SequenceEqual(input.Identifiers)
+                    this.SecurityExpr == input.SecurityExpr ||
+                    (this.SecurityExpr != null &&
+                    this.SecurityExpr.Equals(input.SecurityExpr))
                 );
         }
 
@@ -145,9 +158,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.UniverseExpr != null)
+                    hashCode = hashCode * 59 + this.UniverseExpr.GetHashCode();
                 hashCode = hashCode * 59 + this.UniverseType.GetHashCode();
-                if (this.Identifiers != null)
-                    hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
+                if (this.SecurityExpr != null)
+                    hashCode = hashCode * 59 + this.SecurityExpr.GetHashCode();
                 return hashCode;
             }
         }

@@ -41,12 +41,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="CurrencyRoot" /> class.
         /// </summary>
         /// <param name="data">data (required).</param>
-        /// <param name="meta">meta.</param>
-        public CurrencyRoot(Dictionary<string, Currency> data = default(Dictionary<string, Currency>), Object meta = default(Object))
+        public CurrencyRoot(Dictionary<string, Currency> data = default(Dictionary<string, Currency>))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for CurrencyRoot and cannot be null");
-            this.Meta = meta;
         }
 
         /// <summary>
@@ -54,12 +52,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Dictionary<string, Currency> Data { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Meta
-        /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,7 +62,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class CurrencyRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,11 +101,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Data != null &&
                     input.Data != null &&
                     this.Data.SequenceEqual(input.Data)
-                ) && 
-                (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -129,8 +115,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
-                if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 return hashCode;
             }
         }

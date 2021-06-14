@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScreeningExpressionUniverse** | [**ScreeningExpressionUniverse**](ScreeningExpressionUniverse.md) |  | [optional] 
-**UniversalScreenUniverse** | [**UniversalScreenUniverse**](UniversalScreenUniverse.md) |  | [optional] 
-**IdentifierUniverse** | [**IdentifierUniverse**](IdentifierUniverse.md) |  | [optional] 
-**FdsDate** | [**FdsDate**](FdsDate.md) |  | [optional] 
-**DateList** | [**DateList**](DateList.md) |  | [optional] 
-**ScreeningExpression** | [**List&lt;ScreeningExpression&gt;**](ScreeningExpression.md) |  | [optional] 
-**FqlExpression** | [**List&lt;FqlExpression&gt;**](FqlExpression.md) |  | [optional] 
-**UniversalScreenParameter** | [**List&lt;UniversalScreenParameter&gt;**](UniversalScreenParameter.md) |  | [optional] 
+**ScreeningExpressionUniverse** | [**QuantScreeningExpressionUniverse**](QuantScreeningExpressionUniverse.md) |  | [optional] 
+**UniversalScreenUniverse** | [**QuantUniversalScreenUniverse**](QuantUniversalScreenUniverse.md) |  | [optional] 
+**IdentifierUniverse** | [**QuantIdentifierUniverse**](QuantIdentifierUniverse.md) |  | [optional] 
+**FdsDate** | [**QuantFdsDate**](QuantFdsDate.md) |  | [optional] 
+**DateList** | [**QuantDateList**](QuantDateList.md) |  | [optional] 
+**ScreeningExpression** | [**List&lt;QuantScreeningExpression&gt;**](QuantScreeningExpression.md) |  | [optional] 
+**FqlExpression** | [**List&lt;QuantFqlExpression&gt;**](QuantFqlExpression.md) |  | [optional] 
+**UniversalScreenParameter** | [**List&lt;QuantUniversalScreenParameter&gt;**](QuantUniversalScreenParameter.md) |  | [optional] 
 **AllUniversalScreenParameters** | **List&lt;Object&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

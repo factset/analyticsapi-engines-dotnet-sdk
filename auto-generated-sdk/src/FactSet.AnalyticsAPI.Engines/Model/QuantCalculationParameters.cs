@@ -44,7 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="fqlExpression">fqlExpression.</param>
         /// <param name="universalScreenParameter">universalScreenParameter.</param>
         /// <param name="allUniversalScreenParameters">allUniversalScreenParameters.</param>
-        public QuantCalculationParameters(ScreeningExpressionUniverse screeningExpressionUniverse = default(ScreeningExpressionUniverse), UniversalScreenUniverse universalScreenUniverse = default(UniversalScreenUniverse), IdentifierUniverse identifierUniverse = default(IdentifierUniverse), FdsDate fdsDate = default(FdsDate), DateList dateList = default(DateList), List<ScreeningExpression> screeningExpression = default(List<ScreeningExpression>), List<FqlExpression> fqlExpression = default(List<FqlExpression>), List<UniversalScreenParameter> universalScreenParameter = default(List<UniversalScreenParameter>), List<Object> allUniversalScreenParameters = default(List<Object>))
+        public QuantCalculationParameters(QuantScreeningExpressionUniverse screeningExpressionUniverse = default(QuantScreeningExpressionUniverse), QuantUniversalScreenUniverse universalScreenUniverse = default(QuantUniversalScreenUniverse), QuantIdentifierUniverse identifierUniverse = default(QuantIdentifierUniverse), QuantFdsDate fdsDate = default(QuantFdsDate), QuantDateList dateList = default(QuantDateList), List<QuantScreeningExpression> screeningExpression = default(List<QuantScreeningExpression>), List<QuantFqlExpression> fqlExpression = default(List<QuantFqlExpression>), List<QuantUniversalScreenParameter> universalScreenParameter = default(List<QuantUniversalScreenParameter>), List<Object> allUniversalScreenParameters = default(List<Object>))
         {
             this.ScreeningExpressionUniverse = screeningExpressionUniverse;
             this.UniversalScreenUniverse = universalScreenUniverse;
@@ -61,49 +61,49 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets ScreeningExpressionUniverse
         /// </summary>
         [DataMember(Name = "screeningExpressionUniverse", EmitDefaultValue = false)]
-        public ScreeningExpressionUniverse ScreeningExpressionUniverse { get; set; }
+        public QuantScreeningExpressionUniverse ScreeningExpressionUniverse { get; set; }
 
         /// <summary>
         /// Gets or Sets UniversalScreenUniverse
         /// </summary>
         [DataMember(Name = "universalScreenUniverse", EmitDefaultValue = false)]
-        public UniversalScreenUniverse UniversalScreenUniverse { get; set; }
+        public QuantUniversalScreenUniverse UniversalScreenUniverse { get; set; }
 
         /// <summary>
         /// Gets or Sets IdentifierUniverse
         /// </summary>
         [DataMember(Name = "identifierUniverse", EmitDefaultValue = false)]
-        public IdentifierUniverse IdentifierUniverse { get; set; }
+        public QuantIdentifierUniverse IdentifierUniverse { get; set; }
 
         /// <summary>
         /// Gets or Sets FdsDate
         /// </summary>
         [DataMember(Name = "fdsDate", EmitDefaultValue = false)]
-        public FdsDate FdsDate { get; set; }
+        public QuantFdsDate FdsDate { get; set; }
 
         /// <summary>
         /// Gets or Sets DateList
         /// </summary>
         [DataMember(Name = "dateList", EmitDefaultValue = false)]
-        public DateList DateList { get; set; }
+        public QuantDateList DateList { get; set; }
 
         /// <summary>
         /// Gets or Sets ScreeningExpression
         /// </summary>
         [DataMember(Name = "screeningExpression", EmitDefaultValue = false)]
-        public List<ScreeningExpression> ScreeningExpression { get; set; }
+        public List<QuantScreeningExpression> ScreeningExpression { get; set; }
 
         /// <summary>
         /// Gets or Sets FqlExpression
         /// </summary>
         [DataMember(Name = "fqlExpression", EmitDefaultValue = false)]
-        public List<FqlExpression> FqlExpression { get; set; }
+        public List<QuantFqlExpression> FqlExpression { get; set; }
 
         /// <summary>
         /// Gets or Sets UniversalScreenParameter
         /// </summary>
         [DataMember(Name = "universalScreenParameter", EmitDefaultValue = false)]
-        public List<UniversalScreenParameter> UniversalScreenParameter { get; set; }
+        public List<QuantUniversalScreenParameter> UniversalScreenParameter { get; set; }
 
         /// <summary>
         /// Gets or Sets AllUniversalScreenParameters

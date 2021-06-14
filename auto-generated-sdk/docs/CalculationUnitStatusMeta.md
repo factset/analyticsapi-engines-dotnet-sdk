@@ -1,11 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.AccountDirectoriesRoot
+# FactSet.AnalyticsAPI.Engines.Model.CalculationUnitStatusMeta
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**AccountDirectories**](AccountDirectories.md) |  | 
-**Meta** | **Object** |  | [optional] 
+**Info** | **string** | The Info URL of the calculation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

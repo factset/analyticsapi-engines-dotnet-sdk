@@ -1,11 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.FdsDate
+# FactSet.AnalyticsAPI.Engines.Model.QuantDateList
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | **string** |  | 
-**EndDate** | **string** |  | 
+**Dates** | **List&lt;string&gt;** |  | [optional] 
 **Frequency** | **string** |  | 
 **Calendar** | **string** |  | 
 

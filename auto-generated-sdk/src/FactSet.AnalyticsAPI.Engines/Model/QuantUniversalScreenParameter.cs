@@ -27,27 +27,27 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// UniversalScreenParameter
+    /// QuantUniversalScreenParameter
     /// </summary>
-    [DataContract(Name = "UniversalScreenParameter")]
-    public partial class UniversalScreenParameter : IEquatable<UniversalScreenParameter>, IValidatableObject
+    [DataContract(Name = "QuantUniversalScreenParameter")]
+    public partial class QuantUniversalScreenParameter : IEquatable<QuantUniversalScreenParameter>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniversalScreenParameter" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UniversalScreenParameter() { }
+        protected QuantUniversalScreenParameter() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UniversalScreenParameter" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameter" /> class.
         /// </summary>
         /// <param name="referenceName">referenceName (required).</param>
         /// <param name="name">name (required).</param>
-        public UniversalScreenParameter(string referenceName = default(string), string name = default(string))
+        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string))
         {
             // to ensure "referenceName" is required (not null)
-            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for UniversalScreenParameter and cannot be null");
+            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameter and cannot be null");
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for UniversalScreenParameter and cannot be null");
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameter and cannot be null");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UniversalScreenParameter {\n");
+            sb.Append("class QuantUniversalScreenParameter {\n");
             sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
@@ -92,15 +92,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UniversalScreenParameter);
+            return this.Equals(input as QuantUniversalScreenParameter);
         }
 
         /// <summary>
-        /// Returns true if UniversalScreenParameter instances are equal
+        /// Returns true if QuantUniversalScreenParameter instances are equal
         /// </summary>
-        /// <param name="input">Instance of UniversalScreenParameter to be compared</param>
+        /// <param name="input">Instance of QuantUniversalScreenParameter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UniversalScreenParameter input)
+        public bool Equals(QuantUniversalScreenParameter input)
         {
             if (input == null)
                 return false;

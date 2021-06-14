@@ -1,11 +1,11 @@
-# FactSet.AnalyticsAPI.Engines.Model.AccountDirectoriesRoot
+# FactSet.AnalyticsAPI.Engines.Model.QuantUniversalScreenParameter
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**AccountDirectories**](AccountDirectories.md) |  | 
-**Meta** | **Object** |  | [optional] 
+**ReferenceName** | **string** |  | 
+**Name** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

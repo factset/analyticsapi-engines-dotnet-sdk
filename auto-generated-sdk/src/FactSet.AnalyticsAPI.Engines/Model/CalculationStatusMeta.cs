@@ -27,40 +27,26 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// FqlExpression
+    /// CalculationStatusMeta
     /// </summary>
-    [DataContract(Name = "FqlExpression")]
-    public partial class FqlExpression : IEquatable<FqlExpression>, IValidatableObject
+    [DataContract(Name = "CalculationStatusMeta")]
+    public partial class CalculationStatusMeta : IEquatable<CalculationStatusMeta>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FqlExpression" /> class.
+        /// Initializes a new instance of the <see cref="CalculationStatusMeta" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected FqlExpression() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FqlExpression" /> class.
-        /// </summary>
-        /// <param name="expr">expr (required).</param>
-        /// <param name="name">name (required).</param>
-        public FqlExpression(string expr = default(string), string name = default(string))
+        /// <param name="units">Meta of calculation units in batch..</param>
+        public CalculationStatusMeta(Dictionary<string, CalculationUnitStatusMeta> units = default(Dictionary<string, CalculationUnitStatusMeta>))
         {
-            // to ensure "expr" is required (not null)
-            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for FqlExpression and cannot be null");
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for FqlExpression and cannot be null");
+            this.Units = units;
         }
 
         /// <summary>
-        /// Gets or Sets Expr
+        /// Meta of calculation units in batch.
         /// </summary>
-        [DataMember(Name = "expr", IsRequired = true, EmitDefaultValue = false)]
-        public string Expr { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>Meta of calculation units in batch.</value>
+        [DataMember(Name = "units", EmitDefaultValue = false)]
+        public Dictionary<string, CalculationUnitStatusMeta> Units { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +55,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FqlExpression {\n");
-            sb.Append("  Expr: ").Append(Expr).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class CalculationStatusMeta {\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +77,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as FqlExpression);
+            return this.Equals(input as CalculationStatusMeta);
         }
 
         /// <summary>
-        /// Returns true if FqlExpression instances are equal
+        /// Returns true if CalculationStatusMeta instances are equal
         /// </summary>
-        /// <param name="input">Instance of FqlExpression to be compared</param>
+        /// <param name="input">Instance of CalculationStatusMeta to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FqlExpression input)
+        public bool Equals(CalculationStatusMeta input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Expr == input.Expr ||
-                    (this.Expr != null &&
-                    this.Expr.Equals(input.Expr))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Units == input.Units ||
+                    this.Units != null &&
+                    input.Units != null &&
+                    this.Units.SequenceEqual(input.Units)
                 );
         }
 
@@ -127,10 +108,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Expr != null)
-                    hashCode = hashCode * 59 + this.Expr.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Units != null)
+                    hashCode = hashCode * 59 + this.Units.GetHashCode();
                 return hashCode;
             }
         }

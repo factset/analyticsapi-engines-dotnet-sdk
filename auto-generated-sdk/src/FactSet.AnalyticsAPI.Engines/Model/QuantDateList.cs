@@ -27,39 +27,48 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// DateParametersSummaryRoot
+    /// QuantDateList
     /// </summary>
-    [DataContract(Name = "DateParametersSummaryRoot")]
-    public partial class DateParametersSummaryRoot : IEquatable<DateParametersSummaryRoot>, IValidatableObject
+    [DataContract(Name = "QuantDateList")]
+    public partial class QuantDateList : IEquatable<QuantDateList>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateParametersSummaryRoot" /> class.
+        /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected DateParametersSummaryRoot() { }
+        protected QuantDateList() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DateParametersSummaryRoot" /> class.
+        /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
-        /// <param name="data">data (required).</param>
-        /// <param name="meta">meta.</param>
-        public DateParametersSummaryRoot(DateParametersSummary data = default(DateParametersSummary), Object meta = default(Object))
+        /// <param name="dates">dates.</param>
+        /// <param name="frequency">frequency (required).</param>
+        /// <param name="calendar">calendar (required).</param>
+        public QuantDateList(List<string> dates = default(List<string>), string frequency = default(string), string calendar = default(string))
         {
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for DateParametersSummaryRoot and cannot be null");
-            this.Meta = meta;
+            // to ensure "frequency" is required (not null)
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantDateList and cannot be null");
+            // to ensure "calendar" is required (not null)
+            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantDateList and cannot be null");
+            this.Dates = dates;
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Dates
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public DateParametersSummary Data { get; set; }
+        [DataMember(Name = "dates", EmitDefaultValue = false)]
+        public List<string> Dates { get; set; }
 
         /// <summary>
-        /// Gets or Sets Meta
+        /// Gets or Sets Frequency
         /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public Object Meta { get; set; }
+        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Calendar
+        /// </summary>
+        [DataMember(Name = "calendar", IsRequired = true, EmitDefaultValue = false)]
+        public string Calendar { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +77,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DateParametersSummaryRoot {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
+            sb.Append("class QuantDateList {\n");
+            sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,29 +101,35 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DateParametersSummaryRoot);
+            return this.Equals(input as QuantDateList);
         }
 
         /// <summary>
-        /// Returns true if DateParametersSummaryRoot instances are equal
+        /// Returns true if QuantDateList instances are equal
         /// </summary>
-        /// <param name="input">Instance of DateParametersSummaryRoot to be compared</param>
+        /// <param name="input">Instance of QuantDateList to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DateParametersSummaryRoot input)
+        public bool Equals(QuantDateList input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Dates == input.Dates ||
+                    this.Dates != null &&
+                    input.Dates != null &&
+                    this.Dates.SequenceEqual(input.Dates)
                 ) && 
                 (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
+                    this.Frequency == input.Frequency ||
+                    (this.Frequency != null &&
+                    this.Frequency.Equals(input.Frequency))
+                ) && 
+                (
+                    this.Calendar == input.Calendar ||
+                    (this.Calendar != null &&
+                    this.Calendar.Equals(input.Calendar))
                 );
         }
 
@@ -126,10 +142,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
-                if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                if (this.Dates != null)
+                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                if (this.Frequency != null)
+                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                if (this.Calendar != null)
+                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
                 return hashCode;
             }
         }

@@ -78,8 +78,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
-        /// <returns>ObjectRoot</returns>
-        ObjectRoot GetCalculationUnitInfoById(string id, string unitId);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetCalculationUnitInfoById(string id, string unitId);
 
         /// <summary>
         /// Get Quant Engine calculation metadata information by id
@@ -90,8 +90,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
-        /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> GetCalculationUnitInfoByIdWithHttpInfo(string id, string unitId);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetCalculationUnitInfoByIdWithHttpInfo(string id, string unitId);
         /// <summary>
         /// Get Quant Engine calculation result by id
         /// </summary>
@@ -101,8 +101,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
-        /// <returns>ObjectRoot</returns>
-        ObjectRoot GetCalculationUnitResultById(string id, string unitId);
+        /// <returns>System.IO.Stream</returns>
+        System.IO.Stream GetCalculationUnitResultById(string id, string unitId);
 
         /// <summary>
         /// Get Quant Engine calculation result by id
@@ -113,8 +113,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
-        /// <returns>ApiResponse of ObjectRoot</returns>
-        ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId);
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        ApiResponse<System.IO.Stream> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId);
         /// <summary>
         /// Create and Run Quant Engine calculation
         /// </summary>
@@ -228,8 +228,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitInfoByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetCalculationUnitInfoByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Quant Engine calculation metadata information by id
@@ -241,8 +241,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationUnitInfoByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCalculationUnitInfoByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Quant Engine calculation result by id
         /// </summary>
@@ -253,8 +253,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectRoot</returns>
-        System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of System.IO.Stream</returns>
+        System.Threading.Tasks.Task<System.IO.Stream> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Quant Engine calculation result by id
@@ -266,8 +266,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create and Run Quant Engine calculation
         /// </summary>
@@ -700,10 +700,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
-        /// <returns>ObjectRoot</returns>
-        public ObjectRoot GetCalculationUnitInfoById(string id, string unitId)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetCalculationUnitInfoById(string id, string unitId)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationUnitInfoByIdWithHttpInfo(id, unitId);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> localVarResponse = GetCalculationUnitInfoByIdWithHttpInfo(id, unitId);
             return localVarResponse.Data;
         }
 
@@ -713,8 +713,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
-        /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetCalculationUnitInfoByIdWithHttpInfo(string id, string unitId)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> GetCalculationUnitInfoByIdWithHttpInfo(string id, string unitId)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -732,7 +732,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/x-protobuf",
+                "application/octet-stream"
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -752,7 +753,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -770,10 +771,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitInfoByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetCalculationUnitInfoByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationUnitInfoByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetCalculationUnitInfoByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -784,8 +785,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationUnitInfoByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream>> GetCalculationUnitInfoByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -804,7 +805,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/x-protobuf",
+                "application/octet-stream"
             };
 
 
@@ -826,7 +828,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/info", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -843,10 +845,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
-        /// <returns>ObjectRoot</returns>
-        public ObjectRoot GetCalculationUnitResultById(string id, string unitId)
+        /// <returns>System.IO.Stream</returns>
+        public System.IO.Stream GetCalculationUnitResultById(string id, string unitId)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> localVarResponse = GetCalculationUnitResultByIdWithHttpInfo(id, unitId);
             return localVarResponse.Data;
         }
 
@@ -856,8 +858,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
-        /// <returns>ApiResponse of ObjectRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId)
+        /// <returns>ApiResponse of System.IO.Stream</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> GetCalculationUnitResultByIdWithHttpInfo(string id, string unitId)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -875,7 +877,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/x-protobuf",
+                "application/octet-stream"
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -895,7 +898,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<System.IO.Stream>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -913,10 +916,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectRoot</returns>
-        public async System.Threading.Tasks.Task<ObjectRoot> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of System.IO.Stream</returns>
+        public async System.Threading.Tasks.Task<System.IO.Stream> GetCalculationUnitResultByIdAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream> localVarResponse = await GetCalculationUnitResultByIdWithHttpInfoAsync(id, unitId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -927,8 +930,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -947,7 +950,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/x-protobuf",
+                "application/octet-stream"
             };
 
 
@@ -969,7 +973,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<System.IO.Stream>("/analytics/engines/quant/v3/calculations/{id}/units/{unitId}/result", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

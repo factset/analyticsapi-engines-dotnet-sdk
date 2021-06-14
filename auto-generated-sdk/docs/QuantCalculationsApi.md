@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationunitinfobyid"></a>
 # **GetCalculationUnitInfoById**
-> ObjectRoot GetCalculationUnitInfoById (string id, string unitId)
+> System.IO.Stream GetCalculationUnitInfoById (string id, string unitId)
 
 Get Quant Engine calculation metadata information by id
 
@@ -210,7 +210,7 @@ namespace Example
             try
             {
                 // Get Quant Engine calculation metadata information by id
-                ObjectRoot result = apiInstance.GetCalculationUnitInfoById(id, unitId);
+                System.IO.Stream result = apiInstance.GetCalculationUnitInfoById(id, unitId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+**System.IO.Stream**
 
 ### Authorization
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/x-protobuf
+ - **Accept**: application/json, application/x-protobuf, application/octet-stream
 
 
 ### HTTP response details
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationunitresultbyid"></a>
 # **GetCalculationUnitResultById**
-> ObjectRoot GetCalculationUnitResultById (string id, string unitId)
+> System.IO.Stream GetCalculationUnitResultById (string id, string unitId)
 
 Get Quant Engine calculation result by id
 
@@ -293,7 +293,7 @@ namespace Example
             try
             {
                 // Get Quant Engine calculation result by id
-                ObjectRoot result = apiInstance.GetCalculationUnitResultById(id, unitId);
+                System.IO.Stream result = apiInstance.GetCalculationUnitResultById(id, unitId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+**System.IO.Stream**
 
 ### Authorization
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/x-protobuf
+ - **Accept**: application/json, application/x-protobuf, application/octet-stream
 
 
 ### HTTP response details

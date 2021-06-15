@@ -35,18 +35,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationInfo" /> class.
         /// </summary>
-        /// <param name="id">Calculation identifier.</param>
-        public CalculationInfo(string id = default(string))
+        /// <param name="calculationId">Calculation identifier.</param>
+        public CalculationInfo(string calculationId = default(string))
         {
-            this.Id = id;
+            this.CalculationId = calculationId;
         }
 
         /// <summary>
         /// Calculation identifier
         /// </summary>
         /// <value>Calculation identifier</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        [DataMember(Name = "calculationId", EmitDefaultValue = false)]
+        public string CalculationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,7 +56,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CalculationInfo {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  CalculationId: ").Append(CalculationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,9 +92,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.CalculationId == input.CalculationId ||
+                    (this.CalculationId != null &&
+                    this.CalculationId.Equals(input.CalculationId))
                 );
         }
 
@@ -107,8 +107,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.CalculationId != null)
+                    hashCode = hashCode * 59 + this.CalculationId.GetHashCode();
                 return hashCode;
             }
         }

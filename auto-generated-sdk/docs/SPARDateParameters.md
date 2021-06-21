@@ -1,5 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Model.SPARDateParameters
 The date parameters for SPAR calculation.
+
 ## Properties
 
 Name | Type | Description | Notes

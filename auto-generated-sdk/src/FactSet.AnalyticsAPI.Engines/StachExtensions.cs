@@ -50,31 +50,23 @@ namespace FactSet.AnalyticsAPI.Engines
                 Rows = new List<Row>(),
                 Metadata = new Dictionary<string, string>()
             };
-
-            var headerDataRowList = headerTable.Data.Rows.Select(x => x.Id).ToList();
-            foreach (var headerTableSeriesDefinition in headerTable.Definition.Columns)
+            // Constructs the column headers by considering dimension columns and header rows
+            foreach (var columnId in headerColumnIds)
             {
                 var headerRow = new Row { Cells = new List<string>() };
-                foreach (var primaryTableSeriesDefinition in primaryTable.Definition.Columns)
+                for (int j = 0; j < dimensionColumnsCount; j++)
                 {
-                    if (primaryTableSeriesDefinition.IsDimension)
-                    {
-                        var description = string.IsNullOrEmpty(primaryTableSeriesDefinition.Description)
-                            ? primaryTableSeriesDefinition.Name
-                            : primaryTableSeriesDefinition.Description;
-                        
-                        headerRow.Cells.Add(description);
-                        continue;
-                    }
-                    
-                    var index = headerDataRowList.IndexOf(primaryTableSeriesDefinition.HeaderId);
-                    var value = headerTable.Data.Columns[headerTableSeriesDefinition.Id].GetValueHelper(headerTableSeriesDefinition.Type, index);
-                    headerRow.Cells.Add(value.ToString());
+                    headerRow.Cells.Add("");
+                }
+
+                for (int i = 0; i < headerRowCount; i++)
+                {
+                    headerRow.Cells.Add(Convert.ToString(headerTable.Data.Columns[columnId]
+                        .GetValueHelper(headerTable.Definition.Columns.First(c => c.Id == columnId).Type, i)));
                 }
                 headerRow.isHeader = true;
                 table.Rows.Add(headerRow);
             }
-            
             // Constructs the column data
             for (int i = 0; i < rowCount; i++)
             {

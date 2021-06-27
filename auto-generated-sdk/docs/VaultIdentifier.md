@@ -1,5 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Model.VaultIdentifier
 The account/benchmark parameter for Vault calculation.
+
 ## Properties
 
 Name | Type | Description | Notes

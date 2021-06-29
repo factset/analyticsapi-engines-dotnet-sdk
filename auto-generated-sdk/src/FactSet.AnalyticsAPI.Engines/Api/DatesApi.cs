@@ -117,7 +117,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="account">Account</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DateParametersSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DateParametersSummaryRoot>> ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Convert Vault dates to absolute format
@@ -146,7 +146,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="account">Account</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DateParametersSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DateParametersSummaryRoot>> ConvertVaultDatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -374,7 +374,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="account">Account</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DateParametersSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot>> ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'enddate' is set
@@ -400,6 +400,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<string, Type>
+            {
+                { "200", typeof(DateParametersSummaryRoot) },
+                { "400", typeof(ClientErrorResponse) },
+                { "404", typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -541,7 +547,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="account">Account</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DateParametersSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot>> ConvertVaultDatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'enddate' is set
@@ -567,6 +573,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<string, Type>
+            {
+                { "200", typeof(DateParametersSummaryRoot) },
+                { "400", typeof(ClientErrorResponse) },
+                { "404", typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

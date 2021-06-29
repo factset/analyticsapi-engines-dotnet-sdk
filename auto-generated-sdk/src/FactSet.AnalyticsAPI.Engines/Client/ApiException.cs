@@ -10,6 +10,7 @@
 
 
 using System;
+using FactSet.AnalyticsAPI.Engines.Model;
 
 namespace FactSet.AnalyticsAPI.Engines.Client
 {
@@ -37,6 +38,12 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Multimap<string, string> Headers { get; private set; }
 
         /// <summary>
+        /// Gets or sets the ClientErrorResponse
+        /// </summary>
+        /// <value>API detailed client error responses</value>
+        public ClientErrorResponse clientErrorResponse { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ApiException"/> class.
         /// </summary>
         public ApiException() { }
@@ -58,11 +65,12 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// <param name="message">Error message.</param>
         /// <param name="errorContent">Error content.</param>
         /// <param name="headers">HTTP Headers.</param>
-        public ApiException(int errorCode, string message, object errorContent = null, Multimap<string, string> headers = null) : base(message)
+        public ApiException(int errorCode, string message, object errorContent = null, Multimap<string, string> headers = null, ClientErrorResponse clientErrorResponse = null) : base(message)
         {
             this.ErrorCode = errorCode;
             this.ErrorContent = errorContent;
             this.Headers = headers;
+            this.clientErrorResponse = clientErrorResponse;
         }
     }
 

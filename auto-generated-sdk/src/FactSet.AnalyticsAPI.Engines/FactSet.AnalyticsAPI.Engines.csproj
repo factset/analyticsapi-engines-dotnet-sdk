@@ -27,7 +27,6 @@
     <PackageReference Include="RestSharp" Version="106.11.7" />
     <PackageReference Include="Polly" Version="7.2.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="FactSet.Protobuf.Stach.Extensions" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

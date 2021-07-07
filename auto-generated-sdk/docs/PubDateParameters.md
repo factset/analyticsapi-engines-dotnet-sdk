@@ -1,5 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Model.PubDateParameters
 The date parameters for Publisher calculation.
+
 ## Properties
 
 Name | Type | Description | Notes

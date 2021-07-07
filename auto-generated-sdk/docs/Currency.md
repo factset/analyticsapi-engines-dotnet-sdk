@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.Currency
+
 ## Properties
 
 Name | Type | Description | Notes

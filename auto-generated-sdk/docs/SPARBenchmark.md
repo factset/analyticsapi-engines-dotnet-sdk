@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.SPARBenchmark
+
 ## Properties
 
 Name | Type | Description | Notes

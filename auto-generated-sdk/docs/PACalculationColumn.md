@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.PACalculationColumn
+
 ## Properties
 
 Name | Type | Description | Notes

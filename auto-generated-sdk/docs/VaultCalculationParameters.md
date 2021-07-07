@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.VaultCalculationParameters
+
 ## Properties
 
 Name | Type | Description | Notes

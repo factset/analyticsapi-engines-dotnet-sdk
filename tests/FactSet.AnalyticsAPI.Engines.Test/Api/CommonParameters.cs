@@ -2,31 +2,14 @@
 using System.Collections.Generic;
 
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
-{
-    public enum Engine
-    {
-        PA,
-        SPAR,
-        VAULT,
-        PUB
-    }
-    
+{    
     public static class CommonParameters
     {
-        // Add 'ANALYTICS_API_DEFAULT_USERNAME_SERIAL' and 'ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL' environment variables with the respective username-serial as value
-        public static readonly string DefaultUsername = Environment.GetEnvironmentVariable("ANALYTICS_API_DEFAULT_USERNAME_SERIAL");
-        public static readonly string VaultPubUsername = Environment.GetEnvironmentVariable("ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL");
+        // Add 'ANALYTICS_API_USERNAME_SERIAL' environment variables with the respective username-serial as value
+        public static readonly string Username = "fds_demo_c-454747"; // Environment.GetEnvironmentVariable("ANALYTICS_API_USERNAME_SERIAL");
 
-        // Add 'ANALYTICS_API_DEFAULT_PASSWORD' and 'ANALYTICS_API_VAULT_PUB_PASSWORD' environment variables with the respective api key generated on developer portal
-        public static readonly string DefaultPassword =Environment.GetEnvironmentVariable("ANALYTICS_API_DEFAULT_PASSWORD");
-        public static readonly string VaultPubPassword = Environment.GetEnvironmentVariable("ANALYTICS_API_VAULT_PUB_PASSWORD");
-
-       public static readonly IDictionary<Enum, (string, string)> Credentials = new Dictionary<Enum, (string , string) >{
-            {Engine.PA, (DefaultUsername, DefaultPassword)},
-            {Engine.SPAR, (DefaultUsername, DefaultPassword)},
-            {Engine.VAULT, (VaultPubUsername, VaultPubPassword)},
-            {Engine.PUB, (VaultPubUsername, VaultPubPassword)}
-        };
+        // Add ANALYTICS_API_PASSWORD environment variables with the respective api key generated on developer portal
+        public static readonly string Password = "cxViAP6wCbbSOSSxiIPT5VsdyoNzCObRPBg1h53w"; // Environment.GetEnvironmentVariable("ANALYTICS_API_PASSWORD");
 
         // Add 'ANALYTICS_API_URL' environment variable with api url as value
         public static readonly string BaseUrl = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ANALYTICS_API_URL")) ? Environment.GetEnvironmentVariable("ANALYTICS_API_URL") : "https://api.factset.com";

@@ -11,12 +11,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     [TestClass]
     public class ConfigurationsApiTests
     {
-        private ConfigurationsApi _configurationsApi;
+        private ConfigurationsApi configurationsApi;
 
         [TestInitialize]
         public void Init()
         {
-            _configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
+            configurationsApi = new ConfigurationsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         {
             var account = CommonParameters.VaultDefaultAccount;
 
-            var response = _configurationsApi.GetVaultConfigurationsWithHttpInfo(account);
+            var response = configurationsApi.GetVaultConfigurationsWithHttpInfo(account);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response code is 200 - OK");
             Assert.IsInstanceOfType(response.Data, typeof(Dictionary<string, VaultConfigurationSummary>), "Response is of type Dictionary<string, VaultConfigurationSummary>");
@@ -34,10 +34,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ConfigurationsApi_GetConfigurationsById_Success()
         {
-            var vaultConfiguration = _configurationsApi.GetVaultConfigurationsWithHttpInfo(CommonParameters.VaultDefaultAccount);
-            var vaultConfigurationId = vaultConfiguration.Data.Keys.First();
+            var vaultConfiguration = configurationsApi.GetVaultConfigurationsWithHttpInfo(CommonParameters.VaultDefaultAccount);
+            var vaultConfigurationId = vaultConfiguration.Data.Data.Keys.First();
 
-            var response = _configurationsApi.GetVaultConfigurationByIdWithHttpInfo(vaultConfigurationId);
+            var response = configurationsApi.GetVaultConfigurationByIdWithHttpInfo(vaultConfigurationId);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response code is 200 - OK");
             Assert.IsInstanceOfType(response.Data, typeof(VaultConfiguration), "Response is of type VaultConfiguration");

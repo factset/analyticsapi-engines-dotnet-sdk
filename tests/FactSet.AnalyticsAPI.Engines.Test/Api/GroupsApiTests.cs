@@ -10,23 +10,23 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     [TestClass]
     public class GroupsApiTests
     {
-        private GroupsApi _groupsApi;
+        private GroupsApi groupsApi;
 
         [TestInitialize]
         public void Init()
         {
-            _groupsApi = new GroupsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            groupsApi = new GroupsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void GroupsApi_Get_Success()
         {
-            var groupResponse = _groupsApi.GetPAGroupsWithHttpInfo();
+            var groupResponse = groupsApi.GetPAGroupsWithHttpInfo();
 
             Assert.IsTrue(groupResponse.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
             Assert.IsTrue(groupResponse.Data.GetType() == typeof(Dictionary<string, Group>), "Response result should be a Group Dictionary.");
-            Assert.IsTrue(groupResponse.Data.Count > 0, "Response result should not be an empty Dictionary.");
+            Assert.IsTrue(groupResponse.Data.Data.Count > 0, "Response result should not be an empty Dictionary.");
         }
     }
 }

@@ -10,12 +10,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     [TestClass]
     public class AccountsApiTests
     {
-        private AccountsApi _accountsApi;
+        private AccountsApi accountsApi;
 
         [TestInitialize]
         public void Init()
         {
-            _accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration(Engine.PA));
+            accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration());
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            ApiResponse<AccountDirectories> response = _accountsApi.GetAccountsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
+            ApiResponse<AccountDirectoriesRoot> response = accountsApi.GetAccountsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(response.Data != null, "Response data should not be null");

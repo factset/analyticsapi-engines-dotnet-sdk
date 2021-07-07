@@ -9,7 +9,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     [TestClass]
     public class FrequenciesApiTests
     {
-        private FrequenciesApi _frequenciesApi;
+        private FrequenciesApi frequenciesApi;
 
         [TestInitialize]
         public void Init()
@@ -20,34 +20,34 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void FrequenciesApi_Get_PAFrequencies_Success()
         {
-            _frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            var paFrequenciesResponse = _frequenciesApi.GetPAFrequenciesWithHttpInfo();
+            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
+            var paFrequenciesResponse = frequenciesApi.GetPAFrequenciesWithHttpInfo();
 
             Assert.IsTrue(paFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(paFrequenciesResponse.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
-            Assert.IsTrue(paFrequenciesResponse.Data.Count != 0, "Response data should not be null.");
+            Assert.IsTrue(paFrequenciesResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
         [TestMethod]
         public void FrequenciesApi_Get_SPARFrequencies_Success()
         {
-            _frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
-            var sparFrequenciesResponse = _frequenciesApi.GetSPARFrequenciesWithHttpInfo();
+            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
+            var sparFrequenciesResponse = frequenciesApi.GetSPARFrequenciesWithHttpInfo();
 
             Assert.IsTrue(sparFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(sparFrequenciesResponse.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
-            Assert.IsTrue(sparFrequenciesResponse.Data.Count != 0, "Response data should not be null.");
+            Assert.IsTrue(sparFrequenciesResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
         [TestMethod]
         public void FrequenciesApi_Get_VaultFrequencies_Success()
         {
-            _frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
-            var vaultFrequenciesResponse = _frequenciesApi.GetVaultFrequenciesWithHttpInfo();
+            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
+            var vaultFrequenciesResponse = frequenciesApi.GetVaultFrequenciesWithHttpInfo();
 
             Assert.IsTrue(vaultFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(vaultFrequenciesResponse.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
-            Assert.IsTrue(vaultFrequenciesResponse.Data.Count != 0, "Response data should not be null.");
+            Assert.IsTrue(vaultFrequenciesResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
     }
 }

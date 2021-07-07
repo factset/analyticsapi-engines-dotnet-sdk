@@ -10,7 +10,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     [TestClass]
     public class ComponentsApiTests
     {
-        private ComponentsApi _componentsApi;
+        private ComponentsApi componentsApi;
 
         [TestInitialize]
         public void Init()
@@ -21,22 +21,22 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_PAComponents_Success()
         {
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            var componentGetAllResponse = _componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
+            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            var componentGetAllResponse = componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(componentGetAllResponse.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
-            Assert.IsTrue(componentGetAllResponse.Data.Count != 0, "Response data should not be null.");
+            Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
         [TestMethod]
         public void ComponentsApi_Get_PAComponentById_Success()
         {
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.PA));
-            var paComponents = _componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
-            var paComponentId = paComponents.Data.Keys.First();
+            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            var paComponents = componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
+            var paComponentId = paComponents.Data.Data.Keys.First();
 
-            var componentGetByIdResponse = _componentsApi.GetPAComponentByIdWithHttpInfo(paComponentId);
+            var componentGetByIdResponse = componentsApi.GetPAComponentByIdWithHttpInfo(paComponentId);
 
             Assert.IsTrue(componentGetByIdResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(componentGetByIdResponse.Data != null, "Response data should not be null");
@@ -46,22 +46,22 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_VaultComponents_Success()
         {
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
-            var componentGetAllResponse = _componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
+            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            var componentGetAllResponse = componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(componentGetAllResponse.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
-            Assert.IsTrue(componentGetAllResponse.Data.Count != 0, "Response data should not be null.");
+            Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
         [TestMethod]
         public void ComponentsApi_Get_VaultComponentById_Success()
         {
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.VAULT));
-            var vaultComponents = _componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
-            var vaultComponentId = vaultComponents.Data.Keys.First();
+            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            var vaultComponents = componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
+            var vaultComponentId = vaultComponents.Data.Data.Keys.First();
 
-            var componentGetByIdResponse = _componentsApi.GetVaultComponentByIdWithHttpInfo(vaultComponentId);
+            var componentGetByIdResponse = componentsApi.GetVaultComponentByIdWithHttpInfo(vaultComponentId);
 
             Assert.IsTrue(componentGetByIdResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(componentGetByIdResponse.Data != null, "Response data should not be null");
@@ -71,12 +71,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_SparComponents_Success()
         {
-            _componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration(Engine.SPAR));
-            var componentGetAllResponse = _componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
+            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            var componentGetAllResponse = componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(componentGetAllResponse.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
-            Assert.IsTrue(componentGetAllResponse.Data.Count != 0, "Response data should not be null.");
+            Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
     }
 }

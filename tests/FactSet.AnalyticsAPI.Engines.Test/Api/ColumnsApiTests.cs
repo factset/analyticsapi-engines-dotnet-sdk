@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var apiResponse = columnsApi.GetPAColumnsWithHttpInfo();
 
             Assert.IsTrue(apiResponse.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
-            Assert.IsInstanceOfType(apiResponse.Data, typeof(Dictionary<string, ColumnSummary>), "Response should be Dictionary of ColumnSummary.");
+            Assert.IsInstanceOfType(apiResponse.Data.Data, typeof(Dictionary<string, ColumnSummary>), "Response should be Dictionary of ColumnSummary.");
             Assert.IsTrue(apiResponse.Data != null, "Response data should not be null.");
         }
 
@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var apiResponse = columnsApi.GetPAColumnByIdWithHttpInfo(columnId);
 
             Assert.IsTrue(apiResponse.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
-            Assert.IsInstanceOfType(apiResponse.Data, typeof(Column), "Response should be of Column type.");
+            Assert.IsInstanceOfType(apiResponse.Data.Data, typeof(Column), "Response should be of Column type.");
             Assert.IsTrue(apiResponse.Data != null, "Response data should not be null.");
         }
     }

@@ -27,7 +27,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(response.Data != null, "Response data should not be null");
-            Assert.IsTrue(response.Data.GetType() == typeof(AccountDirectories), "Response Data should be of AccountDirectories type");
+            Assert.IsTrue(response.Data.GetType() == typeof(AccountDirectoriesRoot), "Response Data should be of AccountDirectories type");
+            Assert.IsTrue(response.Data.Data.GetType() == typeof(AccountDirectories), "Response Data should be of AccountDirectories type");
         }
     }
 }

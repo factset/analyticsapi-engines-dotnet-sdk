@@ -29,8 +29,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
         private ApiResponse<object> RunCalculation()
         {
-            var parameters = new PACalculationParametersRoot();
-
             var paComponents = componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
 
             var paComponentId = paComponents.Data.Data.Keys.First();
@@ -40,7 +38,11 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
-            parameters.Data = new Dictionary<string, PACalculationParameters> { {"1", paCalculation }, { "2", paCalculation } };
+
+            var parameters = new PACalculationParametersRoot
+            {
+                Data = new Dictionary<string, PACalculationParameters> { { "1", paCalculation }, { "2", paCalculation } }
+            };
 
             var response = calculationsApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", parameters);
 

@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var apiResponse = columnStatisticsApi.GetPAColumnStatisticsWithHttpInfo();
 
             Assert.IsTrue(apiResponse.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
-            Assert.IsTrue(apiResponse.Data.GetType() == typeof(Dictionary<string, ColumnStatistic>), "Repsponse should be Dictionary of ColumnStatistic.");
+            Assert.IsTrue(apiResponse.Data.Data.GetType() == typeof(Dictionary<string, ColumnStatistic>), "Repsponse should be Dictionary of ColumnStatistic.");
             Assert.IsTrue(apiResponse.Data != null, "Response data should not be null.");
         }
     }

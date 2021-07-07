@@ -19,7 +19,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
         public static string GetRandomColumnId()
         {
-            var columnsApi = new ColumnsApi();
+            var columnsApi = new ColumnsApi(CommonFunctions.BuildConfiguration());
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             var columnsGetAllResponse = columnsApi.GetPAColumnsWithHttpInfo();

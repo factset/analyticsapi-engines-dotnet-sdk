@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.Frequency
+
 ## Properties
 
 Name | Type | Description | Notes

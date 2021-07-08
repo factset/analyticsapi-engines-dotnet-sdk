@@ -12,28 +12,30 @@ using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineSingleUnitExample
+    public class VaultEngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
-        private const string PADefaultDocument = "PA_DOCUMENTS:DEFAULT";
-        private const string ComponentName = "Weights";
-        private const string ComponentCategory = "Weights / Exposures";
-        private const string BenchmarkSP50 = "BENCH:SP50";
-        private const string BenchmarkR1000 = "BENCH:R.1000";
+        private const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
+        private const string VaultComponentName = "Total Returns";
+        private const string VaultComponentCategory = "Performance / Performance Relative Dates";
+        private const string VaultDefaultAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
+        private const string VaultStartDate = "20180101";
+        private const string VaultEndDate = "20180329";
+        private const string VaultFrequency = "Monthly";
 
         public static void Main(string[] args)
         {
             try
             {
-                var calculationParameters = new PACalculationParametersRoot
+                var calculationParameters = new VaultCalculationParametersRoot
                 {
-                    Data = new Dictionary<string, PACalculationParameters> { { "1", GetPaCalculationParameters() } }
+                    Data = new Dictionary<string, VaultCalculationParameters> { { "1", GetVaultCalculationParameters() } }
                 };
 
-                var calculationApi = new PACalculationsApi(GetApiConfiguration());
+                var calculationApi = new VaultCalculationsApi(GetApiConfiguration());
 
                 var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
 
@@ -77,17 +79,17 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 Console.WriteLine("Calculation Completed");
 
                 
-                foreach (var paCalculation in status.Data.Units)
+                foreach (var vaultCalculation in status.Data.Units)
                 {
-                    if (paCalculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
+                    if (vaultCalculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, paCalculation.Key);
+                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, vaultCalculation.Key);
                         PrintResult(resultResponse.Data);
                     }
                     else
                     {
-                        Console.WriteLine($"Calculation Unit Id : {paCalculation.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {paCalculation.Value.Errors}");
+                        Console.WriteLine($"Calculation Unit Id : {vaultCalculation.Key} Failed!!!");
+                        Console.WriteLine($"Error message : {vaultCalculation.Value.Errors}");
                     }
                 }
 
@@ -125,23 +127,25 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
 
 
-        private static PACalculationParameters GetPaCalculationParameters()
+        private static VaultCalculationParameters GetVaultCalculationParameters()
         {
             var componentsApi = new ComponentsApi(GetApiConfiguration());
 
-            var componentsResponse = componentsApi.GetPAComponents(PADefaultDocument);
+            var componentsResponse = componentsApi.GetVaultComponents(VaultDefaultDocument);
 
-            var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
-            Console.WriteLine($"PA Component Id : {paComponentId}");
+            var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultComponentName && component.Value.Category == VaultComponentCategory)).Key;
+            Console.WriteLine($"Vault Component Id : {vaultComponentId}");
+            
+            var vaultAccount = new VaultIdentifier(VaultDefaultAccount);
+            var vaultDates = new VaultDateParameters(VaultStartDate, VaultEndDate, VaultFrequency);
 
-            var paAccountIdentifier = new PAIdentifier(BenchmarkSP50);
-            var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(BenchmarkR1000);
-            var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
+            var configurationApi = new ConfigurationsApi(GetApiConfiguration());
+            var configurationResponse = configurationApi.GetVaultConfigurationsWithHttpInfo(vaultAccount.Id);
+            var vaultConfigurationId = configurationResponse.Data.Data.Keys.First();
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
+            var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfigurationId);
 
-            return paCalculation;
+            return vaultCalculation;
         }
 
         private static void PrintResult(ObjectRoot result)
@@ -155,6 +159,14 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var tables = stachExtension.ConvertToTable();
 
             Console.WriteLine(tables[0]);
+        }
+
+        private static void LogError<T>(ApiResponse<T> response, string message)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine($"Status Code: {response.StatusCode}");
+            Console.WriteLine($"Request Key: {response.Headers["X-DataDirect-Request-Key"]}");
+            Console.WriteLine($"Reason: {response.Data}");
         }
     }
 }

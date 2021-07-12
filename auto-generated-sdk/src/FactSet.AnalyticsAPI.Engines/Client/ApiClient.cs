@@ -457,7 +457,6 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
@@ -544,16 +543,13 @@ namespace FactSet.AnalyticsAPI.Engines.Client
                 }
 
 
-                if (typeof(T) != type)
+                if (typeof(T).Name == "Stream") // for binary response
                 {
-                    if (typeof(T).Name == "Stream") // for binary response
-                    {
-                        response.Data = (T)(object)new MemoryStream(response.RawBytes);
-                    }
-                    else
-                    {
-                        response.Data = (T)JsonSerializer.Deserialize(response, type);
-                    }
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else
+                {
+                    response.Data = (T)JsonSerializer.Deserialize(response, type);
                 }
             }
 
@@ -622,7 +618,6 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
@@ -709,16 +704,13 @@ namespace FactSet.AnalyticsAPI.Engines.Client
                 }
 
 
-                if (typeof(T) != type)
+                if (typeof(T).Name == "Stream") // for binary response
                 {
-                    if (typeof(T).Name == "Stream") // for binary response
-                    {
-                        response.Data = (T)(object)new MemoryStream(response.RawBytes);
-                    }
-                    else
-                    {
-                        response.Data = (T)JsonSerializer.Deserialize(response, type);
-                    }
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else
+                {
+                    response.Data = (T)JsonSerializer.Deserialize(response, type);
                 }
             }
 

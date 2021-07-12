@@ -1,10 +1,11 @@
 # FactSet.AnalyticsAPI.Engines.Model.CalculationUnitStatus
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | **string** | The status of calculation unit. | [optional] 
-**Error** | **string** | The error in a calculation unit. | [optional] 
+**Errors** | [**List&lt;Error&gt;**](Error.md) | The error in a calculation unit. | [optional] 
 **Result** | **string** | The result URL of the calculation. | [optional] 
 **Progress** | **string** | The progress of the calculation unit. | [optional] 
 

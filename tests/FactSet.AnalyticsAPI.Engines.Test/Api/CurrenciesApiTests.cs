@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var response = currenciesApi.GetCurrenciesWithHttpInfo();
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
-            Assert.IsTrue(response.Data.GetType() == typeof(Dictionary<string, Currency>), "Response result should be dictionary of ISO code and currency names.");
+            Assert.IsTrue(response.Data.Data.GetType() == typeof(Dictionary<string, Currency>), "Response result should be dictionary of ISO code and currency names.");
             Assert.IsTrue(response.Data.Data.Count > 0, "Response result should not be an empty dictionary.");
         }
     }

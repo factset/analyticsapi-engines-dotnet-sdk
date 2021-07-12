@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var componentGetAllResponse = componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(componentGetAllResponse.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
+            Assert.IsTrue(componentGetAllResponse.Data.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
             Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
@@ -39,8 +39,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var componentGetByIdResponse = componentsApi.GetPAComponentByIdWithHttpInfo(paComponentId);
 
             Assert.IsTrue(componentGetByIdResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(componentGetByIdResponse.Data != null, "Response data should not be null");
-            Assert.IsTrue(componentGetByIdResponse.Data.GetType() == typeof(PAComponent), "Response result should be of PAComponent type");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data != null, "Response data should not be null");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data.GetType() == typeof(PAComponent), "Response result should be of PAComponent type");
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var componentGetAllResponse = componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(componentGetAllResponse.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
+            Assert.IsTrue(componentGetAllResponse.Data.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
             Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
@@ -64,8 +64,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var componentGetByIdResponse = componentsApi.GetVaultComponentByIdWithHttpInfo(vaultComponentId);
 
             Assert.IsTrue(componentGetByIdResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(componentGetByIdResponse.Data != null, "Response data should not be null");
-            Assert.IsTrue(componentGetByIdResponse.Data.GetType() == typeof(VaultComponent), "Response result should be of VaultComponent type");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data != null, "Response data should not be null");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data.GetType() == typeof(VaultComponent), "Response result should be of VaultComponent type");
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var componentGetAllResponse = componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(componentGetAllResponse.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
+            Assert.IsTrue(componentGetAllResponse.Data.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
             Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
     }

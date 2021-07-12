@@ -34,7 +34,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var paComponentId = paComponents.Data.Data.Keys.First();
             var paAccountIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50);
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkSP50PF);
+            var paBenchmarkIdentifier = new PAIdentifier(CommonParameters.PABenchmarkR1000);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);

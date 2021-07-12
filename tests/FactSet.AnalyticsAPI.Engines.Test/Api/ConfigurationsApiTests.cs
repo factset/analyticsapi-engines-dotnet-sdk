@@ -28,7 +28,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var response = configurationsApi.GetVaultConfigurationsWithHttpInfo(account);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response code is 200 - OK");
-            Assert.IsInstanceOfType(response.Data, typeof(Dictionary<string, VaultConfigurationSummary>), "Response is of type Dictionary<string, VaultConfigurationSummary>");
+            Assert.IsInstanceOfType(response.Data.Data, typeof(Dictionary<string, VaultConfigurationSummary>), "Response is of type Dictionary<string, VaultConfigurationSummary>");
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var response = configurationsApi.GetVaultConfigurationByIdWithHttpInfo(vaultConfigurationId);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response code is 200 - OK");
-            Assert.IsInstanceOfType(response.Data, typeof(VaultConfiguration), "Response is of type VaultConfiguration");
+            Assert.IsInstanceOfType(response.Data.Data, typeof(VaultConfiguration), "Response is of type VaultConfiguration");
         }
     }
 }

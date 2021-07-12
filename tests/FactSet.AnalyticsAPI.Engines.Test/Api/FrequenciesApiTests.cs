@@ -24,7 +24,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var paFrequenciesResponse = frequenciesApi.GetPAFrequenciesWithHttpInfo();
 
             Assert.IsTrue(paFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(paFrequenciesResponse.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
+            Assert.IsTrue(paFrequenciesResponse.Data.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
             Assert.IsTrue(paFrequenciesResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
@@ -35,7 +35,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var sparFrequenciesResponse = frequenciesApi.GetSPARFrequenciesWithHttpInfo();
 
             Assert.IsTrue(sparFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(sparFrequenciesResponse.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
+            Assert.IsTrue(sparFrequenciesResponse.Data.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
             Assert.IsTrue(sparFrequenciesResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
 
@@ -46,7 +46,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var vaultFrequenciesResponse = frequenciesApi.GetVaultFrequenciesWithHttpInfo();
 
             Assert.IsTrue(vaultFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(vaultFrequenciesResponse.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
+            Assert.IsTrue(vaultFrequenciesResponse.Data.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be of Frequency Dictionary type.");
             Assert.IsTrue(vaultFrequenciesResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
     }

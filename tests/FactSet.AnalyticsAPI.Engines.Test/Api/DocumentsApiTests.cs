@@ -24,8 +24,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var response = documentsApi.GetPA3DocumentsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(response.Data != null, "Response data should not be null");
-            Assert.IsTrue(response.Data.GetType() == typeof(DocumentDirectories), "Response Data should be of DocumentDirectories type");
+            Assert.IsTrue(response.Data.Data != null, "Response data should not be null");
+            Assert.IsTrue(response.Data.Data.GetType() == typeof(DocumentDirectories), "Response Data should be of DocumentDirectories type");
         }
 
         [TestMethod]
@@ -35,8 +35,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var response = documentsApi.GetVaultDocumentsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(response.Data != null, "Response data should not be null");
-            Assert.IsTrue(response.Data.GetType() == typeof(DocumentDirectories), "Response Data should be of DocumentDirectories type");
+            Assert.IsTrue(response.Data.Data != null, "Response data should not be null");
+            Assert.IsTrue(response.Data.Data.GetType() == typeof(DocumentDirectories), "Response Data should be of DocumentDirectories type");
         }
 
         [TestMethod]
@@ -46,8 +46,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var response = documentsApi.GetSPAR3DocumentsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(response.Data != null, "Response data should not be null");
-            Assert.IsTrue(response.Data.GetType() == typeof(DocumentDirectories), "Response Data should be of DocumentDirectories type");
+            Assert.IsTrue(response.Data.Data != null, "Response data should not be null");
+            Assert.IsTrue(response.Data.Data.GetType() == typeof(DocumentDirectories), "Response Data should be of DocumentDirectories type");
         }
     }
 }

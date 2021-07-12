@@ -26,13 +26,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var endDate = "-1M";
             // Hard coding this as we won't know if the component requires start date
             var componentId = "918EE8207D259B54E2FDE2AAA4D3BEA9248164123A904F298B8438B76F9292EB";
-            var account = CommonParameters.DefaultPADatesAccount;
+            var account = CommonParameters.DefaultDatesAccount;
 
             var datesResponse = datesApi.ConvertPADatesToAbsoluteFormatWithHttpInfo(endDate, componentId, account);
 
             Assert.IsTrue(datesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(datesResponse.Data.GetType() == typeof(DateParametersSummary), "Response Should be of DateParametersSummary type.");
-            Assert.IsTrue(datesResponse.Data != null, "Response data should not be null");
+            Assert.IsTrue(datesResponse.Data.Data.GetType() == typeof(DateParametersSummary), "Response Should be of DateParametersSummary type.");
+            Assert.IsTrue(datesResponse.Data.Data != null, "Response data should not be null");
         }
 
         [TestMethod]
@@ -41,15 +41,15 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             datesApi = new DatesApi(CommonFunctions.BuildConfiguration());
             componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var endDate = "-1M";
-            var account = CommonParameters.DefaultVaultDatesAccount;
+            var account = CommonParameters.VaultDefaultAccount;
             var vaultComponents = componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
             var vaultComponentId = vaultComponents.Data.Data.Keys.First();
 
             var datesResponse = datesApi.ConvertVaultDatesToAbsoluteFormatWithHttpInfo(endDate, vaultComponentId, account);
 
             Assert.IsTrue(datesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
-            Assert.IsTrue(datesResponse.Data.GetType() == typeof(DateParametersSummary), "Response Should be of DateParametersSummary type.");
-            Assert.IsTrue(datesResponse.Data != null, "Response data should not be null");
+            Assert.IsTrue(datesResponse.Data.Data.GetType() == typeof(DateParametersSummary), "Response Should be of DateParametersSummary type.");
+            Assert.IsTrue(datesResponse.Data.Data != null, "Response data should not be null");
         }
     }
 }

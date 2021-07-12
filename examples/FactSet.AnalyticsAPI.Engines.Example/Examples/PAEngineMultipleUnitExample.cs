@@ -12,7 +12,7 @@ using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineSingleUnitExample
+    public class PAEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
@@ -33,13 +33,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var calculationApi = new PACalculationsApi(GetApiConfiguration());
 
                 var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
-
-                if (calculationResponse.StatusCode == HttpStatusCode.Created)
-                {
-                    ObjectRoot result = (ObjectRoot)calculationResponse.Data;
-                    PrintResult(result);
-                    return;
-                }
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -141,7 +134,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             var calculationParameters = new PACalculationParametersRoot
             {
-                Data = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } }
+                Data = new Dictionary<string, PACalculationParameters> {
+                    { "1", paCalculation },
+                    { "2", paCalculation }
+                }
             };
 
             return calculationParameters;

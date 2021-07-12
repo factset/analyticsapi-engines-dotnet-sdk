@@ -32,7 +32,7 @@ jobs:
       run: nuget restore auto-generated-sdk/FactSet.AnalyticsAPI.Engines.sln
       
     - name: Build and create the package
-      run: nuget pack -Build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
+      run: dotnet pack --configuration Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
 
     - name: Publish the package to Nuget
-      run: nuget push FactSet.AnalyticsAPI.Engines.${GITHUB_REF}.nupkg
+      run: nuget push auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.*.nupkg -Source https://api.nuget.org/v3/index.json

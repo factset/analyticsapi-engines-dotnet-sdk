@@ -15,13 +15,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
+            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void ComponentsApi_Get_PAComponents_Success()
         {
-            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var componentGetAllResponse = componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
@@ -32,7 +32,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_PAComponentById_Success()
         {
-            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var paComponents = componentsApi.GetPAComponentsWithHttpInfo(CommonParameters.PADefaultDocument);
             var paComponentId = paComponents.Data.Data.Keys.First();
 
@@ -46,7 +45,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_VaultComponents_Success()
         {
-            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var componentGetAllResponse = componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
@@ -57,7 +55,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_VaultComponentById_Success()
         {
-            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var vaultComponents = componentsApi.GetVaultComponentsWithHttpInfo(CommonParameters.VaultDefaultDocument);
             var vaultComponentId = vaultComponents.Data.Data.Keys.First();
 
@@ -71,7 +68,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_SparComponents_Success()
         {
-            componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var componentGetAllResponse = componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
 
             Assert.IsTrue(componentGetAllResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

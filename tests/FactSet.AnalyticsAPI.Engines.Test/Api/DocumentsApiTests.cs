@@ -14,13 +14,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
+            documentsApi = new DocumentsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void DocumentsApi_Get_PA3Documents_List_Success()
         {
-            documentsApi = new DocumentsApi(CommonFunctions.BuildConfiguration());
             var response = documentsApi.GetPA3DocumentsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
@@ -31,7 +31,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void DocumentsApi_Get_VaultDocuments_List_Success()
         {
-            documentsApi = new DocumentsApi(CommonFunctions.BuildConfiguration());
             var response = documentsApi.GetVaultDocumentsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
@@ -42,7 +41,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void DocumentsApi_Get_SPARDocuments_List_Success()
         {
-            documentsApi = new DocumentsApi(CommonFunctions.BuildConfiguration());
             var response = documentsApi.GetSPAR3DocumentsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

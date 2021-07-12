@@ -16,13 +16,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
+            datesApi = new DatesApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void DatesApi_PADatesToAbsoluteFormat_Success()
         {
-            datesApi = new DatesApi(CommonFunctions.BuildConfiguration());
             var endDate = "-1M";
             // Hard coding this as we won't know if the component requires start date
             var componentId = "918EE8207D259B54E2FDE2AAA4D3BEA9248164123A904F298B8438B76F9292EB";
@@ -38,7 +38,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void DatesApi_VaultDatesToAbsoluteFormat_Success()
         {
-            datesApi = new DatesApi(CommonFunctions.BuildConfiguration());
             componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
             var endDate = "-1M";
             var account = CommonParameters.VaultDefaultAccount;

@@ -35,4 +35,4 @@ jobs:
       run: dotnet pack auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
 
     - name: Publish the package to Nuget
-      run: dotnet nuget push FactSet.AnalyticsAPI.Engines.*.nupkg
+      run: nuget push FactSet.AnalyticsAPI.Engines.*.nupkg -Source https://api.nuget.org/v3/index.json

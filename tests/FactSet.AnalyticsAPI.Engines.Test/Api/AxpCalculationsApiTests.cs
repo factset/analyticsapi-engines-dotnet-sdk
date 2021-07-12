@@ -23,10 +23,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void OptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
         {
-            var strategyId = "Client:/Optimizer/TAXTEST";
-            var accountId = "BENCH:SP50";
-            var riskModelDate =   "09/01/2020";
-            var backtestDate = "09/01/2020";
+            const string strategyId = "Client:/Optimizer/TAXTEST";
+            const string accountId = "BENCH:SP50";
+            const string riskModelDate = "09/01/2020";
+            const string backtestDate = "09/01/2020";
             var axpStrategy = new AxiomaEquityOptimizerStrategy(null, strategyId);
             var axpAccount = new OptimizerAccount(accountId);
             var optimization = new Optimization(riskModelDate, backtestDate);
@@ -36,8 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var axpCalculationParameters = new AxiomaEquityOptimizationParameters(axpStrategy, axpAccount, optimization, outputTypes);
             var axpCalculationParameterRoot = new AxiomaEquityOptimizationParametersRoot(axpCalculationParameters);
 
-            var postAndOptimizeHttpResponse = axpOptimizerApi.PostAndOptimizeWithHttpInfo(null, null, axpCalculationParameterRoot);
-            //var postAndOptimizeHttpResponse = axpOptimizerApi.PostAndOptimizeWithHttpInfo(axiomaEquityOptimizationParametersRoot : axpCalculationParameterRoot);
+            var postAndOptimizeHttpResponse = axpOptimizerApi.PostAndOptimizeWithHttpInfo(axiomaEquityOptimizationParametersRoot : axpCalculationParameterRoot);
 
             postAndOptimizeHttpResponse.StatusCode
                 .Should()

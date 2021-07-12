@@ -43,7 +43,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
                 postAndOptimizeHttpResponse.StatusCode
                     .Should()
-                    .Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
+                    .Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted || c == HttpStatusCode.OK);
 
                 switch (postAndOptimizeHttpResponse.StatusCode)
                 {
@@ -83,8 +83,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                         var getResultResponse = fiCalculationsApi.GetCalculationResultWithHttpInfo(optimizationId);
                         getResultResponse.StatusCode.Should().Be(HttpStatusCode.OK);
                         getResultResponse.Data.Should().NotBeNull();
-                        break;
-                    case HttpStatusCode.Created:
                         break;
                 }
             }

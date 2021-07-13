@@ -7,38 +7,28 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {
     public class CommonFunctions
     {
-        public static Configuration BuildConfiguration(Enum engine)
+        public static Configuration BuildConfiguration()
         {
-            Configuration configuration = null;
-            if (CommonParameters.Credentials.ContainsKey(engine))
+            return new Configuration
             {
-                configuration = new Configuration
-                {
-                    BasePath = CommonParameters.BaseUrl,
-                    Username = CommonParameters.Credentials[engine].Item1,
-                    Password = CommonParameters.Credentials[engine].Item2
-                };
-            }
-            else
-            {
-                throw new NullReferenceException("Please set the required username and password environment variables.");
-            }
-
-            return configuration;
+                BasePath = CommonParameters.BaseUrl,
+                Username = CommonParameters.Username,
+                Password = CommonParameters.Password
+            };
         }
 
         public static string GetRandomColumnId()
         {
-            var columnsApi = new ColumnsApi(BuildConfiguration(Engine.PA));
+            var columnsApi = new ColumnsApi(CommonFunctions.BuildConfiguration());
 
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             var columnsGetAllResponse = columnsApi.GetPAColumnsWithHttpInfo();
 
             var r = new Random();
-            var randomIndex = r.Next(columnsGetAllResponse.Data.Count);
+            var randomIndex = r.Next(columnsGetAllResponse.Data.Data.Count);
 
             var currentIndex = 0;
-            foreach (var pair in columnsGetAllResponse.Data)
+            foreach (var pair in columnsGetAllResponse.Data.Data)
             {
                 if (currentIndex == randomIndex)
                 {

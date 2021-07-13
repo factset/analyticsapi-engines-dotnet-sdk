@@ -12,32 +12,38 @@ using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineMultipleUnitExample
+    public class SPAREngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
-        private const string PADocument = "PA_DOCUMENTS:DEFAULT";
-        private const string ComponentName = "Weights";
-        private const string ComponentCategory = "Weights / Exposures";
-        private const string BenchmarkSP50 = "BENCH:SP50";
-        private const string BenchmarkR1000 = "BENCH:R.1000";
+        private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
+        private const string SPARComponentName = "Returns Table";
+        private const string SPARComponentCategory = "Raw Data / Returns";
+        private const string SPARBenchmarkR1000 = "R.1000";
+        private const string SPARBenchmarkRussellPr2000 = "RUSSELL_P:R.2000";
+        private const string SPARBenchmarkRussellPrefix = "RUSSELL";
+        private const string SPARBenchmarkRussellReturnType = "GTR";
+        private const string SPARBenchmarkR2000 = "R.2000";
+
 
         public static void Main(string[] args)
         {
             try
             {
-                var calculationParameters = GetPaCalculationParameters();
+                var calculationParameters = new SPARCalculationParametersRoot
+                {
+                    Data = new Dictionary<string, SPARCalculationParameters> { { "1", GetSparCalculationParameters1() }, { "2", GetSparCalculationParameters2()} }
+                };
 
-                var calculationApi = new PACalculationsApi(GetApiConfiguration());
+                var calculationApi = new SPARCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
                 Console.WriteLine("Calculation Id: " + calculationId);
-
                 ApiResponse<CalculationStatusRoot> getStatusResponse = null;
 
                 while (status.Data.Status == CalculationStatus.StatusEnum.Queued || status.Data.Status == CalculationStatus.StatusEnum.Executing)
@@ -68,17 +74,17 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 Console.WriteLine("Calculation Completed");
 
                 
-                foreach (var calculation in status.Data.Units)
+                foreach (var sparCalculation in status.Data.Units)
                 {
-                    if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
+                    if (sparCalculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
+                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, sparCalculation.Key);
                         PrintResult(resultResponse.Data);
                     }
                     else
                     {
-                        Console.WriteLine($"Calculation Unit Id : {calculation.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {calculation.Value.Errors?.FirstOrDefault()?.Detail}");
+                        Console.WriteLine($"Calculation Unit Id : {sparCalculation.Key} Failed!!!");
+                        Console.WriteLine($"Error message : {sparCalculation.Value.Errors}");
                     }
                 }
 
@@ -116,31 +122,40 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
 
 
-        private static PACalculationParametersRoot GetPaCalculationParameters()
+        private static SPARCalculationParameters GetSparCalculationParameters1()
         {
             var componentsApi = new ComponentsApi(GetApiConfiguration());
 
-            var componentsResponse = componentsApi.GetPAComponents(PADocument);
+            var componentsResponse = componentsApi.GetSPARComponents(SPARDefaultDocument);
 
-            var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
-            Console.WriteLine($"PA Component Id : {paComponentId}");
+            var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
+            Console.WriteLine($"SPAR Component Id : {sparComponentId}");
+            
+            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
 
-            var paAccountIdentifier = new PAIdentifier(BenchmarkSP50);
-            var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(BenchmarkR1000);
-            var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
+            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
+            return sparCalculation;
+        }
+        
+        private static SPARCalculationParameters GetSparCalculationParameters2()
+        {
+            var componentsApi = new ComponentsApi(GetApiConfiguration());
 
-            var calculationParameters = new PACalculationParametersRoot
-            {
-                Data = new Dictionary<string, PACalculationParameters> {
-                    { "1", paCalculation },
-                    { "2", paCalculation }
-                }
-            };
+            var componentsResponse = componentsApi.GetSPARComponents(SPARDefaultDocument);
 
-            return calculationParameters;
+            var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
+            Console.WriteLine($"SPAR Component Id : {sparComponentId}");
+            
+            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+
+            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
+
+            return sparCalculation;
         }
 
         private static void PrintResult(ObjectRoot result)

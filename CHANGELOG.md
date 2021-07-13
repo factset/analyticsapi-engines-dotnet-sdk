@@ -1,3 +1,20 @@
+5.0.0 (07/12/2021)
+
+Supported API versions:
+
+* v3: [pa,spar,vault,pub,fi,axp,fpo,afi,npo,bpm,quant],v1:[fiab]
+
+Summmary:
+* Add support for v3 API's
+
+Breaking changes:
+* No changes
+
+Bug Fixes:
+* No changes
+
+-----------------------
+
 4.1.1 (05/06/2021)
 
 Supported API versions:

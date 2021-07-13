@@ -135,7 +135,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             // converting the data to Package object
             var stachBuilder = StachExtensionFactory.GetRowOrganizedBuilder();
-            //var stachExtension = stachBuilder.SetPackage(result.Data).Build();
             var stachExtension = stachBuilder.AddTable("tradesTable", JObject.FromObject(result.Data)["trades"]).Build();
             //var stachExtension = stachBuilder.AddTable("optimalsTable", JObject.FromObject(result.Data)["optimal"]).Build();
             // To convert package to 2D tables.

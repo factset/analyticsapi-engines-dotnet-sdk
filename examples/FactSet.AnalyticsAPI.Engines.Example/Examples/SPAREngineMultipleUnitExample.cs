@@ -41,13 +41,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
 
-                if (calculationResponse.StatusCode == HttpStatusCode.Created)
-                {
-                    ObjectRoot result = (ObjectRoot)calculationResponse.Data;
-                    PrintResult(result);
-                    return;
-                }
-
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
                 Console.WriteLine("Calculation Id: " + calculationId);

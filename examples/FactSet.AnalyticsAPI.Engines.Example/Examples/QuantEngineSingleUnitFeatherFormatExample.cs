@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -7,48 +8,32 @@ using System.Threading;
 using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
-
 using FactSet.Protobuf.Stach.Extensions;
+using Newtonsoft.Json;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class VaultEngineSingleUnitExample
+    public class QuantEngineSingleUnitFeatherFormatExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
-        private const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
-        private const string VaultComponentName = "Total Returns";
-        private const string VaultComponentCategory = "Performance / Performance Relative Dates";
-        private const string VaultDefaultAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
-        private const string VaultStartDate = "20180101";
-        private const string VaultEndDate = "20180329";
-        private const string VaultFrequency = "Monthly";
 
         public static void Main(string[] args)
         {
             try
             {
-                var calculationParameters = new VaultCalculationParametersRoot
-                {
-                    Data = new Dictionary<string, VaultCalculationParameters> { { "1", GetVaultCalculationParameters() } }
-                };
+                var calculationParameters = GetQuantCalculationParameters();
 
-                var calculationApi = new VaultCalculationsApi(GetApiConfiguration());
+                var calculationApi = new QuantCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
-
-                if (calculationResponse.StatusCode == HttpStatusCode.Created)
-                {
-                    ObjectRoot result = (ObjectRoot)calculationResponse.Data;
-                    PrintResult(result);
-                    return;
-                }
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo("max-stale=0", calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
                 Console.WriteLine("Calculation Id: " + calculationId);
+
                 ApiResponse<CalculationStatusRoot> getStatusResponse = null;
 
                 while (status.Data.Status == CalculationStatus.StatusEnum.Queued || status.Data.Status == CalculationStatus.StatusEnum.Executing)
@@ -78,18 +63,21 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 }
                 Console.WriteLine("Calculation Completed");
 
-                
-                foreach (var vaultCalculation in status.Data.Units)
+
+                foreach (var calculation in status.Data.Units)
                 {
-                    if (vaultCalculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
+                    if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, vaultCalculation.Key);
-                        PrintResult(resultResponse.Data);
+                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
+                        OutputResult(resultResponse.Data, "output-data");
+
+                        var infoResponse = calculationApi.GetCalculationUnitInfoByIdWithHttpInfo(calculationId, calculation.Key);
+                        OutputResult(infoResponse.Data, "info-data");
                     }
                     else
                     {
-                        Console.WriteLine($"Calculation Unit Id : {vaultCalculation.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {vaultCalculation.Value.Errors}");
+                        Console.WriteLine($"Calculation Unit Id : {calculation.Key} Failed!!!");
+                        Console.WriteLine($"Error message : {calculation.Value.Errors?.FirstOrDefault()?.Detail}");
                     }
                 }
 
@@ -127,38 +115,39 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
 
 
-        private static VaultCalculationParameters GetVaultCalculationParameters()
+        private static QuantCalculationParametersRoot GetQuantCalculationParameters()
         {
-            var componentsApi = new ComponentsApi(GetApiConfiguration());
+            var screeningExpressionUniverse = new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER");
+            var fdsDate = new QuantFdsDate("0", "-5D", "D", "FIVEDAY");
+            var screeningExpression = new List<QuantScreeningExpression>()
+            {
+                new QuantScreeningExpression("P_PRICE", "Price (SCR)")
+            };
+            var fqlExpression = new List<QuantFqlExpression>()
+            {
+                new QuantFqlExpression("P_PRICE", "Price (SCR)")
+            };
 
-            var componentsResponse = componentsApi.GetVaultComponents(VaultDefaultDocument);
+            var quantCalculation = new QuantCalculationParameters(screeningExpressionUniverse: screeningExpressionUniverse, fdsDate: fdsDate, screeningExpression: screeningExpression, fqlExpression: fqlExpression);
 
-            var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultComponentName && component.Value.Category == VaultComponentCategory)).Key;
-            Console.WriteLine($"Vault Component Id : {vaultComponentId}");
-            
-            var vaultAccount = new VaultIdentifier(VaultDefaultAccount);
-            var vaultDates = new VaultDateParameters(VaultStartDate, VaultEndDate, VaultFrequency);
+            var quantCalculationsMeta = new QuantCalculationMeta(format: QuantCalculationMeta.FormatEnum.Feather);
 
-            var configurationApi = new ConfigurationsApi(GetApiConfiguration());
-            var configurationResponse = configurationApi.GetVaultConfigurationsWithHttpInfo(vaultAccount.Id);
-            var vaultConfigurationId = configurationResponse.Data.Data.Keys.First();
+            var calculationParameters = new QuantCalculationParametersRoot
+            {
+                Data = new Dictionary<string, QuantCalculationParameters> { { "1", quantCalculation } },
+                Meta = quantCalculationsMeta
+            };
 
-            var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfigurationId);
-
-            return vaultCalculation;
+            return calculationParameters;
         }
 
-        private static void PrintResult(ObjectRoot result)
+        private static void OutputResult(Stream result, string fileName)
         {
             Console.WriteLine("Calculation Result");
 
-            // converting the data to Package object
-            var stachBuilder = StachExtensionFactory.GetRowOrganizedBuilder();
-            var stachExtension = stachBuilder.SetPackage(result.Data).Build();
-            // To convert package to 2D tables.
-            var tables = stachExtension.ConvertToTable();
+            File.WriteAllBytes($"{fileName}.ftr", ((MemoryStream)result).ToArray());
 
-            Console.WriteLine(tables[0]);
+            Console.WriteLine($"Calculation output saved to {fileName}.ftr");
         }
     }
 }

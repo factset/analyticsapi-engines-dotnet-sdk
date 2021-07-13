@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading;
 
@@ -8,17 +7,16 @@ using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
 
-using FactSet.Protobuf.Stach;
-using Google.Protobuf;
+using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
     public class FIEngineExample
     {
-        private static Configuration _engineApiConfiguration;
+        private static Configuration _apiConfiguration;
         private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        private static readonly string UserName = Environment.GetEnvironmentVariable("ANALYTICS_API_USERNAME_SERIAL");
+        private static readonly string Password = Environment.GetEnvironmentVariable("ANALYTICS_API_PASSWORD");
 
         public static void Main(string[] args)
         {
@@ -26,8 +24,22 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             {
                 var fiSecurities = new List<FISecurity>
                 {
-                    new FISecurity("Price", 100.285, 10000.0, "912828ZG8", "20201202", "UST"),
-                    new FISecurity("Price", 101.138, 200000.0, "US037833AR12", "20201203", "UST")
+                    new FISecurity(
+                        calcFromMethod: "Price",
+                        calcFromValue: 10000.0,
+                        face: 10000.0,
+                        symbol: "912828ZG8",
+                        settlement: "20201202",
+                        discountCurve: "UST"
+                        ),
+                    new FISecurity(
+                        calcFromMethod: "Price",
+                        calcFromValue: 101.138,
+                        face: 200000.0,
+                        symbol: "US037833AR12",
+                        settlement: "20201203",
+                        discountCurve: "UST"
+                        )
                 };
 
                 var fiCalculations = new List<string>
@@ -51,56 +63,70 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var fiJobSettings = new FIJobSettings("20201201");
 
                 var fiCalculationParameters = new FICalculationParameters(fiSecurities, fiCalculations, fiJobSettings);
+                var fiCalculationParameterseRoot = new FICalculationParametersRoot(data: fiCalculationParameters);
 
-                var fiCalculationsApi = new FICalculationsApi(GetEngineApiConfiguration());
 
-                var runCalculationResponse = fiCalculationsApi.RunFICalculationWithHttpInfo(fiCalculationParameters);
+                var fiCalculationsApi = new FICalculationsApi(GetApiConfiguration());
 
-                var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
-                Console.WriteLine("Calculation Id: " + calculationId);
-                ApiResponse<CalculationStatus> getStatus = null;
+                var calculationResponse =
+                    fiCalculationsApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", fiCalculationParameterseRoot);
 
-                while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
+                switch (calculationResponse.StatusCode)
                 {
-                    if (getStatus != null)
-                    {
-                        if (getStatus.Headers.ContainsKey("Cache-Control"))
+                    case HttpStatusCode.Created:
+                        var result = (ObjectRoot) calculationResponse.Data;
+                        PrintResult(result);
+                        return;
+                    case HttpStatusCode.Accepted:
+                        var calculationStatus = (CalculationInfoRoot) calculationResponse.Data;
+                        var calculationId = calculationStatus.Data.CalculationId;
+                        Console.WriteLine("Calculation Id: " + calculationId);
+                        var optimizationStatusResponse =
+                            fiCalculationsApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                        var continuePolling = optimizationStatusResponse.StatusCode == HttpStatusCode.Accepted;
+                        while (continuePolling)
                         {
-                            var maxAge = getStatus.Headers["Cache-Control"][0];
-                            if (string.IsNullOrWhiteSpace(maxAge))
+                            if (optimizationStatusResponse.StatusCode == HttpStatusCode.Accepted)
                             {
-                                Console.WriteLine("Sleeping for 2 seconds");
-                                // Sleep for at least 2 seconds.
-                                Thread.Sleep(2000);
+                                if (optimizationStatusResponse.Headers.ContainsKey("Cache-Control"))
+                                {
+                                    var maxAge = optimizationStatusResponse.Headers["Cache-Control"][0];
+                                    if (string.IsNullOrWhiteSpace(maxAge))
+                                    {
+                                        Console.WriteLine("Sleeping for 2 seconds");
+                                        // Sleep for at least 2 seconds.
+                                        Thread.Sleep(2000);
+                                    }
+                                    else
+                                    {
+                                        var age = int.Parse(maxAge.Replace("max-age=", ""));
+                                        Console.WriteLine($"Sleeping for {age} seconds");
+                                        Thread.Sleep(age * 1000);
+                                    }
+                                }
+
+                                optimizationStatusResponse =
+                                    fiCalculationsApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
                             }
                             else
                             {
-                                var age = int.Parse(maxAge.Replace("max-age=", ""));
-                                Console.WriteLine($"Sleeping for {age} seconds");
-                                Thread.Sleep(age * 1000);
+                                continuePolling = false;
                             }
                         }
-                    }
 
-                    getStatus = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                        if (optimizationStatusResponse.StatusCode == HttpStatusCode.Created)
+                        {
+                            Console.WriteLine("Calculation Id: " + calculationId + " succeeded!");
+                            PrintResult((ObjectRoot)optimizationStatusResponse.Data);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Calculation Id: " + calculationId + " failed!");
+                            Console.WriteLine("Error message: " + optimizationStatusResponse.ErrorText);
+                        }
+
+                        break;
                 }
-                Console.WriteLine("Calculation Completed");
-
-
-                foreach (var paCalculationParameters in getStatus.Data.Pa)
-                {
-                    if (paCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Success)
-                    {
-                        PrintResult(paCalculationParameters);
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Calculation Unit Id : {paCalculationParameters.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {paCalculationParameters.Value.Error}");
-                    }
-                }
-
-                Console.ReadKey();
             }
             catch (ApiException e)
             {
@@ -115,60 +141,35 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             }
         }
 
-        private static void PrintResult(KeyValuePair<string, CalculationUnitStatus> calculation)
+                private static void PrintResult(ObjectRoot result)
         {
-            if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
-            {
-                var utilityApi = new UtilityApi(GetEngineApiConfiguration());
-                ApiResponse<string> resultResponse = utilityApi.GetByUrlWithHttpInfo(calculation.Value.Result);
+            Console.WriteLine("Calculation Result");
 
-                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Succeeded!!!");
-                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Result");
-                Console.WriteLine("/****************************************************************/");
+            // converting the data to Package object
+            var stachBuilder = StachExtensionFactory.GetRowOrganizedBuilder();
+            var stachExtension = stachBuilder.SetPackage(result.Data).Build();
+            // To convert package to 2D tables.
+            var tables = stachExtension.ConvertToTable();
 
-                // converting the data to Package object
-                var jpSettings = JsonParser.Settings.Default;
-                var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
-                var package = jp.Parse<Package>(resultResponse.Data);
-
-                // To convert package to 2D tables.
-                var tables = package.ConvertToTableFormat();
-                Console.WriteLine(tables[0]);
-
-                // Uncomment the following lines to generate an Excel file
-                // foreach (var table in tables)
-                // {
-                //     File.WriteAllText($"{Guid.NewGuid():N}.csv", table.ToString());
-                // }
-
-                Console.WriteLine("/****************************************************************/");
-            }
+            Console.WriteLine(tables[0]);
         }
 
-        private static void LogError<T>(ApiResponse<T> response, string message)
-        {
-            Console.WriteLine(message);
-            Console.WriteLine($"Status Code: {response.StatusCode}");
-            Console.WriteLine($"Request Key: {response.Headers["X-DataDirect-Request-Key"]}");
-            Console.WriteLine($"Reason: {response.Data}");
-        }
-
-        private static Configuration GetEngineApiConfiguration()
+        private static Configuration GetApiConfiguration()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            if (_engineApiConfiguration != null)
+            if (_apiConfiguration != null)
             {
-                return _engineApiConfiguration;
+                return _apiConfiguration;
             }
 
-            _engineApiConfiguration = new Configuration
+            _apiConfiguration = new Configuration
             {
                 BasePath = BasePath,
                 Username = UserName,
                 Password = Password
             };
 
-            return _engineApiConfiguration;
+            return _apiConfiguration;
         }
     }
 }

@@ -71,7 +71,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
                         var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
-                        PrintResult(resultResponse.Data);
+                        OutputResult(resultResponse.Data, $"output-{calculation.Key}");
                     }
                     else
                     {
@@ -129,13 +129,13 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             return calculationParameters;
         }
 
-        private static void PrintResult(Stream result)
+        private static void OutputResult(Stream result, string fileName)
         {
             Console.WriteLine("Calculation Result");
 
-            File.WriteAllBytes("output.pdf", ((MemoryStream)result).ToArray());
+            File.WriteAllBytes($"{fileName}.pdf", ((MemoryStream)result).ToArray());
 
-            Console.WriteLine("Calculation output saved to output.pdf");
+            Console.WriteLine($"Calculation output saved to {fileName}.pdf");
         }
     }
 }

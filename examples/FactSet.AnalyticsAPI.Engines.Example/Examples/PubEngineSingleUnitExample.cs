@@ -35,7 +35,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 if (calculationResponse.StatusCode == HttpStatusCode.Created)
                 {
                     Stream result = (Stream)calculationResponse.Data;
-                    PrintResult(result);
+                    OutputResult(result);
                     return;
                 }
 
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
                         var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
-                        PrintResult(resultResponse.Data);
+                        OutputResult(resultResponse.Data);
                     }
                     else
                     {
@@ -136,7 +136,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             return calculationParameters;
         }
 
-        private static void PrintResult(Stream result)
+        private static void OutputResult(Stream result)
         {
             Console.WriteLine("Calculation Result");
 

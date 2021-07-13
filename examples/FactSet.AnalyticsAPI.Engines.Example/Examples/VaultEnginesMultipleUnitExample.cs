@@ -43,15 +43,15 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
                 Console.WriteLine("Calculation Id: " + calculationId);
-                ApiResponse<CalculationStatusRoot> getResponse = null;
+                ApiResponse<CalculationStatusRoot> getStatusResponse = null;
 
                 while (status.Data.Status == CalculationStatus.StatusEnum.Queued || status.Data.Status == CalculationStatus.StatusEnum.Executing)
                 {
-                    if (getResponse != null)
+                    if (getStatusResponse != null)
                     {
-                        if (getResponse.Headers.ContainsKey("Cache-Control"))
+                        if (getStatusResponse.Headers.ContainsKey("Cache-Control"))
                         {
-                            var maxAge = getResponse.Headers["Cache-Control"][0];
+                            var maxAge = getStatusResponse.Headers["Cache-Control"][0];
                             if (string.IsNullOrWhiteSpace(maxAge))
                             {
                                 Console.WriteLine("Sleeping for 2 seconds");
@@ -67,8 +67,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         }
                     }
 
-                    getResponse = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
-                    status = getResponse.Data;
+                    getStatusResponse = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                    status = getStatusResponse.Data;
                 }
                 Console.WriteLine("Calculation Completed");
 
@@ -174,14 +174,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var tables = stachExtension.ConvertToTable();
 
             Console.WriteLine(tables[0]);
-        }
-
-        private static void LogError<T>(ApiResponse<T> response, string message)
-        {
-            Console.WriteLine(message);
-            Console.WriteLine($"Status Code: {response.StatusCode}");
-            Console.WriteLine($"Request Key: {response.Headers["X-DataDirect-Request-Key"]}");
-            Console.WriteLine($"Reason: {response.Data}");
         }
     }
 }

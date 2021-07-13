@@ -17,10 +17,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
-        // private const string UserName = "<username-serial>";
-        // private const string Password = "<apiKey>";
-        private const string UserName = "FDSQAR_C-1021374";
-        private const string Password = "oGg69z3urFlnCXye71xKBgPa9Buq95HkbIYpySgZ";
+        private const string UserName = "<username-serial>";
+        private const string Password = "<apiKey>";
 
         public static void Main(string[] args)
         {

@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class AxpOptimizerExample
+    public class BpmOptimizerExample
     {
         private static Configuration _apiConfiguration;
         private const string BasePath = "https://api.factset.com";
@@ -20,24 +20,19 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         {
             try
             {
-                const string strategyId = "Client:/Optimizer/TAXTEST";
-                const string accountId = "BENCH:SP50";
-                const string riskModelDate = "09/01/2020";
-                const string backtestDate = "09/01/2020";
-                var axpStrategy = new AxiomaEquityOptimizerStrategy(null, strategyId);
-                var axpAccount = new OptimizerAccount(accountId);
-                var optimization = new Optimization(riskModelDate, backtestDate);
-                var tradesList = new OptimizerTradesList(OptimizerTradesList.IdentifierTypeEnum.SedolChk, false);
+                const string strategyId = "CLIENT:/Aapi/BPMAPISIMPLE";
+                var bpmStrategy = new BPMOptimizerStrategy(null, strategyId);
+                var tradesList = new OptimizerTradesList(OptimizerTradesList.IdentifierTypeEnum.Asset, false);
                 var outputTypes = new OptimizerOutputTypes(tradesList);
 
-                var axpCalculationParameters =
-                    new AxiomaEquityOptimizationParameters(axpStrategy, axpAccount, optimization, outputTypes);
-                var axpCalculationParameterRoot = new AxiomaEquityOptimizationParametersRoot(axpCalculationParameters);
+                var bpmCalculationParameters =
+                    new BPMOptimizationParameters(strategy: bpmStrategy, outputTypes: outputTypes);
+                var bpmCalculationParameterRoot = new BPMOptimizationParametersRoot(bpmCalculationParameters);
 
-                var axpOptimizerApi = new AXPOptimizerApi(GetApiConfiguration());
+                var bpmOptimizerApi = new BPMOptimizerApi(GetApiConfiguration());
 
                 var calculationResponse =
-                    axpOptimizerApi.PostAndOptimizeWithHttpInfo(null, "max-stale=0", axpCalculationParameterRoot);
+                    bpmOptimizerApi.PostAndOptimizeWithHttpInfo(null, "max-stale=0", bpmCalculationParameterRoot);
 
                 switch (calculationResponse.StatusCode)
                 {
@@ -50,7 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         var optimizationId = calculationStatus.Data.CalculationId;
                         Console.WriteLine("Optimization Id: " + optimizationId);
                         var optimizationStatusResponse =
-                            axpOptimizerApi.GetOptimizationStatusByIdWithHttpInfo(optimizationId);
+                            bpmOptimizerApi.GetOptimizationStatusByIdWithHttpInfo(optimizationId);
                         var continuePolling = optimizationStatusResponse.StatusCode == HttpStatusCode.Accepted;
                         while (continuePolling)
                         {
@@ -74,7 +69,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                                 }
 
                                 optimizationStatusResponse =
-                                    axpOptimizerApi.GetOptimizationStatusByIdWithHttpInfo(optimizationId);
+                                    bpmOptimizerApi.GetOptimizationStatusByIdWithHttpInfo(optimizationId);
                             }
                             else
                             {

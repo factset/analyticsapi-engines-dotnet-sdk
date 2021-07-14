@@ -25,7 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var groupResponse = groupsApi.GetPAGroupsWithHttpInfo();
 
             Assert.IsTrue(groupResponse.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
-            Assert.IsTrue(groupResponse.Data.GetType() == typeof(Dictionary<string, Group>), "Response result should be a Group Dictionary.");
+            Assert.IsTrue(groupResponse.Data.Data.GetType() == typeof(Dictionary<string, Group>), "Response result should be a Group Dictionary.");
             Assert.IsTrue(groupResponse.Data.Data.Count > 0, "Response result should not be an empty Dictionary.");
         }
     }

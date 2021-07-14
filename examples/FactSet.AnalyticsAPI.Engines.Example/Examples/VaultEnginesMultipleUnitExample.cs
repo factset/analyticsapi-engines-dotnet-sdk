@@ -12,39 +12,37 @@ using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineSingleUnitExample
+    public class VaultEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
-        private const string PADocument = "PA_DOCUMENTS:DEFAULT";
-        private const string ComponentName = "Weights";
-        private const string ComponentCategory = "Weights / Exposures";
-        private const string BenchmarkSP50 = "BENCH:SP50";
-        private const string BenchmarkR1000 = "BENCH:R.1000";
+        private const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
+        private const string VaultTotalReturnsComponent = "Total Returns";
+        private const string VaultPerformanceOverTimeComponentName = "Performance Over Time";
+        private const string VaultComponentCategory = "Performance / Performance Relative Dates";
+        private const string VaultDefaultAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
+        private const string VaultStartDate = "20180101";
+        private const string VaultEndDate = "20180329";
+        private const string VaultFrequency = "Monthly";
 
         public static void Main(string[] args)
         {
             try
             {
-                var calculationParameters = GetPaCalculationParameters();
-
-                var calculationApi = new PACalculationsApi(GetApiConfiguration());
-
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
-
-                if (calculationResponse.StatusCode == HttpStatusCode.Created)
+                var calculationParameters = new VaultCalculationParametersRoot
                 {
-                    ObjectRoot result = (ObjectRoot)calculationResponse.Data;
-                    PrintResult(result);
-                    return;
-                }
+                    Data = new Dictionary<string, VaultCalculationParameters> { { "1", GetVaultCalculationParameters1() }, { "2", GetVaultCalculationParameters2() } }
+                };
+
+                var calculationApi = new VaultCalculationsApi(GetApiConfiguration());
+
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
                 Console.WriteLine("Calculation Id: " + calculationId);
-
                 ApiResponse<CalculationStatusRoot> getStatusResponse = null;
 
                 while (status.Data.Status == CalculationStatus.StatusEnum.Queued || status.Data.Status == CalculationStatus.StatusEnum.Executing)
@@ -75,17 +73,17 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 Console.WriteLine("Calculation Completed");
 
                 
-                foreach (var calculation in status.Data.Units)
+                foreach (var vaultCalculation in status.Data.Units)
                 {
-                    if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
+                    if (vaultCalculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
+                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, vaultCalculation.Key);
                         PrintResult(resultResponse.Data);
                     }
                     else
                     {
-                        Console.WriteLine($"Calculation Unit Id : {calculation.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {calculation.Value.Errors?.FirstOrDefault()?.Detail}");
+                        Console.WriteLine($"Calculation Unit Id : {vaultCalculation.Key} Failed!!!");
+                        Console.WriteLine($"Error message : {vaultCalculation.Value.Errors}");
                     }
                 }
 
@@ -123,28 +121,46 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
 
 
-        private static PACalculationParametersRoot GetPaCalculationParameters()
+        private static VaultCalculationParameters GetVaultCalculationParameters1()
         {
             var componentsApi = new ComponentsApi(GetApiConfiguration());
 
-            var componentsResponse = componentsApi.GetPAComponents(PADocument);
+            var componentsResponse = componentsApi.GetVaultComponents(VaultDefaultDocument);
 
-            var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
-            Console.WriteLine($"PA Component Id : {paComponentId}");
+            var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultTotalReturnsComponent && component.Value.Category == VaultComponentCategory)).Key;
+            Console.WriteLine($"Vault Component Id : {vaultComponentId}");
+            
+            var vaultAccount = new VaultIdentifier(VaultDefaultAccount);
+            var vaultDates = new VaultDateParameters(VaultStartDate, VaultEndDate, VaultFrequency);
 
-            var paAccountIdentifier = new PAIdentifier(BenchmarkSP50);
-            var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(BenchmarkR1000);
-            var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
+            var configurationApi = new ConfigurationsApi(GetApiConfiguration());
+            var configurationResponse = configurationApi.GetVaultConfigurationsWithHttpInfo(vaultAccount.Id);
+            var vaultConfigurationId = configurationResponse.Data.Data.Keys.First();
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
+            var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfigurationId);
 
-            var calculationParameters = new PACalculationParametersRoot
-            {
-                Data = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } }
-            };
+            return vaultCalculation;
+        }
+        
+        private static VaultCalculationParameters GetVaultCalculationParameters2()
+        {
+            var componentsApi = new ComponentsApi(GetApiConfiguration());
 
-            return calculationParameters;
+            var componentsResponse = componentsApi.GetVaultComponents(VaultDefaultDocument);
+
+            var vaultComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == VaultPerformanceOverTimeComponentName && component.Value.Category == VaultComponentCategory)).Key;
+            Console.WriteLine($"Vault Component Id : {vaultComponentId}");
+            
+            var vaultAccount = new VaultIdentifier(VaultDefaultAccount);
+            var vaultDates = new VaultDateParameters(VaultStartDate, VaultEndDate, VaultFrequency);
+
+            var configurationApi = new ConfigurationsApi(GetApiConfiguration());
+            var configurationResponse = configurationApi.GetVaultConfigurationsWithHttpInfo(vaultAccount.Id);
+            var vaultConfigurationId = configurationResponse.Data.Data.Keys.First();
+
+            var vaultCalculation = new VaultCalculationParameters(vaultComponentId, vaultAccount, vaultDates, vaultConfigurationId);
+
+            return vaultCalculation;
         }
 
         private static void PrintResult(ObjectRoot result)

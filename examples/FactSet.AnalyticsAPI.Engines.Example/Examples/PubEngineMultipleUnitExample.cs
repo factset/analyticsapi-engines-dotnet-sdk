@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -8,38 +9,28 @@ using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
 
-using FactSet.Protobuf.Stach.Extensions;
-
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineSingleUnitExample
+    public class PubEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
         private const string UserName = "<username-serial>";
         private const string Password = "<apiKey>";
-        private const string PADocument = "PA_DOCUMENTS:DEFAULT";
-        private const string ComponentName = "Weights";
-        private const string ComponentCategory = "Weights / Exposures";
-        private const string BenchmarkSP50 = "BENCH:SP50";
-        private const string BenchmarkR1000 = "BENCH:R.1000";
+        private const string PubDocument = "Client:/AAPI/Puma Test Doc.Pub_bridge_pdf";
+        private const string PubAccountId = "BENCH:SP50";
+        private const string StartDate = "-1M";
+        private const string EndDate = "0M";
 
         public static void Main(string[] args)
         {
             try
             {
-                var calculationParameters = GetPaCalculationParameters();
+                var calculationParameters = GetPubCalculationParameters();
 
-                var calculationApi = new PACalculationsApi(GetApiConfiguration());
+                var calculationApi = new PubCalculationsApi(GetApiConfiguration());
 
                 var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
-
-                if (calculationResponse.StatusCode == HttpStatusCode.Created)
-                {
-                    ObjectRoot result = (ObjectRoot)calculationResponse.Data;
-                    PrintResult(result);
-                    return;
-                }
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -80,7 +71,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
                         var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
-                        PrintResult(resultResponse.Data);
+                        OutputResult(resultResponse.Data, $"output-{calculation.Key}");
                     }
                     else
                     {
@@ -123,41 +114,28 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
 
 
-        private static PACalculationParametersRoot GetPaCalculationParameters()
+        private static PubCalculationParametersRoot GetPubCalculationParameters()
         {
-            var componentsApi = new ComponentsApi(GetApiConfiguration());
+            var pubAccountIdentifier = new PubIdentifier(PubAccountId);
+            var pubDates = new PubDateParameters(StartDate, EndDate);
 
-            var componentsResponse = componentsApi.GetPAComponents(PADocument);
+            var pubCalculation = new PubCalculationParameters(PubDocument, pubAccountIdentifier, pubDates);
 
-            var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
-            Console.WriteLine($"PA Component Id : {paComponentId}");
-
-            var paAccountIdentifier = new PAIdentifier(BenchmarkSP50);
-            var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(BenchmarkR1000);
-            var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
-
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
-
-            var calculationParameters = new PACalculationParametersRoot
+            var calculationParameters = new PubCalculationParametersRoot
             {
-                Data = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } }
+                Data = new Dictionary<string, PubCalculationParameters> { { "1", pubCalculation }, { "2", pubCalculation } }
             };
 
             return calculationParameters;
         }
 
-        private static void PrintResult(ObjectRoot result)
+        private static void OutputResult(Stream result, string fileName)
         {
             Console.WriteLine("Calculation Result");
 
-            // converting the data to Package object
-            var stachBuilder = StachExtensionFactory.GetRowOrganizedBuilder();
-            var stachExtension = stachBuilder.SetPackage(result.Data).Build();
-            // To convert package to 2D tables.
-            var tables = stachExtension.ConvertToTable();
+            File.WriteAllBytes($"{fileName}.pdf", ((MemoryStream)result).ToArray());
 
-            Console.WriteLine(tables[0]);
+            Console.WriteLine($"Calculation output saved to {fileName}.pdf");
         }
     }
 }

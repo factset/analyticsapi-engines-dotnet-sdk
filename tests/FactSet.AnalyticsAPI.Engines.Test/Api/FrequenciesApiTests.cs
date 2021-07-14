@@ -14,13 +14,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
+            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void FrequenciesApi_Get_PAFrequencies_Success()
         {
-            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
             var paFrequenciesResponse = frequenciesApi.GetPAFrequenciesWithHttpInfo();
 
             Assert.IsTrue(paFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
@@ -31,7 +31,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void FrequenciesApi_Get_SPARFrequencies_Success()
         {
-            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
             var sparFrequenciesResponse = frequenciesApi.GetSPARFrequenciesWithHttpInfo();
 
             Assert.IsTrue(sparFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
@@ -42,7 +41,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void FrequenciesApi_Get_VaultFrequencies_Success()
         {
-            frequenciesApi = new FrequenciesApi(CommonFunctions.BuildConfiguration());
             var vaultFrequenciesResponse = frequenciesApi.GetVaultFrequenciesWithHttpInfo();
 
             Assert.IsTrue(vaultFrequenciesResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

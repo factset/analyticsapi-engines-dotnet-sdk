@@ -16,13 +16,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public void Init()
         {
             benchmarksApi = new BenchmarksApi(CommonFunctions.BuildConfiguration());
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]    
         public void BenchmarksApi_Get_SPAR_Benchmarks_Success()
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
             ApiResponse<SPARBenchmarkRoot> response = benchmarksApi.GetSPARBenchmarkByIdWithHttpInfo(CommonParameters.SPARBenchmarkR1000);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

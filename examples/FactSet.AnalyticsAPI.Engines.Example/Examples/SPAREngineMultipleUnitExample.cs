@@ -8,12 +8,11 @@ using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
 
-using FactSet.Protobuf.Stach;
-using Google.Protobuf;
+using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class SPAREngineExample
+    public class SPAREngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
@@ -26,31 +25,34 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string SPARBenchmarkRussellPr2000 = "RUSSELL_P:R.2000";
         private const string SPARBenchmarkRussellPrefix = "RUSSELL";
         private const string SPARBenchmarkRussellReturnType = "GTR";
+        private const string SPARBenchmarkR2000 = "R.2000";
+
 
         public static void Main(string[] args)
         {
             try
             {
-                var calculationParameters = new Calculation
+                var calculationParameters = new SPARCalculationParametersRoot
                 {
-                    Spar = new Dictionary<string, SPARCalculationParameters> { { "1", GetSparCalculationParameters() } }
+                    Data = new Dictionary<string, SPARCalculationParameters> { { "1", GetSparCalculationParameters1() }, { "2", GetSparCalculationParameters2()} }
                 };
 
-                var calculationApi = new CalculationsApi(GetEngineApiConfiguration());
+                var calculationApi = new SPARCalculationsApi(GetApiConfiguration());
 
-                var runCalculationResponse = calculationApi.RunCalculationWithHttpInfo(calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
 
-                var calculationId = runCalculationResponse.Headers["Location"][0].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Last();
+                CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
+                var calculationId = status.Data.Calculationid;
                 Console.WriteLine("Calculation Id: " + calculationId);
-                ApiResponse<CalculationStatus> getStatus = null;
+                ApiResponse<CalculationStatusRoot> getStatusResponse = null;
 
-                while (getStatus == null || getStatus.Data.Status == CalculationStatus.StatusEnum.Queued || getStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
+                while (status.Data.Status == CalculationStatus.StatusEnum.Queued || status.Data.Status == CalculationStatus.StatusEnum.Executing)
                 {
-                    if (getStatus != null)
+                    if (getStatusResponse != null)
                     {
-                        if (getStatus.Headers.ContainsKey("Cache-Control"))
+                        if (getStatusResponse.Headers.ContainsKey("Cache-Control"))
                         {
-                            var maxAge = getStatus.Headers["Cache-Control"][0];
+                            var maxAge = getStatusResponse.Headers["Cache-Control"][0];
                             if (string.IsNullOrWhiteSpace(maxAge))
                             {
                                 Console.WriteLine("Sleeping for 2 seconds");
@@ -66,21 +68,23 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         }
                     }
 
-                    getStatus = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                    getStatusResponse = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                    status = getStatusResponse.Data;
                 }
                 Console.WriteLine("Calculation Completed");
 
-
-                foreach (var sparCalculationParameters in getStatus.Data.Spar)
+                
+                foreach (var sparCalculation in status.Data.Units)
                 {
-                    if (sparCalculationParameters.Value.Status == CalculationUnitStatus.StatusEnum.Success)
+                    if (sparCalculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        PrintResult(sparCalculationParameters);
+                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, sparCalculation.Key);
+                        PrintResult(resultResponse.Data);
                     }
                     else
                     {
-                        Console.WriteLine($"Calculation Unit Id : {sparCalculationParameters.Key} Failed!!!");
-                        Console.WriteLine($"Error message : {sparCalculationParameters.Value.Error}");
+                        Console.WriteLine($"Calculation Unit Id : {sparCalculation.Key} Failed!!!");
+                        Console.WriteLine($"Error message : {sparCalculation.Value.Errors}");
                     }
                 }
 
@@ -99,7 +103,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             }
         }
 
-        private static Configuration GetEngineApiConfiguration()
+        private static Configuration GetApiConfiguration()
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             if (_engineApiConfiguration != null)
@@ -117,15 +121,16 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             return _engineApiConfiguration;
         }
 
-        private static SPARCalculationParameters GetSparCalculationParameters()
-        {
-            // Build SPAR Engine calculation parameters
-            var componentsApi = new ComponentsApi(GetEngineApiConfiguration());
 
-            var componentsResponse = componentsApi.GetSPARComponentsWithHttpInfo(SPARDefaultDocument);
+        private static SPARCalculationParameters GetSparCalculationParameters1()
+        {
+            var componentsApi = new ComponentsApi(GetApiConfiguration());
+
+            var componentsResponse = componentsApi.GetSPARComponents(SPARDefaultDocument);
 
             var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
             Console.WriteLine($"SPAR Component Id : {sparComponentId}");
+            
             var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
             var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
@@ -134,43 +139,36 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             return sparCalculation;
         }
-
-        private static void PrintResult(KeyValuePair<string, CalculationUnitStatus> calculation)
+        
+        private static SPARCalculationParameters GetSparCalculationParameters2()
         {
-            if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
-            {
-                var utilityApi = new UtilityApi(GetEngineApiConfiguration());
-                ApiResponse<string> resultResponse = utilityApi.GetByUrlWithHttpInfo(calculation.Value.Result);
+            var componentsApi = new ComponentsApi(GetApiConfiguration());
 
-                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Succeeded!!!");
-                Console.WriteLine($"Calculation Unit Id : {calculation.Key} Result");
-                Console.WriteLine("/****************************************************************/");
+            var componentsResponse = componentsApi.GetSPARComponents(SPARDefaultDocument);
 
-                // converting the data to Package object
-                var jpSettings = JsonParser.Settings.Default;
-                var jp = new JsonParser(jpSettings.WithIgnoreUnknownFields(true));
-                var package = jp.Parse<Package>(resultResponse.Data);
+            var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
+            Console.WriteLine($"SPAR Component Id : {sparComponentId}");
+            
+            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
 
-                // To convert package to 2D tables.
-                var tables = package.ConvertToTableFormat();
-                Console.WriteLine(tables[0]);
+            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 
-                // Uncomment the following lines to generate an Excel file
-                // foreach (var table in tables)
-                // {
-                //     File.WriteAllText($"{Guid.NewGuid():N}.csv", table.ToString());
-                // }
-
-                Console.WriteLine("/****************************************************************/");
-            }
+            return sparCalculation;
         }
 
-        private static void LogError<T>(ApiResponse<T> response, string message)
+        private static void PrintResult(ObjectRoot result)
         {
-            Console.WriteLine(message);
-            Console.WriteLine("Status Code: " + response.StatusCode);
-            Console.WriteLine("Request Key: " + response.Headers["X-DataDirect-Request-Key"]);
-            Console.WriteLine($"Reason: {response.Data}");
+            Console.WriteLine("Calculation Result");
+
+            // converting the data to Package object
+            var stachBuilder = StachExtensionFactory.GetRowOrganizedBuilder();
+            var stachExtension = stachBuilder.SetPackage(result.Data).Build();
+            // To convert package to 2D tables.
+            var tables = stachExtension.ConvertToTable();
+
+            Console.WriteLine(tables[0]);
         }
     }
 }

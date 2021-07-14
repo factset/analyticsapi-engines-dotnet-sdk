@@ -16,13 +16,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public void Init()
         {
             accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration());
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         [TestMethod]
         public void AccountsApi_Get_Accounts_List_Success()
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
             ApiResponse<AccountDirectoriesRoot> response = accountsApi.GetAccountsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

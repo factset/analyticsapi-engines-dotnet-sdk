@@ -28,6 +28,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Cancel Quant calculation by id
+        /// </summary>
+        /// <remarks>
+        /// This is the endpoint to cancel a previously submitted calculation.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <returns></returns>
+        void CancelCalculationById(string id);
+
+        /// <summary>
+        /// Cancel Quant calculation by id
+        /// </summary>
+        /// <remarks>
+        /// This is the endpoint to cancel a previously submitted calculation.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id);
+        /// <summary>
         /// Get Quant Engine calculation parameters by id
         /// </summary>
         /// <remarks>
@@ -124,11 +145,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        /// <returns>CalculationStatusRoot for 200 status</returns>
-        
-        object PostAndCalculate(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
+        /// <returns>CalculationStatusRoot</returns>
+        CalculationStatusRoot PostAndCalculate(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
 
         /// <summary>
         /// Create and Run Quant Engine calculation
@@ -139,11 +157,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
-        
-        ApiResponse<object> PostAndCalculateWithHttpInfo(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
+        /// <returns>ApiResponse of CalculationStatusRoot</returns>
+        ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
         /// <summary>
         /// Create or update Quant Engine calculation and run it.
         /// </summary>
@@ -154,11 +169,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
-        /// <returns>CalculationStatusRoot for 200 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        
-        object PutAndCalculate(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
+        /// <returns>CalculationStatusRoot</returns>
+        CalculationStatusRoot PutAndCalculate(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
 
         /// <summary>
         /// Create or update Quant Engine calculation and run it.
@@ -170,11 +182,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        
-        ApiResponse<object> PutAndCalculateWithHttpInfo(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
+        /// <returns>ApiResponse of CalculationStatusRoot</returns>
+        ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
         #endregion Synchronous Operations
     }
 
@@ -184,6 +193,29 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     public interface IQuantCalculationsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Cancel Quant calculation by id
+        /// </summary>
+        /// <remarks>
+        /// This is the endpoint to cancel a previously submitted calculation.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CancelCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Cancel Quant calculation by id
+        /// </summary>
+        /// <remarks>
+        /// This is the endpoint to cancel a previously submitted calculation.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Quant Engine calculation parameters by id
         /// </summary>
@@ -205,7 +237,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of QuantCalculationParametersRoot</returns>
+        /// <returns>Task of ApiResponse (QuantCalculationParametersRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<QuantCalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Quant Engine calculation status by id
@@ -228,7 +260,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot</returns>
+        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Quant Engine calculation metadata information by id
@@ -253,7 +285,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of System.IO.Stream</returns>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCalculationUnitInfoByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Quant Engine calculation result by id
@@ -278,7 +310,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of System.IO.Stream</returns>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create and Run Quant Engine calculation
@@ -290,11 +322,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
-        
-        System.Threading.Tasks.Task<object> PostAndCalculateAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CalculationStatusRoot</returns>
+        System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and Run Quant Engine calculation
@@ -306,11 +335,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
-        
-        System.Threading.Tasks.Task<ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or update Quant Engine calculation and run it.
         /// </summary>
@@ -322,11 +348,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        
-        System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CalculationStatusRoot</returns>
+        System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create or update Quant Engine calculation and run it.
@@ -339,11 +362,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        
-        System.Threading.Tasks.Task<ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -465,6 +485,135 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
+        /// Cancel Quant calculation by id This is the endpoint to cancel a previously submitted calculation.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <returns></returns>
+        public void CancelCalculationById(string id)
+        {
+            CancelCalculationByIdWithHttpInfo(id);
+        }
+
+        /// <summary>
+        /// Cancel Quant calculation by id This is the endpoint to cancel a previously submitted calculation.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'id' when calling QuantCalculationsApi->CancelCalculationById");
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/quant/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelCalculationById", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Cancel Quant calculation by id This is the endpoint to cancel a previously submitted calculation.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CancelCalculationByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await CancelCalculationByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Cancel Quant calculation by id This is the endpoint to cancel a previously submitted calculation.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">from url, provided from the location header in the Create and Run Quant calculation endpoint</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'id' when calling QuantCalculationsApi->CancelCalculationById");
+
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/quant/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CancelCalculationById", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get Quant Engine calculation parameters by id This is the endpoint that returns the calculation parameters passed for a calculation.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
@@ -496,13 +645,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(QuantCalculationParametersRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -551,7 +693,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of QuantCalculationParametersRoot</returns>
+        /// <returns>Task of ApiResponse (QuantCalculationParametersRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<QuantCalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -569,12 +711,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(QuantCalculationParametersRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -638,14 +774,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(CalculationStatusRoot) },
-                { 202, typeof(CalculationStatusRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -692,7 +820,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot</returns>
+        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -710,13 +838,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(CalculationStatusRoot) },
-                { 202, typeof(CalculationStatusRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -788,13 +909,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/octet-stream"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(System.IO.Stream) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -844,7 +958,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of System.IO.Stream</returns>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream>> GetCalculationUnitInfoByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -868,12 +982,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/octet-stream"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(System.IO.Stream) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -946,13 +1054,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/octet-stream"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(System.IO.Stream) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -1002,7 +1103,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Quant Engine calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of System.IO.Stream</returns>
+        /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<System.IO.Stream>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1026,12 +1127,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/octet-stream"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(System.IO.Stream) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1068,13 +1163,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        /// <returns>CalculationStatusRoot for 200 status</returns>
-        
-        public object PostAndCalculate(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
+        /// <returns>CalculationStatusRoot</returns>
+        public CalculationStatusRoot PostAndCalculate(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = PostAndCalculateWithHttpInfo(cacheControl, quantCalculationParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PostAndCalculateWithHttpInfo(cacheControl, quantCalculationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1084,11 +1176,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
-        
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PostAndCalculateWithHttpInfo(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
+        /// <returns>ApiResponse of CalculationStatusRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -1100,15 +1189,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json",
                 "application/x-protobuf"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 200, typeof(CalculationStatusRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1131,7 +1211,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<object>("/analytics/engines/quant/v3/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<CalculationStatusRoot>("/analytics/engines/quant/v3/calculations", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1149,13 +1229,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
-        
-        public async System.Threading.Tasks.Task<object> PostAndCalculateAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CalculationStatusRoot</returns>
+        public async System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await PostAndCalculateWithHttpInfoAsync(cacheControl, quantCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PostAndCalculateWithHttpInfoAsync(cacheControl, quantCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1166,11 +1243,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
-        
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -1185,14 +1259,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/x-protobuf"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 200, typeof(CalculationStatusRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1215,7 +1281,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<object>("/analytics/engines/quant/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CalculationStatusRoot>("/analytics/engines/quant/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1233,13 +1299,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
-        /// <returns>CalculationStatusRoot for 200 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        
-        public object PutAndCalculate(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
+        /// <returns>CalculationStatusRoot</returns>
+        public CalculationStatusRoot PutAndCalculate(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = PutAndCalculateWithHttpInfo(id, cacheControl, quantCalculationParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PutAndCalculateWithHttpInfo(id, cacheControl, quantCalculationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1250,11 +1313,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PutAndCalculateWithHttpInfo(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
+        /// <returns>ApiResponse of CalculationStatusRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1270,16 +1330,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json",
                 "application/x-protobuf"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationStatusRoot) },
-                { 200, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-                { 409, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1303,7 +1353,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<object>("/analytics/engines/quant/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<CalculationStatusRoot>("/analytics/engines/quant/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1322,13 +1372,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        
-        public async System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CalculationStatusRoot</returns>
+        public async System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, cacheControl, quantCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, cacheControl, quantCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1340,11 +1387,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1363,15 +1407,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/x-protobuf"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationStatusRoot) },
-                { 200, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-                { 409, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1395,7 +1430,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<object>("/analytics/engines/quant/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<CalculationStatusRoot>("/analytics/engines/quant/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

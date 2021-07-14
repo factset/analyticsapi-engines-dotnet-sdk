@@ -457,7 +457,6 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 

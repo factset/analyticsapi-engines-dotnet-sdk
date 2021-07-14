@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FactSet.Protobuf.Stach.Extensions" Version="1.0.0" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />

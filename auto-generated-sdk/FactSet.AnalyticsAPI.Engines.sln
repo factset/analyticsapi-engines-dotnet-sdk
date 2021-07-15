@@ -1,8 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactSet.AnalyticsAPI.Engines", "src\FactSet.AnalyticsAPI.Engines\FactSet.AnalyticsAPI.Engines.csproj", "{D7309227-518B-45ED-896A-4853BE6A9075}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactSet.AnalyticsAPI.Engines", "src\FactSet.AnalyticsAPI.Engines\FactSet.AnalyticsAPI.Engines.csproj", "{D7309227-518B-45ED-896A-4853BE6A9075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,11 +14,12 @@ Global
 		{D7309227-518B-45ED-896A-4853BE6A9075}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7309227-518B-45ED-896A-4853BE6A9075}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7309227-518B-45ED-896A-4853BE6A9075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0FE4987B-8C74-42E7-ACC6-878CBD6CCF9A}
 	EndGlobalSection
 EndGlobal

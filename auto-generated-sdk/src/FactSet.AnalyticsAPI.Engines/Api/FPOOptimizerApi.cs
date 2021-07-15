@@ -46,8 +46,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <returns>ApiResponse of Object(null)</returns>
-        ApiResponse<object> CancelOptimizationByIdWithHttpInfo(string id);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CancelOptimizationByIdWithHttpInfo(string id);
         /// <summary>
         /// Get FPO optimization parameters by id
         /// </summary>
@@ -100,10 +100,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <returns>ObjectRoot for 201 status</returns>
-        /// <returns>null for 202 status</returns>
-        
-        object GetOptimizationStatusById(string id);
+        /// <returns>ObjectRoot</returns>
+        ObjectRoot GetOptimizationStatusById(string id);
 
         /// <summary>
         /// Get FPO optimization status by id
@@ -113,10 +111,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>ApiResponse of null for 202 status</returns>
-        
-        ApiResponse<object> GetOptimizationStatusByIdWithHttpInfo(string id);
+        /// <returns>ApiResponse of ObjectRoot</returns>
+        ApiResponse<ObjectRoot> GetOptimizationStatusByIdWithHttpInfo(string id);
         /// <summary>
         /// Create and Run FPO optimization
         /// </summary>
@@ -127,10 +123,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>CalculationInfoRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        
-        object PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
+        /// <returns>ObjectRoot</returns>
+        ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
 
         /// <summary>
         /// Create and Run FPO optimization
@@ -142,10 +136,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        
-        ApiResponse<object> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
+        /// <returns>ApiResponse of ObjectRoot</returns>
+        ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
         /// <summary>
         /// Create or Update FPO optimization and run it.
         /// </summary>
@@ -157,10 +149,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>CalculationInfoRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        
-        object PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
+        /// <returns>ObjectRoot</returns>
+        ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
 
         /// <summary>
         /// Create or Update FPO optimization and run it.
@@ -173,10 +163,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        
-        ApiResponse<object> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
+        /// <returns>ApiResponse of ObjectRoot</returns>
+        ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot));
         #endregion Synchronous Operations
     }
 
@@ -207,8 +195,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of Object(null)</returns>
-        System.Threading.Tasks.Task<ApiResponse<object>> CancelOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CancelOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get FPO optimization parameters by id
         /// </summary>
@@ -230,7 +218,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of FPOOptimizationParametersRoot</returns>
+        /// <returns>Task of ApiResponse (FPOOptimizationParametersRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<FPOOptimizationParametersRoot>> GetOptimizationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get FPO optimization result by id
@@ -255,7 +243,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get FPO optimization status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of ObjectRoot</returns>
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get FPO optimization status by id
@@ -266,10 +254,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        /// <returns>Task of null for 202 status</returns>
-        
-        System.Threading.Tasks.Task<object> GetOptimizationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ObjectRoot</returns>
+        System.Threading.Tasks.Task<ObjectRoot> GetOptimizationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get FPO optimization status by id
@@ -280,10 +266,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>Task of ApiResponse of null for 202 status</returns>
-        
-        System.Threading.Tasks.Task<ApiResponse<object>> GetOptimizationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetOptimizationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create and Run FPO optimization
         /// </summary>
@@ -295,10 +279,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        
-        System.Threading.Tasks.Task<object> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ObjectRoot</returns>
+        System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and Run FPO optimization
@@ -311,10 +293,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        
-        System.Threading.Tasks.Task<ApiResponse<object>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or Update FPO optimization and run it.
         /// </summary>
@@ -327,10 +307,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        
-        System.Threading.Tasks.Task<object> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ObjectRoot</returns>
+        System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create or Update FPO optimization and run it.
@@ -344,10 +322,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        
-        System.Threading.Tasks.Task<ApiResponse<object>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -484,8 +460,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <returns>ApiResponse of Object(null)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> CancelOptimizationByIdWithHttpInfo(string id)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelOptimizationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -503,12 +479,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "text/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -523,9 +493,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<object>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -554,8 +530,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of Object(null)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> CancelOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelOptimizationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -574,11 +550,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "text/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -594,10 +565,16 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<object>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -642,13 +619,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(FPOOptimizationParametersRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -662,6 +632,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -695,7 +671,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of FPOOptimizationParametersRoot</returns>
+        /// <returns>Task of ApiResponse (FPOOptimizationParametersRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FPOOptimizationParametersRoot>> GetOptimizationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -713,12 +689,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(FPOOptimizationParametersRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -733,6 +703,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -784,13 +760,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -808,6 +777,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -843,7 +818,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get FPO optimization status by id endpoint</param>
         /// <param name="accept">Standard HTTP header. Value can be gzip, compress, deflate, br, identity and/or * (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of ObjectRoot</returns>
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetOptimizationResultWithHttpInfoAsync(string id, string accept = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -861,12 +836,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -885,6 +854,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -905,12 +880,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <returns>ObjectRoot for 201 status</returns>
-        /// <returns>null for 202 status</returns>
-        
-        public object GetOptimizationStatusById(string id)
+        /// <returns>ObjectRoot</returns>
+        public ObjectRoot GetOptimizationStatusById(string id)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = GetOptimizationStatusByIdWithHttpInfo(id);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = GetOptimizationStatusByIdWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -919,10 +892,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>ApiResponse of null for 202 status</returns>
-        
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> GetOptimizationStatusByIdWithHttpInfo(string id)
+        /// <returns>ApiResponse of ObjectRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> GetOptimizationStatusByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -936,13 +907,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -959,9 +923,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<object>("/analytics/engines/fpo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ObjectRoot>("/analytics/engines/fpo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -978,12 +948,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        /// <returns>Task of null for 202 status</returns>
-        
-        public async System.Threading.Tasks.Task<object> GetOptimizationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ObjectRoot</returns>
+        public async System.Threading.Tasks.Task<ObjectRoot> GetOptimizationStatusByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await GetOptimizationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await GetOptimizationStatusByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -993,10 +961,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        /// <returns>Task of ApiResponse of null for 202 status</returns>
-        
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> GetOptimizationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetOptimizationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1013,12 +979,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1034,10 +994,16 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<object>("/analytics/engines/fpo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ObjectRoot>("/analytics/engines/fpo/v3/optimizations/{id}/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1055,12 +1021,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>CalculationInfoRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        
-        public object PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
+        /// <returns>ObjectRoot</returns>
+        public ObjectRoot PostAndOptimize(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = PostAndOptimizeWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = PostAndOptimizeWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1071,10 +1035,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
+        /// <returns>ApiResponse of ObjectRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PostAndOptimizeWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -1085,14 +1047,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationInfoRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1117,9 +1071,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<object>("/analytics/engines/fpo/v3/optimizations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<ObjectRoot>("/analytics/engines/fpo/v3/optimizations", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1138,12 +1098,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        
-        public async System.Threading.Tasks.Task<object> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ObjectRoot</returns>
+        public async System.Threading.Tasks.Task<ObjectRoot> PostAndOptimizeAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await PostAndOptimizeWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await PostAndOptimizeWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1155,10 +1113,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> PostAndOptimizeWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -1172,13 +1128,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationInfoRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1202,10 +1151,16 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<object>("/analytics/engines/fpo/v3/optimizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ObjectRoot>("/analytics/engines/fpo/v3/optimizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1224,12 +1179,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>CalculationInfoRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
-        
-        public object PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
+        /// <returns>ObjectRoot</returns>
+        public ObjectRoot PutAndOptimize(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = PutAndOptimizeWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = PutAndOptimizeWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1241,10 +1194,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
-        
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
+        /// <returns>ApiResponse of ObjectRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> PutAndOptimizeWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1261,15 +1212,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationInfoRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-                { 409, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -1293,9 +1235,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<object>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<ObjectRoot>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1315,12 +1263,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
-        
-        public async System.Threading.Tasks.Task<object> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ObjectRoot</returns>
+        public async System.Threading.Tasks.Task<ObjectRoot> PutAndOptimizeAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await PutAndOptimizeWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot> localVarResponse = await PutAndOptimizeWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1333,10 +1279,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationInfoRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
-        
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> PutAndOptimizeWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), FPOOptimizationParametersRoot fPOOptimizationParametersRoot = default(FPOOptimizationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1354,14 +1298,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 202, typeof(CalculationInfoRoot) },
-                { 201, typeof(ObjectRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-                { 409, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1386,10 +1322,16 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<object>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<ObjectRoot>("/analytics/engines/fpo/v3/optimizations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

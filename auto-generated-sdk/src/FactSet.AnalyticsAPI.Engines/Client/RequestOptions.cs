@@ -55,6 +55,11 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public List<Cookie> Cookies { get; set; }
 
         /// <summary>
+        /// Response return types for each status code.
+        /// </summary>
+        public Dictionary<int, Type> ResponseReturnTypes { get; set; }
+
+        /// <summary>
         /// Any data associated with a request body.
         /// </summary>
         public Object Data { get; set; }

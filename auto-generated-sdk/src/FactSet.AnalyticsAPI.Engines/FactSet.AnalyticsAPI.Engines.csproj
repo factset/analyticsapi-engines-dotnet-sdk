@@ -12,7 +12,7 @@
     <Description>Allow clients to fetch Engines Analytics through APIs.</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.AnalyticsAPI.Engines</RootNamespace>
-    <Version>5.0.0</Version>
+    <Version>5.1.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.AnalyticsAPI.Engines.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/analyticsapi-engines-dotnet-sdk.git</RepositoryUrl>

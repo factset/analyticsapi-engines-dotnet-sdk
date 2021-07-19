@@ -46,8 +46,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id);
+        /// <returns>ApiResponse of Object(null)</returns>
+        ApiResponse<object> CancelCalculationByIdWithHttpInfo(string id);
         /// <summary>
         /// Get Vault calculation parameters by id
         /// </summary>
@@ -123,8 +123,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
+        /// <returns>CalculationStatusRoot for 202 status</returns>
+        /// <returns>CalculationStatusRoot for 200 status</returns>
+        /// <returns>ObjectRoot for 201 status</returns>
+        
+        object PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
 
         /// <summary>
         /// Create and Run Vault calculation
@@ -136,8 +139,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
+        
+        ApiResponse<object> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
         /// <summary>
         /// Create or Update Vault calculation and run it.
         /// </summary>
@@ -149,8 +155,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        CalculationStatusRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
+        /// <returns>CalculationStatusRoot for 202 status</returns>
+        /// <returns>CalculationStatusRoot for 200 status</returns>
+        /// <returns>ObjectRoot for 201 status</returns>
+        
+        object PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
 
         /// <summary>
         /// Create or Update Vault calculation and run it.
@@ -163,8 +172,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
+        
+        ApiResponse<object> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot));
         #endregion Synchronous Operations
     }
 
@@ -195,8 +207,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of Object(null)</returns>
+        System.Threading.Tasks.Task<ApiResponse<object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault calculation parameters by id
         /// </summary>
@@ -218,7 +230,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VaultCalculationParametersRoot)</returns>
+        /// <returns>Task of ApiResponse of VaultCalculationParametersRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<VaultCalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault calculation status by id
@@ -241,7 +253,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault calculation result by id
@@ -266,7 +278,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Vault calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Vault calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        /// <returns>Task of ApiResponse of ObjectRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create and Run Vault calculation
@@ -279,8 +291,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ObjectRoot for 201 status</returns>
+        
+        System.Threading.Tasks.Task<object> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and Run Vault calculation
@@ -293,8 +308,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create or Update Vault calculation and run it.
         /// </summary>
@@ -307,8 +325,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot</returns>
-        System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ObjectRoot for 201 status</returns>
+        
+        System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create or Update Vault calculation and run it.
@@ -322,8 +343,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
+        
+        System.Threading.Tasks.Task<ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -460,8 +484,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> CancelCalculationByIdWithHttpInfo(string id)
+        /// <returns>ApiResponse of Object(null)</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> CancelCalculationByIdWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -477,6 +501,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "text/plain",
                 "application/json",
                 "text/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -495,7 +525,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<object>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -524,8 +554,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of Object(null)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> CancelCalculationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -544,6 +574,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "text/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -562,7 +597,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<object>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -605,6 +640,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(VaultCalculationParametersRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -653,7 +695,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VaultCalculationParametersRoot)</returns>
+        /// <returns>Task of ApiResponse of VaultCalculationParametersRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultCalculationParametersRoot>> GetCalculationParametersWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -671,6 +713,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(VaultCalculationParametersRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -734,6 +782,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(CalculationStatusRoot) },
+                { 202, typeof(CalculationStatusRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -780,7 +836,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run Vault calculation endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> GetCalculationStatusByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -798,6 +854,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(CalculationStatusRoot) },
+                { 202, typeof(CalculationStatusRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -868,6 +931,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/x-protobuf"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(ObjectRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -917,7 +987,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Get Vault calculation status by id endpoint</param>
         /// <param name="unitId">from url, provided from the location header in the Get Vault calculation status by id endpoint</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (ObjectRoot)</returns>
+        /// <returns>Task of ApiResponse of ObjectRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ObjectRoot>> GetCalculationUnitResultByIdWithHttpInfoAsync(string id, string unitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -940,6 +1010,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/x-protobuf"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(ObjectRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -977,10 +1053,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
+        /// <returns>CalculationStatusRoot for 202 status</returns>
+        /// <returns>CalculationStatusRoot for 200 status</returns>
+        /// <returns>ObjectRoot for 201 status</returns>
+        
+        public object PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -991,8 +1070,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
+        
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -1004,6 +1086,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json",
                 "application/x-protobuf"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 202, typeof(CalculationStatusRoot) },
+                { 200, typeof(CalculationStatusRoot) },
+                { 201, typeof(ObjectRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1030,7 +1121,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<CalculationStatusRoot>("/analytics/engines/vault/v3/calculations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<object>("/analytics/engines/vault/v3/calculations", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1049,10 +1140,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ObjectRoot for 201 status</returns>
+        
+        public async System.Threading.Tasks.Task<object> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PostAndCalculateWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await PostAndCalculateWithHttpInfoAsync(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1064,8 +1158,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
+        
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -1080,6 +1177,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/x-protobuf"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 202, typeof(CalculationStatusRoot) },
+                { 200, typeof(CalculationStatusRoot) },
+                { 201, typeof(ObjectRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1106,7 +1211,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<CalculationStatusRoot>("/analytics/engines/vault/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<object>("/analytics/engines/vault/v3/calculations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1125,10 +1230,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot</returns>
-        public CalculationStatusRoot PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
+        /// <returns>CalculationStatusRoot for 202 status</returns>
+        /// <returns>CalculationStatusRoot for 200 status</returns>
+        /// <returns>ObjectRoot for 201 status</returns>
+        
+        public object PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = PutAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = PutAndCalculateWithHttpInfo(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
             return localVarResponse.Data;
         }
 
@@ -1140,8 +1248,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
+        
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1157,6 +1268,16 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             String[] _accepts = new String[] {
                 "application/json",
                 "application/x-protobuf"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 202, typeof(CalculationStatusRoot) },
+                { 200, typeof(CalculationStatusRoot) },
+                { 201, typeof(ObjectRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+                { 409, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1184,7 +1305,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<CalculationStatusRoot>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<object>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1204,10 +1325,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationStatusRoot> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ObjectRoot for 201 status</returns>
+        
+        public async System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot> localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> localVarResponse = await PutAndCalculateWithHttpInfoAsync(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1220,8 +1344,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="vaultCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CalculationStatusRoot)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationStatusRoot>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
+        
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), VaultCalculationParametersRoot vaultCalculationParametersRoot = default(VaultCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1240,6 +1367,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/x-protobuf"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 202, typeof(CalculationStatusRoot) },
+                { 200, typeof(CalculationStatusRoot) },
+                { 201, typeof(ObjectRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+                { 409, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1267,7 +1403,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<CalculationStatusRoot>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<object>("/analytics/engines/vault/v3/calculations/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -29,7 +29,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public const string VaultDefaultAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
         public const string VaultStartDate = "20180101";
         public const string VaultEndDate = "20180329";
-        public const string PubDocumentName = "Super_client:/publisher/Equity Snapshot.PUB_BRIDGE_PDF";
+        public const string PubDocumentName = "Client:/AAPI/Puma Test Doc.PUB_BRIDGE_PDF";
         public const string PubAccountName = "BENCH:SP50";
         public const string PubStartDate = "-1M";
         public const string PubEndDate = "0M";

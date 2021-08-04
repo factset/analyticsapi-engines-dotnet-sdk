@@ -141,7 +141,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             }
         }
 
-                private static void PrintResult(ObjectRoot result)
+        private static void PrintResult(ObjectRoot result)
         {
             Console.WriteLine("Calculation Result");
 

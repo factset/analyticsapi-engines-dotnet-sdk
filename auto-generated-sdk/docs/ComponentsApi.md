@@ -38,6 +38,8 @@ namespace Example
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
             var id = id_example;  // string | Unique identifier for a PA component
@@ -71,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -96,11 +98,11 @@ Name | Type | Description  | Notes
 
 <a name="getpacomponents"></a>
 # **GetPAComponents**
-> ComponentSummaryRoot GetPAComponents (string document)
+> ComponentSummaryRoot GetPAComponents (string document = null, string directory = null)
 
 Get PA components
 
-This endpoint returns the list of PA components in a given PA document.
+This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
 
 ### Example
 ```csharp
@@ -121,14 +123,17 @@ namespace Example
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
-            var document = document_example;  // string | Document Name
+            var document = document_example;  // string | Document Name (optional) 
+            var directory = directory_example;  // string | Directory to get the components (optional) 
 
             try
             {
                 // Get PA components
-                ComponentSummaryRoot result = apiInstance.GetPAComponents(document);
+                ComponentSummaryRoot result = apiInstance.GetPAComponents(document, directory);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -146,7 +151,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **string**| Document Name | 
+ **document** | **string**| Document Name | [optional] 
+ **directory** | **string**| Directory to get the components | [optional] 
 
 ### Return type
 
@@ -154,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -204,6 +210,8 @@ namespace Example
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
             var document = document_example;  // string | Document Name
@@ -237,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -287,6 +295,8 @@ namespace Example
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
             var id = id_example;  // string | Unique identifier for a vault component
@@ -320,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -370,6 +380,8 @@ namespace Example
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
             var document = document_example;  // string | Document Name
@@ -403,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

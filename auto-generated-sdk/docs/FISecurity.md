@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Settlement** | **string** | Settlement date | [optional] 
-**CalcFromMethod** | **string** | Calculation from method | 
+**CallMethod** | **string** | Call Method | [optional] 
+**CalcFromMethod** | **string** | Calculation from method | [optional] 
 **CalcFromValue** | **double** | Calculation from value | 
 **Face** | **double** | Face | [optional] [default to 1D]
 **FaceType** | **string** | Face type | [optional] [default to FaceTypeEnum.Current]

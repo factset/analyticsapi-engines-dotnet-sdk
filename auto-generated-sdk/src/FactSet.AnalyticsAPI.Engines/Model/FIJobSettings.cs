@@ -33,6 +33,45 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class FIJobSettings : IEquatable<FIJobSettings>, IValidatableObject
     {
         /// <summary>
+        /// Call Method
+        /// </summary>
+        /// <value>Call Method</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CallMethodEnum
+        {
+            /// <summary>
+            /// Enum NoCall for value: No Call
+            /// </summary>
+            [EnumMember(Value = "No Call")]
+            NoCall = 1,
+
+            /// <summary>
+            /// Enum IntrinsicValue for value: Intrinsic Value
+            /// </summary>
+            [EnumMember(Value = "Intrinsic Value")]
+            IntrinsicValue = 2,
+
+            /// <summary>
+            /// Enum FirstCall for value: First Call
+            /// </summary>
+            [EnumMember(Value = "First Call")]
+            FirstCall = 3,
+
+            /// <summary>
+            /// Enum FirstPar for value: First Par
+            /// </summary>
+            [EnumMember(Value = "First Par")]
+            FirstPar = 4
+
+        }
+
+        /// <summary>
+        /// Call Method
+        /// </summary>
+        /// <value>Call Method</value>
+        [DataMember(Name = "callMethod", EmitDefaultValue = false)]
+        public CallMethodEnum? CallMethod { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="FIJobSettings" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -42,11 +81,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="asOfDate">As of date (required).</param>
         /// <param name="partialDurationMonths">Partial duration months.</param>
-        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>))
+        /// <param name="callMethod">Call Method.</param>
+        /// <param name="settlement">Settlement Date.</param>
+        /// <param name="calcFromMethod">Calculation from method.</param>
+        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string))
         {
             // to ensure "asOfDate" is required (not null)
             this.AsOfDate = asOfDate ?? throw new ArgumentNullException("asOfDate is a required property for FIJobSettings and cannot be null");
             this.PartialDurationMonths = partialDurationMonths;
+            this.CallMethod = callMethod;
+            this.Settlement = settlement;
+            this.CalcFromMethod = calcFromMethod;
         }
 
         /// <summary>
@@ -64,6 +109,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public List<int> PartialDurationMonths { get; set; }
 
         /// <summary>
+        /// Settlement Date
+        /// </summary>
+        /// <value>Settlement Date</value>
+        [DataMember(Name = "settlement", EmitDefaultValue = false)]
+        public string Settlement { get; set; }
+
+        /// <summary>
+        /// Calculation from method
+        /// </summary>
+        /// <value>Calculation from method</value>
+        [DataMember(Name = "calcFromMethod", EmitDefaultValue = false)]
+        public string CalcFromMethod { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +132,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class FIJobSettings {\n");
             sb.Append("  AsOfDate: ").Append(AsOfDate).Append("\n");
             sb.Append("  PartialDurationMonths: ").Append(PartialDurationMonths).Append("\n");
+            sb.Append("  CallMethod: ").Append(CallMethod).Append("\n");
+            sb.Append("  Settlement: ").Append(Settlement).Append("\n");
+            sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,6 +179,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.PartialDurationMonths != null &&
                     input.PartialDurationMonths != null &&
                     this.PartialDurationMonths.SequenceEqual(input.PartialDurationMonths)
+                ) && 
+                (
+                    this.CallMethod == input.CallMethod ||
+                    this.CallMethod.Equals(input.CallMethod)
+                ) && 
+                (
+                    this.Settlement == input.Settlement ||
+                    (this.Settlement != null &&
+                    this.Settlement.Equals(input.Settlement))
+                ) && 
+                (
+                    this.CalcFromMethod == input.CalcFromMethod ||
+                    (this.CalcFromMethod != null &&
+                    this.CalcFromMethod.Equals(input.CalcFromMethod))
                 );
         }
 
@@ -133,6 +209,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.AsOfDate.GetHashCode();
                 if (this.PartialDurationMonths != null)
                     hashCode = hashCode * 59 + this.PartialDurationMonths.GetHashCode();
+                hashCode = hashCode * 59 + this.CallMethod.GetHashCode();
+                if (this.Settlement != null)
+                    hashCode = hashCode * 59 + this.Settlement.GetHashCode();
+                if (this.CalcFromMethod != null)
+                    hashCode = hashCode * 59 + this.CalcFromMethod.GetHashCode();
                 return hashCode;
             }
         }

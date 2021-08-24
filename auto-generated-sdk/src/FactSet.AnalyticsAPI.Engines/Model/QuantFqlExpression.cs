@@ -45,8 +45,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="type">type (required) (default to &quot;QuantFqlExpression&quot;).</param>
-        /// <param name="source">source.</param>
-        public QuantFqlExpression(string expr = default(string), string name = default(string), string type = "QuantFqlExpression", SourceEnum? source = default(SourceEnum?)) : base(type, source)
+        /// <param name="source">source (required).</param>
+        public QuantFqlExpression(string expr = default(string), string name = default(string), string type = "QuantFqlExpression", SourceEnum source = default(SourceEnum)) : base(type, source)
         {
             // to ensure "expr" is required (not null)
             this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");

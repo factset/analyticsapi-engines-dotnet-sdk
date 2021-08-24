@@ -43,8 +43,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantAllUniversalScreenParameters" /> class.
         /// </summary>
         /// <param name="type">type (required) (default to &quot;QuantAllUniversalScreenParameters&quot;).</param>
-        /// <param name="source">source.</param>
-        public QuantAllUniversalScreenParameters(string type = "QuantAllUniversalScreenParameters", SourceEnum? source = default(SourceEnum?)) : base(type, source)
+        /// <param name="source">source (required).</param>
+        public QuantAllUniversalScreenParameters(string type = "QuantAllUniversalScreenParameters", SourceEnum source = default(SourceEnum)) : base(type, source)
         {
         }
 

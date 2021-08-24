@@ -59,8 +59,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
-        public SourceEnum? Source { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantDate" /> class.
         /// </summary>
@@ -70,18 +70,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantDate" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        /// <param name="source">source.</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantDate(string type = default(string), SourceEnum? source = default(SourceEnum?), string frequency = default(string), string calendar = default(string))
+        public QuantDate(string type = default(string), SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for QuantDate and cannot be null");
+            this.Source = source;
             // to ensure "frequency" is required (not null)
             this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantDate and cannot be null");
             // to ensure "calendar" is required (not null)
             this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantDate and cannot be null");
-            this.Source = source;
         }
 
         /// <summary>

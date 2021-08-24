@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
-**Source** | **string** |  | [optional] 
+**Source** | **string** |  | 
 **Frequency** | **string** |  | 
 **Calendar** | **string** |  | 
 **StartDate** | **string** |  | 

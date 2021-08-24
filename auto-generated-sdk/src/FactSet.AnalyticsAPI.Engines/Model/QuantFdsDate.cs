@@ -45,10 +45,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="startDate">startDate (required).</param>
         /// <param name="endDate">endDate (required).</param>
         /// <param name="type">type (required) (default to &quot;QuantFdsDate&quot;).</param>
-        /// <param name="source">source.</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantFdsDate(string startDate = default(string), string endDate = default(string), string type = "QuantFdsDate", SourceEnum? source = default(SourceEnum?), string frequency = default(string), string calendar = default(string)) : base(type, source, frequency, calendar)
+        public QuantFdsDate(string startDate = default(string), string endDate = default(string), string type = "QuantFdsDate", SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string)) : base(type, source, frequency, calendar)
         {
             // to ensure "startDate" is required (not null)
             this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for QuantFdsDate and cannot be null");

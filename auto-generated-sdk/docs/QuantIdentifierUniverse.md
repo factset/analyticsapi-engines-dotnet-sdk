@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
-**Source** | **string** |  | [optional] 
+**Source** | **string** |  | 
 **UniverseType** | **string** |  | 
 **Identifiers** | **List&lt;string&gt;** |  | 
 

@@ -66,8 +66,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "source", EmitDefaultValue = false)]
-        public SourceEnum? Source { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniverse" /> class.
         /// </summary>
@@ -77,8 +77,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantUniverse" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        /// <param name="source">source.</param>
-        public QuantUniverse(string type = default(string), SourceEnum? source = default(SourceEnum?))
+        /// <param name="source">source (required).</param>
+        public QuantUniverse(string type = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for QuantUniverse and cannot be null");

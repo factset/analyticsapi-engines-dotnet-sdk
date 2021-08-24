@@ -44,10 +44,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="dates">dates.</param>
         /// <param name="type">type (required) (default to &quot;QuantDateList&quot;).</param>
-        /// <param name="source">source.</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantDateList(List<string> dates = default(List<string>), string type = "QuantDateList", SourceEnum? source = default(SourceEnum?), string frequency = default(string), string calendar = default(string)) : base(type, source, frequency, calendar)
+        public QuantDateList(List<string> dates = default(List<string>), string type = "QuantDateList", SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string)) : base(type, source, frequency, calendar)
         {
             this.Dates = dates;
         }

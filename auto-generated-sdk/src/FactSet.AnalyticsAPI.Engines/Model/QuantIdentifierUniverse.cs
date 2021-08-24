@@ -70,8 +70,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universeType">universeType (required).</param>
         /// <param name="identifiers">identifiers (required).</param>
         /// <param name="type">type (required) (default to &quot;QuantIdentifierUniverse&quot;).</param>
-        /// <param name="source">source.</param>
-        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>), string type = "QuantIdentifierUniverse", SourceEnum? source = default(SourceEnum?)) : base(type, source)
+        /// <param name="source">source (required).</param>
+        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>), string type = "QuantIdentifierUniverse", SourceEnum source = default(SourceEnum)) : base(type, source)
         {
             this.UniverseType = universeType;
             // to ensure "identifiers" is required (not null)

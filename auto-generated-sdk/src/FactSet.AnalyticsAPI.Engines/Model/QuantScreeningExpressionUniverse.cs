@@ -71,8 +71,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universeType">universeType (required).</param>
         /// <param name="securityExpr">securityExpr.</param>
         /// <param name="type">type (required) (default to &quot;QuantScreeningExpressionUniverse&quot;).</param>
-        /// <param name="source">source.</param>
-        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), string type = "QuantScreeningExpressionUniverse", SourceEnum? source = default(SourceEnum?)) : base(type, source)
+        /// <param name="source">source (required).</param>
+        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), string type = "QuantScreeningExpressionUniverse", SourceEnum source = default(SourceEnum)) : base(type, source)
         {
             // to ensure "universeExpr" is required (not null)
             this.UniverseExpr = universeExpr ?? throw new ArgumentNullException("universeExpr is a required property for QuantScreeningExpressionUniverse and cannot be null");

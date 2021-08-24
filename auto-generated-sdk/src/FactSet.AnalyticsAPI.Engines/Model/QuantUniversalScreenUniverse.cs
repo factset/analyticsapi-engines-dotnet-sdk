@@ -44,8 +44,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="screen">screen (required).</param>
         /// <param name="type">type (required) (default to &quot;QuantUniversalScreenUniverse&quot;).</param>
-        /// <param name="source">source.</param>
-        public QuantUniversalScreenUniverse(string screen = default(string), string type = "QuantUniversalScreenUniverse", SourceEnum? source = default(SourceEnum?)) : base(type, source)
+        /// <param name="source">source (required).</param>
+        public QuantUniversalScreenUniverse(string screen = default(string), string type = "QuantUniversalScreenUniverse", SourceEnum source = default(SourceEnum)) : base(type, source)
         {
             // to ensure "screen" is required (not null)
             this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverse and cannot be null");

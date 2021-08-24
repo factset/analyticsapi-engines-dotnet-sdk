@@ -45,8 +45,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="referenceName">referenceName (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="type">type (required) (default to &quot;QuantUniversalScreenParameter&quot;).</param>
-        /// <param name="source">source.</param>
-        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string), string type = "QuantUniversalScreenParameter", SourceEnum? source = default(SourceEnum?)) : base(type, source)
+        /// <param name="source">source (required).</param>
+        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string), string type = "QuantUniversalScreenParameter", SourceEnum source = default(SourceEnum)) : base(type, source)
         {
             // to ensure "referenceName" is required (not null)
             this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameter and cannot be null");

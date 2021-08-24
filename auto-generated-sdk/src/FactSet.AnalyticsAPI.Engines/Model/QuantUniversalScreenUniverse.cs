@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -30,7 +31,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// QuantUniversalScreenUniverse
     /// </summary>
     [DataContract(Name = "QuantUniversalScreenUniverse")]
-    public partial class QuantUniversalScreenUniverse : IEquatable<QuantUniversalScreenUniverse>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    public partial class QuantUniversalScreenUniverse : QuantUniverse, IEquatable<QuantUniversalScreenUniverse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
@@ -41,7 +43,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
         /// <param name="screen">screen (required).</param>
-        public QuantUniversalScreenUniverse(string screen = default(string))
+        /// <param name="type">type (required) (default to &quot;QuantUniversalScreenUniverse&quot;).</param>
+        /// <param name="source">source.</param>
+        public QuantUniversalScreenUniverse(string screen = default(string), string type = "QuantUniversalScreenUniverse", SourceEnum? source = default(SourceEnum?)) : base(type, source)
         {
             // to ensure "screen" is required (not null)
             this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverse and cannot be null");
@@ -61,6 +65,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantUniversalScreenUniverse {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Screen: ").Append(Screen).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -70,7 +75,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -95,7 +100,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
                     this.Screen == input.Screen ||
                     (this.Screen != null &&
@@ -111,7 +116,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.Screen != null)
                     hashCode = hashCode * 59 + this.Screen.GetHashCode();
                 return hashCode;
@@ -125,6 +130,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

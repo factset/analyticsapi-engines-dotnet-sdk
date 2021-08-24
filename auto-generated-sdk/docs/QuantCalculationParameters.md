@@ -4,14 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScreeningExpressionUniverse** | [**QuantScreeningExpressionUniverse**](QuantScreeningExpressionUniverse.md) |  | [optional] 
-**UniversalScreenUniverse** | [**QuantUniversalScreenUniverse**](QuantUniversalScreenUniverse.md) |  | [optional] 
-**IdentifierUniverse** | [**QuantIdentifierUniverse**](QuantIdentifierUniverse.md) |  | [optional] 
-**FdsDate** | [**QuantFdsDate**](QuantFdsDate.md) |  | [optional] 
-**DateList** | [**QuantDateList**](QuantDateList.md) |  | [optional] 
-**ScreeningExpression** | [**List&lt;QuantScreeningExpression&gt;**](QuantScreeningExpression.md) |  | [optional] 
-**FqlExpression** | [**List&lt;QuantFqlExpression&gt;**](QuantFqlExpression.md) |  | [optional] 
-**UniversalScreenParameter** | [**List&lt;QuantUniversalScreenParameter&gt;**](QuantUniversalScreenParameter.md) |  | [optional] 
+**Universe** | [**OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse**](OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse.md) |  | [optional] 
+**QuantDate** | [**OneOfQuantFdsDateQuantDateList**](OneOfQuantFdsDateQuantDateList.md) |  | [optional] 
+**QuantFormula** | [**OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters**](OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters.md) |  | [optional] 
+**ScreeningExpressionUniverse** | [**QuantScreeningExpressionUniverse1**](QuantScreeningExpressionUniverse1.md) |  | [optional] 
+**UniversalScreenUniverse** | [**QuantUniversalScreenUniverse1**](QuantUniversalScreenUniverse1.md) |  | [optional] 
+**IdentifierUniverse** | [**QuantIdentifierUniverse1**](QuantIdentifierUniverse1.md) |  | [optional] 
+**FdsDate** | [**QuantFdsDate1**](QuantFdsDate1.md) |  | [optional] 
+**DateList** | [**QuantDateList1**](QuantDateList1.md) |  | [optional] 
+**ScreeningExpression** | [**List&lt;QuantScreeningExpression1&gt;**](QuantScreeningExpression1.md) |  | [optional] 
+**FqlExpression** | [**List&lt;QuantFqlExpression1&gt;**](QuantFqlExpression1.md) |  | [optional] 
+**UniversalScreenParameter** | [**List&lt;QuantUniversalScreenParameter1&gt;**](QuantUniversalScreenParameter1.md) |  | [optional] 
 **AllUniversalScreenParameters** | **List&lt;Object&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

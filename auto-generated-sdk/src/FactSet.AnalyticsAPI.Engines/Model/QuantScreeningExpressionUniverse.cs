@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -30,7 +31,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// QuantScreeningExpressionUniverse
     /// </summary>
     [DataContract(Name = "QuantScreeningExpressionUniverse")]
-    public partial class QuantScreeningExpressionUniverse : IEquatable<QuantScreeningExpressionUniverse>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    public partial class QuantScreeningExpressionUniverse : QuantUniverse, IEquatable<QuantScreeningExpressionUniverse>, IValidatableObject
     {
         /// <summary>
         /// Defines UniverseType
@@ -68,7 +70,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universeExpr">universeExpr (required).</param>
         /// <param name="universeType">universeType (required).</param>
         /// <param name="securityExpr">securityExpr.</param>
-        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string))
+        /// <param name="type">type (required) (default to &quot;QuantScreeningExpressionUniverse&quot;).</param>
+        /// <param name="source">source.</param>
+        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), string type = "QuantScreeningExpressionUniverse", SourceEnum? source = default(SourceEnum?)) : base(type, source)
         {
             // to ensure "universeExpr" is required (not null)
             this.UniverseExpr = universeExpr ?? throw new ArgumentNullException("universeExpr is a required property for QuantScreeningExpressionUniverse and cannot be null");
@@ -85,7 +89,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets SecurityExpr
         /// </summary>
-        [DataMember(Name = "securityExpr", EmitDefaultValue = false)]
+        [DataMember(Name = "securityExpr", EmitDefaultValue = true)]
         public string SecurityExpr { get; set; }
 
         /// <summary>
@@ -96,6 +100,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantScreeningExpressionUniverse {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  UniverseExpr: ").Append(UniverseExpr).Append("\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  SecurityExpr: ").Append(SecurityExpr).Append("\n");
@@ -107,7 +112,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -132,16 +137,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
                     this.UniverseExpr == input.UniverseExpr ||
                     (this.UniverseExpr != null &&
                     this.UniverseExpr.Equals(input.UniverseExpr))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.UniverseType == input.UniverseType ||
                     this.UniverseType.Equals(input.UniverseType)
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.SecurityExpr == input.SecurityExpr ||
                     (this.SecurityExpr != null &&
@@ -157,7 +162,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.UniverseExpr != null)
                     hashCode = hashCode * 59 + this.UniverseExpr.GetHashCode();
                 hashCode = hashCode * 59 + this.UniverseType.GetHashCode();
@@ -174,6 +179,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | **string** |  | 
+**Source** | **string** |  | [optional] 
 **UniverseExpr** | **string** |  | 
 **UniverseType** | **string** |  | 
 **SecurityExpr** | **string** |  | [optional] 

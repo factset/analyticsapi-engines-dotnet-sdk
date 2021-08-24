@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | **string** |  | 
+**Source** | **string** |  | [optional] 
 **Expr** | **string** |  | 
 **Name** | **string** |  | 
 

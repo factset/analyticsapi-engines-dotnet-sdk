@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -30,7 +31,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// QuantFqlExpression
     /// </summary>
     [DataContract(Name = "QuantFqlExpression")]
-    public partial class QuantFqlExpression : IEquatable<QuantFqlExpression>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    public partial class QuantFqlExpression : QuantFormula, IEquatable<QuantFqlExpression>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantFqlExpression" /> class.
@@ -42,7 +44,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
-        public QuantFqlExpression(string expr = default(string), string name = default(string))
+        /// <param name="type">type (required) (default to &quot;QuantFqlExpression&quot;).</param>
+        /// <param name="source">source.</param>
+        public QuantFqlExpression(string expr = default(string), string name = default(string), string type = "QuantFqlExpression", SourceEnum? source = default(SourceEnum?)) : base(type, source)
         {
             // to ensure "expr" is required (not null)
             this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
@@ -70,6 +74,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantFqlExpression {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
@@ -80,7 +85,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -105,12 +110,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
                     this.Expr == input.Expr ||
                     (this.Expr != null &&
                     this.Expr.Equals(input.Expr))
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -126,7 +131,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.Expr != null)
                     hashCode = hashCode * 59 + this.Expr.GetHashCode();
                 if (this.Name != null)
@@ -142,6 +147,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

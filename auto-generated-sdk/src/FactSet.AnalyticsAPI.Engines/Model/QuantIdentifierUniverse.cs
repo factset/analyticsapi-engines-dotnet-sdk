@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -30,7 +31,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// QuantIdentifierUniverse
     /// </summary>
     [DataContract(Name = "QuantIdentifierUniverse")]
-    public partial class QuantIdentifierUniverse : IEquatable<QuantIdentifierUniverse>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    public partial class QuantIdentifierUniverse : QuantUniverse, IEquatable<QuantIdentifierUniverse>, IValidatableObject
     {
         /// <summary>
         /// Defines UniverseType
@@ -67,7 +69,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="universeType">universeType (required).</param>
         /// <param name="identifiers">identifiers (required).</param>
-        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>))
+        /// <param name="type">type (required) (default to &quot;QuantIdentifierUniverse&quot;).</param>
+        /// <param name="source">source.</param>
+        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>), string type = "QuantIdentifierUniverse", SourceEnum? source = default(SourceEnum?)) : base(type, source)
         {
             this.UniverseType = universeType;
             // to ensure "identifiers" is required (not null)
@@ -88,6 +92,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantIdentifierUniverse {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("}\n");
@@ -98,7 +103,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -123,11 +128,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
                     this.UniverseType == input.UniverseType ||
                     this.UniverseType.Equals(input.UniverseType)
-                ) && 
+                ) && base.Equals(input) && 
                 (
                     this.Identifiers == input.Identifiers ||
                     this.Identifiers != null &&
@@ -144,7 +149,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 hashCode = hashCode * 59 + this.UniverseType.GetHashCode();
                 if (this.Identifiers != null)
                     hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
@@ -159,6 +164,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

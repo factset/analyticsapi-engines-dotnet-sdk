@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConverter;
 
@@ -30,7 +31,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     /// QuantDateList
     /// </summary>
     [DataContract(Name = "QuantDateList")]
-    public partial class QuantDateList : IEquatable<QuantDateList>, IValidatableObject
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    public partial class QuantDateList : QuantDate, IEquatable<QuantDateList>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantDateList" /> class.
@@ -41,34 +43,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         /// <param name="dates">dates.</param>
+        /// <param name="type">type (required) (default to &quot;QuantDateList&quot;).</param>
+        /// <param name="source">source.</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantDateList(List<string> dates = default(List<string>), string frequency = default(string), string calendar = default(string))
+        public QuantDateList(List<string> dates = default(List<string>), string type = "QuantDateList", SourceEnum? source = default(SourceEnum?), string frequency = default(string), string calendar = default(string)) : base(type, source, frequency, calendar)
         {
-            // to ensure "frequency" is required (not null)
-            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantDateList and cannot be null");
-            // to ensure "calendar" is required (not null)
-            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantDateList and cannot be null");
             this.Dates = dates;
         }
 
         /// <summary>
         /// Gets or Sets Dates
         /// </summary>
-        [DataMember(Name = "dates", EmitDefaultValue = false)]
+        [DataMember(Name = "dates", EmitDefaultValue = true)]
         public List<string> Dates { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Frequency
-        /// </summary>
-        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = false)]
-        public string Frequency { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Calendar
-        /// </summary>
-        [DataMember(Name = "calendar", IsRequired = true, EmitDefaultValue = false)]
-        public string Calendar { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,9 +66,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantDateList {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
-            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-            sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,7 +76,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
@@ -114,22 +101,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             if (input == null)
                 return false;
 
-            return 
+            return base.Equals(input) && 
                 (
                     this.Dates == input.Dates ||
                     this.Dates != null &&
                     input.Dates != null &&
                     this.Dates.SequenceEqual(input.Dates)
-                ) && 
-                (
-                    this.Frequency == input.Frequency ||
-                    (this.Frequency != null &&
-                    this.Frequency.Equals(input.Frequency))
-                ) && 
-                (
-                    this.Calendar == input.Calendar ||
-                    (this.Calendar != null &&
-                    this.Calendar.Equals(input.Calendar))
                 );
         }
 
@@ -141,13 +118,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hashCode = base.GetHashCode();
                 if (this.Dates != null)
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
-                if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
-                if (this.Calendar != null)
-                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
                 return hashCode;
             }
         }
@@ -159,6 +132,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
+            foreach(var x in BaseValidate(validationContext)) yield return x;
             yield break;
         }
     }

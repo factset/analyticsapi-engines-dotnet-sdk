@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.GroupsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getpagroups"></a>
 # **GetPAGroups**
-> StringGroupDictionaryObjectDataAndMetaModel GetPAGroups ()
+> GroupRoot GetPAGroups ()
 
 Get PA groups
 
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Get PA groups
-                StringGroupDictionaryObjectDataAndMetaModel result = apiInstance.GetPAGroups();
+                GroupRoot result = apiInstance.GetPAGroups();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StringGroupDictionaryObjectDataAndMetaModel**](StringGroupDictionaryObjectDataAndMetaModel.md)
+[**GroupRoot**](GroupRoot.md)
 
 ### Authorization
 

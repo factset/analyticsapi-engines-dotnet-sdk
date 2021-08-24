@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.FPOOptimizerApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -96,7 +96,7 @@ void (empty response body)
 
 <a name="getoptimizationparameters"></a>
 # **GetOptimizationParameters**
-> FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters GetOptimizationParameters (string id)
+> FPOOptimizationParametersRoot GetOptimizationParameters (string id)
 
 Get FPO optimization parameters by id
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -130,7 +130,7 @@ namespace Example
             try
             {
                 // Get FPO optimization parameters by id
-                FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters result = apiInstance.GetOptimizationParameters(id);
+                FPOOptimizationParametersRoot result = apiInstance.GetOptimizationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)
+[**FPOOptimizationParametersRoot**](FPOOptimizationParametersRoot.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationresult"></a>
 # **GetOptimizationResult**
-> ObjectObjectDataAndMetaModel GetOptimizationResult (string id, string accept = null)
+> ObjectRoot GetOptimizationResult (string id, string accept = null)
 
 Get FPO optimization result by id
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -214,7 +214,7 @@ namespace Example
             try
             {
                 // Get FPO optimization result by id
-                ObjectObjectDataAndMetaModel result = apiInstance.GetOptimizationResult(id, accept);
+                ObjectRoot result = apiInstance.GetOptimizationResult(id, accept);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationstatusbyid"></a>
 # **GetOptimizationStatusById**
-> ObjectObjectDataAndMetaModel GetOptimizationStatusById (string id)
+> ObjectRoot GetOptimizationStatusById (string id)
 
 Get FPO optimization status by id
 
@@ -285,7 +285,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -298,7 +298,7 @@ namespace Example
             try
             {
                 // Get FPO optimization status by id
-                ObjectObjectDataAndMetaModel result = apiInstance.GetOptimizationStatusById(id);
+                ObjectRoot result = apiInstance.GetOptimizationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="postandoptimize"></a>
 # **PostAndOptimize**
-> ObjectObjectDataAndMetaModel PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = null)
+> ObjectRoot PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersRoot fPOOptimizationParametersRoot = null)
 
 Create and Run FPO optimization
 
@@ -369,7 +369,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -379,12 +379,12 @@ namespace Example
             var apiInstance = new FPOOptimizerApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = new FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters(); // FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters | Optimization Parameters (optional) 
+            var fPOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Optimization Parameters (optional) 
 
             try
             {
                 // Create and Run FPO optimization
-                ObjectObjectDataAndMetaModel result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters);
+                ObjectRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -404,11 +404,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters** | [**FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)| Optimization Parameters | [optional] 
+ **fPOOptimizationParametersRoot** | [**FPOOptimizationParametersRoot**](FPOOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
 ### Return type
 
-[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 
@@ -438,7 +438,7 @@ Name | Type | Description  | Notes
 
 <a name="putandoptimize"></a>
 # **PutAndOptimize**
-> ObjectObjectDataAndMetaModel PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = null)
+> ObjectRoot PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FPOOptimizationParametersRoot fPOOptimizationParametersRoot = null)
 
 Create or Update FPO optimization and run it.
 
@@ -459,7 +459,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -470,12 +470,12 @@ namespace Example
             var id = id_example;  // string | from url, provided from the location header in the Create and Run FPO optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = new FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters(); // FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters | Optimization Parameters (optional) 
+            var fPOOptimizationParametersRoot = new FPOOptimizationParametersRoot(); // FPOOptimizationParametersRoot | Optimization Parameters (optional) 
 
             try
             {
                 // Create or Update FPO optimization and run it.
-                ObjectObjectDataAndMetaModel result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters);
+                ObjectRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, fPOOptimizationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -496,11 +496,11 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run FPO optimization endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **fPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters** | [**FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](FPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)| Optimization Parameters | [optional] 
+ **fPOOptimizationParametersRoot** | [**FPOOptimizationParametersRoot**](FPOOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
 ### Return type
 
-[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
+[**ObjectRoot**](ObjectRoot.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.BenchmarksApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getsparbenchmarkbyid"></a>
 # **GetSPARBenchmarkById**
-> SPARBenchmarkObjectDataAndMetaModel GetSPARBenchmarkById (string id)
+> SPARBenchmarkRoot GetSPARBenchmarkById (string id)
 
 Get SPAR benchmark details
 
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -43,7 +43,7 @@ namespace Example
             try
             {
                 // Get SPAR benchmark details
-                SPARBenchmarkObjectDataAndMetaModel result = apiInstance.GetSPARBenchmarkById(id);
+                SPARBenchmarkRoot result = apiInstance.GetSPARBenchmarkById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SPARBenchmarkObjectDataAndMetaModel**](SPARBenchmarkObjectDataAndMetaModel.md)
+[**SPARBenchmarkRoot**](SPARBenchmarkRoot.md)
 
 ### Authorization
 

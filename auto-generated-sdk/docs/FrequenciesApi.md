@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.FrequenciesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getpafrequencies"></a>
 # **GetPAFrequencies**
-> StringFrequencyDictionaryObjectDataAndMetaModel GetPAFrequencies ()
+> FrequencyRoot GetPAFrequencies ()
 
 Get PA frequencies
 
@@ -32,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Get PA frequencies
-                StringFrequencyDictionaryObjectDataAndMetaModel result = apiInstance.GetPAFrequencies();
+                FrequencyRoot result = apiInstance.GetPAFrequencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -63,7 +63,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StringFrequencyDictionaryObjectDataAndMetaModel**](StringFrequencyDictionaryObjectDataAndMetaModel.md)
+[**FrequencyRoot**](FrequencyRoot.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ This endpoint does not need any parameter.
 
 <a name="getsparfrequencies"></a>
 # **GetSPARFrequencies**
-> StringFrequencyDictionaryObjectDataAndMetaModel GetSPARFrequencies ()
+> FrequencyRoot GetSPARFrequencies ()
 
 Get SPAR frequencies
 
@@ -111,7 +111,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -123,7 +123,7 @@ namespace Example
             try
             {
                 // Get SPAR frequencies
-                StringFrequencyDictionaryObjectDataAndMetaModel result = apiInstance.GetSPARFrequencies();
+                FrequencyRoot result = apiInstance.GetSPARFrequencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -142,7 +142,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StringFrequencyDictionaryObjectDataAndMetaModel**](StringFrequencyDictionaryObjectDataAndMetaModel.md)
+[**FrequencyRoot**](FrequencyRoot.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ This endpoint does not need any parameter.
 
 <a name="getvaultfrequencies"></a>
 # **GetVaultFrequencies**
-> StringFrequencyDictionaryObjectDataAndMetaModel GetVaultFrequencies ()
+> FrequencyRoot GetVaultFrequencies ()
 
 Get Vault frequencies
 
@@ -190,7 +190,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -202,7 +202,7 @@ namespace Example
             try
             {
                 // Get Vault frequencies
-                StringFrequencyDictionaryObjectDataAndMetaModel result = apiInstance.GetVaultFrequencies();
+                FrequencyRoot result = apiInstance.GetVaultFrequencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -221,7 +221,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**StringFrequencyDictionaryObjectDataAndMetaModel**](StringFrequencyDictionaryObjectDataAndMetaModel.md)
+[**FrequencyRoot**](FrequencyRoot.md)
 
 ### Authorization
 

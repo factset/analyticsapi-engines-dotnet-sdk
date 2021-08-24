@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.DocumentsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getpa3documents"></a>
 # **GetPA3Documents**
-> DocumentDirectoriesObjectDataAndMetaModel GetPA3Documents (string path)
+> DocumentDirectoriesRoot GetPA3Documents (string path)
 
 Get PA3 documents and sub-directories in a directory
 
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -46,7 +46,7 @@ namespace Example
             try
             {
                 // Get PA3 documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetPA3Documents(path);
+                DocumentDirectoriesRoot result = apiInstance.GetPA3Documents(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 <a name="getpubdocuments"></a>
 # **GetPubDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetPubDocuments (string path)
+> DocumentDirectoriesRoot GetPubDocuments (string path)
 
 Gets Publisher documents and sub-directories in a directory
 
@@ -118,7 +118,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -131,7 +131,7 @@ namespace Example
             try
             {
                 // Gets Publisher documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetPubDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetPubDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 <a name="getspar3documents"></a>
 # **GetSPAR3Documents**
-> DocumentDirectoriesObjectDataAndMetaModel GetSPAR3Documents (string path)
+> DocumentDirectoriesRoot GetSPAR3Documents (string path)
 
 Gets SPAR3 documents and sub-directories in a directory
 
@@ -203,7 +203,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -216,7 +216,7 @@ namespace Example
             try
             {
                 // Gets SPAR3 documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetSPAR3Documents(path);
+                DocumentDirectoriesRoot result = apiInstance.GetSPAR3Documents(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 <a name="getvaultdocuments"></a>
 # **GetVaultDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetVaultDocuments (string path)
+> DocumentDirectoriesRoot GetVaultDocuments (string path)
 
 Get Vault documents and sub-directories in a directory
 
@@ -288,7 +288,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -301,7 +301,7 @@ namespace Example
             try
             {
                 // Get Vault documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetVaultDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetVaultDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 

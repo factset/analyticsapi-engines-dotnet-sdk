@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.PubCalculationsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -96,7 +96,7 @@ void (empty response body)
 
 <a name="getcalculationparameters"></a>
 # **GetCalculationParameters**
-> PubCalculationParametersPubCalculationMetaCalculationParameters GetCalculationParameters (string id)
+> PubCalculationParametersRoot GetCalculationParameters (string id)
 
 Get Pub calculation parameters by id
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -130,7 +130,7 @@ namespace Example
             try
             {
                 // Get Pub calculation parameters by id
-                PubCalculationParametersPubCalculationMetaCalculationParameters result = apiInstance.GetCalculationParameters(id);
+                PubCalculationParametersRoot result = apiInstance.GetCalculationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PubCalculationParametersPubCalculationMetaCalculationParameters**](PubCalculationParametersPubCalculationMetaCalculationParameters.md)
+[**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationstatusbyid"></a>
 # **GetCalculationStatusById**
-> CalculationStatusCalculationStatusMetaDataAndMetaModel GetCalculationStatusById (string id)
+> CalculationStatusRoot GetCalculationStatusById (string id)
 
 Get Pub calculation status by id
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -213,7 +213,7 @@ namespace Example
             try
             {
                 // Get Pub calculation status by id
-                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.GetCalculationStatusById(id);
+                CalculationStatusRoot result = apiInstance.GetCalculationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
+[**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="postandcalculate"></a>
 # **PostAndCalculate**
-> CalculationStatusCalculationStatusMetaDataAndMetaModel PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, PubCalculationParametersPubCalculationMetaCalculationParameters pubCalculationParametersPubCalculationMetaCalculationParameters = null)
+> CalculationStatusRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, PubCalculationParametersRoot pubCalculationParametersRoot = null)
 
 Create and Run Pub calculation
 
@@ -369,7 +369,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -379,12 +379,12 @@ namespace Example
             var apiInstance = new PubCalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var pubCalculationParametersPubCalculationMetaCalculationParameters = new PubCalculationParametersPubCalculationMetaCalculationParameters(); // PubCalculationParametersPubCalculationMetaCalculationParameters | Calculation Parameters (optional) 
+            var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run Pub calculation
-                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersPubCalculationMetaCalculationParameters);
+                CalculationStatusRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -404,11 +404,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **pubCalculationParametersPubCalculationMetaCalculationParameters** | [**PubCalculationParametersPubCalculationMetaCalculationParameters**](PubCalculationParametersPubCalculationMetaCalculationParameters.md)| Calculation Parameters | [optional] 
+ **pubCalculationParametersRoot** | [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
+[**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 ### Authorization
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 <a name="putandcalculate"></a>
 # **PutAndCalculate**
-> CalculationStatusCalculationStatusMetaDataAndMetaModel PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, PubCalculationParametersPubCalculationMetaCalculationParameters pubCalculationParametersPubCalculationMetaCalculationParameters = null)
+> CalculationStatusRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, PubCalculationParametersRoot pubCalculationParametersRoot = null)
 
 Create or Update Pub calculation and run it.
 
@@ -460,7 +460,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -471,12 +471,12 @@ namespace Example
             var id = id_example;  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var pubCalculationParametersPubCalculationMetaCalculationParameters = new PubCalculationParametersPubCalculationMetaCalculationParameters(); // PubCalculationParametersPubCalculationMetaCalculationParameters | Calculation Parameters (optional) 
+            var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update Pub calculation and run it.
-                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersPubCalculationMetaCalculationParameters);
+                CalculationStatusRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, pubCalculationParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -497,11 +497,11 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Pub calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **pubCalculationParametersPubCalculationMetaCalculationParameters** | [**PubCalculationParametersPubCalculationMetaCalculationParameters**](PubCalculationParametersPubCalculationMetaCalculationParameters.md)| Calculation Parameters | [optional] 
+ **pubCalculationParametersRoot** | [**PubCalculationParametersRoot**](PubCalculationParametersRoot.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
+[**CalculationStatusRoot**](CalculationStatusRoot.md)
 
 ### Authorization
 

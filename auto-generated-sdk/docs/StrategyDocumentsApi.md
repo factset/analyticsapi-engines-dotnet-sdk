@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.StrategyDocumentsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getaxiomaequitystrategydocuments"></a>
 # **GetAxiomaEquityStrategyDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetAxiomaEquityStrategyDocuments (string path)
+> DocumentDirectoriesRoot GetAxiomaEquityStrategyDocuments (string path)
 
 Get Axioma Equity strategy documents and sub-directories in a directory
 
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Get Axioma Equity strategy documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetAxiomaEquityStrategyDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetAxiomaEquityStrategyDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 <a name="getaxiomafistrategydocuments"></a>
 # **GetAxiomaFIStrategyDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetAxiomaFIStrategyDocuments (string path)
+> DocumentDirectoriesRoot GetAxiomaFIStrategyDocuments (string path)
 
 Get Axioma FI strategy documents and sub-directories in a directory
 
@@ -119,7 +119,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -132,7 +132,7 @@ namespace Example
             try
             {
                 // Get Axioma FI strategy documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetAxiomaFIStrategyDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetAxiomaFIStrategyDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 <a name="getbarrastrategydocuments"></a>
 # **GetBarraStrategyDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetBarraStrategyDocuments (string path)
+> DocumentDirectoriesRoot GetBarraStrategyDocuments (string path)
 
 Get Barra strategy documents and sub-directories in a directory
 
@@ -204,7 +204,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -217,7 +217,7 @@ namespace Example
             try
             {
                 // Get Barra strategy documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetBarraStrategyDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetBarraStrategyDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 <a name="getfpostrategydocuments"></a>
 # **GetFPOStrategyDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetFPOStrategyDocuments (string path)
+> DocumentDirectoriesRoot GetFPOStrategyDocuments (string path)
 
 Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
 
@@ -289,7 +289,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -302,7 +302,7 @@ namespace Example
             try
             {
                 // Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetFPOStrategyDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetFPOStrategyDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 <a name="getnorthfieldstrategydocuments"></a>
 # **GetNorthfieldStrategyDocuments**
-> DocumentDirectoriesObjectDataAndMetaModel GetNorthfieldStrategyDocuments (string path)
+> DocumentDirectoriesRoot GetNorthfieldStrategyDocuments (string path)
 
 Get Northfield strategy documents and sub-directories in a directory
 
@@ -374,7 +374,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -387,7 +387,7 @@ namespace Example
             try
             {
                 // Get Northfield strategy documents and sub-directories in a directory
-                DocumentDirectoriesObjectDataAndMetaModel result = apiInstance.GetNorthfieldStrategyDocuments(path);
+                DocumentDirectoriesRoot result = apiInstance.GetNorthfieldStrategyDocuments(path);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DocumentDirectoriesObjectDataAndMetaModel**](DocumentDirectoriesObjectDataAndMetaModel.md)
+[**DocumentDirectoriesRoot**](DocumentDirectoriesRoot.md)
 
 ### Authorization
 

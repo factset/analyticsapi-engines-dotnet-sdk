@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.DatesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="convertpadatestoabsoluteformat"></a>
 # **ConvertPADatesToAbsoluteFormat**
-> DateParametersSummaryObjectDataAndMetaModel ConvertPADatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
+> DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
 
 Convert PA dates to absolute format
 
@@ -31,7 +31,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Convert PA dates to absolute format
-                DateParametersSummaryObjectDataAndMetaModel result = apiInstance.ConvertPADatesToAbsoluteFormat(enddate, componentid, account, startdate);
+                DateParametersSummaryRoot result = apiInstance.ConvertPADatesToAbsoluteFormat(enddate, componentid, account, startdate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DateParametersSummaryObjectDataAndMetaModel**](DateParametersSummaryObjectDataAndMetaModel.md)
+[**DateParametersSummaryRoot**](DateParametersSummaryRoot.md)
 
 ### Authorization
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 <a name="convertvaultdatestoabsoluteformat"></a>
 # **ConvertVaultDatesToAbsoluteFormat**
-> DateParametersSummaryObjectDataAndMetaModel ConvertVaultDatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
+> DateParametersSummaryRoot ConvertVaultDatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
 
 Convert Vault dates to absolute format
 
@@ -122,7 +122,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
+            config.BasePath = "https://api.factset.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -138,7 +138,7 @@ namespace Example
             try
             {
                 // Convert Vault dates to absolute format
-                DateParametersSummaryObjectDataAndMetaModel result = apiInstance.ConvertVaultDatesToAbsoluteFormat(enddate, componentid, account, startdate);
+                DateParametersSummaryRoot result = apiInstance.ConvertVaultDatesToAbsoluteFormat(enddate, componentid, account, startdate);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DateParametersSummaryObjectDataAndMetaModel**](DateParametersSummaryObjectDataAndMetaModel.md)
+[**DateParametersSummaryRoot**](DateParametersSummaryRoot.md)
 
 ### Authorization
 

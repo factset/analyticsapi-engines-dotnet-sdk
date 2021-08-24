@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.FrequenciesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getpafrequencies"></a>
 # **GetPAFrequencies**
-> FrequencyRoot GetPAFrequencies ()
+> StringFrequencyDictionaryObjectDataAndMetaModel GetPAFrequencies ()
 
 Get PA frequencies
 
@@ -32,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Get PA frequencies
-                FrequencyRoot result = apiInstance.GetPAFrequencies();
+                StringFrequencyDictionaryObjectDataAndMetaModel result = apiInstance.GetPAFrequencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -63,7 +63,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FrequencyRoot**](FrequencyRoot.md)
+[**StringFrequencyDictionaryObjectDataAndMetaModel**](StringFrequencyDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ This endpoint does not need any parameter.
 
 <a name="getsparfrequencies"></a>
 # **GetSPARFrequencies**
-> FrequencyRoot GetSPARFrequencies ()
+> StringFrequencyDictionaryObjectDataAndMetaModel GetSPARFrequencies ()
 
 Get SPAR frequencies
 
@@ -111,7 +111,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -123,7 +123,7 @@ namespace Example
             try
             {
                 // Get SPAR frequencies
-                FrequencyRoot result = apiInstance.GetSPARFrequencies();
+                StringFrequencyDictionaryObjectDataAndMetaModel result = apiInstance.GetSPARFrequencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -142,7 +142,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FrequencyRoot**](FrequencyRoot.md)
+[**StringFrequencyDictionaryObjectDataAndMetaModel**](StringFrequencyDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ This endpoint does not need any parameter.
 
 <a name="getvaultfrequencies"></a>
 # **GetVaultFrequencies**
-> FrequencyRoot GetVaultFrequencies ()
+> StringFrequencyDictionaryObjectDataAndMetaModel GetVaultFrequencies ()
 
 Get Vault frequencies
 
@@ -190,7 +190,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -202,7 +202,7 @@ namespace Example
             try
             {
                 // Get Vault frequencies
-                FrequencyRoot result = apiInstance.GetVaultFrequencies();
+                StringFrequencyDictionaryObjectDataAndMetaModel result = apiInstance.GetVaultFrequencies();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -221,7 +221,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**FrequencyRoot**](FrequencyRoot.md)
+[**StringFrequencyDictionaryObjectDataAndMetaModel**](StringFrequencyDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

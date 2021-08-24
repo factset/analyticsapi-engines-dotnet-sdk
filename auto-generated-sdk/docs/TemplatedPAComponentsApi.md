@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.TemplatedPAComponentsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createtemplatedpacomponents"></a>
 # **CreateTemplatedPAComponents**
-> TemplatedPAComponentSummaryRoot CreateTemplatedPAComponents (TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot)
+> StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel CreateTemplatedPAComponents (TemplatedPAComponentParametersObjectDataAndMetaModel templatedPAComponentParametersObjectDataAndMetaModel)
 
 Create templated PA component
 
@@ -32,7 +32,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -40,12 +40,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
-            var templatedPAComponentParametersRoot = new TemplatedPAComponentParametersRoot(); // TemplatedPAComponentParametersRoot | Request Parameters
+            var templatedPAComponentParametersObjectDataAndMetaModel = new TemplatedPAComponentParametersObjectDataAndMetaModel(); // TemplatedPAComponentParametersObjectDataAndMetaModel | Request Parameters
 
             try
             {
                 // Create templated PA component
-                TemplatedPAComponentSummaryRoot result = apiInstance.CreateTemplatedPAComponents(templatedPAComponentParametersRoot);
+                StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel result = apiInstance.CreateTemplatedPAComponents(templatedPAComponentParametersObjectDataAndMetaModel);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -63,11 +63,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templatedPAComponentParametersRoot** | [**TemplatedPAComponentParametersRoot**](TemplatedPAComponentParametersRoot.md)| Request Parameters | 
+ **templatedPAComponentParametersObjectDataAndMetaModel** | [**TemplatedPAComponentParametersObjectDataAndMetaModel**](TemplatedPAComponentParametersObjectDataAndMetaModel.md)| Request Parameters | 
 
 ### Return type
 
-[**TemplatedPAComponentSummaryRoot**](TemplatedPAComponentSummaryRoot.md)
+[**StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel**](StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -180,7 +180,7 @@ void (empty response body)
 
 <a name="updatetemplatedpacomponents"></a>
 # **UpdateTemplatedPAComponents**
-> TemplatedPAComponentSummaryRoot UpdateTemplatedPAComponents (string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot)
+> StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel UpdateTemplatedPAComponents (string id, TemplatedPAComponentUpdateParametersObjectDataAndMetaModel templatedPAComponentUpdateParametersObjectDataAndMetaModel)
 
 Update templated PA component
 
@@ -201,7 +201,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -210,12 +210,12 @@ namespace Example
 
             var apiInstance = new TemplatedPAComponentsApi(config);
             var id = id_example;  // string | Unique identifier for a templated PA component
-            var templatedPAComponentUpdateParametersRoot = new TemplatedPAComponentUpdateParametersRoot(); // TemplatedPAComponentUpdateParametersRoot | Request Parameters
+            var templatedPAComponentUpdateParametersObjectDataAndMetaModel = new TemplatedPAComponentUpdateParametersObjectDataAndMetaModel(); // TemplatedPAComponentUpdateParametersObjectDataAndMetaModel | Request Parameters
 
             try
             {
                 // Update templated PA component
-                TemplatedPAComponentSummaryRoot result = apiInstance.UpdateTemplatedPAComponents(id, templatedPAComponentUpdateParametersRoot);
+                StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel result = apiInstance.UpdateTemplatedPAComponents(id, templatedPAComponentUpdateParametersObjectDataAndMetaModel);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -234,11 +234,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Unique identifier for a templated PA component | 
- **templatedPAComponentUpdateParametersRoot** | [**TemplatedPAComponentUpdateParametersRoot**](TemplatedPAComponentUpdateParametersRoot.md)| Request Parameters | 
+ **templatedPAComponentUpdateParametersObjectDataAndMetaModel** | [**TemplatedPAComponentUpdateParametersObjectDataAndMetaModel**](TemplatedPAComponentUpdateParametersObjectDataAndMetaModel.md)| Request Parameters | 
 
 ### Return type
 
-[**TemplatedPAComponentSummaryRoot**](TemplatedPAComponentSummaryRoot.md)
+[**StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel**](StringTemplatedPAComponentSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.QuantCalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -36,7 +36,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -97,7 +97,7 @@ void (empty response body)
 
 <a name="getcalculationparameters"></a>
 # **GetCalculationParameters**
-> QuantCalculationParametersRoot GetCalculationParameters (string id)
+> QuantCalculationParametersQuantCalculationMetaCalculationParameters GetCalculationParameters (string id)
 
 Get Quant Engine calculation parameters by id
 
@@ -118,7 +118,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -131,7 +131,7 @@ namespace Example
             try
             {
                 // Get Quant Engine calculation parameters by id
-                QuantCalculationParametersRoot result = apiInstance.GetCalculationParameters(id);
+                QuantCalculationParametersQuantCalculationMetaCalculationParameters result = apiInstance.GetCalculationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**QuantCalculationParametersRoot**](QuantCalculationParametersRoot.md)
+[**QuantCalculationParametersQuantCalculationMetaCalculationParameters**](QuantCalculationParametersQuantCalculationMetaCalculationParameters.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationstatusbyid"></a>
 # **GetCalculationStatusById**
-> CalculationStatusRoot GetCalculationStatusById (string id)
+> CalculationStatusCalculationStatusMetaDataAndMetaModel GetCalculationStatusById (string id)
 
 Get Quant Engine calculation status by id
 
@@ -201,7 +201,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -214,7 +214,7 @@ namespace Example
             try
             {
                 // Get Quant Engine calculation status by id
-                CalculationStatusRoot result = apiInstance.GetCalculationStatusById(id);
+                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.GetCalculationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -370,7 +370,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -434,7 +434,7 @@ Name | Type | Description  | Notes
 
 <a name="postandcalculate"></a>
 # **PostAndCalculate**
-> CalculationStatusRoot PostAndCalculate (string cacheControl = null, QuantCalculationParametersRoot quantCalculationParametersRoot = null)
+> CalculationStatusCalculationStatusMetaDataAndMetaModel PostAndCalculate (string cacheControl = null, QuantCalculationParametersQuantCalculationMetaCalculationParameters quantCalculationParametersQuantCalculationMetaCalculationParameters = null)
 
 Create and Run Quant Engine calculation
 
@@ -455,7 +455,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -464,12 +464,12 @@ namespace Example
 
             var apiInstance = new QuantCalculationsApi(config);
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
-            var quantCalculationParametersRoot = new QuantCalculationParametersRoot(); // QuantCalculationParametersRoot |  (optional) 
+            var quantCalculationParametersQuantCalculationMetaCalculationParameters = new QuantCalculationParametersQuantCalculationMetaCalculationParameters(); // QuantCalculationParametersQuantCalculationMetaCalculationParameters |  (optional) 
 
             try
             {
                 // Create and Run Quant Engine calculation
-                CalculationStatusRoot result = apiInstance.PostAndCalculate(cacheControl, quantCalculationParametersRoot);
+                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.PostAndCalculate(cacheControl, quantCalculationParametersQuantCalculationMetaCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -488,11 +488,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
- **quantCalculationParametersRoot** | [**QuantCalculationParametersRoot**](QuantCalculationParametersRoot.md)|  | [optional] 
+ **quantCalculationParametersQuantCalculationMetaCalculationParameters** | [**QuantCalculationParametersQuantCalculationMetaCalculationParameters**](QuantCalculationParametersQuantCalculationMetaCalculationParameters.md)|  | [optional] 
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
 
 ### Authorization
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 
 <a name="putandcalculate"></a>
 # **PutAndCalculate**
-> CalculationStatusRoot PutAndCalculate (string id, string cacheControl = null, QuantCalculationParametersRoot quantCalculationParametersRoot = null)
+> CalculationStatusCalculationStatusMetaDataAndMetaModel PutAndCalculate (string id, string cacheControl = null, QuantCalculationParametersQuantCalculationMetaCalculationParameters quantCalculationParametersQuantCalculationMetaCalculationParameters = null)
 
 Create or update Quant Engine calculation and run it.
 
@@ -544,7 +544,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -554,12 +554,12 @@ namespace Example
             var apiInstance = new QuantCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run Quant Engine calculation endpoint
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional) 
-            var quantCalculationParametersRoot = new QuantCalculationParametersRoot(); // QuantCalculationParametersRoot | Calculation Parameters (optional) 
+            var quantCalculationParametersQuantCalculationMetaCalculationParameters = new QuantCalculationParametersQuantCalculationMetaCalculationParameters(); // QuantCalculationParametersQuantCalculationMetaCalculationParameters | Calculation Parameters (optional) 
 
             try
             {
                 // Create or update Quant Engine calculation and run it.
-                CalculationStatusRoot result = apiInstance.PutAndCalculate(id, cacheControl, quantCalculationParametersRoot);
+                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.PutAndCalculate(id, cacheControl, quantCalculationParametersQuantCalculationMetaCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -579,11 +579,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run Quant Engine calculation endpoint | 
  **cacheControl** | **string**| Standard HTTP header.  Accepts no-store, max-age, max-stale. | [optional] 
- **quantCalculationParametersRoot** | [**QuantCalculationParametersRoot**](QuantCalculationParametersRoot.md)| Calculation Parameters | [optional] 
+ **quantCalculationParametersQuantCalculationMetaCalculationParameters** | [**QuantCalculationParametersQuantCalculationMetaCalculationParameters**](QuantCalculationParametersQuantCalculationMetaCalculationParameters.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
 
 ### Authorization
 

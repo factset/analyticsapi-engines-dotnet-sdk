@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.ColumnsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getpacolumnbyid"></a>
 # **GetPAColumnById**
-> ColumnRoot GetPAColumnById (string id)
+> ColumnObjectDataAndMetaModel GetPAColumnById (string id)
 
 Get PA column settings
 
@@ -31,7 +31,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Get PA column settings
-                ColumnRoot result = apiInstance.GetPAColumnById(id);
+                ColumnObjectDataAndMetaModel result = apiInstance.GetPAColumnById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ColumnRoot**](ColumnRoot.md)
+[**ColumnObjectDataAndMetaModel**](ColumnObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 <a name="getpacolumns"></a>
 # **GetPAColumns**
-> ColumnSummaryRoot GetPAColumns (string name = null, string category = null, string directory = null)
+> StringColumnSummaryDictionaryObjectDataAndMetaModel GetPAColumns (string name = null, string category = null, string directory = null)
 
 Get PA columns
 
@@ -116,7 +116,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -131,7 +131,7 @@ namespace Example
             try
             {
                 // Get PA columns
-                ColumnSummaryRoot result = apiInstance.GetPAColumns(name, category, directory);
+                StringColumnSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetPAColumns(name, category, directory);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ColumnSummaryRoot**](ColumnSummaryRoot.md)
+[**StringColumnSummaryDictionaryObjectDataAndMetaModel**](StringColumnSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

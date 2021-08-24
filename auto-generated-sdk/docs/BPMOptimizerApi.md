@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.BPMOptimizerApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -96,7 +96,7 @@ void (empty response body)
 
 <a name="getoptimizationparameters"></a>
 # **GetOptimizationParameters**
-> BPMOptimizationParametersRoot GetOptimizationParameters (string id)
+> BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters GetOptimizationParameters (string id)
 
 Get BPM optimization parameters by id
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -130,7 +130,7 @@ namespace Example
             try
             {
                 // Get BPM optimization parameters by id
-                BPMOptimizationParametersRoot result = apiInstance.GetOptimizationParameters(id);
+                BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters result = apiInstance.GetOptimizationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BPMOptimizationParametersRoot**](BPMOptimizationParametersRoot.md)
+[**BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationresult"></a>
 # **GetOptimizationResult**
-> ObjectRoot GetOptimizationResult (string id)
+> ObjectObjectDataAndMetaModel GetOptimizationResult (string id)
 
 Get BPM optimization result by id
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -213,7 +213,7 @@ namespace Example
             try
             {
                 // Get BPM optimization result by id
-                ObjectRoot result = apiInstance.GetOptimizationResult(id);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetOptimizationResult(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationstatusbyid"></a>
 # **GetOptimizationStatusById**
-> ObjectRoot GetOptimizationStatusById (string id)
+> ObjectObjectDataAndMetaModel GetOptimizationStatusById (string id)
 
 Get BPM optimization status by id
 
@@ -283,7 +283,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -296,7 +296,7 @@ namespace Example
             try
             {
                 // Get BPM optimization status by id
-                ObjectRoot result = apiInstance.GetOptimizationStatusById(id);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetOptimizationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 <a name="postandoptimize"></a>
 # **PostAndOptimize**
-> ObjectRoot PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, BPMOptimizationParametersRoot bPMOptimizationParametersRoot = null)
+> ObjectObjectDataAndMetaModel PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = null)
 
 Create and Run BPM optimization
 
@@ -367,7 +367,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -377,12 +377,12 @@ namespace Example
             var apiInstance = new BPMOptimizerApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var bPMOptimizationParametersRoot = new BPMOptimizationParametersRoot(); // BPMOptimizationParametersRoot | Optimization Parameters (optional) 
+            var bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = new BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters(); // BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters | Optimization Parameters (optional) 
 
             try
             {
                 // Create and Run BPM optimization
-                ObjectRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, bPMOptimizationParametersRoot);
+                ObjectObjectDataAndMetaModel result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -402,11 +402,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **bPMOptimizationParametersRoot** | [**BPMOptimizationParametersRoot**](BPMOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
+ **bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters** | [**BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)| Optimization Parameters | [optional] 
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 <a name="putandoptimize"></a>
 # **PutAndOptimize**
-> ObjectRoot PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, BPMOptimizationParametersRoot bPMOptimizationParametersRoot = null)
+> ObjectObjectDataAndMetaModel PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = null)
 
 Create or Update BPM optimization and run it.
 
@@ -457,7 +457,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -468,12 +468,12 @@ namespace Example
             var id = id_example;  // string | from url, provided from the location header in the Create and Run BPM optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var bPMOptimizationParametersRoot = new BPMOptimizationParametersRoot(); // BPMOptimizationParametersRoot | Optimization Parameters (optional) 
+            var bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = new BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters(); // BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters | Optimization Parameters (optional) 
 
             try
             {
                 // Create or Update BPM optimization and run it.
-                ObjectRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, bPMOptimizationParametersRoot);
+                ObjectObjectDataAndMetaModel result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -494,11 +494,11 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run BPM optimization endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **bPMOptimizationParametersRoot** | [**BPMOptimizationParametersRoot**](BPMOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
+ **bPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters** | [**BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](BPMOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)| Optimization Parameters | [optional] 
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 

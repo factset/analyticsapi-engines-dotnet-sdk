@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.VaultCalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -96,7 +96,7 @@ void (empty response body)
 
 <a name="getcalculationparameters"></a>
 # **GetCalculationParameters**
-> VaultCalculationParametersRoot GetCalculationParameters (string id)
+> VaultCalculationParametersCalculationMetaCalculationParameters GetCalculationParameters (string id)
 
 Get Vault calculation parameters by id
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -130,7 +130,7 @@ namespace Example
             try
             {
                 // Get Vault calculation parameters by id
-                VaultCalculationParametersRoot result = apiInstance.GetCalculationParameters(id);
+                VaultCalculationParametersCalculationMetaCalculationParameters result = apiInstance.GetCalculationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)
+[**VaultCalculationParametersCalculationMetaCalculationParameters**](VaultCalculationParametersCalculationMetaCalculationParameters.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationstatusbyid"></a>
 # **GetCalculationStatusById**
-> CalculationStatusRoot GetCalculationStatusById (string id)
+> CalculationStatusCalculationStatusMetaDataAndMetaModel GetCalculationStatusById (string id)
 
 Get Vault calculation status by id
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -213,7 +213,7 @@ namespace Example
             try
             {
                 // Get Vault calculation status by id
-                CalculationStatusRoot result = apiInstance.GetCalculationStatusById(id);
+                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.GetCalculationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationunitresultbyid"></a>
 # **GetCalculationUnitResultById**
-> ObjectRoot GetCalculationUnitResultById (string id, string unitId)
+> ObjectObjectDataAndMetaModel GetCalculationUnitResultById (string id, string unitId)
 
 Get Vault calculation result by id
 
@@ -284,7 +284,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -298,7 +298,7 @@ namespace Example
             try
             {
                 // Get Vault calculation result by id
-                ObjectRoot result = apiInstance.GetCalculationUnitResultById(id, unitId);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetCalculationUnitResultById(id, unitId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="postandcalculate"></a>
 # **PostAndCalculate**
-> CalculationStatusRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, VaultCalculationParametersRoot vaultCalculationParametersRoot = null)
+> CalculationStatusCalculationStatusMetaDataAndMetaModel PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, VaultCalculationParametersCalculationMetaCalculationParameters vaultCalculationParametersCalculationMetaCalculationParameters = null)
 
 Create and Run Vault calculation
 
@@ -369,7 +369,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -379,12 +379,12 @@ namespace Example
             var apiInstance = new VaultCalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
+            var vaultCalculationParametersCalculationMetaCalculationParameters = new VaultCalculationParametersCalculationMetaCalculationParameters(); // VaultCalculationParametersCalculationMetaCalculationParameters | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run Vault calculation
-                CalculationStatusRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
+                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersCalculationMetaCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -404,11 +404,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the POST body. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
+ **vaultCalculationParametersCalculationMetaCalculationParameters** | [**VaultCalculationParametersCalculationMetaCalculationParameters**](VaultCalculationParametersCalculationMetaCalculationParameters.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
 
 ### Authorization
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 <a name="putandcalculate"></a>
 # **PutAndCalculate**
-> CalculationStatusRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, VaultCalculationParametersRoot vaultCalculationParametersRoot = null)
+> CalculationStatusCalculationStatusMetaDataAndMetaModel PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, VaultCalculationParametersCalculationMetaCalculationParameters vaultCalculationParametersCalculationMetaCalculationParameters = null)
 
 Create or Update Vault calculation and run it.
 
@@ -460,7 +460,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -471,12 +471,12 @@ namespace Example
             var id = id_example;  // string | from url, provided from the location header in the Create and Run Vault calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var vaultCalculationParametersRoot = new VaultCalculationParametersRoot(); // VaultCalculationParametersRoot | Calculation Parameters (optional) 
+            var vaultCalculationParametersCalculationMetaCalculationParameters = new VaultCalculationParametersCalculationMetaCalculationParameters(); // VaultCalculationParametersCalculationMetaCalculationParameters | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update Vault calculation and run it.
-                CalculationStatusRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersRoot);
+                CalculationStatusCalculationStatusMetaDataAndMetaModel result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, vaultCalculationParametersCalculationMetaCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -497,11 +497,11 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run Vault calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds when only one unit is passed in the PUT body. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **vaultCalculationParametersRoot** | [**VaultCalculationParametersRoot**](VaultCalculationParametersRoot.md)| Calculation Parameters | [optional] 
+ **vaultCalculationParametersCalculationMetaCalculationParameters** | [**VaultCalculationParametersCalculationMetaCalculationParameters**](VaultCalculationParametersCalculationMetaCalculationParameters.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**CalculationStatusRoot**](CalculationStatusRoot.md)
+[**CalculationStatusCalculationStatusMetaDataAndMetaModel**](CalculationStatusCalculationStatusMetaDataAndMetaModel.md)
 
 ### Authorization
 

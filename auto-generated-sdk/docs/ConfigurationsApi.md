@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.ConfigurationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="getvaultconfigurationbyid"></a>
 # **GetVaultConfigurationById**
-> VaultConfigurationRoot GetVaultConfigurationById (string id)
+> VaultConfigurationObjectDataAndMetaModel GetVaultConfigurationById (string id)
 
 Get Vault configuration by id
 
@@ -31,7 +31,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // Get Vault configuration by id
-                VaultConfigurationRoot result = apiInstance.GetVaultConfigurationById(id);
+                VaultConfigurationObjectDataAndMetaModel result = apiInstance.GetVaultConfigurationById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VaultConfigurationRoot**](VaultConfigurationRoot.md)
+[**VaultConfigurationObjectDataAndMetaModel**](VaultConfigurationObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 <a name="getvaultconfigurations"></a>
 # **GetVaultConfigurations**
-> VaultConfigurationSummaryRoot GetVaultConfigurations (string account)
+> StringVaultConfigurationSummaryDictionaryObjectDataAndMetaModel GetVaultConfigurations (string account)
 
 Get Vault configurations
 
@@ -116,7 +116,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -129,7 +129,7 @@ namespace Example
             try
             {
                 // Get Vault configurations
-                VaultConfigurationSummaryRoot result = apiInstance.GetVaultConfigurations(account);
+                StringVaultConfigurationSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetVaultConfigurations(account);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VaultConfigurationSummaryRoot**](VaultConfigurationSummaryRoot.md)
+[**StringVaultConfigurationSummaryDictionaryObjectDataAndMetaModel**](StringVaultConfigurationSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Universe** | [**OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse**](OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse.md) |  | 
-**Dates** | [**OneOfQuantFdsDateQuantDateList**](OneOfQuantFdsDateQuantDateList.md) |  | 
-**Formulas** | [**List&lt;OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters&gt;**](OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters.md) |  | [optional] 
+**Dates** | [**OneOfQuantDateQuantFdsDateQuantDateList**](OneOfQuantDateQuantFdsDateQuantDateList.md) |  | 
+**Formulas** | [**List&lt;OneOfQuantFormulaQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters&gt;**](OneOfQuantFormulaQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters.md) |  | [optional] 
 **ScreeningExpressionUniverse** | [**QuantScreeningExpressionUniverse1**](QuantScreeningExpressionUniverse1.md) |  | [optional] 
 **UniversalScreenUniverse** | [**QuantUniversalScreenUniverse1**](QuantUniversalScreenUniverse1.md) |  | [optional] 
 **IdentifierUniverse** | [**QuantIdentifierUniverse1**](QuantIdentifierUniverse1.md) |  | [optional] 

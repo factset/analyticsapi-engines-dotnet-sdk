@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.ColumnStatisticsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getpacolumnstatistics"></a>
 # **GetPAColumnStatistics**
-> ColumnStatisticRoot GetPAColumnStatistics ()
+> StringColumnStatisticDictionaryObjectDataAndMetaModel GetPAColumnStatistics ()
 
 Get PA column statistics
 
@@ -30,7 +30,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Get PA column statistics
-                ColumnStatisticRoot result = apiInstance.GetPAColumnStatistics();
+                StringColumnStatisticDictionaryObjectDataAndMetaModel result = apiInstance.GetPAColumnStatistics();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ColumnStatisticRoot**](ColumnStatisticRoot.md)
+[**StringColumnStatisticDictionaryObjectDataAndMetaModel**](StringColumnStatisticDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

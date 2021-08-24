@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.LinkedPATemplatesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createlinkedpatemplates"></a>
 # **CreateLinkedPATemplates**
-> LinkedPATemplateSummaryRoot CreateLinkedPATemplates (LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
+> StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel CreateLinkedPATemplates (LinkedPATemplateParametersObjectDataAndMetaModel linkedPATemplateParametersObjectDataAndMetaModel)
 
 Create a linked PA template
 
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -42,12 +42,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var linkedPATemplateParametersRoot = new LinkedPATemplateParametersRoot(); // LinkedPATemplateParametersRoot | Request Parameters
+            var linkedPATemplateParametersObjectDataAndMetaModel = new LinkedPATemplateParametersObjectDataAndMetaModel(); // LinkedPATemplateParametersObjectDataAndMetaModel | Request Parameters
 
             try
             {
                 // Create a linked PA template
-                LinkedPATemplateSummaryRoot result = apiInstance.CreateLinkedPATemplates(linkedPATemplateParametersRoot);
+                StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel result = apiInstance.CreateLinkedPATemplates(linkedPATemplateParametersObjectDataAndMetaModel);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,11 +65,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **linkedPATemplateParametersRoot** | [**LinkedPATemplateParametersRoot**](LinkedPATemplateParametersRoot.md)| Request Parameters | 
+ **linkedPATemplateParametersObjectDataAndMetaModel** | [**LinkedPATemplateParametersObjectDataAndMetaModel**](LinkedPATemplateParametersObjectDataAndMetaModel.md)| Request Parameters | 
 
 ### Return type
 
-[**LinkedPATemplateSummaryRoot**](LinkedPATemplateSummaryRoot.md)
+[**StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel**](StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -182,7 +182,7 @@ void (empty response body)
 
 <a name="getlinkedpatemplates"></a>
 # **GetLinkedPATemplates**
-> LinkedPATemplateSummaryRoot GetLinkedPATemplates (string directory = null, string documentDirectory = null, string documentName = null)
+> StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel GetLinkedPATemplates (string directory = null, string documentDirectory = null, string documentName = null)
 
 Get linked PA templates
 
@@ -203,7 +203,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -218,7 +218,7 @@ namespace Example
             try
             {
                 // Get linked PA templates
-                LinkedPATemplateSummaryRoot result = apiInstance.GetLinkedPATemplates(directory, documentDirectory, documentName);
+                StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetLinkedPATemplates(directory, documentDirectory, documentName);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LinkedPATemplateSummaryRoot**](LinkedPATemplateSummaryRoot.md)
+[**StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel**](StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 <a name="getlinkedpatemplatesbyid"></a>
 # **GetLinkedPATemplatesById**
-> LinkedPATemplateRoot GetLinkedPATemplatesById (string id)
+> LinkedPATemplateObjectDataAndMetaModel GetLinkedPATemplatesById (string id)
 
 Get linked PA template by id
 
@@ -292,7 +292,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -305,7 +305,7 @@ namespace Example
             try
             {
                 // Get linked PA template by id
-                LinkedPATemplateRoot result = apiInstance.GetLinkedPATemplatesById(id);
+                LinkedPATemplateObjectDataAndMetaModel result = apiInstance.GetLinkedPATemplatesById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LinkedPATemplateRoot**](LinkedPATemplateRoot.md)
+[**LinkedPATemplateObjectDataAndMetaModel**](LinkedPATemplateObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 
 <a name="updatelinkedpatemplates"></a>
 # **UpdateLinkedPATemplates**
-> LinkedPATemplateSummaryRoot UpdateLinkedPATemplates (string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
+> StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel UpdateLinkedPATemplates (string id, LinkedPATemplateUpdateParametersObjectDataAndMetaModel linkedPATemplateUpdateParametersObjectDataAndMetaModel)
 
 Update a linked PA template
 
@@ -377,7 +377,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -386,12 +386,12 @@ namespace Example
 
             var apiInstance = new LinkedPATemplatesApi(config);
             var id = id_example;  // string | Unique identifier for a linked PA template
-            var linkedPATemplateUpdateParametersRoot = new LinkedPATemplateUpdateParametersRoot(); // LinkedPATemplateUpdateParametersRoot | Request Parameters
+            var linkedPATemplateUpdateParametersObjectDataAndMetaModel = new LinkedPATemplateUpdateParametersObjectDataAndMetaModel(); // LinkedPATemplateUpdateParametersObjectDataAndMetaModel | Request Parameters
 
             try
             {
                 // Update a linked PA template
-                LinkedPATemplateSummaryRoot result = apiInstance.UpdateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot);
+                StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel result = apiInstance.UpdateLinkedPATemplates(id, linkedPATemplateUpdateParametersObjectDataAndMetaModel);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -410,11 +410,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Unique identifier for a linked PA template | 
- **linkedPATemplateUpdateParametersRoot** | [**LinkedPATemplateUpdateParametersRoot**](LinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
+ **linkedPATemplateUpdateParametersObjectDataAndMetaModel** | [**LinkedPATemplateUpdateParametersObjectDataAndMetaModel**](LinkedPATemplateUpdateParametersObjectDataAndMetaModel.md)| Request Parameters | 
 
 ### Return type
 
-[**LinkedPATemplateSummaryRoot**](LinkedPATemplateSummaryRoot.md)
+[**StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel**](StringLinkedPATemplateSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

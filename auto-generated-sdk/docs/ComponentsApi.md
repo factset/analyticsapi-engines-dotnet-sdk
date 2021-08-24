@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.ComponentsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getpacomponentbyid"></a>
 # **GetPAComponentById**
-> PAComponentRoot GetPAComponentById (string id)
+> PAComponentObjectDataAndMetaModel GetPAComponentById (string id)
 
 Get PA component by id
 
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Get PA component by id
-                PAComponentRoot result = apiInstance.GetPAComponentById(id);
+                PAComponentObjectDataAndMetaModel result = apiInstance.GetPAComponentById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PAComponentRoot**](PAComponentRoot.md)
+[**PAComponentObjectDataAndMetaModel**](PAComponentObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 <a name="getpacomponents"></a>
 # **GetPAComponents**
-> ComponentSummaryRoot GetPAComponents (string document = null, string directory = null)
+> StringComponentSummaryDictionaryObjectDataAndMetaModel GetPAComponents (string document = null, string directory = null)
 
 Get PA components
 
@@ -119,7 +119,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -133,7 +133,7 @@ namespace Example
             try
             {
                 // Get PA components
-                ComponentSummaryRoot result = apiInstance.GetPAComponents(document, directory);
+                StringComponentSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetPAComponents(document, directory);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentSummaryRoot**](ComponentSummaryRoot.md)
+[**StringComponentSummaryDictionaryObjectDataAndMetaModel**](StringComponentSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 <a name="getsparcomponents"></a>
 # **GetSPARComponents**
-> ComponentSummaryRoot GetSPARComponents (string document)
+> StringComponentSummaryDictionaryObjectDataAndMetaModel GetSPARComponents (string document)
 
 Get SPAR components
 
@@ -206,7 +206,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -219,7 +219,7 @@ namespace Example
             try
             {
                 // Get SPAR components
-                ComponentSummaryRoot result = apiInstance.GetSPARComponents(document);
+                StringComponentSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetSPARComponents(document);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentSummaryRoot**](ComponentSummaryRoot.md)
+[**StringComponentSummaryDictionaryObjectDataAndMetaModel**](StringComponentSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 <a name="getvaultcomponentbyid"></a>
 # **GetVaultComponentById**
-> VaultComponentRoot GetVaultComponentById (string id)
+> VaultComponentObjectDataAndMetaModel GetVaultComponentById (string id)
 
 Get Vault component by id
 
@@ -291,7 +291,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -304,7 +304,7 @@ namespace Example
             try
             {
                 // Get Vault component by id
-                VaultComponentRoot result = apiInstance.GetVaultComponentById(id);
+                VaultComponentObjectDataAndMetaModel result = apiInstance.GetVaultComponentById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VaultComponentRoot**](VaultComponentRoot.md)
+[**VaultComponentObjectDataAndMetaModel**](VaultComponentObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 
 <a name="getvaultcomponents"></a>
 # **GetVaultComponents**
-> ComponentSummaryRoot GetVaultComponents (string document)
+> StringComponentSummaryDictionaryObjectDataAndMetaModel GetVaultComponents (string document)
 
 Get Vault components
 
@@ -376,7 +376,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -389,7 +389,7 @@ namespace Example
             try
             {
                 // Get Vault components
-                ComponentSummaryRoot result = apiInstance.GetVaultComponents(document);
+                StringComponentSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetVaultComponents(document);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ComponentSummaryRoot**](ComponentSummaryRoot.md)
+[**StringComponentSummaryDictionaryObjectDataAndMetaModel**](StringComponentSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

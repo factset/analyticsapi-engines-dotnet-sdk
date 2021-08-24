@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.UnlinkedPATemplatesApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="createunlinkedpatemplates"></a>
 # **CreateUnlinkedPATemplates**
-> UnlinkedPATemplateSummaryRoot CreateUnlinkedPATemplates (UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot)
+> StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel CreateUnlinkedPATemplates (UnlinkedPATemplateParametersObjectDataAndMetaModel unlinkedPATemplateParametersObjectDataAndMetaModel)
 
 Create unlinked PA template
 
@@ -36,7 +36,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -44,12 +44,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var unlinkedPATemplateParametersRoot = new UnlinkedPATemplateParametersRoot(); // UnlinkedPATemplateParametersRoot | Request Parameters
+            var unlinkedPATemplateParametersObjectDataAndMetaModel = new UnlinkedPATemplateParametersObjectDataAndMetaModel(); // UnlinkedPATemplateParametersObjectDataAndMetaModel | Request Parameters
 
             try
             {
                 // Create unlinked PA template
-                UnlinkedPATemplateSummaryRoot result = apiInstance.CreateUnlinkedPATemplates(unlinkedPATemplateParametersRoot);
+                StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel result = apiInstance.CreateUnlinkedPATemplates(unlinkedPATemplateParametersObjectDataAndMetaModel);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,11 +67,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **unlinkedPATemplateParametersRoot** | [**UnlinkedPATemplateParametersRoot**](UnlinkedPATemplateParametersRoot.md)| Request Parameters | 
+ **unlinkedPATemplateParametersObjectDataAndMetaModel** | [**UnlinkedPATemplateParametersObjectDataAndMetaModel**](UnlinkedPATemplateParametersObjectDataAndMetaModel.md)| Request Parameters | 
 
 ### Return type
 
-[**UnlinkedPATemplateSummaryRoot**](UnlinkedPATemplateSummaryRoot.md)
+[**StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel**](StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -120,7 +120,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -183,7 +183,7 @@ void (empty response body)
 
 <a name="getdefaultunlinkedpatemplatetypes"></a>
 # **GetDefaultUnlinkedPATemplateTypes**
-> UnlinkedPATemplateCategoryAndTypeRoot GetDefaultUnlinkedPATemplateTypes ()
+> StringUnlinkedPATemplateCategoryAndTypeDictionaryObjectDataAndMetaModel GetDefaultUnlinkedPATemplateTypes ()
 
 Get default unlinked PA template types.
 
@@ -204,7 +204,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -216,7 +216,7 @@ namespace Example
             try
             {
                 // Get default unlinked PA template types.
-                UnlinkedPATemplateCategoryAndTypeRoot result = apiInstance.GetDefaultUnlinkedPATemplateTypes();
+                StringUnlinkedPATemplateCategoryAndTypeDictionaryObjectDataAndMetaModel result = apiInstance.GetDefaultUnlinkedPATemplateTypes();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**UnlinkedPATemplateCategoryAndTypeRoot**](UnlinkedPATemplateCategoryAndTypeRoot.md)
+[**StringUnlinkedPATemplateCategoryAndTypeDictionaryObjectDataAndMetaModel**](StringUnlinkedPATemplateCategoryAndTypeDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ This endpoint does not need any parameter.
 
 <a name="getdetailstype"></a>
 # **GetDetailsType**
-> UnlinkedPATemplateCategoryAndTypeDetailsRoot GetDetailsType (string id)
+> UnlinkedPATemplateCategoryAndTypeDetailsObjectDataAndMetaModel GetDetailsType (string id)
 
 Get unlinked PA template type details by id.
 
@@ -283,7 +283,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -296,7 +296,7 @@ namespace Example
             try
             {
                 // Get unlinked PA template type details by id.
-                UnlinkedPATemplateCategoryAndTypeDetailsRoot result = apiInstance.GetDetailsType(id);
+                UnlinkedPATemplateCategoryAndTypeDetailsObjectDataAndMetaModel result = apiInstance.GetDetailsType(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnlinkedPATemplateCategoryAndTypeDetailsRoot**](UnlinkedPATemplateCategoryAndTypeDetailsRoot.md)
+[**UnlinkedPATemplateCategoryAndTypeDetailsObjectDataAndMetaModel**](UnlinkedPATemplateCategoryAndTypeDetailsObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 <a name="getunlinkedpatemplates"></a>
 # **GetUnlinkedPATemplates**
-> UnlinkedPATemplateSummaryRoot GetUnlinkedPATemplates (string directory = null, string category = null)
+> StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel GetUnlinkedPATemplates (string directory = null, string category = null)
 
 Get unlinked PA templates
 
@@ -368,7 +368,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -382,7 +382,7 @@ namespace Example
             try
             {
                 // Get unlinked PA templates
-                UnlinkedPATemplateSummaryRoot result = apiInstance.GetUnlinkedPATemplates(directory, category);
+                StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel result = apiInstance.GetUnlinkedPATemplates(directory, category);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnlinkedPATemplateSummaryRoot**](UnlinkedPATemplateSummaryRoot.md)
+[**StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel**](StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 <a name="getunlinkedpatemplatesbyid"></a>
 # **GetUnlinkedPATemplatesById**
-> UnlinkedPATemplateRoot GetUnlinkedPATemplatesById (string id)
+> UnlinkedPATemplateObjectDataAndMetaModel GetUnlinkedPATemplatesById (string id)
 
 Get unlinked PA template details by id
 
@@ -454,7 +454,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -467,7 +467,7 @@ namespace Example
             try
             {
                 // Get unlinked PA template details by id
-                UnlinkedPATemplateRoot result = apiInstance.GetUnlinkedPATemplatesById(id);
+                UnlinkedPATemplateObjectDataAndMetaModel result = apiInstance.GetUnlinkedPATemplatesById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnlinkedPATemplateRoot**](UnlinkedPATemplateRoot.md)
+[**UnlinkedPATemplateObjectDataAndMetaModel**](UnlinkedPATemplateObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 <a name="updateunlinkedpatemplates"></a>
 # **UpdateUnlinkedPATemplates**
-> UnlinkedPATemplateSummaryRoot UpdateUnlinkedPATemplates (string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot)
+> StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel UpdateUnlinkedPATemplates (string id, UnlinkedPATemplateUpdateParametersObjectDataAndMetaModel unlinkedPATemplateUpdateParametersObjectDataAndMetaModel)
 
 Update unlinked PA template
 
@@ -539,7 +539,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -548,12 +548,12 @@ namespace Example
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
             var id = id_example;  // string | Unique identifier for an unlinked PA template
-            var unlinkedPATemplateUpdateParametersRoot = new UnlinkedPATemplateUpdateParametersRoot(); // UnlinkedPATemplateUpdateParametersRoot | Request Parameters
+            var unlinkedPATemplateUpdateParametersObjectDataAndMetaModel = new UnlinkedPATemplateUpdateParametersObjectDataAndMetaModel(); // UnlinkedPATemplateUpdateParametersObjectDataAndMetaModel | Request Parameters
 
             try
             {
                 // Update unlinked PA template
-                UnlinkedPATemplateSummaryRoot result = apiInstance.UpdateUnlinkedPATemplates(id, unlinkedPATemplateUpdateParametersRoot);
+                StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel result = apiInstance.UpdateUnlinkedPATemplates(id, unlinkedPATemplateUpdateParametersObjectDataAndMetaModel);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -572,11 +572,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Unique identifier for an unlinked PA template | 
- **unlinkedPATemplateUpdateParametersRoot** | [**UnlinkedPATemplateUpdateParametersRoot**](UnlinkedPATemplateUpdateParametersRoot.md)| Request Parameters | 
+ **unlinkedPATemplateUpdateParametersObjectDataAndMetaModel** | [**UnlinkedPATemplateUpdateParametersObjectDataAndMetaModel**](UnlinkedPATemplateUpdateParametersObjectDataAndMetaModel.md)| Request Parameters | 
 
 ### Return type
 
-[**UnlinkedPATemplateSummaryRoot**](UnlinkedPATemplateSummaryRoot.md)
+[**StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel**](StringUnlinkedPATemplateSummaryDictionaryObjectDataAndMetaModel.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.FICalculationsApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -96,7 +96,7 @@ void (empty response body)
 
 <a name="getcalculationparameters"></a>
 # **GetCalculationParameters**
-> FICalculationParametersRoot GetCalculationParameters (string id)
+> FICalculationParametersCalculationMetaInteractiveCalculationParameters GetCalculationParameters (string id)
 
 Get FI calculation parameters by id
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -130,7 +130,7 @@ namespace Example
             try
             {
                 // Get FI calculation parameters by id
-                FICalculationParametersRoot result = apiInstance.GetCalculationParameters(id);
+                FICalculationParametersCalculationMetaInteractiveCalculationParameters result = apiInstance.GetCalculationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FICalculationParametersRoot**](FICalculationParametersRoot.md)
+[**FICalculationParametersCalculationMetaInteractiveCalculationParameters**](FICalculationParametersCalculationMetaInteractiveCalculationParameters.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationresult"></a>
 # **GetCalculationResult**
-> ObjectRoot GetCalculationResult (string id)
+> ObjectObjectDataAndMetaModel GetCalculationResult (string id)
 
 Get FI calculation result by id
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -213,7 +213,7 @@ namespace Example
             try
             {
                 // Get FI calculation result by id
-                ObjectRoot result = apiInstance.GetCalculationResult(id);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetCalculationResult(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 <a name="getcalculationstatusbyid"></a>
 # **GetCalculationStatusById**
-> ObjectRoot GetCalculationStatusById (string id)
+> ObjectObjectDataAndMetaModel GetCalculationStatusById (string id)
 
 Get FI calculation status by id
 
@@ -283,7 +283,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -296,7 +296,7 @@ namespace Example
             try
             {
                 // Get FI calculation status by id
-                ObjectRoot result = apiInstance.GetCalculationStatusById(id);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetCalculationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 <a name="postandcalculate"></a>
 # **PostAndCalculate**
-> ObjectRoot PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersRoot fICalculationParametersRoot = null)
+> ObjectObjectDataAndMetaModel PostAndCalculate (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersCalculationMetaInteractiveCalculationParameters fICalculationParametersCalculationMetaInteractiveCalculationParameters = null)
 
 Create and Run FI calculation
 
@@ -367,7 +367,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -377,12 +377,12 @@ namespace Example
             var apiInstance = new FICalculationsApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
+            var fICalculationParametersCalculationMetaInteractiveCalculationParameters = new FICalculationParametersCalculationMetaInteractiveCalculationParameters(); // FICalculationParametersCalculationMetaInteractiveCalculationParameters | Calculation Parameters (optional) 
 
             try
             {
                 // Create and Run FI calculation
-                ObjectRoot result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersRoot);
+                ObjectObjectDataAndMetaModel result = apiInstance.PostAndCalculate(xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersCalculationMetaInteractiveCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -402,11 +402,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
+ **fICalculationParametersCalculationMetaInteractiveCalculationParameters** | [**FICalculationParametersCalculationMetaInteractiveCalculationParameters**](FICalculationParametersCalculationMetaInteractiveCalculationParameters.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 <a name="putandcalculate"></a>
 # **PutAndCalculate**
-> ObjectRoot PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersRoot fICalculationParametersRoot = null)
+> ObjectObjectDataAndMetaModel PutAndCalculate (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, FICalculationParametersCalculationMetaInteractiveCalculationParameters fICalculationParametersCalculationMetaInteractiveCalculationParameters = null)
 
 Create or Update FI calculation and run it.
 
@@ -457,7 +457,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -468,12 +468,12 @@ namespace Example
             var id = id_example;  // string | from url, provided from the location header in the Create and Run FI calculation endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var fICalculationParametersRoot = new FICalculationParametersRoot(); // FICalculationParametersRoot | Calculation Parameters (optional) 
+            var fICalculationParametersCalculationMetaInteractiveCalculationParameters = new FICalculationParametersCalculationMetaInteractiveCalculationParameters(); // FICalculationParametersCalculationMetaInteractiveCalculationParameters | Calculation Parameters (optional) 
 
             try
             {
                 // Create or Update FI calculation and run it.
-                ObjectRoot result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersRoot);
+                ObjectObjectDataAndMetaModel result = apiInstance.PutAndCalculate(id, xFactSetApiLongRunningDeadline, cacheControl, fICalculationParametersCalculationMetaInteractiveCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -494,11 +494,11 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run FI calculation endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **fICalculationParametersRoot** | [**FICalculationParametersRoot**](FICalculationParametersRoot.md)| Calculation Parameters | [optional] 
+ **fICalculationParametersCalculationMetaInteractiveCalculationParameters** | [**FICalculationParametersCalculationMetaInteractiveCalculationParameters**](FICalculationParametersCalculationMetaInteractiveCalculationParameters.md)| Calculation Parameters | [optional] 
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 

@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** |  | 
+**Dates** | **List&lt;string&gt;** |  | [optional] 
 **Source** | **string** |  | 
 **Frequency** | **string** |  | 
 **Calendar** | **string** |  | 
-**Dates** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 # FactSet.AnalyticsAPI.Engines.Api.NPOOptimizerApi
 
-All URIs are relative to *https://api.factset.com*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,7 +35,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -96,7 +96,7 @@ void (empty response body)
 
 <a name="getoptimizationparameters"></a>
 # **GetOptimizationParameters**
-> NPOOptimizationParametersRoot GetOptimizationParameters (string id)
+> NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters GetOptimizationParameters (string id)
 
 Get NPO optimization parameters by id
 
@@ -117,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -130,7 +130,7 @@ namespace Example
             try
             {
                 // Get NPO optimization parameters by id
-                NPOOptimizationParametersRoot result = apiInstance.GetOptimizationParameters(id);
+                NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters result = apiInstance.GetOptimizationParameters(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NPOOptimizationParametersRoot**](NPOOptimizationParametersRoot.md)
+[**NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)
 
 ### Authorization
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationresult"></a>
 # **GetOptimizationResult**
-> ObjectRoot GetOptimizationResult (string id)
+> ObjectObjectDataAndMetaModel GetOptimizationResult (string id)
 
 Get NPO optimization result by id
 
@@ -200,7 +200,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -213,7 +213,7 @@ namespace Example
             try
             {
                 // Get NPO optimization result by id
-                ObjectRoot result = apiInstance.GetOptimizationResult(id);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetOptimizationResult(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 <a name="getoptimizationstatusbyid"></a>
 # **GetOptimizationStatusById**
-> ObjectRoot GetOptimizationStatusById (string id)
+> ObjectObjectDataAndMetaModel GetOptimizationStatusById (string id)
 
 Get NPO optimization status by id
 
@@ -283,7 +283,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -296,7 +296,7 @@ namespace Example
             try
             {
                 // Get NPO optimization status by id
-                ObjectRoot result = apiInstance.GetOptimizationStatusById(id);
+                ObjectObjectDataAndMetaModel result = apiInstance.GetOptimizationStatusById(id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 <a name="postandoptimize"></a>
 # **PostAndOptimize**
-> ObjectRoot PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, NPOOptimizationParametersRoot nPOOptimizationParametersRoot = null)
+> ObjectObjectDataAndMetaModel PostAndOptimize (int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = null)
 
 Create and Run NPO optimization
 
@@ -367,7 +367,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -377,12 +377,12 @@ namespace Example
             var apiInstance = new NPOOptimizerApi(config);
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var nPOOptimizationParametersRoot = new NPOOptimizationParametersRoot(); // NPOOptimizationParametersRoot | Optimization Parameters (optional) 
+            var nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = new NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters(); // NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters | Optimization Parameters (optional) 
 
             try
             {
                 // Create and Run NPO optimization
-                ObjectRoot result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot);
+                ObjectObjectDataAndMetaModel result = apiInstance.PostAndOptimize(xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -402,11 +402,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **nPOOptimizationParametersRoot** | [**NPOOptimizationParametersRoot**](NPOOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
+ **nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters** | [**NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)| Optimization Parameters | [optional] 
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 <a name="putandoptimize"></a>
 # **PutAndOptimize**
-> ObjectRoot PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, NPOOptimizationParametersRoot nPOOptimizationParametersRoot = null)
+> ObjectObjectDataAndMetaModel PutAndOptimize (string id, int? xFactSetApiLongRunningDeadline = null, string cacheControl = null, NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = null)
 
 Create or Update NPO optimization and run it.
 
@@ -457,7 +457,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.factset.com";
+            config.BasePath = "http://localhost";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -468,12 +468,12 @@ namespace Example
             var id = id_example;  // string | from url, provided from the location header in the Create and Run NPO optimization endpoint
             var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
-            var nPOOptimizationParametersRoot = new NPOOptimizationParametersRoot(); // NPOOptimizationParametersRoot | Optimization Parameters (optional) 
+            var nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters = new NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters(); // NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters | Optimization Parameters (optional) 
 
             try
             {
                 // Create or Update NPO optimization and run it.
-                ObjectRoot result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersRoot);
+                ObjectObjectDataAndMetaModel result = apiInstance.PutAndOptimize(id, xFactSetApiLongRunningDeadline, cacheControl, nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -494,11 +494,11 @@ Name | Type | Description  | Notes
  **id** | **string**| from url, provided from the location header in the Create and Run NPO optimization endpoint | 
  **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
- **nPOOptimizationParametersRoot** | [**NPOOptimizationParametersRoot**](NPOOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
+ **nPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters** | [**NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters**](NPOOptimizationParametersOptimizerCalculationMetaInteractiveCalculationParameters.md)| Optimization Parameters | [optional] 
 
 ### Return type
 
-[**ObjectRoot**](ObjectRoot.md)
+[**ObjectObjectDataAndMetaModel**](ObjectObjectDataAndMetaModel.md)
 
 ### Authorization
 

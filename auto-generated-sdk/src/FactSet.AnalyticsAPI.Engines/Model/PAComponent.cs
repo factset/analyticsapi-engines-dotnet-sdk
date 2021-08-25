@@ -92,7 +92,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Is the component type snapshot or subperiod.
         /// </summary>
         /// <value>Is the component type snapshot or subperiod.</value>
-        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
+        [DataMember(Name = "snapshot", EmitDefaultValue = true)]
         public bool Snapshot { get; set; }
 
         /// <summary>

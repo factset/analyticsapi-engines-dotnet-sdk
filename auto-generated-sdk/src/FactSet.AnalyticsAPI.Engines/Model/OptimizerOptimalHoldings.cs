@@ -101,6 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Identifier type
         /// </summary>
@@ -124,14 +125,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Include cash
         /// </summary>
         /// <value>Include cash</value>
-        [DataMember(Name = "includeCash", EmitDefaultValue = false)]
+        [DataMember(Name = "includeCash", EmitDefaultValue = true)]
         public bool IncludeCash { get; set; }
 
         /// <summary>
         /// Exclude zero
         /// </summary>
         /// <value>Exclude zero</value>
-        [DataMember(Name = "excludeZero", EmitDefaultValue = false)]
+        [DataMember(Name = "excludeZero", EmitDefaultValue = true)]
         public bool ExcludeZero { get; set; }
 
         /// <summary>

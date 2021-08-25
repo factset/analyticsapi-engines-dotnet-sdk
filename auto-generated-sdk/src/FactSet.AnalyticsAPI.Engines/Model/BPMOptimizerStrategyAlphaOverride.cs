@@ -70,6 +70,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets ReturnType
         /// </summary>

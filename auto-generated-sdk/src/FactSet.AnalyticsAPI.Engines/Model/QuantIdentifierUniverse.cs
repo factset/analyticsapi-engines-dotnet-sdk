@@ -52,6 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets UniverseType
         /// </summary>

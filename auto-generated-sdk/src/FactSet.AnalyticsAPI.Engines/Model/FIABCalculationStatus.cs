@@ -77,6 +77,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Calculation&#39;s status
         /// </summary>

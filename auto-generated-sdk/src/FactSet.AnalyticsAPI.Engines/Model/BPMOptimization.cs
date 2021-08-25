@@ -60,7 +60,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Optimization invest all cash
         /// </summary>
         /// <value>Optimization invest all cash</value>
-        [DataMember(Name = "investAllCash", EmitDefaultValue = false)]
+        [DataMember(Name = "investAllCash", EmitDefaultValue = true)]
         public bool InvestAllCash { get; set; }
 
         /// <summary>

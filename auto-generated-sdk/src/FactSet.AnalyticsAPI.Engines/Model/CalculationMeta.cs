@@ -64,10 +64,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets Contentorganization
         /// </summary>
         [DataMember(Name = "contentorganization", EmitDefaultValue = false)]
+        [Obsolete]
         public ContentorganizationEnum? Contentorganization { get; set; }
         /// <summary>
         /// Defines StachContentOrganization
@@ -101,6 +103,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets StachContentOrganization
         /// </summary>
@@ -126,10 +129,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets Contenttype
         /// </summary>
         [DataMember(Name = "contenttype", EmitDefaultValue = false)]
+        [Obsolete]
         public ContenttypeEnum? Contenttype { get; set; }
         /// <summary>
         /// Defines Format
@@ -192,6 +197,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             Feather = 9
 
         }
+
 
         /// <summary>
         /// Gets or Sets Format

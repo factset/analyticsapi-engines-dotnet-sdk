@@ -123,7 +123,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             //System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
             //webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
             //_apiConfiguration.Proxy = webProxy;
-            
 
             return _apiConfiguration;
         }

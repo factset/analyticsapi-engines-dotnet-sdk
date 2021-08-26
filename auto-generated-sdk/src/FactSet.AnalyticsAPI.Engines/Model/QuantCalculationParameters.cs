@@ -35,6 +35,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantCalculationParameters" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected QuantCalculationParameters() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuantCalculationParameters" /> class.
+        /// </summary>
+        /// <param name="universe">universe (required).</param>
+        /// <param name="dates">dates (required).</param>
+        /// <param name="formulas">formulas.</param>
         /// <param name="screeningExpressionUniverse">screeningExpressionUniverse.</param>
         /// <param name="universalScreenUniverse">universalScreenUniverse.</param>
         /// <param name="identifierUniverse">identifierUniverse.</param>
@@ -44,8 +52,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="fqlExpression">fqlExpression.</param>
         /// <param name="universalScreenParameter">universalScreenParameter.</param>
         /// <param name="allUniversalScreenParameters">allUniversalScreenParameters.</param>
-        public QuantCalculationParameters(QuantScreeningExpressionUniverse screeningExpressionUniverse = default(QuantScreeningExpressionUniverse), QuantUniversalScreenUniverse universalScreenUniverse = default(QuantUniversalScreenUniverse), QuantIdentifierUniverse identifierUniverse = default(QuantIdentifierUniverse), QuantFdsDate fdsDate = default(QuantFdsDate), QuantDateList dateList = default(QuantDateList), List<QuantScreeningExpression> screeningExpression = default(List<QuantScreeningExpression>), List<QuantFqlExpression> fqlExpression = default(List<QuantFqlExpression>), List<QuantUniversalScreenParameter> universalScreenParameter = default(List<QuantUniversalScreenParameter>), List<Object> allUniversalScreenParameters = default(List<Object>))
+        public QuantCalculationParameters(OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse universe = default(OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse), OneOfQuantDateQuantFdsDateQuantDateList dates = default(OneOfQuantDateQuantFdsDateQuantDateList), List<OneOfQuantFormulaQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> formulas = default(List<OneOfQuantFormulaQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters>), QuantScreeningExpressionUniverse1 screeningExpressionUniverse = default(QuantScreeningExpressionUniverse1), QuantUniversalScreenUniverse1 universalScreenUniverse = default(QuantUniversalScreenUniverse1), QuantIdentifierUniverse1 identifierUniverse = default(QuantIdentifierUniverse1), QuantFdsDate1 fdsDate = default(QuantFdsDate1), QuantDateList1 dateList = default(QuantDateList1), List<QuantScreeningExpression1> screeningExpression = default(List<QuantScreeningExpression1>), List<QuantFqlExpression1> fqlExpression = default(List<QuantFqlExpression1>), List<QuantUniversalScreenParameter1> universalScreenParameter = default(List<QuantUniversalScreenParameter1>), List<Object> allUniversalScreenParameters = default(List<Object>))
         {
+            // to ensure "universe" is required (not null)
+            this.Universe = universe ?? throw new ArgumentNullException("universe is a required property for QuantCalculationParameters and cannot be null");
+            // to ensure "dates" is required (not null)
+            this.Dates = dates ?? throw new ArgumentNullException("dates is a required property for QuantCalculationParameters and cannot be null");
+            this.Formulas = formulas;
             this.ScreeningExpressionUniverse = screeningExpressionUniverse;
             this.UniversalScreenUniverse = universalScreenUniverse;
             this.IdentifierUniverse = identifierUniverse;
@@ -58,57 +71,79 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
+        /// Gets or Sets Universe
+        /// </summary>
+        [DataMember(Name = "universe", IsRequired = true, EmitDefaultValue = false)]
+        public OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse Universe { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Dates
+        /// </summary>
+        [DataMember(Name = "dates", IsRequired = true, EmitDefaultValue = false)]
+        public OneOfQuantDateQuantFdsDateQuantDateList Dates { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Formulas
+        /// </summary>
+        [DataMember(Name = "formulas", EmitDefaultValue = false)]
+        public List<OneOfQuantFormulaQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> Formulas { get; set; }
+
+        /// <summary>
         /// Gets or Sets ScreeningExpressionUniverse
         /// </summary>
         [DataMember(Name = "screeningExpressionUniverse", EmitDefaultValue = false)]
-        public QuantScreeningExpressionUniverse ScreeningExpressionUniverse { get; set; }
+        public QuantScreeningExpressionUniverse1 ScreeningExpressionUniverse { get; set; }
 
         /// <summary>
         /// Gets or Sets UniversalScreenUniverse
         /// </summary>
         [DataMember(Name = "universalScreenUniverse", EmitDefaultValue = false)]
-        public QuantUniversalScreenUniverse UniversalScreenUniverse { get; set; }
+        public QuantUniversalScreenUniverse1 UniversalScreenUniverse { get; set; }
 
         /// <summary>
         /// Gets or Sets IdentifierUniverse
         /// </summary>
         [DataMember(Name = "identifierUniverse", EmitDefaultValue = false)]
-        public QuantIdentifierUniverse IdentifierUniverse { get; set; }
+        public QuantIdentifierUniverse1 IdentifierUniverse { get; set; }
 
         /// <summary>
         /// Gets or Sets FdsDate
         /// </summary>
         [DataMember(Name = "fdsDate", EmitDefaultValue = false)]
-        public QuantFdsDate FdsDate { get; set; }
+        public QuantFdsDate1 FdsDate { get; set; }
 
         /// <summary>
         /// Gets or Sets DateList
         /// </summary>
         [DataMember(Name = "dateList", EmitDefaultValue = false)]
-        public QuantDateList DateList { get; set; }
+        public QuantDateList1 DateList { get; set; }
 
         /// <summary>
         /// Gets or Sets ScreeningExpression
         /// </summary>
         [DataMember(Name = "screeningExpression", EmitDefaultValue = false)]
-        public List<QuantScreeningExpression> ScreeningExpression { get; set; }
+        [Obsolete]
+        public List<QuantScreeningExpression1> ScreeningExpression { get; set; }
 
         /// <summary>
         /// Gets or Sets FqlExpression
         /// </summary>
         [DataMember(Name = "fqlExpression", EmitDefaultValue = false)]
-        public List<QuantFqlExpression> FqlExpression { get; set; }
+        [Obsolete]
+        public List<QuantFqlExpression1> FqlExpression { get; set; }
 
         /// <summary>
         /// Gets or Sets UniversalScreenParameter
         /// </summary>
         [DataMember(Name = "universalScreenParameter", EmitDefaultValue = false)]
-        public List<QuantUniversalScreenParameter> UniversalScreenParameter { get; set; }
+        [Obsolete]
+        public List<QuantUniversalScreenParameter1> UniversalScreenParameter { get; set; }
 
         /// <summary>
         /// Gets or Sets AllUniversalScreenParameters
         /// </summary>
         [DataMember(Name = "allUniversalScreenParameters", EmitDefaultValue = false)]
+        [Obsolete]
         public List<Object> AllUniversalScreenParameters { get; set; }
 
         /// <summary>
@@ -119,6 +154,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantCalculationParameters {\n");
+            sb.Append("  Universe: ").Append(Universe).Append("\n");
+            sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Formulas: ").Append(Formulas).Append("\n");
             sb.Append("  ScreeningExpressionUniverse: ").Append(ScreeningExpressionUniverse).Append("\n");
             sb.Append("  UniversalScreenUniverse: ").Append(UniversalScreenUniverse).Append("\n");
             sb.Append("  IdentifierUniverse: ").Append(IdentifierUniverse).Append("\n");
@@ -162,6 +200,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 return false;
 
             return 
+                (
+                    this.Universe == input.Universe ||
+                    (this.Universe != null &&
+                    this.Universe.Equals(input.Universe))
+                ) && 
+                (
+                    this.Dates == input.Dates ||
+                    (this.Dates != null &&
+                    this.Dates.Equals(input.Dates))
+                ) && 
+                (
+                    this.Formulas == input.Formulas ||
+                    this.Formulas != null &&
+                    input.Formulas != null &&
+                    this.Formulas.SequenceEqual(input.Formulas)
+                ) && 
                 (
                     this.ScreeningExpressionUniverse == input.ScreeningExpressionUniverse ||
                     (this.ScreeningExpressionUniverse != null &&
@@ -222,6 +276,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Universe != null)
+                    hashCode = hashCode * 59 + this.Universe.GetHashCode();
+                if (this.Dates != null)
+                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                if (this.Formulas != null)
+                    hashCode = hashCode * 59 + this.Formulas.GetHashCode();
                 if (this.ScreeningExpressionUniverse != null)
                     hashCode = hashCode * 59 + this.ScreeningExpressionUniverse.GetHashCode();
                 if (this.UniversalScreenUniverse != null)

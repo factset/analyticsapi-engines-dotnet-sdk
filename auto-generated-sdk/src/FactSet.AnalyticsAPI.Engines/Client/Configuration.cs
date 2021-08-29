@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Defines the base path of the target API server.
         /// Example: http://localhost:3000/v1/
         /// </summary>
-        private string _basePath;
+        private String _basePath;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
@@ -441,9 +441,9 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// <summary>
         /// Returns a string with essential information for debugging.
         /// </summary>
-        public static string ToDebugReport()
+        public static String ToDebugReport()
         {
-            string report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
+            String report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v3:[pa,spar,vault,pub,quant,fi,axp,afi,npo,bpm,fpo,others],v1:[fiab]\n";

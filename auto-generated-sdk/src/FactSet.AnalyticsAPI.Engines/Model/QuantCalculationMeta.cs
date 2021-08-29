@@ -69,7 +69,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Contentorganization
         /// </summary>
         [DataMember(Name = "contentorganization", EmitDefaultValue = false)]
-        [Obsolete]
         public ContentorganizationEnum? Contentorganization { get; set; }
         /// <summary>
         /// Defines StachContentOrganization
@@ -134,7 +133,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Contenttype
         /// </summary>
         [DataMember(Name = "contenttype", EmitDefaultValue = false)]
-        [Obsolete]
         public ContenttypeEnum? Contenttype { get; set; }
         /// <summary>
         /// Defines Format

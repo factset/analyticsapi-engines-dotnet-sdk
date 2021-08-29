@@ -122,28 +122,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets ScreeningExpression
         /// </summary>
         [DataMember(Name = "screeningExpression", EmitDefaultValue = false)]
-        [Obsolete]
         public List<QuantScreeningExpression1> ScreeningExpression { get; set; }
 
         /// <summary>
         /// Gets or Sets FqlExpression
         /// </summary>
         [DataMember(Name = "fqlExpression", EmitDefaultValue = false)]
-        [Obsolete]
         public List<QuantFqlExpression1> FqlExpression { get; set; }
 
         /// <summary>
         /// Gets or Sets UniversalScreenParameter
         /// </summary>
         [DataMember(Name = "universalScreenParameter", EmitDefaultValue = false)]
-        [Obsolete]
         public List<QuantUniversalScreenParameter1> UniversalScreenParameter { get; set; }
 
         /// <summary>
         /// Gets or Sets AllUniversalScreenParameters
         /// </summary>
         [DataMember(Name = "allUniversalScreenParameters", EmitDefaultValue = false)]
-        [Obsolete]
         public List<Object> AllUniversalScreenParameters { get; set; }
 
         /// <summary>

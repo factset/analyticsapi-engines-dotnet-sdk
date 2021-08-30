@@ -58,7 +58,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Gets or Sets Source
         /// </summary>

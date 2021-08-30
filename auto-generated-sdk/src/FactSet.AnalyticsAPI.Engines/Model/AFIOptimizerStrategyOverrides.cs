@@ -53,7 +53,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
 
-
         /// <summary>
         /// List of constraints
         /// </summary>

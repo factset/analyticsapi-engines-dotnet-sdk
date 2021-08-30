@@ -90,7 +90,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Snapshot
         /// </summary>
-        [DataMember(Name = "snapshot", EmitDefaultValue = true)]
+        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
         public bool Snapshot { get; set; }
 
         /// <summary>

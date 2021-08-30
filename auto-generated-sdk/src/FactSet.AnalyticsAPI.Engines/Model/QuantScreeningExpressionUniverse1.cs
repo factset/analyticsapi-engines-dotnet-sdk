@@ -52,7 +52,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Gets or Sets UniverseType
         /// </summary>
@@ -83,7 +82,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             IdentifierUniverse = 3
 
         }
-
 
         /// <summary>
         /// Gets or Sets Source

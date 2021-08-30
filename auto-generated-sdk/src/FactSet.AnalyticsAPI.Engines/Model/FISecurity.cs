@@ -65,7 +65,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Call Method
         /// </summary>
@@ -92,7 +91,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             Original = 2
 
         }
-
 
         /// <summary>
         /// Face type

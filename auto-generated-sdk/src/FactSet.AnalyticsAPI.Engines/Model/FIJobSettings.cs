@@ -65,7 +65,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Call Method
         /// </summary>

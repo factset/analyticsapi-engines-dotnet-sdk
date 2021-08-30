@@ -64,7 +64,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Gets or Sets Contentorganization
         /// </summary>
@@ -102,7 +101,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Gets or Sets StachContentOrganization
         /// </summary>
@@ -127,7 +125,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             Binary = 2
 
         }
-
 
         /// <summary>
         /// Gets or Sets Contenttype
@@ -195,7 +192,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             Feather = 9
 
         }
-
 
         /// <summary>
         /// Gets or Sets Format

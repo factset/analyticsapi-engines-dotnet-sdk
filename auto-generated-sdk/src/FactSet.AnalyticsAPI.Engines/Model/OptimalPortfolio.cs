@@ -59,7 +59,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
-
         /// <summary>
         /// Archive action if account exists
         /// </summary>
@@ -92,7 +91,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             AppendSecurities = 3
 
         }
-
 
         /// <summary>
         /// Action if ofdb date exists
@@ -128,7 +126,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Exclude zero
         /// </summary>
         /// <value>Exclude zero</value>
-        [DataMember(Name = "excludeZero", EmitDefaultValue = true)]
+        [DataMember(Name = "excludeZero", EmitDefaultValue = false)]
         public bool ExcludeZero { get; set; }
 
         /// <summary>

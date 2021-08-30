@@ -48,6 +48,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="path">The directory to get the accounts and sub-directories in</param>
         /// <returns>ApiResponse of AccountDirectoriesRoot</returns>
         ApiResponse<AccountDirectoriesRoot> GetAccountsWithHttpInfo(string path);
+        /// <summary>
+        /// Get SPAR account returns type details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns the returns type of account associated with SPAR
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <returns>SPARAccountsRoot</returns>
+        SPARAccountsRoot GetSPARReturnsType(string accountPath);
+
+        /// <summary>
+        /// Get SPAR account returns type details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns the returns type of account associated with SPAR
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <returns>ApiResponse of SPARAccountsRoot</returns>
+        ApiResponse<SPARAccountsRoot> GetSPARReturnsTypeWithHttpInfo(string accountPath);
         #endregion Synchronous Operations
     }
 
@@ -80,6 +101,29 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of AccountDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get SPAR account returns type details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns the returns type of account associated with SPAR
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SPARAccountsRoot</returns>
+        System.Threading.Tasks.Task<SPARAccountsRoot> GetSPARReturnsTypeAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get SPAR account returns type details
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns the returns type of account associated with SPAR
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of SPARAccountsRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<SPARAccountsRoot>> GetSPARReturnsTypeWithHttpInfoAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -255,6 +299,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<AccountDirectoriesRoot>("/analytics/lookups/v3/accounts/{path}", localVarRequestOptions, this.Configuration);
@@ -326,6 +376,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -334,6 +390,158 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAccounts", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get SPAR account returns type details This endpoint returns the returns type of account associated with SPAR
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <returns>SPARAccountsRoot</returns>
+        public SPARAccountsRoot GetSPARReturnsType(string accountPath)
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARAccountsRoot> localVarResponse = GetSPARReturnsTypeWithHttpInfo(accountPath);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get SPAR account returns type details This endpoint returns the returns type of account associated with SPAR
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <returns>ApiResponse of SPARAccountsRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARAccountsRoot> GetSPARReturnsTypeWithHttpInfo(string accountPath)
+        {
+            // verify the required parameter 'accountPath' is set
+            if (accountPath == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'accountPath' when calling AccountsApi->GetSPARReturnsType");
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(SPARAccountsRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("accountPath", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(accountPath)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<SPARAccountsRoot>("/analytics/engines/spar/v3/accounts/{accountPath}/returns-type", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSPARReturnsType", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get SPAR account returns type details This endpoint returns the returns type of account associated with SPAR
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SPARAccountsRoot</returns>
+        public async System.Threading.Tasks.Task<SPARAccountsRoot> GetSPARReturnsTypeAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARAccountsRoot> localVarResponse = await GetSPARReturnsTypeWithHttpInfoAsync(accountPath, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get SPAR account returns type details This endpoint returns the returns type of account associated with SPAR
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountPath">URL encoded account path</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of SPARAccountsRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARAccountsRoot>> GetSPARReturnsTypeWithHttpInfoAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'accountPath' is set
+            if (accountPath == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'accountPath' when calling AccountsApi->GetSPARReturnsType");
+
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(SPARAccountsRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("accountPath", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(accountPath)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SPARAccountsRoot>("/analytics/engines/spar/v3/accounts/{accountPath}/returns-type", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetSPARReturnsType", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

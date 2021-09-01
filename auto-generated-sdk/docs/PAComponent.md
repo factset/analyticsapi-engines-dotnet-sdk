@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Snapshot** | **bool** | Is the component type snapshot or subperiod. | [optional] 
 **Name** | **string** | Component name. | [optional] 
 **Category** | **string** | Component category. | [optional] 
+**Type** | **string** | Component type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

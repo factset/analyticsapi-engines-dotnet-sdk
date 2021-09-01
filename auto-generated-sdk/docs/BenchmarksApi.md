@@ -34,6 +34,8 @@ namespace Example
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new BenchmarksApi(config);
             var id = id_example;  // string | Benchmark Identifier
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [Bearer](../README.md#Bearer)
 
 ### HTTP request headers
 

@@ -27,10 +27,10 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantScreeningExpressionUniverse1
+    /// QuantScreeningExpressionUniverseObsolete
     /// </summary>
-    [DataContract(Name = "QuantScreeningExpressionUniverse1")]
-    public partial class QuantScreeningExpressionUniverse1 : IEquatable<QuantScreeningExpressionUniverse1>, IValidatableObject
+    [DataContract(Name = "QuantScreeningExpressionUniverseObsolete")]
+    public partial class QuantScreeningExpressionUniverseObsolete : IEquatable<QuantScreeningExpressionUniverseObsolete>, IValidatableObject
     {
         /// <summary>
         /// Defines UniverseType
@@ -89,21 +89,21 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name = "source", EmitDefaultValue = false)]
         public SourceEnum? Source { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantScreeningExpressionUniverse1" /> class.
+        /// Initializes a new instance of the <see cref="QuantScreeningExpressionUniverseObsolete" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantScreeningExpressionUniverse1() { }
+        protected QuantScreeningExpressionUniverseObsolete() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantScreeningExpressionUniverse1" /> class.
+        /// Initializes a new instance of the <see cref="QuantScreeningExpressionUniverseObsolete" /> class.
         /// </summary>
         /// <param name="universeExpr">universeExpr (required).</param>
         /// <param name="universeType">universeType (required).</param>
         /// <param name="securityExpr">securityExpr.</param>
         /// <param name="source">source.</param>
-        public QuantScreeningExpressionUniverse1(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), SourceEnum? source = default(SourceEnum?))
+        public QuantScreeningExpressionUniverseObsolete(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), SourceEnum? source = default(SourceEnum?))
         {
             // to ensure "universeExpr" is required (not null)
-            this.UniverseExpr = universeExpr ?? throw new ArgumentNullException("universeExpr is a required property for QuantScreeningExpressionUniverse1 and cannot be null");
+            this.UniverseExpr = universeExpr ?? throw new ArgumentNullException("universeExpr is a required property for QuantScreeningExpressionUniverseObsolete and cannot be null");
             this.UniverseType = universeType;
             this.SecurityExpr = securityExpr;
             this.Source = source;
@@ -128,7 +128,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantScreeningExpressionUniverse1 {\n");
+            sb.Append("class QuantScreeningExpressionUniverseObsolete {\n");
             sb.Append("  UniverseExpr: ").Append(UniverseExpr).Append("\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  SecurityExpr: ").Append(SecurityExpr).Append("\n");
@@ -153,15 +153,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantScreeningExpressionUniverse1);
+            return this.Equals(input as QuantScreeningExpressionUniverseObsolete);
         }
 
         /// <summary>
-        /// Returns true if QuantScreeningExpressionUniverse1 instances are equal
+        /// Returns true if QuantScreeningExpressionUniverseObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantScreeningExpressionUniverse1 to be compared</param>
+        /// <param name="input">Instance of QuantScreeningExpressionUniverseObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantScreeningExpressionUniverse1 input)
+        public bool Equals(QuantScreeningExpressionUniverseObsolete input)
         {
             if (input == null)
                 return false;

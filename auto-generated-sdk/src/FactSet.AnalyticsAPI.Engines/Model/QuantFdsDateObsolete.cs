@@ -27,33 +27,33 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantFdsDate1
+    /// QuantFdsDateObsolete
     /// </summary>
-    [DataContract(Name = "QuantFdsDate1")]
-    public partial class QuantFdsDate1 : IEquatable<QuantFdsDate1>, IValidatableObject
+    [DataContract(Name = "QuantFdsDateObsolete")]
+    public partial class QuantFdsDateObsolete : IEquatable<QuantFdsDateObsolete>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFdsDate1" /> class.
+        /// Initializes a new instance of the <see cref="QuantFdsDateObsolete" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantFdsDate1() { }
+        protected QuantFdsDateObsolete() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFdsDate1" /> class.
+        /// Initializes a new instance of the <see cref="QuantFdsDateObsolete" /> class.
         /// </summary>
         /// <param name="startDate">startDate (required).</param>
         /// <param name="endDate">endDate (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantFdsDate1(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string))
+        public QuantFdsDateObsolete(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string))
         {
             // to ensure "startDate" is required (not null)
-            this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for QuantFdsDate1 and cannot be null");
+            this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for QuantFdsDateObsolete and cannot be null");
             // to ensure "endDate" is required (not null)
-            this.EndDate = endDate ?? throw new ArgumentNullException("endDate is a required property for QuantFdsDate1 and cannot be null");
+            this.EndDate = endDate ?? throw new ArgumentNullException("endDate is a required property for QuantFdsDateObsolete and cannot be null");
             // to ensure "frequency" is required (not null)
-            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantFdsDate1 and cannot be null");
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantFdsDateObsolete and cannot be null");
             // to ensure "calendar" is required (not null)
-            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantFdsDate1 and cannot be null");
+            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantFdsDateObsolete and cannot be null");
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantFdsDate1 {\n");
+            sb.Append("class QuantFdsDateObsolete {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
@@ -112,15 +112,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantFdsDate1);
+            return this.Equals(input as QuantFdsDateObsolete);
         }
 
         /// <summary>
-        /// Returns true if QuantFdsDate1 instances are equal
+        /// Returns true if QuantFdsDateObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantFdsDate1 to be compared</param>
+        /// <param name="input">Instance of QuantFdsDateObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantFdsDate1 input)
+        public bool Equals(QuantFdsDateObsolete input)
         {
             if (input == null)
                 return false;

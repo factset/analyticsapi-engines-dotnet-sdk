@@ -1,4 +1,4 @@
-# FactSet.AnalyticsAPI.Engines.Model.QuantIdentifierUniverse1
+# FactSet.AnalyticsAPI.Engines.Model.QuantIdentifierUniverseObsolete
 
 ## Properties
 

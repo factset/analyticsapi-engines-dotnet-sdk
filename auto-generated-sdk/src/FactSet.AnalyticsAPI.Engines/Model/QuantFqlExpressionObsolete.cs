@@ -27,27 +27,27 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantFqlExpression1
+    /// QuantFqlExpressionObsolete
     /// </summary>
-    [DataContract(Name = "QuantFqlExpression1")]
-    public partial class QuantFqlExpression1 : IEquatable<QuantFqlExpression1>, IValidatableObject
+    [DataContract(Name = "QuantFqlExpressionObsolete")]
+    public partial class QuantFqlExpressionObsolete : IEquatable<QuantFqlExpressionObsolete>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFqlExpression1" /> class.
+        /// Initializes a new instance of the <see cref="QuantFqlExpressionObsolete" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantFqlExpression1() { }
+        protected QuantFqlExpressionObsolete() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantFqlExpression1" /> class.
+        /// Initializes a new instance of the <see cref="QuantFqlExpressionObsolete" /> class.
         /// </summary>
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
-        public QuantFqlExpression1(string expr = default(string), string name = default(string))
+        public QuantFqlExpressionObsolete(string expr = default(string), string name = default(string))
         {
             // to ensure "expr" is required (not null)
-            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression1 and cannot be null");
+            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpressionObsolete and cannot be null");
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpression1 and cannot be null");
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpressionObsolete and cannot be null");
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantFqlExpression1 {\n");
+            sb.Append("class QuantFqlExpressionObsolete {\n");
             sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
@@ -92,15 +92,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantFqlExpression1);
+            return this.Equals(input as QuantFqlExpressionObsolete);
         }
 
         /// <summary>
-        /// Returns true if QuantFqlExpression1 instances are equal
+        /// Returns true if QuantFqlExpressionObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantFqlExpression1 to be compared</param>
+        /// <param name="input">Instance of QuantFqlExpressionObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantFqlExpression1 input)
+        public bool Equals(QuantFqlExpressionObsolete input)
         {
             if (input == null)
                 return false;

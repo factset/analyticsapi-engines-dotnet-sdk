@@ -27,36 +27,11 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantIdentifierUniverse1
+    /// QuantUniversalScreenUniverseObsolete
     /// </summary>
-    [DataContract(Name = "QuantIdentifierUniverse1")]
-    public partial class QuantIdentifierUniverse1 : IEquatable<QuantIdentifierUniverse1>, IValidatableObject
+    [DataContract(Name = "QuantUniversalScreenUniverseObsolete")]
+    public partial class QuantUniversalScreenUniverseObsolete : IEquatable<QuantUniversalScreenUniverseObsolete>, IValidatableObject
     {
-        /// <summary>
-        /// Defines UniverseType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UniverseTypeEnum
-        {
-            /// <summary>
-            /// Enum Equity for value: Equity
-            /// </summary>
-            [EnumMember(Value = "Equity")]
-            Equity = 1,
-
-            /// <summary>
-            /// Enum Debt for value: Debt
-            /// </summary>
-            [EnumMember(Value = "Debt")]
-            Debt = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets UniverseType
-        /// </summary>
-        [DataMember(Name = "universeType", IsRequired = true, EmitDefaultValue = false)]
-        public UniverseTypeEnum UniverseType { get; set; }
         /// <summary>
         /// Defines Source
         /// </summary>
@@ -89,29 +64,27 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name = "source", EmitDefaultValue = false)]
         public SourceEnum? Source { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantIdentifierUniverse1" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverseObsolete" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected QuantIdentifierUniverse1() { }
+        protected QuantUniversalScreenUniverseObsolete() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantIdentifierUniverse1" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverseObsolete" /> class.
         /// </summary>
-        /// <param name="universeType">universeType (required).</param>
-        /// <param name="identifiers">identifiers (required).</param>
+        /// <param name="screen">screen (required).</param>
         /// <param name="source">source.</param>
-        public QuantIdentifierUniverse1(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>), SourceEnum? source = default(SourceEnum?))
+        public QuantUniversalScreenUniverseObsolete(string screen = default(string), SourceEnum? source = default(SourceEnum?))
         {
-            this.UniverseType = universeType;
-            // to ensure "identifiers" is required (not null)
-            this.Identifiers = identifiers ?? throw new ArgumentNullException("identifiers is a required property for QuantIdentifierUniverse1 and cannot be null");
+            // to ensure "screen" is required (not null)
+            this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverseObsolete and cannot be null");
             this.Source = source;
         }
 
         /// <summary>
-        /// Gets or Sets Identifiers
+        /// Gets or Sets Screen
         /// </summary>
-        [DataMember(Name = "identifiers", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> Identifiers { get; set; }
+        [DataMember(Name = "screen", IsRequired = true, EmitDefaultValue = false)]
+        public string Screen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,9 +93,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantIdentifierUniverse1 {\n");
-            sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
-            sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
+            sb.Append("class QuantUniversalScreenUniverseObsolete {\n");
+            sb.Append("  Screen: ").Append(Screen).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -144,29 +116,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantIdentifierUniverse1);
+            return this.Equals(input as QuantUniversalScreenUniverseObsolete);
         }
 
         /// <summary>
-        /// Returns true if QuantIdentifierUniverse1 instances are equal
+        /// Returns true if QuantUniversalScreenUniverseObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantIdentifierUniverse1 to be compared</param>
+        /// <param name="input">Instance of QuantUniversalScreenUniverseObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantIdentifierUniverse1 input)
+        public bool Equals(QuantUniversalScreenUniverseObsolete input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.UniverseType == input.UniverseType ||
-                    this.UniverseType.Equals(input.UniverseType)
-                ) && 
-                (
-                    this.Identifiers == input.Identifiers ||
-                    this.Identifiers != null &&
-                    input.Identifiers != null &&
-                    this.Identifiers.SequenceEqual(input.Identifiers)
+                    this.Screen == input.Screen ||
+                    (this.Screen != null &&
+                    this.Screen.Equals(input.Screen))
                 ) && 
                 (
                     this.Source == input.Source ||
@@ -183,9 +150,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.UniverseType.GetHashCode();
-                if (this.Identifiers != null)
-                    hashCode = hashCode * 59 + this.Identifiers.GetHashCode();
+                if (this.Screen != null)
+                    hashCode = hashCode * 59 + this.Screen.GetHashCode();
                 hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;
             }

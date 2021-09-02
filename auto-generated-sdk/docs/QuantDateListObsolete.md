@@ -1,11 +1,12 @@
-# FactSet.AnalyticsAPI.Engines.Model.QuantUniversalScreenParameter1
+# FactSet.AnalyticsAPI.Engines.Model.QuantDateListObsolete
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReferenceName** | **string** |  | 
-**Name** | **string** |  | 
+**Dates** | **List&lt;string&gt;** |  | [optional] 
+**Frequency** | **string** |  | 
+**Calendar** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

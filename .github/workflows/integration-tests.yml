@@ -15,7 +15,7 @@ on:
   schedule:
     - cron: "0 23 * * *" # 7:00 PM EST
 
-  pull-request:
+  pull_request:
     branches: [master]
 
 jobs:

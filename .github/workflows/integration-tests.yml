@@ -9,9 +9,14 @@ env:
   ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL: ${{ secrets.ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL }}
   ANALYTICS_API_VAULT_PUB_PASSWORD: ${{ secrets.ANALYTICS_API_VAULT_PUB_PASSWORD }} 
 
+  ANALYTICS_API_URL: ${{ secrets.ANALYTICS_API_URL }} 
+
 on:
   schedule:
     - cron: "0 23 * * *" # 7:00 PM EST
+
+  pull-request:
+    branches: [master]
 
 jobs:
   run-integration-tests-400:

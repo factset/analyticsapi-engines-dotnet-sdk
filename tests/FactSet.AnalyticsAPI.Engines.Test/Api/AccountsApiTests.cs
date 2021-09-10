@@ -4,6 +4,7 @@ using System.Net;
 using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
+using System;
 
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {

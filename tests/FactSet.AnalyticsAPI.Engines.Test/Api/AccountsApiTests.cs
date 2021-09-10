@@ -22,11 +22,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             Console.WriteLine("stop -- before BuildConfiguration()");
             accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-            Console.WriteLine("start -- after BuildConfiguration()");
-            Console.WriteLine(CommonParameters.BaseUrl);
-            Console.WriteLine(CommonParameters.Username);
-            Console.WriteLine("stop -- after BuildConfiguration()");
         }
 
         [TestMethod]

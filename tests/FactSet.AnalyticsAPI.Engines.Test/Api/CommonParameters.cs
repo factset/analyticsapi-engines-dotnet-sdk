@@ -12,7 +12,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public static readonly string Password = Environment.GetEnvironmentVariable("ANALYTICS_API_QAR_PASSWORD");
 
         // Add 'ANALYTICS_API_URL' environment variable with api url as value
-        public static readonly string BaseUrl = "https://api.inhouse-cauth.factset.com";
+        public static readonly string BaseUrl = "test url";
 
 
         public const string PADefaultDocument = "PA_DOCUMENTS:DEFAULT";

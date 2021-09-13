@@ -99,7 +99,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the accounts and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of AccountDirectoriesRoot</returns>
+        /// <returns>Task of ApiResponse (AccountDirectoriesRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR account returns type details
@@ -122,7 +122,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountPath">URL encoded account path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of SPARAccountsRoot</returns>
+        /// <returns>Task of ApiResponse (SPARAccountsRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<SPARAccountsRoot>> GetSPARReturnsTypeWithHttpInfoAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -278,13 +278,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(AccountDirectoriesRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -337,7 +330,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the accounts and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of AccountDirectoriesRoot</returns>
+        /// <returns>Task of ApiResponse (AccountDirectoriesRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
@@ -355,12 +348,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(AccountDirectoriesRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -430,13 +417,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(SPARAccountsRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -489,7 +469,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountPath">URL encoded account path</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of SPARAccountsRoot</returns>
+        /// <returns>Task of ApiResponse (SPARAccountsRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<SPARAccountsRoot>> GetSPARReturnsTypeWithHttpInfoAsync(string accountPath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'accountPath' is set
@@ -507,12 +487,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(SPARAccountsRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

@@ -67,8 +67,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
-        /// <returns>ApiResponse of Object(null)</returns>
-        ApiResponse<object> DeleteLinkedPATemplatesWithHttpInfo(string id);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteLinkedPATemplatesWithHttpInfo(string id);
         /// <summary>
         /// Get linked PA templates
         /// </summary>
@@ -168,7 +168,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a linked PA template.
@@ -191,8 +191,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of Object(null)</returns>
-        System.Threading.Tasks.Task<ApiResponse<object>> DeleteLinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get linked PA templates
         /// </summary>
@@ -218,7 +218,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="documentDirectory">Get linked PA templates for documents in document path (optional)</param>
         /// <param name="documentName">Get linked PA templates for documents by document name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateSummaryRoot>> GetLinkedPATemplatesWithHttpInfoAsync(string directory = default(string), string documentDirectory = default(string), string documentName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get linked PA template by id
@@ -241,7 +241,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateRoot>> GetLinkedPATemplatesByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a linked PA template
@@ -266,7 +266,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -423,12 +423,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 201, typeof(LinkedPATemplateSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -481,7 +475,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'linkedPATemplateParametersRoot' is set
@@ -500,11 +494,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 201, typeof(LinkedPATemplateSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -556,8 +545,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
-        /// <returns>ApiResponse of Object(null)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> DeleteLinkedPATemplatesWithHttpInfo(string id)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> DeleteLinkedPATemplatesWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -573,12 +562,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "text/plain",
                 "application/json",
                 "text/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -603,7 +586,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -632,8 +615,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of Object(null)</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> DeleteLinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> DeleteLinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -652,11 +635,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "text/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -681,7 +659,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -724,13 +702,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(LinkedPATemplateSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -800,7 +771,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="documentDirectory">Get linked PA templates for documents in document path (optional)</param>
         /// <param name="documentName">Get linked PA templates for documents by document name (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot>> GetLinkedPATemplatesWithHttpInfoAsync(string directory = default(string), string documentDirectory = default(string), string documentName = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -814,12 +785,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(LinkedPATemplateSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -900,13 +865,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(LinkedPATemplateRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -959,7 +917,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateRoot>> GetLinkedPATemplatesByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -977,12 +935,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(LinkedPATemplateRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1059,13 +1011,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(LinkedPATemplateSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -1121,7 +1066,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (LinkedPATemplateSummaryRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1144,12 +1089,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(LinkedPATemplateSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

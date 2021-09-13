@@ -99,7 +99,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Vault configuration id to get the details of</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of VaultConfigurationRoot</returns>
+        /// <returns>Task of ApiResponse (VaultConfigurationRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<VaultConfigurationRoot>> GetVaultConfigurationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault configurations
@@ -122,7 +122,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="account">Required account query parameter to filter configurations for a specific account</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of VaultConfigurationSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (VaultConfigurationSummaryRoot)</returns>
         System.Threading.Tasks.Task<ApiResponse<VaultConfigurationSummaryRoot>> GetVaultConfigurationsWithHttpInfoAsync(string account, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -278,13 +278,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(VaultConfigurationRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -337,7 +330,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Vault configuration id to get the details of</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of VaultConfigurationRoot</returns>
+        /// <returns>Task of ApiResponse (VaultConfigurationRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultConfigurationRoot>> GetVaultConfigurationByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -355,12 +348,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(VaultConfigurationRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -430,13 +417,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(VaultConfigurationSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -489,7 +469,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="account">Required account query parameter to filter configurations for a specific account</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of VaultConfigurationSummaryRoot</returns>
+        /// <returns>Task of ApiResponse (VaultConfigurationSummaryRoot)</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<VaultConfigurationSummaryRoot>> GetVaultConfigurationsWithHttpInfoAsync(string account, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'account' is set
@@ -507,12 +487,6 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(VaultConfigurationSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

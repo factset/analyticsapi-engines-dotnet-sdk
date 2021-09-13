@@ -31,6 +31,8 @@ using RestSharp.Deserializers;
 using RestSharpMethod = RestSharp.Method;
 using Polly;
 
+using FactSet.AnalyticsAPI.Engines.Model;
+
 namespace FactSet.AnalyticsAPI.Engines.Client
 {
     /// <summary>
@@ -427,7 +429,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             return transformed;
         }
 
-        private ApiResponse<T> Exec<T>(RestRequest req, IReadableConfiguration configuration)
+        private ApiResponse<T> Exec<T>(RestRequest req, IReadableConfiguration configuration, Dictionary<int, Type> returnTypes = null)
         {
             RestClient client = new RestClient(_baseUrl);
 
@@ -455,7 +457,6 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
@@ -492,14 +493,64 @@ namespace FactSet.AnalyticsAPI.Engines.Client
                 response = client.Execute<T>(req);
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(FactSet.AnalyticsAPI.Engines.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            var status = (int)response.StatusCode;
+
+            if (returnTypes.ContainsKey(status))
             {
-                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                var type = returnTypes[status];
+                var JsonSerializer = new CustomJsonCodec(SerializerSettings, configuration);
+
+                if (!response.IsSuccessful)
+                {
+                    var clientErrorResponse = (ClientErrorResponse)JsonSerializer.Deserialize(response, type);
+
+                    String reason = "";
+                    if (clientErrorResponse != null && clientErrorResponse.Errors.Any() && !string.IsNullOrWhiteSpace(clientErrorResponse.Errors.FirstOrDefault().Detail))
+                    {
+                        List<Error> errors = clientErrorResponse.Errors;
+                        reason = errors.FirstOrDefault().Detail;
+                        for (int i = 1; i < errors.Count; i++)
+                        {
+                            if (string.IsNullOrWhiteSpace(errors[i].Detail))
+                                reason = reason + " ||| " + errors[i].Detail;
+                        }
+                    }
+
+                    if (clientErrorResponse == null && response.Headers != null)
+                    {
+                        Error error = new Error();
+                        foreach(var header in response.Headers)
+                        {
+                            if (string.Equals(header.Name, "x-factset-api-request-key", StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                error.Id = header.Value.ToString();
+                            }
+                        }
+
+                        clientErrorResponse = new ClientErrorResponse()
+                        {
+                            Errors = new List<Error>() { error }
+                        };
+                    }
+
+                    Multimap<string, string> responseHeaders = new Multimap<string, string>();
+                    foreach (var header in response.Headers)
+                    {
+                        responseHeaders.Add(header.Name, header.Value.ToString());
+                    }
+
+                    throw new ApiException(status, "error", reason, responseHeaders, clientErrorResponse);
+                }
+
+
+                if (typeof(T).Name == "Stream") // for binary response
+                {
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else
+                {
+                    response.Data = (T)JsonSerializer.Deserialize(response, type);
+                }
             }
 
             InterceptResponse(req, response);
@@ -539,7 +590,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             return result;
         }
 
-        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, Dictionary<int, Type> returnTypes = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             RestClient client = new RestClient(_baseUrl);
 
@@ -567,7 +618,6 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             client.AddHandler("application/xml", () => xmlDeserializer);
             client.AddHandler("text/xml", () => xmlDeserializer);
             client.AddHandler("*+xml", () => xmlDeserializer);
-            client.AddHandler("*", () => xmlDeserializer);
 
             client.Timeout = configuration.Timeout;
 
@@ -604,14 +654,64 @@ namespace FactSet.AnalyticsAPI.Engines.Client
                 response = await client.ExecuteAsync<T>(req, cancellationToken).ConfigureAwait(false);
             }
 
-            // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
-            if (typeof(FactSet.AnalyticsAPI.Engines.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
+            var status = (int)response.StatusCode;
+
+            if (returnTypes.ContainsKey(status))
             {
-                response.Data = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
-            }
-            else if (typeof(T).Name == "Stream") // for binary response
-            {
-                response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                var type = returnTypes[status];
+                var JsonSerializer = new CustomJsonCodec(SerializerSettings, configuration);
+
+                if (!response.IsSuccessful)
+                {
+                    var clientErrorResponse = (ClientErrorResponse)JsonSerializer.Deserialize(response, type);
+
+                    String reason = "";
+                    if (clientErrorResponse != null && clientErrorResponse.Errors.Any() && !string.IsNullOrWhiteSpace(clientErrorResponse.Errors.FirstOrDefault().Detail))
+                    {
+                        List<Error> errors = clientErrorResponse.Errors;
+                        reason = errors.FirstOrDefault().Detail;
+                        for (int i = 1; i < errors.Count; i++)
+                        {
+                            if (string.IsNullOrWhiteSpace(errors[i].Detail))
+                                reason = reason + " ||| " + errors[i].Detail;
+                        }
+                    }
+
+                    if (clientErrorResponse == null && response.Headers != null)
+                    {
+                        Error error = new Error();
+                        foreach(var header in response.Headers)
+                        {
+                            if (string.Equals(header.Name, "x-factset-api-request-key", StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                error.Id = header.Value.ToString();
+                            }
+                        }
+
+                        clientErrorResponse = new ClientErrorResponse()
+                        {
+                            Errors = new List<Error>() { error }
+                        };
+                    }
+
+                    Multimap<string, string> responseHeaders = new Multimap<string, string>();
+                    foreach (var header in response.Headers)
+                    {
+                        responseHeaders.Add(header.Name, header.Value.ToString());
+                    }
+
+                    throw new ApiException(status, "error", reason, responseHeaders, clientErrorResponse);
+                }
+
+
+                if (typeof(T).Name == "Stream") // for binary response
+                {
+                    response.Data = (T)(object)new MemoryStream(response.RawBytes);
+                }
+                else
+                {
+                    response.Data = (T)JsonSerializer.Deserialize(response, type);
+                }
             }
 
             InterceptResponse(req, response);
@@ -664,7 +764,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> GetAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
 
         /// <summary>
@@ -679,7 +779,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> PostAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Post, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
 
         /// <summary>
@@ -694,7 +794,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> PutAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Put, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
 
         /// <summary>
@@ -709,7 +809,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Delete, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
 
         /// <summary>
@@ -724,7 +824,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Head, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
 
         /// <summary>
@@ -739,7 +839,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> OptionsAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Options, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
 
         /// <summary>
@@ -754,7 +854,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Task<ApiResponse<T>> PatchAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return ExecAsync<T>(NewRequest(HttpMethod.Patch, path, options, config), config, cancellationToken);
+            return ExecAsync<T>(NewRequest(HttpMethod.Patch, path, options, config), config, options.ResponseReturnTypes, cancellationToken);
         }
         #endregion IAsynchronousClient
 
@@ -770,7 +870,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Get<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Get, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Get, path, options, config), config, options.ResponseReturnTypes);
         }
 
         /// <summary>
@@ -784,7 +884,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Post<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Post, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Post, path, options, config), config, options.ResponseReturnTypes);
         }
 
         /// <summary>
@@ -798,7 +898,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Put<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Put, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Put, path, options, config), config, options.ResponseReturnTypes);
         }
 
         /// <summary>
@@ -812,7 +912,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Delete<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Delete, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Delete, path, options, config), config, options.ResponseReturnTypes);
         }
 
         /// <summary>
@@ -826,7 +926,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Head<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Head, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Head, path, options, config), config, options.ResponseReturnTypes);
         }
 
         /// <summary>
@@ -840,7 +940,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Options<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Options, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Options, path, options, config), config, options.ResponseReturnTypes);
         }
 
         /// <summary>
@@ -854,7 +954,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public ApiResponse<T> Patch<T>(string path, RequestOptions options, IReadableConfiguration configuration = null)
         {
             var config = configuration ?? GlobalConfiguration.Instance;
-            return Exec<T>(NewRequest(HttpMethod.Patch, path, options, config), config);
+            return Exec<T>(NewRequest(HttpMethod.Patch, path, options, config), config, options.ResponseReturnTypes);
         }
         #endregion ISynchronousClient
     }

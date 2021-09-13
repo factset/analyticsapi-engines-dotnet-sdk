@@ -141,7 +141,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetPA3DocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Gets Publisher documents and sub-directories in a directory
@@ -164,7 +164,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetPubDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Gets SPAR3 documents and sub-directories in a directory
@@ -187,7 +187,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetSPAR3DocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault documents and sub-directories in a directory
@@ -210,7 +210,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetVaultDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -366,6 +366,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -418,7 +425,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents and sub-directories in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot>> GetPA3DocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
@@ -436,6 +443,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -505,6 +518,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -557,7 +577,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot>> GetPubDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
@@ -575,6 +595,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -644,6 +670,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -696,7 +729,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot>> GetSPAR3DocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
@@ -714,6 +747,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -783,6 +822,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -835,7 +881,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="path">The directory to get the documents in</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DocumentDirectoriesRoot)</returns>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot>> GetVaultDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'path' is set
@@ -853,6 +899,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

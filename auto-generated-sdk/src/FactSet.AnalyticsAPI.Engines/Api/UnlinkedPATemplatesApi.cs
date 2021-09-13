@@ -67,8 +67,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteUnlinkedPATemplatesWithHttpInfo(string id);
+        /// <returns>ApiResponse of Object(null)</returns>
+        ApiResponse<object> DeleteUnlinkedPATemplatesWithHttpInfo(string id);
         /// <summary>
         /// Get default unlinked PA template types.
         /// </summary>
@@ -206,7 +206,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateSummaryRoot>> CreateUnlinkedPATemplatesWithHttpInfoAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete unlinked PA template
@@ -229,8 +229,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUnlinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of Object(null)</returns>
+        System.Threading.Tasks.Task<ApiResponse<object>> DeleteUnlinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get default unlinked PA template types.
         /// </summary>
@@ -250,7 +250,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateCategoryAndTypeRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateCategoryAndTypeRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateCategoryAndTypeRoot>> GetDefaultUnlinkedPATemplateTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get unlinked PA template type details by id.
@@ -273,7 +273,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateCategoryAndTypeDetailsRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateCategoryAndTypeDetailsRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateCategoryAndTypeDetailsRoot>> GetDetailsTypeWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get unlinked PA templates
@@ -298,7 +298,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="directory">Get unlinked PA templates in path. (optional)</param>
         /// <param name="category">Get unlinked PA templates by category. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateSummaryRoot>> GetUnlinkedPATemplatesWithHttpInfoAsync(string directory = default(string), string category = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get unlinked PA template details by id
@@ -321,7 +321,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateRoot>> GetUnlinkedPATemplatesByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update unlinked PA template
@@ -346,7 +346,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateSummaryRoot>> UpdateUnlinkedPATemplatesWithHttpInfoAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -503,6 +503,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 201, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -555,7 +561,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot>> CreateUnlinkedPATemplatesWithHttpInfoAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'unlinkedPATemplateParametersRoot' is set
@@ -574,6 +580,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 201, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -625,8 +636,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object> DeleteUnlinkedPATemplatesWithHttpInfo(string id)
+        /// <returns>ApiResponse of Object(null)</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> DeleteUnlinkedPATemplatesWithHttpInfo(string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -640,6 +651,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -664,7 +681,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<object>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -693,8 +710,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<Object>> DeleteUnlinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of Object(null)</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> DeleteUnlinkedPATemplatesWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -711,6 +728,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -735,7 +757,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<object>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -772,6 +794,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateCategoryAndTypeRoot) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -823,7 +850,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateCategoryAndTypeRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateCategoryAndTypeRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateCategoryAndTypeRoot>> GetDefaultUnlinkedPATemplateTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -837,6 +864,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateCategoryAndTypeRoot) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -905,6 +936,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateCategoryAndTypeDetailsRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -957,7 +995,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template type</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateCategoryAndTypeDetailsRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateCategoryAndTypeDetailsRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateCategoryAndTypeDetailsRoot>> GetDetailsTypeWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -975,6 +1013,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateCategoryAndTypeDetailsRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1042,6 +1086,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -1103,7 +1153,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="directory">Get unlinked PA templates in path. (optional)</param>
         /// <param name="category">Get unlinked PA templates by category. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot>> GetUnlinkedPATemplatesWithHttpInfoAsync(string directory = default(string), string category = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -1117,6 +1167,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1193,6 +1248,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -1245,7 +1307,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateRoot>> GetUnlinkedPATemplatesByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1263,6 +1325,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1339,6 +1407,13 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -1394,7 +1469,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (UnlinkedPATemplateSummaryRoot)</returns>
+        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot>> UpdateUnlinkedPATemplatesWithHttpInfoAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
@@ -1417,6 +1492,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

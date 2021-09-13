@@ -112,7 +112,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
+        /// <returns>Task of ApiResponse of FrequencyRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetPAFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR frequencies
@@ -133,7 +133,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
+        /// <returns>Task of ApiResponse of FrequencyRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault frequencies
@@ -154,7 +154,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
+        /// <returns>Task of ApiResponse of FrequencyRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<FrequencyRoot>> GetVaultFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -304,6 +304,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(FrequencyRoot) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -353,7 +358,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
+        /// <returns>Task of ApiResponse of FrequencyRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetPAFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -367,6 +372,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(FrequencyRoot) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -429,6 +438,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(FrequencyRoot) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -478,7 +492,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
+        /// <returns>Task of ApiResponse of FrequencyRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetSPARFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -492,6 +506,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(FrequencyRoot) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -554,6 +572,11 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(FrequencyRoot) },
+            };
+
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
 
@@ -603,7 +626,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FrequencyRoot)</returns>
+        /// <returns>Task of ApiResponse of FrequencyRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<FrequencyRoot>> GetVaultFrequenciesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
@@ -617,6 +640,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 "application/json"
             };
 
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(FrequencyRoot) },
+            };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);

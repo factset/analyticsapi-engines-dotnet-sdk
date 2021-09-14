@@ -52,7 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -168,7 +168,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -180,7 +180,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -431,6 +431,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<PAComponentRoot>("/analytics/engines/pa/v3/components/{id}", localVarRequestOptions, this.Configuration);
@@ -502,6 +508,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -517,7 +529,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -529,7 +541,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -571,6 +583,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<ComponentSummaryRoot>("/analytics/engines/pa/v3/components", localVarRequestOptions, this.Configuration);
@@ -585,7 +603,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -598,7 +616,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="document">Document Name</param>
@@ -641,6 +659,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -710,6 +734,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -782,6 +812,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -850,6 +886,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -922,6 +964,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 
@@ -990,6 +1038,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request
@@ -1061,6 +1115,12 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
             }
 
             // make the HTTP request

@@ -33,6 +33,45 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class FISecurity : IEquatable<FISecurity>, IValidatableObject
     {
         /// <summary>
+        /// Call Method
+        /// </summary>
+        /// <value>Call Method</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CallMethodEnum
+        {
+            /// <summary>
+            /// Enum NoCall for value: No Call
+            /// </summary>
+            [EnumMember(Value = "No Call")]
+            NoCall = 1,
+
+            /// <summary>
+            /// Enum IntrinsicValue for value: Intrinsic Value
+            /// </summary>
+            [EnumMember(Value = "Intrinsic Value")]
+            IntrinsicValue = 2,
+
+            /// <summary>
+            /// Enum FirstCall for value: First Call
+            /// </summary>
+            [EnumMember(Value = "First Call")]
+            FirstCall = 3,
+
+            /// <summary>
+            /// Enum FirstPar for value: First Par
+            /// </summary>
+            [EnumMember(Value = "First Par")]
+            FirstPar = 4
+
+        }
+
+        /// <summary>
+        /// Call Method
+        /// </summary>
+        /// <value>Call Method</value>
+        [DataMember(Name = "callMethod", EmitDefaultValue = false)]
+        public CallMethodEnum? CallMethod { get; set; }
+        /// <summary>
         /// Face type
         /// </summary>
         /// <value>Face type</value>
@@ -68,20 +107,21 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="FISecurity" /> class.
         /// </summary>
         /// <param name="settlement">Settlement date.</param>
-        /// <param name="calcFromMethod">Calculation from method (required).</param>
+        /// <param name="callMethod">Call Method.</param>
+        /// <param name="calcFromMethod">Calculation from method.</param>
         /// <param name="calcFromValue">Calculation from value (required).</param>
         /// <param name="face">Face (default to 1D).</param>
         /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
         /// <param name="symbol">Symbol (required).</param>
         /// <param name="discountCurve">Discount curve.</param>
-        public FISecurity(string settlement = default(string), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
+        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
         {
-            // to ensure "calcFromMethod" is required (not null)
-            this.CalcFromMethod = calcFromMethod ?? throw new ArgumentNullException("calcFromMethod is a required property for FISecurity and cannot be null");
             this.CalcFromValue = calcFromValue;
             // to ensure "symbol" is required (not null)
             this.Symbol = symbol ?? throw new ArgumentNullException("symbol is a required property for FISecurity and cannot be null");
             this.Settlement = settlement;
+            this.CallMethod = callMethod;
+            this.CalcFromMethod = calcFromMethod;
             this.Face = face;
             this.FaceType = faceType;
             this.DiscountCurve = discountCurve;
@@ -98,7 +138,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Calculation from method
         /// </summary>
         /// <value>Calculation from method</value>
-        [DataMember(Name = "calcFromMethod", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "calcFromMethod", EmitDefaultValue = false)]
         public string CalcFromMethod { get; set; }
 
         /// <summary>
@@ -138,6 +178,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class FISecurity {\n");
             sb.Append("  Settlement: ").Append(Settlement).Append("\n");
+            sb.Append("  CallMethod: ").Append(CallMethod).Append("\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
             sb.Append("  CalcFromValue: ").Append(CalcFromValue).Append("\n");
             sb.Append("  Face: ").Append(Face).Append("\n");
@@ -184,6 +225,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Settlement.Equals(input.Settlement))
                 ) && 
                 (
+                    this.CallMethod == input.CallMethod ||
+                    this.CallMethod.Equals(input.CallMethod)
+                ) && 
+                (
                     this.CalcFromMethod == input.CalcFromMethod ||
                     (this.CalcFromMethod != null &&
                     this.CalcFromMethod.Equals(input.CalcFromMethod))
@@ -223,6 +268,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Settlement != null)
                     hashCode = hashCode * 59 + this.Settlement.GetHashCode();
+                hashCode = hashCode * 59 + this.CallMethod.GetHashCode();
                 if (this.CalcFromMethod != null)
                     hashCode = hashCode * 59 + this.CalcFromMethod.GetHashCode();
                 hashCode = hashCode * 59 + this.CalcFromValue.GetHashCode();

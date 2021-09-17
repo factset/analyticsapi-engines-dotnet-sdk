@@ -17,8 +17,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        private const string UserName = "FDSQAR_C-1021374";
+        private const string Password = "Iyc1x5RFBKeWp7dKFVWKM5i3PIuVR8s8laUiFQpp";
 
         public static void Main(string[] args)
         {
@@ -120,18 +120,15 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
         private static QuantCalculationParametersRoot GetQuantCalculationParameters()
         {
-            var screeningExpressionUniverse = new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER");
-            var fdsDate = new QuantFdsDate("0", "-5D", "D", "FIVEDAY");
-            var screeningExpression = new List<QuantScreeningExpression>()
-            {
-                new QuantScreeningExpression("P_PRICE", "Price (SCR)")
-            };
-            var fqlExpression = new List<QuantFqlExpression>()
-            {
-                new QuantFqlExpression("P_PRICE", "Price (SCR)")
-            };
+            var screeningExpressionUniverse = new QuantScreeningExpressionUniverse("ISON_DOW",
+                QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER",
+                QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse);
+            var fdsDate = new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY");
+            var screeningExpression = new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression);
+            var fqlExpression = new QuantFqlExpression("P_PRICE", "Price (SCR)", QuantFqlExpression.SourceEnum.FqlExpression);
 
-            var quantCalculation = new QuantCalculationParameters(screeningExpressionUniverse: screeningExpressionUniverse, fdsDate: fdsDate, screeningExpression: screeningExpression, fqlExpression: fqlExpression);
+            var quantCalculation = new QuantCalculationParameters(screeningExpressionUniverse, fdsDate,
+                new List<object> {screeningExpression, fqlExpression});
 
             var calculationParameters = new QuantCalculationParametersRoot
             {

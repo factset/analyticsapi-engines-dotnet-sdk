@@ -9,7 +9,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     {
         public static Configuration BuildConfiguration()
         {
-            return new Configuration
+            return new Configuration(null, null, null, CommonParameters.BaseUrl)
             {
                 BasePath = CommonParameters.BaseUrl,
                 Username = CommonParameters.Username,

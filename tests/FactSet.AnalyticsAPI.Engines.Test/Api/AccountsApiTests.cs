@@ -16,8 +16,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            Console.WriteLine("CommonParameters.BaseUrl:");
-            Console.WriteLine(CommonParameters.BaseUrl);
             accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
@@ -25,8 +23,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void AccountsApi_Get_Accounts_List_Success()
         {
-            Console.WriteLine("AccountsApi_Get_Accounts_List_Success");
-            Console.WriteLine(accountsApi.Configuration.BasePath.Replace("api", ""));
             ApiResponse<AccountDirectoriesRoot> response = accountsApi.GetAccountsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

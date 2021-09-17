@@ -26,7 +26,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public void AccountsApi_Get_Accounts_List_Success()
         {
             Console.WriteLine("AccountsApi_Get_Accounts_List_Success");
-            Console.WriteLine(accountsApi.Configuration.BasePath);
+            Console.WriteLine(accountsApi.Configuration.BasePath.Replace("api", ""));
             ApiResponse<AccountDirectoriesRoot> response = accountsApi.GetAccountsWithHttpInfo(CommonParameters.DefaultLookupDirectory);
 
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");

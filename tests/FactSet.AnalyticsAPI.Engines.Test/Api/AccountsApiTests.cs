@@ -4,7 +4,6 @@ using System.Net;
 using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
 using FactSet.AnalyticsAPI.Engines.Model;
-using System;
 
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {
@@ -16,8 +15,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestInitialize]
         public void Init()
         {
-            Console.WriteLine("CommonParameters.BaseUrl:");
-            Console.WriteLine(CommonParameters.BaseUrl);
             accountsApi = new AccountsApi(CommonFunctions.BuildConfiguration());
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }

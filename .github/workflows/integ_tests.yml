@@ -1,0 +1,95 @@
+name: Integration Tests 2
+
+env:
+  ANALYTICS_API_QAR_USERNAME_SERIAL: ${{ secrets.ANALYTICS_API_QAR_USERNAME_SERIAL }}
+  ANALYTICS_API_QAR_PASSWORD: ${{ secrets.ANALYTICS_API_QAR_PASSWORD }}
+
+  ANALYTICS_API_DEFAULT_USERNAME_SERIAL: ${{ secrets.ANALYTICS_API_DEFAULT_USERNAME_SERIAL }}
+  ANALYTICS_API_DEFAULT_PASSWORD: ${{ secrets.ANALYTICS_API_DEFAULT_PASSWORD }}
+  ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL: ${{ secrets.ANALYTICS_API_VAULT_PUB_USERNAME_SERIAL }}
+  ANALYTICS_API_VAULT_PUB_PASSWORD: ${{ secrets.ANALYTICS_API_VAULT_PUB_PASSWORD }}
+  ANALYTICS_API_URL: ${{ secrets.ANALYTICS_API_URL }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      Ref:
+        description: 'name of the tag to checkout. Can be "4.0.0" or "4.1.0" or "5.0.0"'
+        required: true
+        default: 4.0.0
+
+jobs:
+  run-integration-tests-400:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.Ref == '4.0.0'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: '4.0.0'
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2
+
+      - name: Build new SDK
+        run: cd auto-generated-sdk && dotnet build --configuration Release
+
+      - name: Build Tests
+        run: cd tests && dotnet build --configuration Release
+
+      - name: Run Tests
+        run: cd tests && dotnet test --no-restore --verbosity normal
+
+      - name: Build Examples
+        run: cd examples && dotnet build --configuration Release
+
+  run-integration-tests-411:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.Ref == '4.1.1'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: '4.1.1'
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2
+
+      - name: Build new SDK
+        run: cd auto-generated-sdk && dotnet build --configuration Release
+
+      - name: Build Tests
+        run: cd tests && dotnet build --configuration Release
+
+      - name: Run Tests
+        run: cd tests && dotnet test --no-restore --verbosity normal
+
+      - name: Build Examples
+        run: cd examples && dotnet build --configuration Release
+
+  run-integration-tests-500:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.Ref == '5.0.0'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: '5.0.0'
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2
+
+      - name: Build new SDK
+        run: cd auto-generated-sdk && dotnet build --configuration Release
+
+      - name: Build Tests
+        run: cd tests && dotnet build --configuration Release
+
+      - name: Run Tests
+        run: cd tests && dotnet test --no-restore --verbosity normal
+
+      - name: Build Examples
+        run: cd examples && dotnet build --configuration Release

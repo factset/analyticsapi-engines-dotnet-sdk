@@ -44,7 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="account">account (required).</param>
         /// <param name="dates">dates.</param>
         /// <param name="configid">Vault Configuration identifier. (required).</param>
-        /// <param name="componentdetail">Component detail type for the Vault component. It can be GROUPS or TOTALS..</param>
+        /// <param name="componentdetail">Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES..</param>
         public VaultCalculationParameters(string componentid = default(string), VaultIdentifier account = default(VaultIdentifier), VaultDateParameters dates = default(VaultDateParameters), string configid = default(string), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
@@ -84,9 +84,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Configid { get; set; }
 
         /// <summary>
-        /// Component detail type for the Vault component. It can be GROUPS or TOTALS.
+        /// Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES.
         /// </summary>
-        /// <value>Component detail type for the Vault component. It can be GROUPS or TOTALS.</value>
+        /// <value>Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 

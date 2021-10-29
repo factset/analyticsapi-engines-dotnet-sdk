@@ -27,10 +27,10 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OptimizerStrategyOverrides
+    /// FPOOptimizerStrategyOverrides
     /// </summary>
-    [DataContract(Name = "OptimizerStrategyOverrides")]
-    public partial class OptimizerStrategyOverrides : IEquatable<OptimizerStrategyOverrides>, IValidatableObject
+    [DataContract(Name = "FPOOptimizerStrategyOverrides")]
+    public partial class FPOOptimizerStrategyOverrides : IEquatable<FPOOptimizerStrategyOverrides>, IValidatableObject
     {
         /// <summary>
         /// Defines Inner
@@ -60,26 +60,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name = "constraints", EmitDefaultValue = false)]
         public Dictionary<string, InnerEnum> Constraints { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategyOverrides" /> class.
+        /// Initializes a new instance of the <see cref="FPOOptimizerStrategyOverrides" /> class.
         /// </summary>
-        /// <param name="tax">Tax.</param>
+        /// <param name="objective">objective.</param>
         /// <param name="constraints">List of constraints.</param>
         /// <param name="alpha">Alpha.</param>
         /// <param name="transactionCost">Transaction cost.</param>
-        public OptimizerStrategyOverrides(string tax = default(string), Dictionary<string, InnerEnum> constraints = default(Dictionary<string, InnerEnum>), string alpha = default(string), string transactionCost = default(string))
+        public FPOOptimizerStrategyOverrides(FPOObjective objective = default(FPOObjective), Dictionary<string, InnerEnum> constraints = default(Dictionary<string, InnerEnum>), string alpha = default(string), string transactionCost = default(string))
         {
-            this.Tax = tax;
+            this.Objective = objective;
             this.Constraints = constraints;
             this.Alpha = alpha;
             this.TransactionCost = transactionCost;
         }
 
         /// <summary>
-        /// Tax
+        /// Gets or Sets Objective
         /// </summary>
-        /// <value>Tax</value>
-        [DataMember(Name = "tax", EmitDefaultValue = false)]
-        public string Tax { get; set; }
+        [DataMember(Name = "objective", EmitDefaultValue = false)]
+        public FPOObjective Objective { get; set; }
 
         /// <summary>
         /// Alpha
@@ -102,8 +101,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OptimizerStrategyOverrides {\n");
-            sb.Append("  Tax: ").Append(Tax).Append("\n");
+            sb.Append("class FPOOptimizerStrategyOverrides {\n");
+            sb.Append("  Objective: ").Append(Objective).Append("\n");
             sb.Append("  Constraints: ").Append(Constraints).Append("\n");
             sb.Append("  Alpha: ").Append(Alpha).Append("\n");
             sb.Append("  TransactionCost: ").Append(TransactionCost).Append("\n");
@@ -127,24 +126,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptimizerStrategyOverrides);
+            return this.Equals(input as FPOOptimizerStrategyOverrides);
         }
 
         /// <summary>
-        /// Returns true if OptimizerStrategyOverrides instances are equal
+        /// Returns true if FPOOptimizerStrategyOverrides instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptimizerStrategyOverrides to be compared</param>
+        /// <param name="input">Instance of FPOOptimizerStrategyOverrides to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptimizerStrategyOverrides input)
+        public bool Equals(FPOOptimizerStrategyOverrides input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Tax == input.Tax ||
-                    (this.Tax != null &&
-                    this.Tax.Equals(input.Tax))
+                    this.Objective == input.Objective ||
+                    (this.Objective != null &&
+                    this.Objective.Equals(input.Objective))
                 ) && 
                 (
                     this.Constraints == input.Constraints ||
@@ -171,8 +170,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Tax != null)
-                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
+                if (this.Objective != null)
+                    hashCode = hashCode * 59 + this.Objective.GetHashCode();
                 hashCode = hashCode * 59 + this.Constraints.GetHashCode();
                 if (this.Alpha != null)
                     hashCode = hashCode * 59 + this.Alpha.GetHashCode();

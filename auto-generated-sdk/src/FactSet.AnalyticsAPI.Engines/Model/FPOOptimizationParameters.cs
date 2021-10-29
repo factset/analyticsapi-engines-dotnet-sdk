@@ -44,7 +44,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="strategy">strategy (required).</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public FPOOptimizationParameters(FPOAccount account = default(FPOAccount), OptimizerStrategy strategy = default(OptimizerStrategy), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public FPOOptimizationParameters(FPOAccount account = default(FPOAccount), FPOOptimizerStrategy strategy = default(FPOOptimizerStrategy), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
         {
             // to ensure "strategy" is required (not null)
             this.Strategy = strategy ?? throw new ArgumentNullException("strategy is a required property for FPOOptimizationParameters and cannot be null");
@@ -64,7 +64,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Strategy
         /// </summary>
         [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = false)]
-        public OptimizerStrategy Strategy { get; set; }
+        public FPOOptimizerStrategy Strategy { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimization

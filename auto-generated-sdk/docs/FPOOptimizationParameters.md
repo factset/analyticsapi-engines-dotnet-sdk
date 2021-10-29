@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Account** | [**FPOAccount**](FPOAccount.md) |  | [optional] 
-**Strategy** | [**OptimizerStrategy**](OptimizerStrategy.md) |  | 
+**Strategy** | [**FPOOptimizerStrategy**](FPOOptimizerStrategy.md) |  | 
 **Optimization** | [**Optimization**](Optimization.md) |  | [optional] 
 **OutputTypes** | [**OptimizerOutputTypes**](OptimizerOutputTypes.md) |  | 
 

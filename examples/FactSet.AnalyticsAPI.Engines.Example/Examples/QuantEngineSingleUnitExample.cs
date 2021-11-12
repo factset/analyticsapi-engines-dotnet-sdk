@@ -17,8 +17,11 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        
+        // uncomment the below code line to setup cache control; max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
+       
+        private static string CacheControl = "max-stale=0";
 
         public static void Main(string[] args)
         {
@@ -28,7 +31,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new QuantCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo("max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(CacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -104,9 +107,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _engineApiConfiguration = new Configuration
             {
-                BasePath = BasePath,
-                Username = UserName,
-                Password = Password
+                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
+                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
             };
             
             // Uncomment below lines for adding the proxy configuration

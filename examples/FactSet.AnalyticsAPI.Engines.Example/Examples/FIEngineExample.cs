@@ -14,9 +14,11 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class FIEngineExample
     {
         private static Configuration _apiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private static readonly string UserName = Environment.GetEnvironmentVariable("ANALYTICS_API_USERNAME_SERIAL");
-        private static readonly string Password = Environment.GetEnvironmentVariable("ANALYTICS_API_PASSWORD");
+        
+        // max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
+        
+        private static string CacheControl = "max-stale=0";
 
         public static void Main(string[] args)
         {
@@ -69,7 +71,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var fiCalculationsApi = new FICalculationsApi(GetApiConfiguration());
 
                 var calculationResponse =
-                    fiCalculationsApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", fiCalculationParameterseRoot);
+                    fiCalculationsApi.PostAndCalculateWithHttpInfo(null, CacheControl, fiCalculationParameterseRoot);
 
                 switch (calculationResponse.StatusCode)
                 {
@@ -164,9 +166,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _apiConfiguration = new Configuration
             {
-                BasePath = BasePath,
-                Username = UserName,
-                Password = Password
+                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
+                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
             };
             
             // Uncomment below lines for adding the proxy configuration

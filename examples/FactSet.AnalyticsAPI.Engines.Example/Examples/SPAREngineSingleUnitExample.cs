@@ -15,17 +15,18 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class SPAREngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
         private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
-        private const string SPARBenchmarkR1000 = "R.1000";
-        private const string SPARBenchmarkRussellPr2000 = "RUSSELL_P:R.2000";
-        private const string SPARBenchmarkRussellPrefix = "RUSSELL";
-        private const string SPARBenchmarkRussellReturnType = "GTR";
+        private const string SPARBenchmark1 = "R.1000";
+        private const string SPARBenchmark2 = "RUSSELL_P:R.2000";
+        private const string SPARBenchmarkPrefix = "RUSSELL";
+        private const string SPARBenchmarkReturnType = "GTR";
 
+        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
+      
+        private static string CacheControl = "max-stale=0";
         public static void Main(string[] args)
         {
             try
@@ -37,7 +38,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new SPARCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, CacheControl, calculationParameters);
 
                 if (calculationResponse.StatusCode == HttpStatusCode.Created)
                 {
@@ -118,9 +119,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _engineApiConfiguration = new Configuration
             {
-                BasePath = BasePath,
-                Username = UserName,
-                Password = Password
+                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
+                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
             };
             
             // Uncomment below lines for adding the proxy configuration
@@ -141,9 +142,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
             Console.WriteLine($"SPAR Component Id : {sparComponentId}");
             
-            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmark1, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark2, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 

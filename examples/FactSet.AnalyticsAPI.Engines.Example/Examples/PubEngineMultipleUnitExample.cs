@@ -14,14 +14,15 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class PubEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
         private const string PubDocument = "Client:/AAPI/Puma Test Doc.Pub_bridge_pdf";
         private const string PubAccountId = "BENCH:SP50";
         private const string StartDate = "-1M";
         private const string EndDate = "0M";
 
+        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
+        
+        private static string CacheControl = "max-stale=0";
         public static void Main(string[] args)
         {
             try
@@ -30,7 +31,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new PubCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, CacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -105,9 +106,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _engineApiConfiguration = new Configuration
             {
-                BasePath = BasePath,
-                Username = UserName,
-                Password = Password
+                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
+                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
             };
             
             // Uncomment below lines for adding the proxy configuration

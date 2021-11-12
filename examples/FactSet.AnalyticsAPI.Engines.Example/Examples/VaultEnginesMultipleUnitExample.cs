@@ -15,9 +15,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class VaultEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
         private const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
         private const string VaultTotalReturnsComponent = "Total Returns";
         private const string VaultPerformanceOverTimeComponentName = "Performance Over Time";
@@ -26,6 +23,11 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string VaultStartDate = "20180101";
         private const string VaultEndDate = "20180329";
         private const string VaultFrequency = "Monthly";
+
+        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
+      
+        private static string CacheControl = "max-stale=0";
 
         public static void Main(string[] args)
         {
@@ -38,7 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new VaultCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, CacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -112,9 +114,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _engineApiConfiguration = new Configuration
             {
-                BasePath = BasePath,
-                Username = UserName,
-                Password = Password
+                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
+                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
             };
             
             // Uncomment below lines for adding the proxy configuration

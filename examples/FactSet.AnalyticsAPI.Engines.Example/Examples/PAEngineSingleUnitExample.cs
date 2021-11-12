@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Diagnostics;
 
 using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
@@ -16,13 +17,21 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     {
         private static Configuration _engineApiConfiguration;
         private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+       
+        // Configure HTTP basic authorization: FDS-API-Key
+        // Defining the host is optional and defaults to https://api.factset.com
+   
         private const string PADocument = "PA_DOCUMENTS:DEFAULT";
         private const string ComponentName = "Weights";
         private const string ComponentCategory = "Weights / Exposures";
-        private const string BenchmarkSP50 = "BENCH:SP50";
-        private const string BenchmarkR1000 = "BENCH:R.1000";
+        private const string Portfolio = "BENCH:SP50";
+        private const string Benchmark = "BENCH:R.1000";
+
+        // max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
+     
+
+        private static string CacheControl = "max-stale=0";
 
         public static void Main(string[] args)
         {
@@ -32,7 +41,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new PACalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, CacheControl, calculationParameters);
 
                 if (calculationResponse.StatusCode == HttpStatusCode.Created)
                 {
@@ -114,10 +123,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _engineApiConfiguration = new Configuration
             {
-                BasePath = BasePath,
-                Username = UserName,
-                Password = Password
-            };
+                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
+                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
+        };
             
             // Uncomment below lines for adding the proxy configuration
             //System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
@@ -137,9 +146,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
-            var paAccountIdentifier = new PAIdentifier(BenchmarkSP50);
+            var paAccountIdentifier = new PAIdentifier(Portfolio);
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(BenchmarkR1000);
+            var paBenchmarkIdentifier = new PAIdentifier(Benchmark);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
@@ -166,3 +175,4 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         }
     }
 }
+

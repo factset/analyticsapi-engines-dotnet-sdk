@@ -23,7 +23,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string VaultEndDate = "20180329";
         private const string VaultFrequency = "Monthly";
 
-        // max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
         //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
        
         private static string CacheControl = "max-stale=0";

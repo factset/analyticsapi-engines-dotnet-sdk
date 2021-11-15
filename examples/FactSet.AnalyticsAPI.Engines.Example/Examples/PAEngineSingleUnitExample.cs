@@ -16,18 +16,13 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class PAEngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-       
-        // Configure HTTP basic authorization: FDS-API-Key
-        // Defining the host is optional and defaults to https://api.factset.com
-   
         private const string PADocument = "PA_DOCUMENTS:DEFAULT";
         private const string ComponentName = "Weights";
         private const string ComponentCategory = "Weights / Exposures";
         private const string Portfolio = "BENCH:SP50";
         private const string Benchmark = "BENCH:R.1000";
 
-        // max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
         //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
      
 

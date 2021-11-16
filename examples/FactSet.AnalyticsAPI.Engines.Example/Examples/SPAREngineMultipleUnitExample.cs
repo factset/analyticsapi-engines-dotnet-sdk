@@ -40,7 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new SPARCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, CacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;

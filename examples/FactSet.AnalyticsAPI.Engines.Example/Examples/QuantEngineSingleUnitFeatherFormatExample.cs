@@ -30,7 +30,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new QuantCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo("max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(CacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;

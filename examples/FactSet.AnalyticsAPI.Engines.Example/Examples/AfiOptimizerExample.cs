@@ -116,7 +116,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             {
                 BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
                 Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
-                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD"),
+                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD")
         };
             
             // Uncomment below lines for adding the proxy configuration

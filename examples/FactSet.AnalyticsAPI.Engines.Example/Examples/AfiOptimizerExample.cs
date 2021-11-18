@@ -12,9 +12,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class AfiOptimizerExample
     {
         private static Configuration _apiConfiguration;
-        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
-        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
-         private static string CacheControl = "max-stale=0";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
         public static void Main(string[] args)
         {
@@ -24,6 +24,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var afiStrategy = new AFIOptimizerStrategy(null, strategyId);
                 var tradesList = new OptimizerTradesList(OptimizerTradesList.IdentifierTypeEnum.Asset, false);
                 var outputTypes = new OptimizerOutputTypes(tradesList);
+                
+               
 
                 var afiCalculationParameters =
                     new AFIOptimizationParameters(strategy: afiStrategy, outputTypes: outputTypes);
@@ -31,8 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var afiOptimizerApi = new AFIOptimizerApi(GetApiConfiguration());
 
-                var calculationResponse =
-                    afiOptimizerApi.PostAndOptimizeWithHttpInfo(null, CacheControl, afiCalculationParameterRoot);
+                var calculationResponse = afiOptimizerApi.PostAndOptimizeWithHttpInfo(null, null, afiCalculationParameterRoot);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = afiOptimizerApi.PostAndOptimizeWithHttpInfo(null, cacheControl, afiCalculationParameterRoot);
 
                 switch (calculationResponse.StatusCode)
                 {
@@ -114,9 +118,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _apiConfiguration = new Configuration
             {
-                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
-                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
-                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD")
+                BasePath = BasePath,
+                Username = UserName,
+                Password = Password
         };
             
             // Uncomment below lines for adding the proxy configuration

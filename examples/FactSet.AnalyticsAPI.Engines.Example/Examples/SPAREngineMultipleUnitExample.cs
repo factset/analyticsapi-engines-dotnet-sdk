@@ -14,8 +14,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
     public class SPAREngineMultipleUnitExample
     {
-        private static Configuration _engineApiConfiguration;
-      
+        private static Configuration _engineApiConfiguration;     
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
         private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
@@ -24,11 +23,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string SPARBenchmarkPrefix = "RUSSELL";
         private const string SPARBenchmarkReturnType = "GTR";
         private const string SPARBenchmark2 = "R.2000";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
-        //max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
-        //Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is 5 minutes older.
-     
-        private static string CacheControl = "max-stale=0";
         public static void Main(string[] args)
         {
             try
@@ -40,7 +38,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new SPARCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, CacheControl, calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, null, calculationParameters);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, cacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -114,9 +115,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             _engineApiConfiguration = new Configuration
             {
-                BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST"),
-                Username = Environment.GetEnvironmentVariable("FACTSET_USERNAME"),
-                Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD")
+                BasePath = BasePath,
+                Username = UserName,
+                Password = Password
             };
             
             // Uncomment below lines for adding the proxy configuration

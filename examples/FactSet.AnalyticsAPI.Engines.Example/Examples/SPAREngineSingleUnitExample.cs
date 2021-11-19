@@ -15,6 +15,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class SPAREngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
         private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
@@ -22,9 +25,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string SPARBenchmark2 = "RUSSELL_P:R.2000";
         private const string SPARBenchmarkPrefix = "RUSSELL";
         private const string SPARBenchmarkReturnType = "GTR";
-        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
-        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
-        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
         public static void Main(string[] args)
         {

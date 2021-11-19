@@ -14,14 +14,14 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class PubEngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string PubDocument = "Client:/AAPI/Puma Test Doc.Pub_bridge_pdf";
         private const string PubAccountId = "BENCH:SP50";
         private const string StartDate = "-1M";
         private const string EndDate = "0M";
-        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
-        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
-        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
-
+    
         public static void Main(string[] args)
         {
             try

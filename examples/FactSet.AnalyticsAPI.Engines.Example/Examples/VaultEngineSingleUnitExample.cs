@@ -15,6 +15,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class VaultEngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
         private const string VaultComponentName = "Total Returns";
         private const string VaultComponentCategory = "Performance / Performance Relative Dates";
@@ -22,10 +25,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string VaultStartDate = "20180101";
         private const string VaultEndDate = "20180329";
         private const string VaultFrequency = "Monthly";
-        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
-        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
-        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
-   
+ 
         public static void Main(string[] args)
         {
             try

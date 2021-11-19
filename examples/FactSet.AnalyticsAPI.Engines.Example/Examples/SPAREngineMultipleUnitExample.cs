@@ -14,19 +14,19 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
     public class SPAREngineMultipleUnitExample
     {
-        private static Configuration _engineApiConfiguration;     
+        private static Configuration _engineApiConfiguration;
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
         private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
         private const string SPARBenchmark1 = "R.1000";
-        private const string SPARBenchmarkPr = "RUSSELL_P:R.2000";
+        private const string SPARBenchmark = "RUSSELL_P:R.2000";
         private const string SPARBenchmarkPrefix = "RUSSELL";
         private const string SPARBenchmarkReturnType = "GTR";
         private const string SPARBenchmark2 = "R.2000";
-        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
-        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
-        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
-
+      
         public static void Main(string[] args)
         {
             try
@@ -140,7 +140,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             
             var sparAccountIdentifier = new SPARIdentifier(SPARBenchmark1, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkPr, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 
@@ -158,7 +158,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             
             var sparAccountIdentifier = new SPARIdentifier(SPARBenchmark2, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkPr, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 

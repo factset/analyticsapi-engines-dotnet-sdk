@@ -179,6 +179,8 @@ docs/UnlinkedPATemplateCategoryAndType.md
 docs/UnlinkedPATemplateCategoryAndTypeDetails.md
 docs/UnlinkedPATemplateCategoryAndTypeDetailsRoot.md
 docs/UnlinkedPATemplateCategoryAndTypeRoot.md
+docs/UnlinkedPATemplateColumnDetails.md
+docs/UnlinkedPATemplateGroupDetails.md
 docs/UnlinkedPATemplateParameters.md
 docs/UnlinkedPATemplateParametersRoot.md
 docs/UnlinkedPATemplatePostSummary.md
@@ -397,6 +399,8 @@ src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateCategoryAndType.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateCategoryAndTypeDetails.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateCategoryAndTypeDetailsRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateCategoryAndTypeRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateColumnDetails.cs
+src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateGroupDetails.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateParametersRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplatePostSummary.cs

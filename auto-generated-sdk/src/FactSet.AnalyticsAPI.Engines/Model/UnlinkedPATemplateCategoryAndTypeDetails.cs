@@ -36,11 +36,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="UnlinkedPATemplateCategoryAndTypeDetails" /> class.
         /// </summary>
         /// <param name="id">Type Id.</param>
+        /// <param name="columns">List of default columns.</param>
+        /// <param name="groups">List of default groupings.</param>
+        /// <param name="snapshot">Snapshot.</param>
         /// <param name="category">Unlinked template category.</param>
         /// <param name="name">Unlinked template type.</param>
-        public UnlinkedPATemplateCategoryAndTypeDetails(string id = default(string), string category = default(string), string name = default(string))
+        public UnlinkedPATemplateCategoryAndTypeDetails(string id = default(string), List<UnlinkedPATemplateColumnDetails> columns = default(List<UnlinkedPATemplateColumnDetails>), List<UnlinkedPATemplateGroupDetails> groups = default(List<UnlinkedPATemplateGroupDetails>), bool snapshot = default(bool), string category = default(string), string name = default(string))
         {
             this.Id = id;
+            this.Columns = columns;
+            this.Groups = groups;
+            this.Snapshot = snapshot;
             this.Category = category;
             this.Name = name;
         }
@@ -51,6 +57,27 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <value>Type Id</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// List of default columns
+        /// </summary>
+        /// <value>List of default columns</value>
+        [DataMember(Name = "columns", EmitDefaultValue = false)]
+        public List<UnlinkedPATemplateColumnDetails> Columns { get; set; }
+
+        /// <summary>
+        /// List of default groupings
+        /// </summary>
+        /// <value>List of default groupings</value>
+        [DataMember(Name = "groups", EmitDefaultValue = false)]
+        public List<UnlinkedPATemplateGroupDetails> Groups { get; set; }
+
+        /// <summary>
+        /// Snapshot
+        /// </summary>
+        /// <value>Snapshot</value>
+        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
+        public bool Snapshot { get; set; }
 
         /// <summary>
         /// Unlinked template category
@@ -75,6 +102,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class UnlinkedPATemplateCategoryAndTypeDetails {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Columns: ").Append(Columns).Append("\n");
+            sb.Append("  Groups: ").Append(Groups).Append("\n");
+            sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
@@ -117,6 +147,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.Columns == input.Columns ||
+                    this.Columns != null &&
+                    input.Columns != null &&
+                    this.Columns.SequenceEqual(input.Columns)
+                ) && 
+                (
+                    this.Groups == input.Groups ||
+                    this.Groups != null &&
+                    input.Groups != null &&
+                    this.Groups.SequenceEqual(input.Groups)
+                ) && 
+                (
+                    this.Snapshot == input.Snapshot ||
+                    this.Snapshot.Equals(input.Snapshot)
+                ) && 
+                (
                     this.Category == input.Category ||
                     (this.Category != null &&
                     this.Category.Equals(input.Category))
@@ -139,6 +185,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Columns != null)
+                    hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                if (this.Groups != null)
+                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
+                hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
                 if (this.Category != null)
                     hashCode = hashCode * 59 + this.Category.GetHashCode();
                 if (this.Name != null)

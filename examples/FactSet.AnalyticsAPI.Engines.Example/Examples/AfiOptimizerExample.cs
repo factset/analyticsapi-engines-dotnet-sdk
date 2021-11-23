@@ -24,7 +24,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var afiStrategy = new AFIOptimizerStrategy(null, strategyId);
                 var tradesList = new OptimizerTradesList(OptimizerTradesList.IdentifierTypeEnum.Asset, false);
                 var outputTypes = new OptimizerOutputTypes(tradesList);
-                
+
                 var afiCalculationParameters =
                     new AFIOptimizationParameters(strategy: afiStrategy, outputTypes: outputTypes);
                 var afiCalculationParameterRoot = new AFIOptimizationParametersRoot(afiCalculationParameters);

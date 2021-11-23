@@ -24,10 +24,13 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 var afiStrategy = new AFIOptimizerStrategy(null, strategyId);
                 var tradesList = new OptimizerTradesList(OptimizerTradesList.IdentifierTypeEnum.Asset, false);
                 var outputTypes = new OptimizerOutputTypes(tradesList);
+                
                 var afiCalculationParameters =
                     new AFIOptimizationParameters(strategy: afiStrategy, outputTypes: outputTypes);
                 var afiCalculationParameterRoot = new AFIOptimizationParametersRoot(afiCalculationParameters);
+                
                 var afiOptimizerApi = new AFIOptimizerApi(GetApiConfiguration());
+               
                 var calculationResponse = afiOptimizerApi.PostAndOptimizeWithHttpInfo(null, null, afiCalculationParameterRoot);
                 // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
                 //var cacheControl = "max-stale=300";

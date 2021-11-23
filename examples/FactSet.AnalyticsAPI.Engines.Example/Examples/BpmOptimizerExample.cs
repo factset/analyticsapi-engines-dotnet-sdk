@@ -119,7 +119,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 BasePath = BasePath,
                 Username = UserName,
                 Password = Password
-        };
+            };
             
             // Uncomment below lines for adding the proxy configuration
             //System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");

@@ -15,19 +15,18 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class SPAREngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string SPARDefaultDocument = "pmw_root:/spar_documents/Factset Default Document";
         private const string SPARComponentName = "Returns Table";
         private const string SPARComponentCategory = "Raw Data / Returns";
-        private const string SPARBenchmarkR1000 = "R.1000";
-        private const string SPARBenchmarkRussellPr2000 = "RUSSELL_P:R.2000";
-        private const string SPARBenchmarkRussellPrefix = "RUSSELL";
-        private const string SPARBenchmarkRussellReturnType = "GTR";
-        private const string SPARBenchmarkR2000 = "R.2000";
-
-
+        private const string SPARBenchmark1 = "R.1000";
+        private const string SPARBenchmark = "RUSSELL_P:R.2000";
+        private const string SPARBenchmarkPrefix = "RUSSELL";
+        private const string SPARBenchmarkReturnType = "GTR";
+        private const string SPARBenchmark2 = "R.2000";
+      
         public static void Main(string[] args)
         {
             try
@@ -39,7 +38,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new SPARCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, null, calculationParameters);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, cacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -136,9 +138,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
             Console.WriteLine($"SPAR Component Id : {sparComponentId}");
             
-            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR1000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmark1, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 
@@ -154,9 +156,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var sparComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == SPARComponentName && component.Value.Category == SPARComponentCategory)).Key;
             Console.WriteLine($"SPAR Component Id : {sparComponentId}");
             
-            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmarkR2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparAccountIdentifier = new SPARIdentifier(SPARBenchmark2, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
-            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmarkRussellPr2000, SPARBenchmarkRussellReturnType, SPARBenchmarkRussellPrefix);
+            var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
 
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
 

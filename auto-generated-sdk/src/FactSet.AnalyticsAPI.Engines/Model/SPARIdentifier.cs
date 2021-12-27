@@ -46,7 +46,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public SPARIdentifier(string id = default(string), string returntype = default(string), string prefix = default(string))
         {
             // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for SPARIdentifier and cannot be null");
+            if (id == null) {
+                throw new ArgumentNullException("id is a required property for SPARIdentifier and cannot be null");
+            }
+            this.Id = id;
             this.Returntype = returntype;
             this.Prefix = prefix;
         }
@@ -78,7 +81,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SPARIdentifier {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Returntype: ").Append(Returntype).Append("\n");
@@ -114,8 +117,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(SPARIdentifier input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -144,11 +148,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Returntype != null)
-                    hashCode = hashCode * 59 + this.Returntype.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Returntype.GetHashCode();
+                }
                 if (this.Prefix != null)
-                    hashCode = hashCode * 59 + this.Prefix.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Prefix.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -158,7 +168,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

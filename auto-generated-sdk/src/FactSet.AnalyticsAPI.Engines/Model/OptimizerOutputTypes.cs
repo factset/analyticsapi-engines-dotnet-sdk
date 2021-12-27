@@ -38,11 +38,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="trades">trades.</param>
         /// <param name="optimal">optimal.</param>
         /// <param name="account">account.</param>
-        public OptimizerOutputTypes(OptimizerTradesList trades = default(OptimizerTradesList), OptimizerOptimalHoldings optimal = default(OptimizerOptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio))
+        /// <param name="stats">stats.</param>
+        public OptimizerOutputTypes(OptimizerTradesList trades = default(OptimizerTradesList), OptimizerOptimalHoldings optimal = default(OptimizerOptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio), Object stats = default(Object))
         {
             this.Trades = trades;
             this.Optimal = optimal;
             this.Account = account;
+            this.Stats = stats;
         }
 
         /// <summary>
@@ -64,16 +66,23 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public OptimalPortfolio Account { get; set; }
 
         /// <summary>
+        /// Gets or Sets Stats
+        /// </summary>
+        [DataMember(Name = "stats", EmitDefaultValue = false)]
+        public Object Stats { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerOutputTypes {\n");
             sb.Append("  Trades: ").Append(Trades).Append("\n");
             sb.Append("  Optimal: ").Append(Optimal).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("  Stats: ").Append(Stats).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,8 +114,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(OptimizerOutputTypes input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Trades == input.Trades ||
@@ -122,6 +132,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Account == input.Account ||
                     (this.Account != null &&
                     this.Account.Equals(input.Account))
+                ) && 
+                (
+                    this.Stats == input.Stats ||
+                    (this.Stats != null &&
+                    this.Stats.Equals(input.Stats))
                 );
         }
 
@@ -135,11 +150,21 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Trades != null)
-                    hashCode = hashCode * 59 + this.Trades.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Trades.GetHashCode();
+                }
                 if (this.Optimal != null)
-                    hashCode = hashCode * 59 + this.Optimal.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Optimal.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
+                if (this.Stats != null)
+                {
+                    hashCode = (hashCode * 59) + this.Stats.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -149,7 +174,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

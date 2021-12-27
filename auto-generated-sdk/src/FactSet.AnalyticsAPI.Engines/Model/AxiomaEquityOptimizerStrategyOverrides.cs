@@ -53,6 +53,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
 
+
         /// <summary>
         /// List of constraints
         /// </summary>
@@ -110,7 +111,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AxiomaEquityOptimizerStrategyOverrides {\n");
             sb.Append("  Objective: ").Append(Objective).Append("\n");
             sb.Append("  Tax: ").Append(Tax).Append("\n");
@@ -148,8 +149,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(AxiomaEquityOptimizerStrategyOverrides input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Objective == input.Objective ||
@@ -187,14 +189,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Objective != null)
-                    hashCode = hashCode * 59 + this.Objective.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Objective.GetHashCode();
+                }
                 if (this.Tax != null)
-                    hashCode = hashCode * 59 + this.Tax.GetHashCode();
-                hashCode = hashCode * 59 + this.Constraints.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Tax.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Constraints.GetHashCode();
                 if (this.Alpha != null)
-                    hashCode = hashCode * 59 + this.Alpha.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Alpha.GetHashCode();
+                }
                 if (this.TransactionCost != null)
-                    hashCode = hashCode * 59 + this.TransactionCost.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.TransactionCost.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -204,7 +214,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

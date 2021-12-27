@@ -32,7 +32,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.0.0";
+        public const string Version = "5.2.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -68,11 +68,11 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Defines the base path of the target API server.
         /// Example: http://localhost:3000/v1/
         /// </summary>
-        private String _basePath;
+        private string _basePath;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
-        /// This is the key and value comprising the "secret" for acessing an API.
+        /// This is the key and value comprising the "secret" for accessing an API.
         /// </summary>
         /// <value>The API key.</value>
         private IDictionary<string, string> _apiKey;
@@ -102,7 +102,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "engines-api/5.0.0/csharp";
+            UserAgent = "engines-api/5.2.0/csharp";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -426,7 +426,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
                 }
                 else
                 {
-                    // use defualt value
+                    // use default value
                     url = url.Replace("{" + variable.Key + "}", (string)serverVariables["default_value"]);
                 }
             }
@@ -441,13 +441,13 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// <summary>
         /// Returns a string with essential information for debugging.
         /// </summary>
-        public static String ToDebugReport()
+        public static string ToDebugReport()
         {
-            String report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
+            string report = "C# SDK (FactSet.AnalyticsAPI.Engines) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v3:[pa,spar,vault,pub,quant,fi,axp,afi,npo,bpm,fpo,others],v1:[fiab]\n";
-            report += "    SDK Package Version: 5.0.0\n";
+            report += "    SDK Package Version: 5.2.0\n";
 
             return report;
         }

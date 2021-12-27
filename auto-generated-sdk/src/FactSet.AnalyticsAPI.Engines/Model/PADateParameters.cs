@@ -46,9 +46,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PADateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string))
         {
             // to ensure "enddate" is required (not null)
-            this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for PADateParameters and cannot be null");
+            if (enddate == null) {
+                throw new ArgumentNullException("enddate is a required property for PADateParameters and cannot be null");
+            }
+            this.Enddate = enddate;
             // to ensure "frequency" is required (not null)
-            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for PADateParameters and cannot be null");
+            if (frequency == null) {
+                throw new ArgumentNullException("frequency is a required property for PADateParameters and cannot be null");
+            }
+            this.Frequency = frequency;
             this.Startdate = startdate;
         }
 
@@ -79,7 +85,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PADateParameters {\n");
             sb.Append("  Startdate: ").Append(Startdate).Append("\n");
             sb.Append("  Enddate: ").Append(Enddate).Append("\n");
@@ -115,8 +121,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(PADateParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Startdate == input.Startdate ||
@@ -145,11 +152,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Startdate != null)
-                    hashCode = hashCode * 59 + this.Startdate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Startdate.GetHashCode();
+                }
                 if (this.Enddate != null)
-                    hashCode = hashCode * 59 + this.Enddate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Enddate.GetHashCode();
+                }
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -159,7 +172,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

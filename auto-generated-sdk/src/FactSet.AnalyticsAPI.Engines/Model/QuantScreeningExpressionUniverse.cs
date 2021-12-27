@@ -52,11 +52,44 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets UniverseType
         /// </summary>
         [DataMember(Name = "universeType", IsRequired = true, EmitDefaultValue = false)]
         public UniverseTypeEnum UniverseType { get; set; }
+        /// <summary>
+        /// Defines Source
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
+            /// </summary>
+            [EnumMember(Value = "ScreeningExpressionUniverse")]
+            ScreeningExpressionUniverse = 1,
+
+            /// <summary>
+            /// Enum UniversalScreenUniverse for value: UniversalScreenUniverse
+            /// </summary>
+            [EnumMember(Value = "UniversalScreenUniverse")]
+            UniversalScreenUniverse = 2,
+
+            /// <summary>
+            /// Enum IdentifierUniverse for value: IdentifierUniverse
+            /// </summary>
+            [EnumMember(Value = "IdentifierUniverse")]
+            IdentifierUniverse = 3
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantScreeningExpressionUniverse" /> class.
         /// </summary>
@@ -68,11 +101,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universeExpr">universeExpr (required).</param>
         /// <param name="universeType">universeType (required).</param>
         /// <param name="securityExpr">securityExpr.</param>
-        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string))
+        /// <param name="source">source (required).</param>
+        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "universeExpr" is required (not null)
-            this.UniverseExpr = universeExpr ?? throw new ArgumentNullException("universeExpr is a required property for QuantScreeningExpressionUniverse and cannot be null");
+            if (universeExpr == null) {
+                throw new ArgumentNullException("universeExpr is a required property for QuantScreeningExpressionUniverse and cannot be null");
+            }
+            this.UniverseExpr = universeExpr;
             this.UniverseType = universeType;
+            this.Source = source;
             this.SecurityExpr = securityExpr;
         }
 
@@ -94,11 +132,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class QuantScreeningExpressionUniverse {\n");
             sb.Append("  UniverseExpr: ").Append(UniverseExpr).Append("\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  SecurityExpr: ").Append(SecurityExpr).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,8 +169,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(QuantScreeningExpressionUniverse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.UniverseExpr == input.UniverseExpr ||
@@ -146,6 +186,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.SecurityExpr == input.SecurityExpr ||
                     (this.SecurityExpr != null &&
                     this.SecurityExpr.Equals(input.SecurityExpr))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -159,10 +203,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.UniverseExpr != null)
-                    hashCode = hashCode * 59 + this.UniverseExpr.GetHashCode();
-                hashCode = hashCode * 59 + this.UniverseType.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.UniverseExpr.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UniverseType.GetHashCode();
                 if (this.SecurityExpr != null)
-                    hashCode = hashCode * 59 + this.SecurityExpr.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.SecurityExpr.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }
@@ -172,7 +221,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

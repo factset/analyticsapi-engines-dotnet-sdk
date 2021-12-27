@@ -46,7 +46,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FPOAccount(PaDoc paDocument = default(PaDoc), string id = default(string), OptimizerAccountOverrides overrides = default(OptimizerAccountOverrides))
         {
             // to ensure "paDocument" is required (not null)
-            this.PaDocument = paDocument ?? throw new ArgumentNullException("paDocument is a required property for FPOAccount and cannot be null");
+            if (paDocument == null) {
+                throw new ArgumentNullException("paDocument is a required property for FPOAccount and cannot be null");
+            }
+            this.PaDocument = paDocument;
             this.Id = id;
             this.Overrides = overrides;
         }
@@ -76,7 +79,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FPOAccount {\n");
             sb.Append("  PaDocument: ").Append(PaDocument).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -112,8 +115,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FPOAccount input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.PaDocument == input.PaDocument ||
@@ -142,11 +146,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.PaDocument != null)
-                    hashCode = hashCode * 59 + this.PaDocument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.PaDocument.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -156,7 +166,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

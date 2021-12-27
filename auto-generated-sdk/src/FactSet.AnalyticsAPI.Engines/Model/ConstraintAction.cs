@@ -52,6 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets Item2
         /// </summary>
@@ -80,7 +81,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ConstraintAction {\n");
             sb.Append("  Item1: ").Append(Item1).Append("\n");
             sb.Append("  Item2: ").Append(Item2).Append("\n");
@@ -115,8 +116,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(ConstraintAction input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Item1 == input.Item1 ||
@@ -139,8 +141,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Item1 != null)
-                    hashCode = hashCode * 59 + this.Item1.GetHashCode();
-                hashCode = hashCode * 59 + this.Item2.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Item1.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Item2.GetHashCode();
                 return hashCode;
             }
         }
@@ -150,7 +154,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

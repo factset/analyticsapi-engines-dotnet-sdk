@@ -53,7 +53,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class ClientErrorResponse {\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
@@ -87,8 +87,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(ClientErrorResponse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Errors == input.Errors ||
@@ -108,7 +109,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Errors != null)
-                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Errors.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -118,7 +121,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

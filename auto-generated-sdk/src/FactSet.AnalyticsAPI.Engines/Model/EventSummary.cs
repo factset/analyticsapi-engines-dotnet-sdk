@@ -72,7 +72,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class EventSummary {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Submissiondatetime: ").Append(Submissiondatetime).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(EventSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Message == input.Message ||
@@ -138,11 +139,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 if (this.Submissiondatetime != null)
-                    hashCode = hashCode * 59 + this.Submissiondatetime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Submissiondatetime.GetHashCode();
+                }
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -152,7 +159,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

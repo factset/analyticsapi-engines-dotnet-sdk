@@ -27,27 +27,36 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OptimizerStrategy
+    /// FPOOptimizerStrategy
     /// </summary>
-    [DataContract(Name = "OptimizerStrategy")]
-    public partial class OptimizerStrategy : IEquatable<OptimizerStrategy>, IValidatableObject
+    [DataContract(Name = "FPOOptimizerStrategy")]
+    public partial class FPOOptimizerStrategy : IEquatable<FPOOptimizerStrategy>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
+        /// Initializes a new instance of the <see cref="FPOOptimizerStrategy" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OptimizerStrategy() { }
+        protected FPOOptimizerStrategy() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
+        /// Initializes a new instance of the <see cref="FPOOptimizerStrategy" /> class.
         /// </summary>
-        /// <param name="id">OptimizerStrategy document path (required).</param>
         /// <param name="overrides">overrides.</param>
-        public OptimizerStrategy(string id = default(string), OptimizerStrategyOverrides overrides = default(OptimizerStrategyOverrides))
+        /// <param name="id">OptimizerStrategy document path (required).</param>
+        public FPOOptimizerStrategy(FPOOptimizerStrategyOverrides overrides = default(FPOOptimizerStrategyOverrides), string id = default(string))
         {
             // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for OptimizerStrategy and cannot be null");
+            if (id == null) {
+                throw new ArgumentNullException("id is a required property for FPOOptimizerStrategy and cannot be null");
+            }
+            this.Id = id;
             this.Overrides = overrides;
         }
+
+        /// <summary>
+        /// Gets or Sets Overrides
+        /// </summary>
+        [DataMember(Name = "overrides", EmitDefaultValue = false)]
+        public FPOOptimizerStrategyOverrides Overrides { get; set; }
 
         /// <summary>
         /// OptimizerStrategy document path
@@ -57,21 +66,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Overrides
-        /// </summary>
-        [DataMember(Name = "overrides", EmitDefaultValue = false)]
-        public OptimizerStrategyOverrides Overrides { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class OptimizerStrategy {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class FPOOptimizerStrategy {\n");
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +95,30 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptimizerStrategy);
+            return this.Equals(input as FPOOptimizerStrategy);
         }
 
         /// <summary>
-        /// Returns true if OptimizerStrategy instances are equal
+        /// Returns true if FPOOptimizerStrategy instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptimizerStrategy to be compared</param>
+        /// <param name="input">Instance of FPOOptimizerStrategy to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptimizerStrategy input)
+        public bool Equals(FPOOptimizerStrategy input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
                 (
                     this.Overrides == input.Overrides ||
                     (this.Overrides != null &&
                     this.Overrides.Equals(input.Overrides))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -127,10 +131,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -140,7 +148,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -54,7 +54,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationInfo {\n");
             sb.Append("  CalculationId: ").Append(CalculationId).Append("\n");
             sb.Append("}\n");
@@ -88,8 +88,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(CalculationInfo input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.CalculationId == input.CalculationId ||
@@ -108,7 +109,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.CalculationId != null)
-                    hashCode = hashCode * 59 + this.CalculationId.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.CalculationId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -118,7 +121,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

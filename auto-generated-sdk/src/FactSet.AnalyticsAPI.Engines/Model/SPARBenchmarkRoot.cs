@@ -45,7 +45,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public SPARBenchmarkRoot(SPARBenchmark data = default(SPARBenchmark), Object meta = default(Object))
         {
             // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for SPARBenchmarkRoot and cannot be null");
+            if (data == null) {
+                throw new ArgumentNullException("data is a required property for SPARBenchmarkRoot and cannot be null");
+            }
+            this.Data = data;
             this.Meta = meta;
         }
 
@@ -58,7 +61,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        [DataMember(Name = "meta", EmitDefaultValue = true)]
         public Object Meta { get; set; }
 
         /// <summary>
@@ -67,7 +70,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SPARBenchmarkRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -102,8 +105,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(SPARBenchmarkRoot input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
@@ -127,9 +131,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -139,7 +147,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

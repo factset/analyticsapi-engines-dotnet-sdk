@@ -33,6 +33,44 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantUniversalScreenParameter : IEquatable<QuantUniversalScreenParameter>, IValidatableObject
     {
         /// <summary>
+        /// Defines Source
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum ScreeningExpression for value: ScreeningExpression
+            /// </summary>
+            [EnumMember(Value = "ScreeningExpression")]
+            ScreeningExpression = 1,
+
+            /// <summary>
+            /// Enum FqlExpression for value: FqlExpression
+            /// </summary>
+            [EnumMember(Value = "FqlExpression")]
+            FqlExpression = 2,
+
+            /// <summary>
+            /// Enum UniversalScreenParameter for value: UniversalScreenParameter
+            /// </summary>
+            [EnumMember(Value = "UniversalScreenParameter")]
+            UniversalScreenParameter = 3,
+
+            /// <summary>
+            /// Enum AllUniversalScreenParameters for value: AllUniversalScreenParameters
+            /// </summary>
+            [EnumMember(Value = "AllUniversalScreenParameters")]
+            AllUniversalScreenParameters = 4
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniversalScreenParameter" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -42,12 +80,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="referenceName">referenceName (required).</param>
         /// <param name="name">name (required).</param>
-        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string))
+        /// <param name="source">source (required).</param>
+        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "referenceName" is required (not null)
-            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameter and cannot be null");
+            if (referenceName == null) {
+                throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameter and cannot be null");
+            }
+            this.ReferenceName = referenceName;
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameter and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameter and cannot be null");
+            }
+            this.Name = name;
+            this.Source = source;
         }
 
         /// <summary>
@@ -68,10 +114,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class QuantUniversalScreenParameter {\n");
             sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,8 +150,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(QuantUniversalScreenParameter input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.ReferenceName == input.ReferenceName ||
@@ -115,6 +163,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -128,9 +180,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.ReferenceName != null)
-                    hashCode = hashCode * 59 + this.ReferenceName.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ReferenceName.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }
@@ -140,7 +197,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

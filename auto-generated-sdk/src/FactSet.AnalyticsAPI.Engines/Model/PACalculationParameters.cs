@@ -47,11 +47,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="groups">List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document..</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="columns">List of columns for the PA calculation. This will take precedence over the columns saved in the PA document..</param>
-        /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or TOTALS..</param>
+        /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES..</param>
         public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
-            this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for PACalculationParameters and cannot be null");
+            if (componentid == null) {
+                throw new ArgumentNullException("componentid is a required property for PACalculationParameters and cannot be null");
+            }
+            this.Componentid = componentid;
             this.Accounts = accounts;
             this.Benchmarks = benchmarks;
             this.Dates = dates;
@@ -110,9 +113,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public List<PACalculationColumn> Columns { get; set; }
 
         /// <summary>
-        /// Component detail type for the PA component. It can be GROUPS or TOTALS.
+        /// Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES.
         /// </summary>
-        /// <value>Component detail type for the PA component. It can be GROUPS or TOTALS.</value>
+        /// <value>Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 
@@ -122,7 +125,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PACalculationParameters {\n");
             sb.Append("  Componentid: ").Append(Componentid).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
@@ -163,8 +166,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(PACalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Componentid == input.Componentid ||
@@ -222,21 +226,37 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Componentid != null)
-                    hashCode = hashCode * 59 + this.Componentid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentid.GetHashCode();
+                }
                 if (this.Accounts != null)
-                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
                 if (this.Benchmarks != null)
-                    hashCode = hashCode * 59 + this.Benchmarks.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmarks.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
                 if (this.Groups != null)
-                    hashCode = hashCode * 59 + this.Groups.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Groups.GetHashCode();
+                }
                 if (this.Currencyisocode != null)
-                    hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
                 if (this.Columns != null)
-                    hashCode = hashCode * 59 + this.Columns.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Columns.GetHashCode();
+                }
                 if (this.Componentdetail != null)
-                    hashCode = hashCode * 59 + this.Componentdetail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentdetail.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -246,7 +266,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

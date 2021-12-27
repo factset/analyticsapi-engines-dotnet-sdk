@@ -77,6 +77,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Calculation&#39;s status
         /// </summary>
@@ -143,7 +144,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FIABCalculationStatus {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -182,8 +183,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FIABCalculationStatus input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -226,15 +228,23 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 if (this.Startdatetime != null)
-                    hashCode = hashCode * 59 + this.Startdatetime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Startdatetime.GetHashCode();
+                }
                 if (this.Completiondatetime != null)
-                    hashCode = hashCode * 59 + this.Completiondatetime.GetHashCode();
-                hashCode = hashCode * 59 + this.Progress.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Completiondatetime.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Progress.GetHashCode();
                 if (this.Batchevents != null)
-                    hashCode = hashCode * 59 + this.Batchevents.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Batchevents.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -244,7 +254,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

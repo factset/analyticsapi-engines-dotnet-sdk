@@ -33,6 +33,44 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantFqlExpression : IEquatable<QuantFqlExpression>, IValidatableObject
     {
         /// <summary>
+        /// Defines Source
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum ScreeningExpression for value: ScreeningExpression
+            /// </summary>
+            [EnumMember(Value = "ScreeningExpression")]
+            ScreeningExpression = 1,
+
+            /// <summary>
+            /// Enum FqlExpression for value: FqlExpression
+            /// </summary>
+            [EnumMember(Value = "FqlExpression")]
+            FqlExpression = 2,
+
+            /// <summary>
+            /// Enum UniversalScreenParameter for value: UniversalScreenParameter
+            /// </summary>
+            [EnumMember(Value = "UniversalScreenParameter")]
+            UniversalScreenParameter = 3,
+
+            /// <summary>
+            /// Enum AllUniversalScreenParameters for value: AllUniversalScreenParameters
+            /// </summary>
+            [EnumMember(Value = "AllUniversalScreenParameters")]
+            AllUniversalScreenParameters = 4
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="QuantFqlExpression" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -42,12 +80,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
-        public QuantFqlExpression(string expr = default(string), string name = default(string))
+        /// <param name="source">source (required).</param>
+        public QuantFqlExpression(string expr = default(string), string name = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "expr" is required (not null)
-            this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
+            if (expr == null) {
+                throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
+            }
+            this.Expr = expr;
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpression and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for QuantFqlExpression and cannot be null");
+            }
+            this.Name = name;
+            this.Source = source;
         }
 
         /// <summary>
@@ -68,10 +114,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class QuantFqlExpression {\n");
             sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,8 +150,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(QuantFqlExpression input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Expr == input.Expr ||
@@ -115,6 +163,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -128,9 +180,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Expr != null)
-                    hashCode = hashCode * 59 + this.Expr.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Expr.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }
@@ -140,7 +197,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

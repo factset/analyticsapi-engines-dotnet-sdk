@@ -46,11 +46,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FICalculationParameters(List<FISecurity> securities = default(List<FISecurity>), List<string> calculations = default(List<string>), FIJobSettings jobSettings = default(FIJobSettings))
         {
             // to ensure "securities" is required (not null)
-            this.Securities = securities ?? throw new ArgumentNullException("securities is a required property for FICalculationParameters and cannot be null");
+            if (securities == null) {
+                throw new ArgumentNullException("securities is a required property for FICalculationParameters and cannot be null");
+            }
+            this.Securities = securities;
             // to ensure "calculations" is required (not null)
-            this.Calculations = calculations ?? throw new ArgumentNullException("calculations is a required property for FICalculationParameters and cannot be null");
+            if (calculations == null) {
+                throw new ArgumentNullException("calculations is a required property for FICalculationParameters and cannot be null");
+            }
+            this.Calculations = calculations;
             // to ensure "jobSettings" is required (not null)
-            this.JobSettings = jobSettings ?? throw new ArgumentNullException("jobSettings is a required property for FICalculationParameters and cannot be null");
+            if (jobSettings == null) {
+                throw new ArgumentNullException("jobSettings is a required property for FICalculationParameters and cannot be null");
+            }
+            this.JobSettings = jobSettings;
         }
 
         /// <summary>
@@ -79,7 +88,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FICalculationParameters {\n");
             sb.Append("  Securities: ").Append(Securities).Append("\n");
             sb.Append("  Calculations: ").Append(Calculations).Append("\n");
@@ -115,8 +124,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FICalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Securities == input.Securities ||
@@ -147,11 +157,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Securities != null)
-                    hashCode = hashCode * 59 + this.Securities.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Securities.GetHashCode();
+                }
                 if (this.Calculations != null)
-                    hashCode = hashCode * 59 + this.Calculations.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calculations.GetHashCode();
+                }
                 if (this.JobSettings != null)
-                    hashCode = hashCode * 59 + this.JobSettings.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.JobSettings.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -161,7 +177,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

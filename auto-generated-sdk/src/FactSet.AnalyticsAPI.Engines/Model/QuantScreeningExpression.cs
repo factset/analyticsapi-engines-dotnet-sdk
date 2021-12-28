@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantScreeningExpression : IEquatable<QuantScreeningExpression>, IValidatableObject
     {
         /// <summary>
-        /// Defines Source
+        /// Defines ClassName
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum SourceEnum
+        public enum ClassNameEnum
         {
             /// <summary>
             /// Enum ScreeningExpression for value: ScreeningExpression
@@ -66,10 +66,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets ClassName
         /// </summary>
-        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
-        public SourceEnum Source { get; set; }
+        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
+        public ClassNameEnum ClassName { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantScreeningExpression" /> class.
         /// </summary>
@@ -80,8 +80,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
-        /// <param name="source">source (required).</param>
-        public QuantScreeningExpression(string expr = default(string), string name = default(string), SourceEnum source = default(SourceEnum))
+        /// <param name="className">className (required).</param>
+        public QuantScreeningExpression(string expr = default(string), string name = default(string), ClassNameEnum className = default(ClassNameEnum))
         {
             // to ensure "expr" is required (not null)
             if (expr == null) {
@@ -93,7 +93,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 throw new ArgumentNullException("name is a required property for QuantScreeningExpression and cannot be null");
             }
             this.Name = name;
-            this.Source = source;
+            this.ClassName = className;
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class QuantScreeningExpression {\n");
             sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,8 +165,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Source == input.Source ||
-                    this.Source.Equals(input.Source)
+                    this.ClassName == input.ClassName ||
+                    this.ClassName.Equals(input.ClassName)
                 );
         }
 
@@ -187,7 +187,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
                 return hashCode;
             }
         }

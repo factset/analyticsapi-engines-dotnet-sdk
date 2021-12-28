@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantUniverse : IEquatable<QuantUniverse>, IValidatableObject
     {
         /// <summary>
-        /// Defines Source
+        /// Defines ClassName
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum SourceEnum
+        public enum ClassNameEnum
         {
             /// <summary>
             /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
@@ -60,10 +60,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets ClassName
         /// </summary>
-        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
-        public SourceEnum Source { get; set; }
+        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
+        public ClassNameEnum ClassName { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniverse" /> class.
         /// </summary>
@@ -72,10 +72,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniverse" /> class.
         /// </summary>
-        /// <param name="source">source (required).</param>
-        public QuantUniverse(SourceEnum source = default(SourceEnum))
+        /// <param name="className">className (required).</param>
+        public QuantUniverse(ClassNameEnum className = default(ClassNameEnum))
         {
-            this.Source = source;
+            this.ClassName = className;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class QuantUniverse {\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,8 +123,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             }
             return 
                 (
-                    this.Source == input.Source ||
-                    this.Source.Equals(input.Source)
+                    this.ClassName == input.ClassName ||
+                    this.ClassName.Equals(input.ClassName)
                 );
         }
 
@@ -137,7 +137,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
                 return hashCode;
             }
         }

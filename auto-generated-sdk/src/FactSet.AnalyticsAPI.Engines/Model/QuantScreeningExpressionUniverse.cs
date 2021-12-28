@@ -59,10 +59,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name = "universeType", IsRequired = true, EmitDefaultValue = false)]
         public UniverseTypeEnum UniverseType { get; set; }
         /// <summary>
-        /// Defines Source
+        /// Defines ClassName
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum SourceEnum
+        public enum ClassNameEnum
         {
             /// <summary>
             /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
@@ -86,10 +86,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets ClassName
         /// </summary>
-        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
-        public SourceEnum Source { get; set; }
+        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
+        public ClassNameEnum ClassName { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantScreeningExpressionUniverse" /> class.
         /// </summary>
@@ -101,8 +101,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universeExpr">universeExpr (required).</param>
         /// <param name="universeType">universeType (required).</param>
         /// <param name="securityExpr">securityExpr.</param>
-        /// <param name="source">source (required).</param>
-        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), SourceEnum source = default(SourceEnum))
+        /// <param name="className">className (required).</param>
+        public QuantScreeningExpressionUniverse(string universeExpr = default(string), UniverseTypeEnum universeType = default(UniverseTypeEnum), string securityExpr = default(string), ClassNameEnum className = default(ClassNameEnum))
         {
             // to ensure "universeExpr" is required (not null)
             if (universeExpr == null) {
@@ -110,7 +110,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             }
             this.UniverseExpr = universeExpr;
             this.UniverseType = universeType;
-            this.Source = source;
+            this.ClassName = className;
             this.SecurityExpr = securityExpr;
         }
 
@@ -137,7 +137,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  UniverseExpr: ").Append(UniverseExpr).Append("\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  SecurityExpr: ").Append(SecurityExpr).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -188,8 +188,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.SecurityExpr.Equals(input.SecurityExpr))
                 ) && 
                 (
-                    this.Source == input.Source ||
-                    this.Source.Equals(input.Source)
+                    this.ClassName == input.ClassName ||
+                    this.ClassName.Equals(input.ClassName)
                 );
         }
 
@@ -211,7 +211,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.SecurityExpr.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
                 return hashCode;
             }
         }

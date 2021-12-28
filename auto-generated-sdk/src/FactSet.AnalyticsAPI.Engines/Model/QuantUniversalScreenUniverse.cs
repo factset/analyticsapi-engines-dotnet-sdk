@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantUniversalScreenUniverse : IEquatable<QuantUniversalScreenUniverse>, IValidatableObject
     {
         /// <summary>
-        /// Defines Source
+        /// Defines ClassName
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum SourceEnum
+        public enum ClassNameEnum
         {
             /// <summary>
             /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
@@ -60,10 +60,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets Source
+        /// Gets or Sets ClassName
         /// </summary>
-        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
-        public SourceEnum Source { get; set; }
+        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
+        public ClassNameEnum ClassName { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
@@ -73,15 +73,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
         /// <param name="screen">screen (required).</param>
-        /// <param name="source">source (required).</param>
-        public QuantUniversalScreenUniverse(string screen = default(string), SourceEnum source = default(SourceEnum))
+        /// <param name="className">className (required).</param>
+        public QuantUniversalScreenUniverse(string screen = default(string), ClassNameEnum className = default(ClassNameEnum))
         {
             // to ensure "screen" is required (not null)
             if (screen == null) {
                 throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverse and cannot be null");
             }
             this.Screen = screen;
-            this.Source = source;
+            this.ClassName = className;
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class QuantUniversalScreenUniverse {\n");
             sb.Append("  Screen: ").Append(Screen).Append("\n");
-            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,8 +141,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Screen.Equals(input.Screen))
                 ) && 
                 (
-                    this.Source == input.Source ||
-                    this.Source.Equals(input.Source)
+                    this.ClassName == input.ClassName ||
+                    this.ClassName.Equals(input.ClassName)
                 );
         }
 
@@ -159,7 +159,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.Screen.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
                 return hashCode;
             }
         }

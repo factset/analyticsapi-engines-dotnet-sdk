@@ -38,7 +38,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universe">universe.</param>
         /// <param name="dates">dates.</param>
         /// <param name="formulas">formulas.</param>
-        public QuantCalculationParameters(OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse universe = default(OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse), OneOfQuantFdsDateQuantDateList dates = default(OneOfQuantFdsDateQuantDateList), List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> formulas = default(List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters>))
+        public QuantCalculationParameters(DummyUniverse universe = default(DummyUniverse), OneOfQuantFdsDateQuantDateList dates = default(OneOfQuantFdsDateQuantDateList), List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> formulas = default(List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters>))
         {
             this.Universe = universe;
             this.Dates = dates;
@@ -48,8 +48,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Universe
         /// </summary>
-        [DataMember(Name = "universe", EmitDefaultValue = true)]
-        public OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse Universe { get; set; }
+        [DataMember(Name = "universe", EmitDefaultValue = false)]
+        public DummyUniverse Universe { get; set; }
 
         /// <summary>
         /// Gets or Sets Dates

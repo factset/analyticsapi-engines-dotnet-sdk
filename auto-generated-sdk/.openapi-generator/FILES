@@ -56,6 +56,7 @@ docs/DatesApi.md
 docs/DocumentDirectories.md
 docs/DocumentDirectoriesRoot.md
 docs/DocumentsApi.md
+docs/DummyUniverse.md
 docs/Error.md
 docs/ErrorSource.md
 docs/EventSummary.md
@@ -289,6 +290,7 @@ src/FactSet.AnalyticsAPI.Engines/Model/DateParametersSummary.cs
 src/FactSet.AnalyticsAPI.Engines/Model/DateParametersSummaryRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/DocumentDirectories.cs
 src/FactSet.AnalyticsAPI.Engines/Model/DocumentDirectoriesRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/DummyUniverse.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Error.cs
 src/FactSet.AnalyticsAPI.Engines/Model/ErrorSource.cs
 src/FactSet.AnalyticsAPI.Engines/Model/EventSummary.cs

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Universe** | [**OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse**](OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse.md) |  | [optional] 
+**Universe** | [**DummyUniverse**](DummyUniverse.md) |  | [optional] 
 **Dates** | [**OneOfQuantFdsDateQuantDateList**](OneOfQuantFdsDateQuantDateList.md) |  | [optional] 
 **Formulas** | [**List&lt;OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters&gt;**](OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters.md) |  | [optional] 
 

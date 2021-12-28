@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantDate : IEquatable<QuantDate>, IValidatableObject
     {
         /// <summary>
-        /// Defines ClassName
+        /// Defines Source
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ClassNameEnum
+        public enum SourceEnum
         {
             /// <summary>
             /// Enum FdsDate for value: FdsDate
@@ -54,10 +54,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets ClassName
+        /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
-        public ClassNameEnum ClassName { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantDate" /> class.
         /// </summary>
@@ -66,12 +66,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantDate" /> class.
         /// </summary>
-        /// <param name="className">className (required).</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantDate(ClassNameEnum className = default(ClassNameEnum), string frequency = default(string), string calendar = default(string))
+        public QuantDate(SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string))
         {
-            this.ClassName = className;
+            this.Source = source;
             // to ensure "frequency" is required (not null)
             if (frequency == null) {
                 throw new ArgumentNullException("frequency is a required property for QuantDate and cannot be null");
@@ -104,7 +104,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class QuantDate {\n");
-            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
@@ -143,8 +143,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             }
             return 
                 (
-                    this.ClassName == input.ClassName ||
-                    this.ClassName.Equals(input.ClassName)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 ) && 
                 (
                     this.Frequency == input.Frequency ||
@@ -167,7 +167,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 if (this.Frequency != null)
                 {
                     hashCode = (hashCode * 59) + this.Frequency.GetHashCode();

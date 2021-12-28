@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantDateList : IEquatable<QuantDateList>, IValidatableObject
     {
         /// <summary>
-        /// Defines ClassName
+        /// Defines Source
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ClassNameEnum
+        public enum SourceEnum
         {
             /// <summary>
             /// Enum FdsDate for value: FdsDate
@@ -54,10 +54,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets ClassName
+        /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
-        public ClassNameEnum ClassName { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
@@ -67,12 +67,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         /// <param name="dates">dates.</param>
-        /// <param name="className">className (required).</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantDateList(List<string> dates = default(List<string>), ClassNameEnum className = default(ClassNameEnum), string frequency = default(string), string calendar = default(string))
+        public QuantDateList(List<string> dates = default(List<string>), SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string))
         {
-            this.ClassName = className;
+            this.Source = source;
             // to ensure "frequency" is required (not null)
             if (frequency == null) {
                 throw new ArgumentNullException("frequency is a required property for QuantDateList and cannot be null");
@@ -113,7 +113,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class QuantDateList {\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
-            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
@@ -158,8 +158,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Dates.SequenceEqual(input.Dates)
                 ) && 
                 (
-                    this.ClassName == input.ClassName ||
-                    this.ClassName.Equals(input.ClassName)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 ) && 
                 (
                     this.Frequency == input.Frequency ||
@@ -186,7 +186,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.Dates.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 if (this.Frequency != null)
                 {
                     hashCode = (hashCode * 59) + this.Frequency.GetHashCode();

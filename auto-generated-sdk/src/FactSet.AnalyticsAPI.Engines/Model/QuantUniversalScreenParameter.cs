@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantUniversalScreenParameter : IEquatable<QuantUniversalScreenParameter>, IValidatableObject
     {
         /// <summary>
-        /// Defines ClassName
+        /// Defines Source
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ClassNameEnum
+        public enum SourceEnum
         {
             /// <summary>
             /// Enum ScreeningExpression for value: ScreeningExpression
@@ -66,10 +66,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets ClassName
+        /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
-        public ClassNameEnum ClassName { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniversalScreenParameter" /> class.
         /// </summary>
@@ -80,8 +80,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="referenceName">referenceName (required).</param>
         /// <param name="name">name (required).</param>
-        /// <param name="className">className (required).</param>
-        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string), ClassNameEnum className = default(ClassNameEnum))
+        /// <param name="source">source (required).</param>
+        public QuantUniversalScreenParameter(string referenceName = default(string), string name = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "referenceName" is required (not null)
             if (referenceName == null) {
@@ -93,7 +93,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameter and cannot be null");
             }
             this.Name = name;
-            this.ClassName = className;
+            this.Source = source;
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class QuantUniversalScreenParameter {\n");
             sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,8 +165,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ClassName == input.ClassName ||
-                    this.ClassName.Equals(input.ClassName)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -187,7 +187,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }

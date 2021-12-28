@@ -59,10 +59,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         [DataMember(Name = "universeType", IsRequired = true, EmitDefaultValue = false)]
         public UniverseTypeEnum UniverseType { get; set; }
         /// <summary>
-        /// Defines ClassName
+        /// Defines Source
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ClassNameEnum
+        public enum SourceEnum
         {
             /// <summary>
             /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
@@ -86,10 +86,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets ClassName
+        /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
-        public ClassNameEnum ClassName { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantIdentifierUniverse" /> class.
         /// </summary>
@@ -100,8 +100,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="universeType">universeType (required).</param>
         /// <param name="identifiers">identifiers (required).</param>
-        /// <param name="className">className (required).</param>
-        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>), ClassNameEnum className = default(ClassNameEnum))
+        /// <param name="source">source (required).</param>
+        public QuantIdentifierUniverse(UniverseTypeEnum universeType = default(UniverseTypeEnum), List<string> identifiers = default(List<string>), SourceEnum source = default(SourceEnum))
         {
             this.UniverseType = universeType;
             // to ensure "identifiers" is required (not null)
@@ -109,7 +109,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 throw new ArgumentNullException("identifiers is a required property for QuantIdentifierUniverse and cannot be null");
             }
             this.Identifiers = identifiers;
-            this.ClassName = className;
+            this.Source = source;
         }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class QuantIdentifierUniverse {\n");
             sb.Append("  UniverseType: ").Append(UniverseType).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
-            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -175,8 +175,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Identifiers.SequenceEqual(input.Identifiers)
                 ) && 
                 (
-                    this.ClassName == input.ClassName ||
-                    this.ClassName.Equals(input.ClassName)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -194,7 +194,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.Identifiers.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }

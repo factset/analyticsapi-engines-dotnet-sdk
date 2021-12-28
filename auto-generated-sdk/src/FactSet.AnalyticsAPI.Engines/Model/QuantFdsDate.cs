@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantFdsDate : IEquatable<QuantFdsDate>, IValidatableObject
     {
         /// <summary>
-        /// Defines ClassName
+        /// Defines Source
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ClassNameEnum
+        public enum SourceEnum
         {
             /// <summary>
             /// Enum FdsDate for value: FdsDate
@@ -54,10 +54,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets ClassName
+        /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
-        public ClassNameEnum ClassName { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantFdsDate" /> class.
         /// </summary>
@@ -68,10 +68,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="startDate">startDate (required).</param>
         /// <param name="endDate">endDate (required).</param>
-        /// <param name="className">className (required).</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantFdsDate(string startDate = default(string), string endDate = default(string), ClassNameEnum className = default(ClassNameEnum), string frequency = default(string), string calendar = default(string))
+        public QuantFdsDate(string startDate = default(string), string endDate = default(string), SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string))
         {
             // to ensure "startDate" is required (not null)
             if (startDate == null) {
@@ -83,7 +83,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 throw new ArgumentNullException("endDate is a required property for QuantFdsDate and cannot be null");
             }
             this.EndDate = endDate;
-            this.ClassName = className;
+            this.Source = source;
             // to ensure "frequency" is required (not null)
             if (frequency == null) {
                 throw new ArgumentNullException("frequency is a required property for QuantFdsDate and cannot be null");
@@ -130,7 +130,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class QuantFdsDate {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
@@ -179,8 +179,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.EndDate.Equals(input.EndDate))
                 ) && 
                 (
-                    this.ClassName == input.ClassName ||
-                    this.ClassName.Equals(input.ClassName)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 ) && 
                 (
                     this.Frequency == input.Frequency ||
@@ -211,7 +211,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 {
                     hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 if (this.Frequency != null)
                 {
                     hashCode = (hashCode * 59) + this.Frequency.GetHashCode();

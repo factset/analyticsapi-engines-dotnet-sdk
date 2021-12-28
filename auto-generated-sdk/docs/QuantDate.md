@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassName** | **string** |  | 
+**Source** | **string** |  | 
 **Frequency** | **string** |  | 
 **Calendar** | **string** |  | 
 

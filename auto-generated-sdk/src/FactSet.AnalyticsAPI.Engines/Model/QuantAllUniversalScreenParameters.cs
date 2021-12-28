@@ -33,10 +33,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantAllUniversalScreenParameters : IEquatable<QuantAllUniversalScreenParameters>, IValidatableObject
     {
         /// <summary>
-        /// Defines ClassName
+        /// Defines Source
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum ClassNameEnum
+        public enum SourceEnum
         {
             /// <summary>
             /// Enum ScreeningExpression for value: ScreeningExpression
@@ -66,10 +66,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
 
         /// <summary>
-        /// Gets or Sets ClassName
+        /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name = "className", IsRequired = true, EmitDefaultValue = false)]
-        public ClassNameEnum ClassName { get; set; }
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantAllUniversalScreenParameters" /> class.
         /// </summary>
@@ -78,10 +78,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantAllUniversalScreenParameters" /> class.
         /// </summary>
-        /// <param name="className">className (required).</param>
-        public QuantAllUniversalScreenParameters(ClassNameEnum className = default(ClassNameEnum))
+        /// <param name="source">source (required).</param>
+        public QuantAllUniversalScreenParameters(SourceEnum source = default(SourceEnum))
         {
-            this.ClassName = className;
+            this.Source = source;
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class QuantAllUniversalScreenParameters {\n");
-            sb.Append("  ClassName: ").Append(ClassName).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,8 +129,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             }
             return 
                 (
-                    this.ClassName == input.ClassName ||
-                    this.ClassName.Equals(input.ClassName)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -143,7 +143,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.ClassName.GetHashCode();
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }

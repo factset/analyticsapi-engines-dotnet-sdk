@@ -310,6 +310,7 @@ Class | Method | HTTP request | Description
  - [Model.NPOOptimizerStrategyOverrides](docs/NPOOptimizerStrategyOverrides.md)
  - [Model.ObjectRoot](docs/ObjectRoot.md)
  - [Model.OneOfQuantDates](docs/OneOfQuantDates.md)
+ - [Model.OneOfQuantFormulasArray](docs/OneOfQuantFormulasArray.md)
  - [Model.OneOfQuantUniverse](docs/OneOfQuantUniverse.md)
  - [Model.OptimalPortfolio](docs/OptimalPortfolio.md)
  - [Model.Optimization](docs/Optimization.md)

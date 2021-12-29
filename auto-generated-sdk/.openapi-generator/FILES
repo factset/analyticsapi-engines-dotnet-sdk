@@ -105,6 +105,7 @@ docs/NPOOptimizerStrategy.md
 docs/NPOOptimizerStrategyOverrides.md
 docs/ObjectRoot.md
 docs/OneOfQuantDates.md
+docs/OneOfQuantFormulasArray.md
 docs/OneOfQuantUniverse.md
 docs/OptimalPortfolio.md
 docs/Optimization.md
@@ -333,6 +334,7 @@ src/FactSet.AnalyticsAPI.Engines/Model/NPOOptimizerStrategy.cs
 src/FactSet.AnalyticsAPI.Engines/Model/NPOOptimizerStrategyOverrides.cs
 src/FactSet.AnalyticsAPI.Engines/Model/ObjectRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OneOfQuantDates.cs
+src/FactSet.AnalyticsAPI.Engines/Model/OneOfQuantFormulasArray.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OneOfQuantUniverse.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OptimalPortfolio.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Optimization.cs

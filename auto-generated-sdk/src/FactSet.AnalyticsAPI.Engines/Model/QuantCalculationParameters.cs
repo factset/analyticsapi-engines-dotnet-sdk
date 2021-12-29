@@ -38,7 +38,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universe">universe.</param>
         /// <param name="dates">dates.</param>
         /// <param name="formulas">formulas.</param>
-        public QuantCalculationParameters(OneOfQuantUniverse universe = default(OneOfQuantUniverse), OneOfQuantDates dates = default(OneOfQuantDates), List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> formulas = default(List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters>))
+        public QuantCalculationParameters(OneOfQuantUniverse universe = default(OneOfQuantUniverse), OneOfQuantDates dates = default(OneOfQuantDates), List<OneOfQuantFormulasArray> formulas = default(List<OneOfQuantFormulasArray>))
         {
             this.Universe = universe;
             this.Dates = dates;
@@ -61,7 +61,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Formulas
         /// </summary>
         [DataMember(Name = "formulas", EmitDefaultValue = false)]
-        public List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> Formulas { get; set; }
+        public List<OneOfQuantFormulasArray> Formulas { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

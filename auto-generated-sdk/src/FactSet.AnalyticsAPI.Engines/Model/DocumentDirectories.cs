@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class DocumentDirectories {\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  Directories: ").Append(Directories).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(DocumentDirectories input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Documents == input.Documents ||
@@ -125,9 +126,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Documents != null)
-                    hashCode = hashCode * 59 + this.Documents.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Documents.GetHashCode();
+                }
                 if (this.Directories != null)
-                    hashCode = hashCode * 59 + this.Directories.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directories.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -137,7 +142,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Currencyisocode** | **string** |  | [optional] 
 **Dates** | [**PADateParameters**](PADateParameters.md) |  | [optional] 
 **Snapshot** | **bool** | Is the component type snapshot or subperiod. | [optional] 
+**Path** | **string** | The path to the document | [optional] 
 **Name** | **string** | Component name. | [optional] 
 **Category** | **string** | Component category. | [optional] 
 

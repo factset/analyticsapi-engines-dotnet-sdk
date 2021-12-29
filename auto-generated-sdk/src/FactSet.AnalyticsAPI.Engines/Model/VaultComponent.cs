@@ -41,9 +41,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="currencyisocode">Currency iso code saved in the document.</param>
         /// <param name="dates">dates.</param>
         /// <param name="snapshot">Snapshot.</param>
+        /// <param name="path">The path to the document.</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
-        public VaultComponent(string id = default(string), VaultIdentifier account = default(VaultIdentifier), VaultIdentifier benchmark = default(VaultIdentifier), string currencyisocode = default(string), VaultDateParameters dates = default(VaultDateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
+        public VaultComponent(string id = default(string), VaultIdentifier account = default(VaultIdentifier), VaultIdentifier benchmark = default(VaultIdentifier), string currencyisocode = default(string), VaultDateParameters dates = default(VaultDateParameters), bool snapshot = default(bool), string path = default(string), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Account = account;
@@ -51,6 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Currencyisocode = currencyisocode;
             this.Dates = dates;
             this.Snapshot = snapshot;
+            this.Path = path;
             this.Name = name;
             this.Category = category;
         }
@@ -91,8 +93,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Snapshot
         /// </summary>
         /// <value>Snapshot</value>
-        [DataMember(Name = "snapshot", EmitDefaultValue = false)]
+        [DataMember(Name = "snapshot", EmitDefaultValue = true)]
         public bool Snapshot { get; set; }
+
+        /// <summary>
+        /// The path to the document
+        /// </summary>
+        /// <value>The path to the document</value>
+        [DataMember(Name = "path", EmitDefaultValue = false)]
+        public string Path { get; set; }
 
         /// <summary>
         /// Component name.
@@ -114,7 +123,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class VaultComponent {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
@@ -122,6 +131,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("}\n");
@@ -155,8 +165,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(VaultComponent input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -188,6 +199,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Snapshot.Equals(input.Snapshot)
                 ) && 
                 (
+                    this.Path == input.Path ||
+                    (this.Path != null &&
+                    this.Path.Equals(input.Path))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -209,20 +225,38 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Benchmark != null)
-                    hashCode = hashCode * 59 + this.Benchmark.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmark.GetHashCode();
+                }
                 if (this.Currencyisocode != null)
-                    hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
-                hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Snapshot.GetHashCode();
+                if (this.Path != null)
+                {
+                    hashCode = (hashCode * 59) + this.Path.GetHashCode();
+                }
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -232,7 +266,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

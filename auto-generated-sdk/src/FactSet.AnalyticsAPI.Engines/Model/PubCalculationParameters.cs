@@ -46,11 +46,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PubCalculationParameters(string document = default(string), PubIdentifier account = default(PubIdentifier), PubDateParameters dates = default(PubDateParameters))
         {
             // to ensure "document" is required (not null)
-            this.Document = document ?? throw new ArgumentNullException("document is a required property for PubCalculationParameters and cannot be null");
+            if (document == null) {
+                throw new ArgumentNullException("document is a required property for PubCalculationParameters and cannot be null");
+            }
+            this.Document = document;
             // to ensure "account" is required (not null)
-            this.Account = account ?? throw new ArgumentNullException("account is a required property for PubCalculationParameters and cannot be null");
+            if (account == null) {
+                throw new ArgumentNullException("account is a required property for PubCalculationParameters and cannot be null");
+            }
+            this.Account = account;
             // to ensure "dates" is required (not null)
-            this.Dates = dates ?? throw new ArgumentNullException("dates is a required property for PubCalculationParameters and cannot be null");
+            if (dates == null) {
+                throw new ArgumentNullException("dates is a required property for PubCalculationParameters and cannot be null");
+            }
+            this.Dates = dates;
         }
 
         /// <summary>
@@ -78,7 +87,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class PubCalculationParameters {\n");
             sb.Append("  Document: ").Append(Document).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
@@ -114,8 +123,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(PubCalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Document == input.Document ||
@@ -144,11 +154,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Document != null)
-                    hashCode = hashCode * 59 + this.Document.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Document.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -158,7 +174,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -44,12 +44,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="strategy">strategy (required).</param>
         /// <param name="optimization">optimization.</param>
         /// <param name="outputTypes">outputTypes (required).</param>
-        public FPOOptimizationParameters(FPOAccount account = default(FPOAccount), OptimizerStrategy strategy = default(OptimizerStrategy), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
+        public FPOOptimizationParameters(FPOAccount account = default(FPOAccount), FPOOptimizerStrategy strategy = default(FPOOptimizerStrategy), Optimization optimization = default(Optimization), OptimizerOutputTypes outputTypes = default(OptimizerOutputTypes))
         {
             // to ensure "strategy" is required (not null)
-            this.Strategy = strategy ?? throw new ArgumentNullException("strategy is a required property for FPOOptimizationParameters and cannot be null");
+            if (strategy == null) {
+                throw new ArgumentNullException("strategy is a required property for FPOOptimizationParameters and cannot be null");
+            }
+            this.Strategy = strategy;
             // to ensure "outputTypes" is required (not null)
-            this.OutputTypes = outputTypes ?? throw new ArgumentNullException("outputTypes is a required property for FPOOptimizationParameters and cannot be null");
+            if (outputTypes == null) {
+                throw new ArgumentNullException("outputTypes is a required property for FPOOptimizationParameters and cannot be null");
+            }
+            this.OutputTypes = outputTypes;
             this.Account = account;
             this.Optimization = optimization;
         }
@@ -64,7 +70,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Strategy
         /// </summary>
         [DataMember(Name = "strategy", IsRequired = true, EmitDefaultValue = false)]
-        public OptimizerStrategy Strategy { get; set; }
+        public FPOOptimizerStrategy Strategy { get; set; }
 
         /// <summary>
         /// Gets or Sets Optimization
@@ -84,7 +90,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FPOOptimizationParameters {\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("  Strategy: ").Append(Strategy).Append("\n");
@@ -121,8 +127,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FPOOptimizationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Account == input.Account ||
@@ -156,13 +163,21 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Strategy != null)
-                    hashCode = hashCode * 59 + this.Strategy.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Strategy.GetHashCode();
+                }
                 if (this.Optimization != null)
-                    hashCode = hashCode * 59 + this.Optimization.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Optimization.GetHashCode();
+                }
                 if (this.OutputTypes != null)
-                    hashCode = hashCode * 59 + this.OutputTypes.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.OutputTypes.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -172,7 +187,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

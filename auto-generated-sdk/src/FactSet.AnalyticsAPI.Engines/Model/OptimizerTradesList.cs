@@ -101,6 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Identifier type
         /// </summary>
@@ -122,7 +123,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Include cash
         /// </summary>
         /// <value>Include cash</value>
-        [DataMember(Name = "includeCash", EmitDefaultValue = false)]
+        [DataMember(Name = "includeCash", EmitDefaultValue = true)]
         public bool IncludeCash { get; set; }
 
         /// <summary>
@@ -131,7 +132,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimizerTradesList {\n");
             sb.Append("  IdentifierType: ").Append(IdentifierType).Append("\n");
             sb.Append("  IncludeCash: ").Append(IncludeCash).Append("\n");
@@ -166,8 +167,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(OptimizerTradesList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.IdentifierType == input.IdentifierType ||
@@ -188,8 +190,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.IdentifierType.GetHashCode();
-                hashCode = hashCode * 59 + this.IncludeCash.GetHashCode();
+                hashCode = (hashCode * 59) + this.IdentifierType.GetHashCode();
+                hashCode = (hashCode * 59) + this.IncludeCash.GetHashCode();
                 return hashCode;
             }
         }
@@ -199,7 +201,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -59,6 +59,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Archive action if account exists
         /// </summary>
@@ -91,6 +92,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             AppendSecurities = 3
 
         }
+
 
         /// <summary>
         /// Action if ofdb date exists
@@ -126,7 +128,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Exclude zero
         /// </summary>
         /// <value>Exclude zero</value>
-        [DataMember(Name = "excludeZero", EmitDefaultValue = false)]
+        [DataMember(Name = "excludeZero", EmitDefaultValue = true)]
         public bool ExcludeZero { get; set; }
 
         /// <summary>
@@ -142,7 +144,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class OptimalPortfolio {\n");
             sb.Append("  AcctName: ").Append(AcctName).Append("\n");
             sb.Append("  ExcludeZero: ").Append(ExcludeZero).Append("\n");
@@ -180,8 +182,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(OptimalPortfolio input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.AcctName == input.AcctName ||
@@ -217,12 +220,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.AcctName != null)
-                    hashCode = hashCode * 59 + this.AcctName.GetHashCode();
-                hashCode = hashCode * 59 + this.ExcludeZero.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.AcctName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ExcludeZero.GetHashCode();
                 if (this.ArchiveDate != null)
-                    hashCode = hashCode * 59 + this.ArchiveDate.GetHashCode();
-                hashCode = hashCode * 59 + this.IfAcctExists.GetHashCode();
-                hashCode = hashCode * 59 + this.IfOfdbDateExists.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.ArchiveDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IfAcctExists.GetHashCode();
+                hashCode = (hashCode * 59) + this.IfOfdbDateExists.GetHashCode();
                 return hashCode;
             }
         }
@@ -232,7 +239,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -44,15 +44,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="account">account (required).</param>
         /// <param name="dates">dates.</param>
         /// <param name="configid">Vault Configuration identifier. (required).</param>
-        /// <param name="componentdetail">Component detail type for the Vault component. It can be GROUPS or TOTALS..</param>
+        /// <param name="componentdetail">Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES..</param>
         public VaultCalculationParameters(string componentid = default(string), VaultIdentifier account = default(VaultIdentifier), VaultDateParameters dates = default(VaultDateParameters), string configid = default(string), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
-            this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for VaultCalculationParameters and cannot be null");
+            if (componentid == null) {
+                throw new ArgumentNullException("componentid is a required property for VaultCalculationParameters and cannot be null");
+            }
+            this.Componentid = componentid;
             // to ensure "account" is required (not null)
-            this.Account = account ?? throw new ArgumentNullException("account is a required property for VaultCalculationParameters and cannot be null");
+            if (account == null) {
+                throw new ArgumentNullException("account is a required property for VaultCalculationParameters and cannot be null");
+            }
+            this.Account = account;
             // to ensure "configid" is required (not null)
-            this.Configid = configid ?? throw new ArgumentNullException("configid is a required property for VaultCalculationParameters and cannot be null");
+            if (configid == null) {
+                throw new ArgumentNullException("configid is a required property for VaultCalculationParameters and cannot be null");
+            }
+            this.Configid = configid;
             this.Dates = dates;
             this.Componentdetail = componentdetail;
         }
@@ -84,9 +93,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Configid { get; set; }
 
         /// <summary>
-        /// Component detail type for the Vault component. It can be GROUPS or TOTALS.
+        /// Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES.
         /// </summary>
-        /// <value>Component detail type for the Vault component. It can be GROUPS or TOTALS.</value>
+        /// <value>Component detail type for the Vault component. It can be GROUPS or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 
@@ -96,7 +105,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class VaultCalculationParameters {\n");
             sb.Append("  Componentid: ").Append(Componentid).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
@@ -134,8 +143,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(VaultCalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Componentid == input.Componentid ||
@@ -174,15 +184,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Componentid != null)
-                    hashCode = hashCode * 59 + this.Componentid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentid.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
                 if (this.Configid != null)
-                    hashCode = hashCode * 59 + this.Configid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Configid.GetHashCode();
+                }
                 if (this.Componentdetail != null)
-                    hashCode = hashCode * 59 + this.Componentdetail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentdetail.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -192,7 +212,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

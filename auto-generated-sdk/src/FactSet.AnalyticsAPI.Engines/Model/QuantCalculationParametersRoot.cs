@@ -62,7 +62,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class QuantCalculationParametersRoot {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -97,8 +97,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(QuantCalculationParametersRoot input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Data == input.Data ||
@@ -123,9 +124,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
                 if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Meta.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -135,7 +140,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

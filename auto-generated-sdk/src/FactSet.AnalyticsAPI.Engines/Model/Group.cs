@@ -72,7 +72,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Group {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Directory: ").Append(Directory).Append("\n");
@@ -108,8 +108,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(Group input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Name == input.Name ||
@@ -138,11 +139,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
                 if (this.Directory != null)
-                    hashCode = hashCode * 59 + this.Directory.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Directory.GetHashCode();
+                }
                 if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -152,7 +159,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

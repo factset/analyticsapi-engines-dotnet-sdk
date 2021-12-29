@@ -44,13 +44,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="accounts">List of accounts for SPAR calculation..</param>
         /// <param name="benchmark">benchmark.</param>
         /// <param name="dates">dates.</param>
-        public SPARCalculationParameters(string componentid = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters))
+        /// <param name="currencyisocode">Currency ISO code for calculation..</param>
+        public SPARCalculationParameters(string componentid = default(string), List<SPARIdentifier> accounts = default(List<SPARIdentifier>), SPARIdentifier benchmark = default(SPARIdentifier), SPARDateParameters dates = default(SPARDateParameters), string currencyisocode = default(string))
         {
             // to ensure "componentid" is required (not null)
-            this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for SPARCalculationParameters and cannot be null");
+            if (componentid == null) {
+                throw new ArgumentNullException("componentid is a required property for SPARCalculationParameters and cannot be null");
+            }
+            this.Componentid = componentid;
             this.Accounts = accounts;
             this.Benchmark = benchmark;
             this.Dates = dates;
+            this.Currencyisocode = currencyisocode;
         }
 
         /// <summary>
@@ -80,17 +85,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public SPARDateParameters Dates { get; set; }
 
         /// <summary>
+        /// Currency ISO code for calculation.
+        /// </summary>
+        /// <value>Currency ISO code for calculation.</value>
+        [DataMember(Name = "currencyisocode", EmitDefaultValue = false)]
+        public string Currencyisocode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class SPARCalculationParameters {\n");
             sb.Append("  Componentid: ").Append(Componentid).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  Benchmark: ").Append(Benchmark).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,8 +135,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(SPARCalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Componentid == input.Componentid ||
@@ -145,6 +159,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Dates == input.Dates ||
                     (this.Dates != null &&
                     this.Dates.Equals(input.Dates))
+                ) && 
+                (
+                    this.Currencyisocode == input.Currencyisocode ||
+                    (this.Currencyisocode != null &&
+                    this.Currencyisocode.Equals(input.Currencyisocode))
                 );
         }
 
@@ -158,13 +177,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Componentid != null)
-                    hashCode = hashCode * 59 + this.Componentid.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Componentid.GetHashCode();
+                }
                 if (this.Accounts != null)
-                    hashCode = hashCode * 59 + this.Accounts.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Accounts.GetHashCode();
+                }
                 if (this.Benchmark != null)
-                    hashCode = hashCode * 59 + this.Benchmark.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Benchmark.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                if (this.Currencyisocode != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currencyisocode.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -174,7 +205,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

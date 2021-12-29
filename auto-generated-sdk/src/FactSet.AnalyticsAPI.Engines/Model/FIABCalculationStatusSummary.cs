@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FIABCalculationStatusSummary {\n");
             sb.Append("  Requesttime: ").Append(Requesttime).Append("\n");
             sb.Append("  Lastpolltime: ").Append(Lastpolltime).Append("\n");
@@ -98,8 +98,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FIABCalculationStatusSummary input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Requesttime == input.Requesttime ||
@@ -123,9 +124,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Requesttime != null)
-                    hashCode = hashCode * 59 + this.Requesttime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Requesttime.GetHashCode();
+                }
                 if (this.Lastpolltime != null)
-                    hashCode = hashCode * 59 + this.Lastpolltime.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Lastpolltime.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -135,7 +140,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -33,6 +33,38 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantUniversalScreenUniverse : IEquatable<QuantUniversalScreenUniverse>, IValidatableObject
     {
         /// <summary>
+        /// Defines Source
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
+            /// </summary>
+            [EnumMember(Value = "ScreeningExpressionUniverse")]
+            ScreeningExpressionUniverse = 1,
+
+            /// <summary>
+            /// Enum UniversalScreenUniverse for value: UniversalScreenUniverse
+            /// </summary>
+            [EnumMember(Value = "UniversalScreenUniverse")]
+            UniversalScreenUniverse = 2,
+
+            /// <summary>
+            /// Enum IdentifierUniverse for value: IdentifierUniverse
+            /// </summary>
+            [EnumMember(Value = "IdentifierUniverse")]
+            IdentifierUniverse = 3
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -41,10 +73,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverse" /> class.
         /// </summary>
         /// <param name="screen">screen (required).</param>
-        public QuantUniversalScreenUniverse(string screen = default(string))
+        /// <param name="source">source (required).</param>
+        public QuantUniversalScreenUniverse(string screen = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "screen" is required (not null)
-            this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverse and cannot be null");
+            if (screen == null) {
+                throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverse and cannot be null");
+            }
+            this.Screen = screen;
+            this.Source = source;
         }
 
         /// <summary>
@@ -59,9 +96,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class QuantUniversalScreenUniverse {\n");
             sb.Append("  Screen: ").Append(Screen).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,13 +131,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(QuantUniversalScreenUniverse input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Screen == input.Screen ||
                     (this.Screen != null &&
                     this.Screen.Equals(input.Screen))
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -113,7 +156,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Screen != null)
-                    hashCode = hashCode * 59 + this.Screen.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Screen.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 return hashCode;
             }
         }
@@ -123,7 +169,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

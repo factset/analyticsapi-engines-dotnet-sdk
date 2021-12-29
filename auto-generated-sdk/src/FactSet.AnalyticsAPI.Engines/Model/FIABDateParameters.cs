@@ -45,9 +45,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FIABDateParameters(string startdate = default(string), string enddate = default(string))
         {
             // to ensure "startdate" is required (not null)
-            this.Startdate = startdate ?? throw new ArgumentNullException("startdate is a required property for FIABDateParameters and cannot be null");
+            if (startdate == null) {
+                throw new ArgumentNullException("startdate is a required property for FIABDateParameters and cannot be null");
+            }
+            this.Startdate = startdate;
             // to ensure "enddate" is required (not null)
-            this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for FIABDateParameters and cannot be null");
+            if (enddate == null) {
+                throw new ArgumentNullException("enddate is a required property for FIABDateParameters and cannot be null");
+            }
+            this.Enddate = enddate;
         }
 
         /// <summary>
@@ -70,7 +76,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FIABDateParameters {\n");
             sb.Append("  Startdate: ").Append(Startdate).Append("\n");
             sb.Append("  Enddate: ").Append(Enddate).Append("\n");
@@ -105,8 +111,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FIABDateParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Startdate == input.Startdate ||
@@ -130,9 +137,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Startdate != null)
-                    hashCode = hashCode * 59 + this.Startdate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Startdate.GetHashCode();
+                }
                 if (this.Enddate != null)
-                    hashCode = hashCode * 59 + this.Enddate.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Enddate.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -142,7 +153,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

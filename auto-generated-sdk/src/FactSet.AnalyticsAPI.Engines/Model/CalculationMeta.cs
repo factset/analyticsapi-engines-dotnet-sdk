@@ -64,10 +64,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets Contentorganization
         /// </summary>
         [DataMember(Name = "contentorganization", EmitDefaultValue = false)]
+        [Obsolete]
         public ContentorganizationEnum? Contentorganization { get; set; }
         /// <summary>
         /// Defines StachContentOrganization
@@ -101,6 +103,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets StachContentOrganization
         /// </summary>
@@ -126,10 +129,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets Contenttype
         /// </summary>
         [DataMember(Name = "contenttype", EmitDefaultValue = false)]
+        [Obsolete]
         public ContenttypeEnum? Contenttype { get; set; }
         /// <summary>
         /// Defines Format
@@ -193,6 +198,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
         }
 
+
         /// <summary>
         /// Gets or Sets Format
         /// </summary>
@@ -219,7 +225,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class CalculationMeta {\n");
             sb.Append("  Contentorganization: ").Append(Contentorganization).Append("\n");
             sb.Append("  StachContentOrganization: ").Append(StachContentOrganization).Append("\n");
@@ -256,8 +262,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(CalculationMeta input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Contentorganization == input.Contentorganization ||
@@ -286,10 +293,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Contentorganization.GetHashCode();
-                hashCode = hashCode * 59 + this.StachContentOrganization.GetHashCode();
-                hashCode = hashCode * 59 + this.Contenttype.GetHashCode();
-                hashCode = hashCode * 59 + this.Format.GetHashCode();
+                hashCode = (hashCode * 59) + this.Contentorganization.GetHashCode();
+                hashCode = (hashCode * 59) + this.StachContentOrganization.GetHashCode();
+                hashCode = (hashCode * 59) + this.Contenttype.GetHashCode();
+                hashCode = (hashCode * 59) + this.Format.GetHashCode();
                 return hashCode;
             }
         }
@@ -299,7 +306,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

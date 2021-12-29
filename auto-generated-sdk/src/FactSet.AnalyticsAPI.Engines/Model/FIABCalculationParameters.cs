@@ -48,9 +48,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FIABCalculationParameters(string fiabdocument = default(string), FIABIdentifier account = default(FIABIdentifier), FIABDateParameters dates = default(FIABDateParameters), string msl = default(string), string fisettingsdocument = default(string))
         {
             // to ensure "account" is required (not null)
-            this.Account = account ?? throw new ArgumentNullException("account is a required property for FIABCalculationParameters and cannot be null");
+            if (account == null) {
+                throw new ArgumentNullException("account is a required property for FIABCalculationParameters and cannot be null");
+            }
+            this.Account = account;
             // to ensure "dates" is required (not null)
-            this.Dates = dates ?? throw new ArgumentNullException("dates is a required property for FIABCalculationParameters and cannot be null");
+            if (dates == null) {
+                throw new ArgumentNullException("dates is a required property for FIABCalculationParameters and cannot be null");
+            }
+            this.Dates = dates;
             this.Fiabdocument = fiabdocument;
             this.Msl = msl;
             this.Fisettingsdocument = fisettingsdocument;
@@ -95,7 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FIABCalculationParameters {\n");
             sb.Append("  Fiabdocument: ").Append(Fiabdocument).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
@@ -133,8 +139,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(FIABCalculationParameters input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Fiabdocument == input.Fiabdocument ||
@@ -173,15 +180,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Fiabdocument != null)
-                    hashCode = hashCode * 59 + this.Fiabdocument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Fiabdocument.GetHashCode();
+                }
                 if (this.Account != null)
-                    hashCode = hashCode * 59 + this.Account.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Account.GetHashCode();
+                }
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
                 if (this.Msl != null)
-                    hashCode = hashCode * 59 + this.Msl.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Msl.GetHashCode();
+                }
                 if (this.Fisettingsdocument != null)
-                    hashCode = hashCode * 59 + this.Fisettingsdocument.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Fisettingsdocument.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -191,7 +208,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

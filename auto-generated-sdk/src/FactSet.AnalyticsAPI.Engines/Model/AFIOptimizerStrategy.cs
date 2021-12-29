@@ -45,7 +45,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public AFIOptimizerStrategy(AFIOptimizerStrategyOverrides overrides = default(AFIOptimizerStrategyOverrides), string id = default(string))
         {
             // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for AFIOptimizerStrategy and cannot be null");
+            if (id == null) {
+                throw new ArgumentNullException("id is a required property for AFIOptimizerStrategy and cannot be null");
+            }
+            this.Id = id;
             this.Overrides = overrides;
         }
 
@@ -68,7 +71,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class AFIOptimizerStrategy {\n");
             sb.Append("  Overrides: ").Append(Overrides).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -103,8 +106,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(AFIOptimizerStrategy input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Overrides == input.Overrides ||
@@ -128,9 +132,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Overrides.GetHashCode();
+                }
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -140,7 +148,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

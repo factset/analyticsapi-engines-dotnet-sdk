@@ -33,6 +33,32 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class QuantDateList : IEquatable<QuantDateList>, IValidatableObject
     {
         /// <summary>
+        /// Defines Source
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum FdsDate for value: FdsDate
+            /// </summary>
+            [EnumMember(Value = "FdsDate")]
+            FdsDate = 1,
+
+            /// <summary>
+            /// Enum DateList for value: DateList
+            /// </summary>
+            [EnumMember(Value = "DateList")]
+            DateList = 2
+
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Source
+        /// </summary>
+        [DataMember(Name = "source", IsRequired = true, EmitDefaultValue = false)]
+        public SourceEnum Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -41,14 +67,22 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="QuantDateList" /> class.
         /// </summary>
         /// <param name="dates">dates.</param>
+        /// <param name="source">source (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantDateList(List<string> dates = default(List<string>), string frequency = default(string), string calendar = default(string))
+        public QuantDateList(List<string> dates = default(List<string>), SourceEnum source = default(SourceEnum), string frequency = default(string), string calendar = default(string))
         {
+            this.Source = source;
             // to ensure "frequency" is required (not null)
-            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantDateList and cannot be null");
+            if (frequency == null) {
+                throw new ArgumentNullException("frequency is a required property for QuantDateList and cannot be null");
+            }
+            this.Frequency = frequency;
             // to ensure "calendar" is required (not null)
-            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantDateList and cannot be null");
+            if (calendar == null) {
+                throw new ArgumentNullException("calendar is a required property for QuantDateList and cannot be null");
+            }
+            this.Calendar = calendar;
             this.Dates = dates;
         }
 
@@ -76,9 +110,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class QuantDateList {\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  Calendar: ").Append(Calendar).Append("\n");
             sb.Append("}\n");
@@ -112,14 +147,19 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(QuantDateList input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Dates == input.Dates ||
                     this.Dates != null &&
                     input.Dates != null &&
                     this.Dates.SequenceEqual(input.Dates)
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 ) && 
                 (
                     this.Frequency == input.Frequency ||
@@ -143,11 +183,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Dates.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 if (this.Frequency != null)
-                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                }
                 if (this.Calendar != null)
-                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Calendar.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -157,7 +204,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

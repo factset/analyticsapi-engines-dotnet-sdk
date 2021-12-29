@@ -69,7 +69,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class Error {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
@@ -105,8 +105,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Equals(Error input)
         {
             if (input == null)
+            {
                 return false;
-
+            }
             return 
                 (
                     this.Id == input.Id ||
@@ -135,11 +136,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             {
                 int hashCode = 41;
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Detail != null)
-                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Detail.GetHashCode();
+                }
                 if (this.Source != null)
-                    hashCode = hashCode * 59 + this.Source.GetHashCode();
+                {
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -149,7 +156,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

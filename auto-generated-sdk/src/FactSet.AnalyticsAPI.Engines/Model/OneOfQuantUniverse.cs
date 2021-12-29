@@ -29,18 +29,18 @@ using System.Reflection;
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// DummyUniverse
+    /// OneOfQuantUniverse
     /// </summary>
-    [JsonConverter(typeof(DummyUniverseJsonConverter))]
-    [DataContract(Name = "DummyUniverse")]
-    public partial class DummyUniverse : AbstractOpenAPISchema, IEquatable<DummyUniverse>, IValidatableObject
+    [JsonConverter(typeof(OneOfQuantUniverseJsonConverter))]
+    [DataContract(Name = "OneOfQuantUniverse")]
+    public partial class OneOfQuantUniverse : AbstractOpenAPISchema, IEquatable<OneOfQuantUniverse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DummyUniverse" /> class
+        /// Initializes a new instance of the <see cref="OneOfQuantUniverse" /> class
         /// with the <see cref="QuantIdentifierUniverse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of QuantIdentifierUniverse.</param>
-        public DummyUniverse(QuantIdentifierUniverse actualInstance)
+        public OneOfQuantUniverse(QuantIdentifierUniverse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -48,11 +48,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DummyUniverse" /> class
+        /// Initializes a new instance of the <see cref="OneOfQuantUniverse" /> class
         /// with the <see cref="QuantScreeningExpressionUniverse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of QuantScreeningExpressionUniverse.</param>
-        public DummyUniverse(QuantScreeningExpressionUniverse actualInstance)
+        public OneOfQuantUniverse(QuantScreeningExpressionUniverse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -60,11 +60,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DummyUniverse" /> class
+        /// Initializes a new instance of the <see cref="OneOfQuantUniverse" /> class
         /// with the <see cref="QuantUniversalScreenUniverse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of QuantUniversalScreenUniverse.</param>
-        public DummyUniverse(QuantUniversalScreenUniverse actualInstance)
+        public OneOfQuantUniverse(QuantUniversalScreenUniverse actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -141,7 +141,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DummyUniverse {\n");
+            sb.Append("class OneOfQuantUniverse {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -153,21 +153,21 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, DummyUniverse.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, OneOfQuantUniverse.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of DummyUniverse
+        /// Converts the JSON string into an instance of OneOfQuantUniverse
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of DummyUniverse</returns>
-        public static DummyUniverse FromJson(string jsonString)
+        /// <returns>An instance of OneOfQuantUniverse</returns>
+        public static OneOfQuantUniverse FromJson(string jsonString)
         {
-            DummyUniverse newDummyUniverse = null;
+            OneOfQuantUniverse newOneOfQuantUniverse = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newDummyUniverse;
+                return newOneOfQuantUniverse;
             }
 
             try
@@ -177,25 +177,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 switch (discriminatorValue)
                 {
                     case "IdentifierUniverse":
-                        newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
-                        return newDummyUniverse;
+                        newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
+                        return newOneOfQuantUniverse;
                     case "QuantIdentifierUniverse":
-                        newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
-                        return newDummyUniverse;
+                        newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
+                        return newOneOfQuantUniverse;
                     case "QuantScreeningExpressionUniverse":
-                        newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
-                        return newDummyUniverse;
+                        newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
+                        return newOneOfQuantUniverse;
                     case "QuantUniversalScreenUniverse":
-                        newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
-                        return newDummyUniverse;
+                        newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
+                        return newOneOfQuantUniverse;
                     case "ScreeningExpressionUniverse":
-                        newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
-                        return newDummyUniverse;
+                        newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
+                        return newOneOfQuantUniverse;
                     case "UniversalScreenUniverse":
-                        newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
-                        return newDummyUniverse;
+                        newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
+                        return newOneOfQuantUniverse;
                     default:
-                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for DummyUniverse. Possible values: IdentifierUniverse QuantIdentifierUniverse QuantScreeningExpressionUniverse QuantUniversalScreenUniverse ScreeningExpressionUniverse UniversalScreenUniverse", discriminatorValue));
+                        System.Diagnostics.Debug.WriteLine(string.Format("Failed to lookup discriminator value `{0}` for OneOfQuantUniverse. Possible values: IdentifierUniverse QuantIdentifierUniverse QuantScreeningExpressionUniverse QuantUniversalScreenUniverse ScreeningExpressionUniverse UniversalScreenUniverse", discriminatorValue));
                         break;
                 }
             }
@@ -212,11 +212,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(QuantIdentifierUniverse).GetProperty("AdditionalProperties") == null)
                 {
-                    newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, DummyUniverse.SerializerSettings));
+                    newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, OneOfQuantUniverse.SerializerSettings));
                 }
                 else
                 {
-                    newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
+                    newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantIdentifierUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
                 }
                 matchedTypes.Add("QuantIdentifierUniverse");
                 match++;
@@ -232,11 +232,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(QuantScreeningExpressionUniverse).GetProperty("AdditionalProperties") == null)
                 {
-                    newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, DummyUniverse.SerializerSettings));
+                    newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, OneOfQuantUniverse.SerializerSettings));
                 }
                 else
                 {
-                    newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
+                    newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantScreeningExpressionUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
                 }
                 matchedTypes.Add("QuantScreeningExpressionUniverse");
                 match++;
@@ -252,11 +252,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(QuantUniversalScreenUniverse).GetProperty("AdditionalProperties") == null)
                 {
-                    newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, DummyUniverse.SerializerSettings));
+                    newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, OneOfQuantUniverse.SerializerSettings));
                 }
                 else
                 {
-                    newDummyUniverse = new DummyUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, DummyUniverse.AdditionalPropertiesSerializerSettings));
+                    newOneOfQuantUniverse = new OneOfQuantUniverse(JsonConvert.DeserializeObject<QuantUniversalScreenUniverse>(jsonString, OneOfQuantUniverse.AdditionalPropertiesSerializerSettings));
                 }
                 matchedTypes.Add("QuantUniversalScreenUniverse");
                 match++;
@@ -277,7 +277,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
-            return newDummyUniverse;
+            return newOneOfQuantUniverse;
         }
 
         /// <summary>
@@ -287,15 +287,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DummyUniverse);
+            return this.Equals(input as OneOfQuantUniverse);
         }
 
         /// <summary>
-        /// Returns true if DummyUniverse instances are equal
+        /// Returns true if OneOfQuantUniverse instances are equal
         /// </summary>
-        /// <param name="input">Instance of DummyUniverse to be compared</param>
+        /// <param name="input">Instance of OneOfQuantUniverse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DummyUniverse input)
+        public bool Equals(OneOfQuantUniverse input)
         {
             if (input == null)
                 return false;
@@ -330,9 +330,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for DummyUniverse
+    /// Custom JSON converter for OneOfQuantUniverse
     /// </summary>
-    public class DummyUniverseJsonConverter : JsonConverter
+    public class OneOfQuantUniverseJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -342,7 +342,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(DummyUniverse).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(OneOfQuantUniverse).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -357,7 +357,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             if(reader.TokenType != JsonToken.Null)
             {
-                return DummyUniverse.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                return OneOfQuantUniverse.FromJson(JObject.Load(reader).ToString(Formatting.None));
             }
             return null;
         }

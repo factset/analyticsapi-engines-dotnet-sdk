@@ -1,4 +1,4 @@
-# FactSet.AnalyticsAPI.Engines.Model.DummyUniverse
+# FactSet.AnalyticsAPI.Engines.Model.OneOfQuantUniverse
 
 ## Properties
 

@@ -56,7 +56,6 @@ docs/DatesApi.md
 docs/DocumentDirectories.md
 docs/DocumentDirectoriesRoot.md
 docs/DocumentsApi.md
-docs/DummyUniverse.md
 docs/Error.md
 docs/ErrorSource.md
 docs/EventSummary.md
@@ -105,6 +104,8 @@ docs/NPOOptimizerApi.md
 docs/NPOOptimizerStrategy.md
 docs/NPOOptimizerStrategyOverrides.md
 docs/ObjectRoot.md
+docs/OneOfQuantDates.md
+docs/OneOfQuantUniverse.md
 docs/OptimalPortfolio.md
 docs/Optimization.md
 docs/OptimizerAccount.md
@@ -290,7 +291,6 @@ src/FactSet.AnalyticsAPI.Engines/Model/DateParametersSummary.cs
 src/FactSet.AnalyticsAPI.Engines/Model/DateParametersSummaryRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/DocumentDirectories.cs
 src/FactSet.AnalyticsAPI.Engines/Model/DocumentDirectoriesRoot.cs
-src/FactSet.AnalyticsAPI.Engines/Model/DummyUniverse.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Error.cs
 src/FactSet.AnalyticsAPI.Engines/Model/ErrorSource.cs
 src/FactSet.AnalyticsAPI.Engines/Model/EventSummary.cs
@@ -332,6 +332,8 @@ src/FactSet.AnalyticsAPI.Engines/Model/NPOOptimizationParametersRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/NPOOptimizerStrategy.cs
 src/FactSet.AnalyticsAPI.Engines/Model/NPOOptimizerStrategyOverrides.cs
 src/FactSet.AnalyticsAPI.Engines/Model/ObjectRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/OneOfQuantDates.cs
+src/FactSet.AnalyticsAPI.Engines/Model/OneOfQuantUniverse.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OptimalPortfolio.cs
 src/FactSet.AnalyticsAPI.Engines/Model/Optimization.cs
 src/FactSet.AnalyticsAPI.Engines/Model/OptimizerAccount.cs

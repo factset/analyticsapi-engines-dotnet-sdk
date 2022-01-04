@@ -43,7 +43,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="snapshot">Is the component type snapshot or subperiod..</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
-        public PAComponent(string id = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
+        /// <param name="type">Component type..</param>
+        public PAComponent(string id = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string), string type = default(string))
         {
             this.Id = id;
             this.Accounts = accounts;
@@ -53,6 +54,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Snapshot = snapshot;
             this.Name = name;
             this.Category = category;
+            this.Type = type;
         }
 
         /// <summary>
@@ -110,6 +112,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Category { get; set; }
 
         /// <summary>
+        /// Component type.
+        /// </summary>
+        /// <value>Component type.</value>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +134,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +209,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Category == input.Category ||
                     (this.Category != null &&
                     this.Category.Equals(input.Category))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -226,6 +241,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Category != null)
                     hashCode = hashCode * 59 + this.Category.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

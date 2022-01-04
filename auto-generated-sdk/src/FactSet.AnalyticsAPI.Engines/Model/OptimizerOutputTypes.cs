@@ -38,11 +38,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="trades">trades.</param>
         /// <param name="optimal">optimal.</param>
         /// <param name="account">account.</param>
-        public OptimizerOutputTypes(OptimizerTradesList trades = default(OptimizerTradesList), OptimizerOptimalHoldings optimal = default(OptimizerOptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio))
+        /// <param name="stats">stats.</param>
+        public OptimizerOutputTypes(OptimizerTradesList trades = default(OptimizerTradesList), OptimizerOptimalHoldings optimal = default(OptimizerOptimalHoldings), OptimalPortfolio account = default(OptimalPortfolio), Object stats = default(Object))
         {
             this.Trades = trades;
             this.Optimal = optimal;
             this.Account = account;
+            this.Stats = stats;
         }
 
         /// <summary>
@@ -64,6 +66,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public OptimalPortfolio Account { get; set; }
 
         /// <summary>
+        /// Gets or Sets Stats
+        /// </summary>
+        [DataMember(Name = "stats", EmitDefaultValue = false)]
+        public Object Stats { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +82,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Trades: ").Append(Trades).Append("\n");
             sb.Append("  Optimal: ").Append(Optimal).Append("\n");
             sb.Append("  Account: ").Append(Account).Append("\n");
+            sb.Append("  Stats: ").Append(Stats).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +131,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Account == input.Account ||
                     (this.Account != null &&
                     this.Account.Equals(input.Account))
+                ) && 
+                (
+                    this.Stats == input.Stats ||
+                    (this.Stats != null &&
+                    this.Stats.Equals(input.Stats))
                 );
         }
 
@@ -140,6 +154,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Optimal.GetHashCode();
                 if (this.Account != null)
                     hashCode = hashCode * 59 + this.Account.GetHashCode();
+                if (this.Stats != null)
+                    hashCode = hashCode * 59 + this.Stats.GetHashCode();
                 return hashCode;
             }
         }

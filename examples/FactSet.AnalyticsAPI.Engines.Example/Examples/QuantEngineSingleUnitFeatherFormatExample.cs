@@ -86,7 +86,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             catch (ApiException e)
             {
                 Console.WriteLine($"Status Code: {e.ErrorCode}");
-                Console.WriteLine($"Reason : {e.Message}");
+                Console.WriteLine($"Reason : {e.ErrorContent}");
                 Console.WriteLine(e.StackTrace);
             }
             catch (Exception e)

@@ -48,7 +48,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
 
         [TestMethod]
-        public void EnginesApi_Get_Calculation_Success()
+        public void EnginesApi_Quant_Get_Calculation_Success()
         {
             var calculationResponse = RunCalculation();
 

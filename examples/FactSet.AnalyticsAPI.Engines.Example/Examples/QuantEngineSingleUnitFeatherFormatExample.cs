@@ -122,18 +122,14 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
         private static QuantCalculationParametersRoot GetQuantCalculationParameters()
         {
-            var screeningExpressionUniverse = new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER");
-            var fdsDate = new QuantFdsDate("0", "-5D", "D", "FIVEDAY");
-            var screeningExpression = new List<QuantScreeningExpression>()
+            var universe = new OneOfQuantUniverse(new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER", QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse));
+            var dates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
+            var formulas = new List<OneOfQuantFormulas>()
             {
-                new QuantScreeningExpression("P_PRICE", "Price (SCR)")
-            };
-            var fqlExpression = new List<QuantFqlExpression>()
-            {
-                new QuantFqlExpression("P_PRICE", "Price (SCR)")
+                new OneOfQuantFormulas(new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression))
             };
 
-            var quantCalculation = new QuantCalculationParameters(screeningExpressionUniverse: screeningExpressionUniverse, fdsDate: fdsDate, screeningExpression: screeningExpression, fqlExpression: fqlExpression);
+            var quantCalculation = new QuantCalculationParameters(universe: universe, dates: dates, formulas: formulas);
 
             var quantCalculationsMeta = new QuantCalculationMeta(format: QuantCalculationMeta.FormatEnum.Feather);
 

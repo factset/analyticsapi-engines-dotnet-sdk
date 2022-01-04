@@ -120,18 +120,14 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
         private static QuantCalculationParametersRoot GetQuantCalculationParameters()
         {
-            var screeningExpressionUniverse = new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER");
-            var fdsDate = new QuantFdsDate("0", "-5D", "D", "FIVEDAY");
-            var screeningExpression = new List<QuantScreeningExpression>()
+            var universe = new OneOfQuantUniverse(new QuantScreeningExpressionUniverse(universeExpr: "ISON_DOW", universeType: QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, securityExpr: "TICKER", source: QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse));
+            var dates = new OneOfQuantDates(new QuantFdsDate(startDate: "0", endDate: "-5D", source: QuantFdsDate.SourceEnum.FdsDate, frequency: "D", calendar: "FIVEDAY"));
+            var formulas = new List<OneOfQuantFormulas>()
             {
-                new QuantScreeningExpression("P_PRICE", "Price (SCR)")
-            };
-            var fqlExpression = new List<QuantFqlExpression>()
-            {
-                new QuantFqlExpression("P_PRICE", "Price (SCR)")
+                new OneOfQuantFormulas(new QuantScreeningExpression(expr: "P_PRICE", name: "Price (SCR)", source: QuantScreeningExpression.SourceEnum.ScreeningExpression))
             };
 
-            var quantCalculation = new QuantCalculationParameters(screeningExpressionUniverse: screeningExpressionUniverse, fdsDate: fdsDate, screeningExpression: screeningExpression, fqlExpression: fqlExpression);
+            var quantCalculation = new QuantCalculationParameters(universe: universe, dates: dates, formulas: formulas);
 
             var calculationParameters = new QuantCalculationParametersRoot
             {

@@ -38,7 +38,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universe">universe.</param>
         /// <param name="dates">dates.</param>
         /// <param name="formulas">formulas.</param>
-        public QuantCalculationParameters(OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse universe = default(OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse), OneOfQuantFdsDateQuantDateList dates = default(OneOfQuantFdsDateQuantDateList), List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> formulas = default(List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters>))
+        public QuantCalculationParameters(OneOfQuantUniverse universe = default(OneOfQuantUniverse), OneOfQuantDates dates = default(OneOfQuantDates), List<OneOfQuantFormulas> formulas = default(List<OneOfQuantFormulas>))
         {
             this.Universe = universe;
             this.Dates = dates;
@@ -49,19 +49,19 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Universe
         /// </summary>
         [DataMember(Name = "universe", EmitDefaultValue = false)]
-        public OneOfQuantUniversalScreenUniverseQuantScreeningExpressionUniverseQuantIdentifierUniverse Universe { get; set; }
+        public OneOfQuantUniverse Universe { get; set; }
 
         /// <summary>
         /// Gets or Sets Dates
         /// </summary>
         [DataMember(Name = "dates", EmitDefaultValue = false)]
-        public OneOfQuantFdsDateQuantDateList Dates { get; set; }
+        public OneOfQuantDates Dates { get; set; }
 
         /// <summary>
         /// Gets or Sets Formulas
         /// </summary>
         [DataMember(Name = "formulas", EmitDefaultValue = false)]
-        public List<OneOfQuantScreeningExpressionQuantFqlExpressionQuantUniversalScreenParameterQuantAllUniversalScreenParameters> Formulas { get; set; }
+        public List<OneOfQuantFormulas> Formulas { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -86,6 +86,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             catch (ApiException e)
             {
                 Console.WriteLine($"Status Code: {e.ErrorCode}");
+                Console.WriteLine($"Message: {e.Message}");
                 Console.WriteLine($"Reason : {e.ErrorContent}");
                 Console.WriteLine(e.StackTrace);
             }
@@ -126,7 +127,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var dates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
             var formulas = new List<OneOfQuantFormulas>()
             {
-                new OneOfQuantFormulas(new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression))
+                new OneOfQuantFormulas(new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression)),
+                new OneOfQuantFormulas(new QuantFqlExpression(expr: "P_PRICE", name: "Price (SCR)", source: QuantFqlExpression.SourceEnum.FqlExpression))
             };
 
             var quantCalculation = new QuantCalculationParameters(universe: universe, dates: dates, formulas: formulas);

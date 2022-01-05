@@ -52,13 +52,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
         public Object Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = true)]
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
         public Object Meta { get; set; }
 
         /// <summary>

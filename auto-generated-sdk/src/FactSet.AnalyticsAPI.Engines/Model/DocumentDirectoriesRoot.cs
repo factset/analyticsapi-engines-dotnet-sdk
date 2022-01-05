@@ -58,7 +58,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = true)]
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
         public Object Meta { get; set; }
 
         /// <summary>

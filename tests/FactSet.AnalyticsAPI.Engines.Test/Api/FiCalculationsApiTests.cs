@@ -59,6 +59,9 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                                 .Match<HttpStatusCode>(c =>
                                     c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
 
+                            if (pollingResponse.StatusCode == HttpStatusCode.Created)
+                                break;
+
                             shouldPoll = pollingResponse.StatusCode == HttpStatusCode.Accepted;
 
                             if (pollingResponse.Headers.ContainsKey("Cache-Control"))

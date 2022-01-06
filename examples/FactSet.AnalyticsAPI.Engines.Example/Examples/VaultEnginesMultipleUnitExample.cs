@@ -15,9 +15,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class VaultEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
         private const string VaultTotalReturnsComponent = "Total Returns";
         private const string VaultPerformanceOverTimeComponentName = "Performance Over Time";
@@ -38,7 +38,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new VaultCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=3600", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, null, calculationParameters);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older. max-stale=0 will be a fresh adhoc run and the max-stale value is in seconds.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, cacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;

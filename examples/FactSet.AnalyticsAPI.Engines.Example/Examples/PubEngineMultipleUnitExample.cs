@@ -14,14 +14,14 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class PubEngineMultipleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
         private const string PubDocument = "Client:/AAPI/Puma Test Doc.Pub_bridge_pdf";
         private const string PubAccountId = "BENCH:SP50";
         private const string StartDate = "-1M";
         private const string EndDate = "0M";
-
+ 
         public static void Main(string[] args)
         {
             try
@@ -30,7 +30,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new PubCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, "max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, null, calculationParameters);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, cacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;

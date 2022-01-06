@@ -16,9 +16,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class QuantEngineSingleUnitExample
     {
         private static Configuration _engineApiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private const string UserName = "<username-serial>";
-        private const string Password = "<apiKey>";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
         public static void Main(string[] args)
         {
@@ -28,7 +28,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var calculationApi = new QuantCalculationsApi(GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo("max-stale=0", calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, calculationParameters);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(cacheControl, calculationParameters);
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;

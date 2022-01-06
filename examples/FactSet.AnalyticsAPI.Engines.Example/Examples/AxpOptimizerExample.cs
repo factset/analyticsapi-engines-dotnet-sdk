@@ -12,9 +12,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class AxpOptimizerExample
     {
         private static Configuration _apiConfiguration;
-        private const string BasePath = "https://api.factset.com";
-        private static readonly string UserName = Environment.GetEnvironmentVariable("ANALYTICS_API_USERNAME_SERIAL");
-        private static readonly string Password = Environment.GetEnvironmentVariable("ANALYTICS_API_PASSWORD");
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
         public static void Main(string[] args)
         {
@@ -36,8 +36,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
                 var axpOptimizerApi = new AXPOptimizerApi(GetApiConfiguration());
 
-                var calculationResponse =
-                    axpOptimizerApi.PostAndOptimizeWithHttpInfo(null, "max-stale=0", axpCalculationParameterRoot);
+                var calculationResponse = axpOptimizerApi.PostAndOptimizeWithHttpInfo(null, null, axpCalculationParameterRoot);
+                // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
+                //var cacheControl = "max-stale=300";
+                //var calculationResponse = axpOptimizerApi.PostAndOptimizeWithHttpInfo(null, cacheControl, axpCalculationParameterRoot);
 
                 switch (calculationResponse.StatusCode)
                 {

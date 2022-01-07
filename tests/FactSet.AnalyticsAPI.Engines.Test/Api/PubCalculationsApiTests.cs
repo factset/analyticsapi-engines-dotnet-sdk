@@ -41,7 +41,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
 
         [TestMethod]
-        public void EnginesApi_Get_Calculation_Success()
+        public void EnginesApi_Get_Pub_Calculation_Success()
         {
             var calculationResponse = RunCalculation();
 
@@ -101,7 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
 
         [TestMethod]
-        public void EnginesApi_Delete_Calculation_Success()
+        public void EnginesApi_Delete_Pub_Calculation_Success()
         {
             var calculationResponse = RunCalculation();
 

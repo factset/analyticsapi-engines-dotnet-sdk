@@ -41,9 +41,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="currencyisocode">currencyisocode.</param>
         /// <param name="dates">dates.</param>
         /// <param name="snapshot">Is the component type snapshot or subperiod..</param>
+        /// <param name="path">The path to the document.</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
-        public PAComponent(string id = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string))
+        public PAComponent(string id = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), string currencyisocode = default(string), PADateParameters dates = default(PADateParameters), bool snapshot = default(bool), string path = default(string), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Accounts = accounts;
@@ -51,6 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Currencyisocode = currencyisocode;
             this.Dates = dates;
             this.Snapshot = snapshot;
+            this.Path = path;
             this.Name = name;
             this.Category = category;
         }
@@ -96,6 +98,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Snapshot { get; set; }
 
         /// <summary>
+        /// The path to the document
+        /// </summary>
+        /// <value>The path to the document</value>
+        [DataMember(Name = "path", EmitDefaultValue = false)]
+        public string Path { get; set; }
+
+        /// <summary>
         /// Component name.
         /// </summary>
         /// <value>Component name.</value>
@@ -123,6 +132,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("}\n");
@@ -191,6 +201,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Snapshot.Equals(input.Snapshot)
                 ) && 
                 (
+                    this.Path == input.Path ||
+                    (this.Path != null &&
+                    this.Path.Equals(input.Path))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -222,6 +237,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 if (this.Dates != null)
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
                 hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
+                if (this.Path != null)
+                    hashCode = hashCode * 59 + this.Path.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Category != null)

@@ -27,40 +27,39 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OptimizerStrategy
+    /// UnlinkedPATemplateUpdateParametersRoot
     /// </summary>
-    [DataContract(Name = "OptimizerStrategy")]
-    public partial class OptimizerStrategy : IEquatable<OptimizerStrategy>, IValidatableObject
+    [DataContract(Name = "UnlinkedPATemplateUpdateParametersRoot")]
+    public partial class UnlinkedPATemplateUpdateParametersRoot : IEquatable<UnlinkedPATemplateUpdateParametersRoot>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
+        /// Initializes a new instance of the <see cref="UnlinkedPATemplateUpdateParametersRoot" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OptimizerStrategy() { }
+        protected UnlinkedPATemplateUpdateParametersRoot() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
+        /// Initializes a new instance of the <see cref="UnlinkedPATemplateUpdateParametersRoot" /> class.
         /// </summary>
-        /// <param name="id">OptimizerStrategy document path (required).</param>
-        /// <param name="overrides">overrides.</param>
-        public OptimizerStrategy(string id = default(string), OptimizerStrategyOverrides overrides = default(OptimizerStrategyOverrides))
+        /// <param name="data">data (required).</param>
+        /// <param name="meta">meta.</param>
+        public UnlinkedPATemplateUpdateParametersRoot(UnlinkedPATemplateUpdateParameters data = default(UnlinkedPATemplateUpdateParameters), Object meta = default(Object))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for OptimizerStrategy and cannot be null");
-            this.Overrides = overrides;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for UnlinkedPATemplateUpdateParametersRoot and cannot be null");
+            this.Meta = meta;
         }
 
         /// <summary>
-        /// OptimizerStrategy document path
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>OptimizerStrategy document path</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        public UnlinkedPATemplateUpdateParameters Data { get; set; }
 
         /// <summary>
-        /// Gets or Sets Overrides
+        /// Gets or Sets Meta
         /// </summary>
-        [DataMember(Name = "overrides", EmitDefaultValue = false)]
-        public OptimizerStrategyOverrides Overrides { get; set; }
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +68,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OptimizerStrategy {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("class UnlinkedPATemplateUpdateParametersRoot {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +91,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptimizerStrategy);
+            return this.Equals(input as UnlinkedPATemplateUpdateParametersRoot);
         }
 
         /// <summary>
-        /// Returns true if OptimizerStrategy instances are equal
+        /// Returns true if UnlinkedPATemplateUpdateParametersRoot instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptimizerStrategy to be compared</param>
+        /// <param name="input">Instance of UnlinkedPATemplateUpdateParametersRoot to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptimizerStrategy input)
+        public bool Equals(UnlinkedPATemplateUpdateParametersRoot input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
-                    this.Overrides == input.Overrides ||
-                    (this.Overrides != null &&
-                    this.Overrides.Equals(input.Overrides))
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -127,10 +126,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Meta != null)
+                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 return hashCode;
             }
         }

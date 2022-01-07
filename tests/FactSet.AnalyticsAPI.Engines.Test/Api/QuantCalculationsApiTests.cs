@@ -29,7 +29,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
             var oneOfQuantFormulases = new List<OneOfQuantFormulas>()
             {
-                new OneOfQuantFormulas(new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression))
+                new OneOfQuantFormulas(new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression)),
+                new OneOfQuantFormulas(new QuantFqlExpression("P_PRICE", "Price (SCR)", QuantFqlExpression.SourceEnum.FqlExpression))
             };
 
             var quantCalculation = new QuantCalculationParameters(universe: oneOfQuantUniverse, dates: oneOfQuantDates, formulas: oneOfQuantFormulases);

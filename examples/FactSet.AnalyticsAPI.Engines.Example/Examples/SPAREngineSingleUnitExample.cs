@@ -25,6 +25,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string SPARBenchmark2 = "RUSSELL_P:R.2000";
         private const string SPARBenchmarkPrefix = "RUSSELL";
         private const string SPARBenchmarkReturnType = "GTR";
+        private const string Currency = "USD";
+        private const string startDate = "20180101";
+        private const string endDate = "20181231";
+        private const string Frequency = "Monthly";
 
         public static void Main(string[] args)
         {
@@ -147,8 +151,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var sparAccountIdentifier = new SPARIdentifier(SPARBenchmark1, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
             var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark2, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
+            var sparDates = new SPARDateParameters(startDate, endDate, Frequency);
 
-            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier);
+            var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier, sparDates, Currency);
 
             return sparCalculation;
         }

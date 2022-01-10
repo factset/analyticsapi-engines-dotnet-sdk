@@ -3,10 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
-    <StartupObject>FactSet.AnalyticsAPI.Engines.Example.Examples.QuantEngineSingleUnitFeatherFormatExample</StartupObject>
+    <StartupObject>FactSet.AnalyticsAPI.Engines.Example.Examples.SPAREngineMultipleUnitExample</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FactSet.AnalyticsAPI.Engines" Version="5.1.0" />
     <PackageReference Include="FactSet.Protobuf.Stach.Extensions" Version="1.0.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

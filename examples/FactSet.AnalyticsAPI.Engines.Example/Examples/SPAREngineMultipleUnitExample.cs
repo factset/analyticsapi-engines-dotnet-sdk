@@ -164,6 +164,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var sparAccounts = new List<SPARIdentifier> { sparAccountIdentifier };
             var sparBenchmarkIdentifier = new SPARIdentifier(SPARBenchmark, SPARBenchmarkReturnType, SPARBenchmarkPrefix);
             var sparDates = new SPARDateParameters(startDate, endDate, Frequency);
+            
             var sparCalculation = new SPARCalculationParameters(sparComponentId, sparAccounts, sparBenchmarkIdentifier, sparDates, Currency);
 
             return sparCalculation;

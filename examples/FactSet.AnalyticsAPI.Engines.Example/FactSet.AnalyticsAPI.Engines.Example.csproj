@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
-    <StartupObject>FactSet.AnalyticsAPI.Engines.Example.Examples.SPAREngineMultipleUnitExample</StartupObject>
+    <StartupObject>FactSet.AnalyticsAPI.Engines.Example.Examples.PAEngineSingleUnitUnlinkedTemplatedComponentExample</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

@@ -15,11 +15,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
     public class PAEngineMultipleUnitLinkedTemplatedComponentExample
     {
         private static Configuration _engineApiConfiguration;
-        private static readonly string BasePath = "https://api.factset.com";
-        private static readonly string UserName = "FDSQAR_C-1021374";
-        private static readonly string Password = "FIScMWwVbr3WMJ4RIlv3tMsc8T7b0w9S6P72oJX5";
+        private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
+        private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
+        private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
-        private const string PADocument = "PA_DOCUMENTS:DEFAULT";
         private const string ComponentName = "Weights";
         private const string ComponentCategory = "Weights / Exposures";
         private const string ComponentDocument = "PA_DOCUMENTS:DEFAULT";
@@ -35,7 +34,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string GroupName = "Country - JP Morgan CEMBI ";
 
         private const string LinkedPATemplateDirectory = "Personal:LinkedPATemplates/";
-        //private const string UnlinkedPATemplateTypeId = "996E90B981AEE83F14029ED3D309FB3F03EC6E2ACC7FD42C22CBD5D279502CFD";
         private const string LinkedPATemplateDescription = "This is a linked PA template that only returns security level data";
         private const string StartDate = "20180101";
         private const string EndDate = "20181231";

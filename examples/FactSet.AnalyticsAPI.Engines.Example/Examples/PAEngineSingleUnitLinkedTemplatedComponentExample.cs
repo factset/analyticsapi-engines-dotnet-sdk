@@ -34,7 +34,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string GroupName = "Country - JP Morgan CEMBI ";
 
         private const string LinkedPATemplateDirectory = "Personal:LinkedPATemplates/";
-        //private const string UnlinkedPATemplateTypeId = "996E90B981AEE83F14029ED3D309FB3F03EC6E2ACC7FD42C22CBD5D279502CFD";
         private const string LinkedPATemplateDescription = "This is a linked PA template that only returns security level data";
         private const string StartDate = "20180101";
         private const string EndDate = "20181231";

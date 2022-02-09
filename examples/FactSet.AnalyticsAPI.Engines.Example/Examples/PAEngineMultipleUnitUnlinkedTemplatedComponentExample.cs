@@ -12,7 +12,7 @@ using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineSingleUnitUnlinkedTemplatedComponentExample
+    public class PAEngineMultipleUnitUnlinkedTemplatedComponentExample
     {
         private static Configuration _engineApiConfiguration;
         private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
@@ -55,13 +55,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
                 //var cacheControl = "max-stale=300";
                 //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, cacheControl, calculationParameters);
-
-                if (calculationResponse.StatusCode == HttpStatusCode.Created)
-                {
-                    ObjectRoot result = (ObjectRoot)calculationResponse.Data;
-                    PrintResult(result);
-                    return;
-                }
 
                 CalculationStatusRoot status = (CalculationStatusRoot)calculationResponse.Data;
                 var calculationId = status.Data.Calculationid;
@@ -203,7 +196,10 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             var calculationParameters = new PACalculationParametersRoot
             {
-                Data = new Dictionary<string, PACalculationParameters> { { "1", paCalculation } }
+                Data = new Dictionary<string, PACalculationParameters> {
+                    { "1", paCalculation },
+                    { "2", paCalculation }
+                }
             };
 
             return calculationParameters;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading;
-using System.Diagnostics;
 
 using FactSet.AnalyticsAPI.Engines.Api;
 using FactSet.AnalyticsAPI.Engines.Client;
@@ -20,7 +19,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
         private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
 
-        private const string PADocument = "PA_DOCUMENTS:DEFAULT";
         private const string ComponentName = "Weights";
         private const string ComponentCategory = "Weights / Exposures";
         private const string ComponentDocument = "PA_DOCUMENTS:DEFAULT";

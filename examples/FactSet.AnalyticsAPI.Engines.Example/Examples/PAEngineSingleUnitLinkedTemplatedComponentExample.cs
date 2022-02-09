@@ -13,7 +13,7 @@ using FactSet.Protobuf.Stach.Extensions;
 
 namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 {
-    public class PAEngineSingleUnitUnlinkedTemplatedComponentExample
+    public class PAEngineSingleUnitLinkedTemplatedComponentExample
     {
         private static Configuration _engineApiConfiguration;
         private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
@@ -23,6 +23,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string PADocument = "PA_DOCUMENTS:DEFAULT";
         private const string ComponentName = "Weights";
         private const string ComponentCategory = "Weights / Exposures";
+        private const string ComponentDocument = "PA_DOCUMENTS:DEFAULT";
         private const string Portfolio = "BENCH:SP50";
         private const string Benchmark = "BENCH:R.1000";
 
@@ -34,9 +35,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string GroupCategory = "JP Morgan CEMBI ";
         private const string GroupName = "Country - JP Morgan CEMBI ";
 
-        private const string UnlinkedPATemplateDirectory = "Personal:UnlinkedPATemplates";
-        private const string UnlinkedPATemplateTypeId = "996E90B981AEE83F14029ED3D309FB3F03EC6E2ACC7FD42C22CBD5D279502CFD";
-        private const string UnlinkedPATemplateDescription = "This is an unlinked PA template that only returns security level data";
+        private const string LinkedPATemplateDirectory = "Personal:LinkedPATemplates/";
+        //private const string UnlinkedPATemplateTypeId = "996E90B981AEE83F14029ED3D309FB3F03EC6E2ACC7FD42C22CBD5D279502CFD";
+        private const string LinkedPATemplateDescription = "This is a linked PA template that only returns security level data";
         private const string StartDate = "20180101";
         private const string EndDate = "20181231";
         private const string Frequency = "Monthly";
@@ -185,10 +186,13 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var paBenchmarks = new List<PAIdentifier> { new PAIdentifier(Benchmark) };
             var paDates = new PADateParameters(StartDate, EndDate, Frequency);
 
-
-            var unlinkedPATemplateParametersRoot = GetUnlinkedPATemplateParameters(paAccounts,paBenchmarks, paDates, columns, groups);
-            var unlinkedPATemplateApi = new UnlinkedPATemplatesApi(GetApiConfiguration());
-            var response = unlinkedPATemplateApi.CreateUnlinkedPATemplates(unlinkedPATemplateParametersRoot);
+            var componentsApi = new ComponentsApi(GetApiConfiguration());
+            var components = componentsApi.GetPAComponents(ComponentDocument);
+            var parentComponentId = components.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
+            
+            var linkedPATemplateParametersRoot = GetLinkedPATemplateParameters(parentComponentId);
+            var linkedPATemplateApi = new LinkedPATemplatesApi(GetApiConfiguration());
+            var response = linkedPATemplateApi.CreateLinkedPATemplates(linkedPATemplateParametersRoot);
 
             var parentTemplateId = response.Data.Id;
 
@@ -226,19 +230,16 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             Console.WriteLine(tables[0]);
         }
 
-        private static UnlinkedPATemplateParametersRoot GetUnlinkedPATemplateParameters(List<PAIdentifier> paAccounts, List<PAIdentifier> paBenchmarks, 
-            PADateParameters paDates, List<PACalculationColumn> columns, List<PACalculationGroup> groups)
+        private static LinkedPATemplateParametersRoot GetLinkedPATemplateParameters(string parentComponentId)
         {
             var mandatory = new List<string>() { "accounts", "benchmarks" };
-            var optional = new List<string>() { "groups", "columns", "currencyisocode", "componentdetail", "dates" };
-            var unlinkedPATemplateContent = new TemplateContentTypes(mandatory, optional);
-            var unlinkedPATemplateParameters = new UnlinkedPATemplateParameters(UnlinkedPATemplateDirectory,
-                UnlinkedPATemplateTypeId, UnlinkedPATemplateDescription,
-                paAccounts, paBenchmarks, columns, paDates, groups,
-                CurrencyISOCode, ComponentDetail, unlinkedPATemplateContent);
+            var optional = new List<string>() { "groups", "columns", "currencyisocode", "componentdetail","dates" };
+            var linkedPATemplateContent = new TemplateContentTypes(mandatory, optional);
+            var linkedPATemplateParameters = new LinkedPATemplateParameters(LinkedPATemplateDirectory,
+                parentComponentId, LinkedPATemplateDescription, linkedPATemplateContent);
 
-            var unlinkedPATemplateParametersRoot = new UnlinkedPATemplateParametersRoot(unlinkedPATemplateParameters);
-            return unlinkedPATemplateParametersRoot;
+            var linkedPATemplateParametersRoot = new LinkedPATemplateParametersRoot(linkedPATemplateParameters);
+            return linkedPATemplateParametersRoot;
         }
 
         private static TemplatedPAComponentParametersRoot GetTemplatedPAComponentParametersRoot(

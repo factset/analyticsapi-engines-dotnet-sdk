@@ -232,8 +232,13 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var mandatory = new List<string>() { "accounts", "benchmarks" };
             var optional = new List<string>() { "groups", "columns", "currencyisocode", "componentdetail","dates" };
             var linkedPATemplateContent = new TemplateContentTypes(mandatory, optional);
-            var linkedPATemplateParameters = new LinkedPATemplateParameters(LinkedPATemplateDirectory,
-                parentComponentId, LinkedPATemplateDescription, linkedPATemplateContent);
+
+            var linkedPATemplateParameters = new LinkedPATemplateParameters(
+                directory: LinkedPATemplateDirectory,
+                parentComponentId: parentComponentId,
+                description: LinkedPATemplateDescription,
+                content: linkedPATemplateContent
+            );
 
             var linkedPATemplateParametersRoot = new LinkedPATemplateParametersRoot(linkedPATemplateParameters);
             return linkedPATemplateParametersRoot;
@@ -243,10 +248,23 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             List<PAIdentifier> paAccounts, List<PAIdentifier> paBenchmarks,
             PADateParameters paDates, List<PACalculationColumn> columns, List<PACalculationGroup> groups, string parentTemplateId)
         {
-            var templatedPAComponentData =
-                new PAComponentData(paAccounts, paBenchmarks, groups, columns, paDates, CurrencyISOCode, ComponentDetail);
-            var templatedPAComponentParameters = new TemplatedPAComponentParameters(TemplatedPAComponentDirectory,
-                parentTemplateId, TemplatedPAComponentDescription, templatedPAComponentData);
+            var templatedPAComponentData = new PAComponentData(
+                accounts: paAccounts,
+                benchmarks: paBenchmarks,
+                groups: groups,
+                columns: columns,
+                dates: paDates,
+                currencyisocode: CurrencyISOCode,
+                componentdetail: ComponentDetail
+            );
+
+            var templatedPAComponentParameters = new TemplatedPAComponentParameters(
+                directory: TemplatedPAComponentDirectory,
+                parentTemplateId: parentTemplateId,
+                description: TemplatedPAComponentDescription,
+                componentData: templatedPAComponentData
+            );
+
             var templatedPAComponentParametersRoot =
                 new TemplatedPAComponentParametersRoot(templatedPAComponentParameters);
 

@@ -49,9 +49,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             {
                 var calculationParameters = GetPaCalculationParameters();
 
-                var calculationApi = new PACalculationsApi(GetApiConfiguration());
+                var calculationApi = new PACalculationsApi(configuration: GetApiConfiguration());
 
-                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, null, calculationParameters);
+                var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(xFactSetApiLongRunningDeadline: null, cacheControl: null, pACalculationParametersRoot: calculationParameters);
                 // Comment the above line and uncomment the below lines to add cache control configuration. Results are by default cached for 12 hours; Setting max-stale=300 will fetch a cached result which is at max 5 minutes older.
                 //var cacheControl = "max-stale=300";
                 //var calculationResponse = calculationApi.PostAndCalculateWithHttpInfo(null, cacheControl, calculationParameters);
@@ -84,7 +84,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         }
                     }
 
-                    getStatusResponse = calculationApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
+                    getStatusResponse = calculationApi.GetCalculationStatusByIdWithHttpInfo(id: calculationId);
                     status = getStatusResponse.Data;
                 }
                 Console.WriteLine("Calculation Completed");
@@ -94,8 +94,8 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 {
                     if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
-                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
-                        PrintResult(resultResponse.Data);
+                        var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(id: calculationId, unitId: calculation.Key);
+                        PrintResult(result: resultResponse.Data);
                     }
                     else
                     {
@@ -145,11 +145,11 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
         private static PACalculationParametersRoot GetPaCalculationParameters()
         {
-            var columnsApi = new ColumnsApi(GetApiConfiguration());
-            var column = columnsApi.GetPAColumns(ColumnName, ColumnCategory, Directory);
+            var columnsApi = new ColumnsApi(configuration: GetApiConfiguration());
+            var column = columnsApi.GetPAColumns(name: ColumnName, category: ColumnCategory, directory: Directory);
             var columnId = column.Data.Keys.ToList()[0];
 
-            var columnStatisticsApi = new ColumnStatisticsApi(GetApiConfiguration());
+            var columnStatisticsApi = new ColumnStatisticsApi(configuration: GetApiConfiguration());
             var getAllColumnStatistics = columnStatisticsApi.GetPAColumnStatistics();
             var columnStatisticId = new List<string>()
             {
@@ -157,42 +157,42 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     (getAllColumnStatistics.Data[id].Name == ColumnStatisticName))
             };
 
-            var columnsIdentifier = new PACalculationColumn(columnId, columnStatisticId);
+            var columnsIdentifier = new PACalculationColumn(id: columnId, statistics: columnStatisticId);
             var columns = new List<PACalculationColumn> { columnsIdentifier };
 
-            var groupsApi = new GroupsApi(GetApiConfiguration());
+            var groupsApi = new GroupsApi(configuration: GetApiConfiguration());
             var getPAGroups = groupsApi.GetPAGroups();
             var groupId = getPAGroups.Data.Keys.FirstOrDefault(id => (getPAGroups.Data[id].Name == GroupName
                                                                       && getPAGroups.Data[id].Directory == Directory
                                                                       && getPAGroups.Data[id].Category == GroupCategory));
 
 
-            var groupsIdentifier = new PACalculationGroup(groupId);
+            var groupsIdentifier = new PACalculationGroup(id: groupId);
             var groups = new List<PACalculationGroup> { groupsIdentifier };
 
-            var paAccounts = new List<PAIdentifier> { new PAIdentifier(Portfolio) };
-            var paBenchmarks = new List<PAIdentifier> { new PAIdentifier(Benchmark) };
-            var paDates = new PADateParameters(StartDate, EndDate, Frequency);
+            var paAccounts = new List<PAIdentifier> { new PAIdentifier(id: Portfolio) };
+            var paBenchmarks = new List<PAIdentifier> { new PAIdentifier(id: Benchmark) };
+            var paDates = new PADateParameters(startdate: StartDate, enddate: EndDate, frequency: Frequency);
 
 
-            var unlinkedPATemplateParametersRoot = GetUnlinkedPATemplateParameters(paAccounts,paBenchmarks, paDates, columns, groups);
-            var unlinkedPATemplateApi = new UnlinkedPATemplatesApi(GetApiConfiguration());
-            var response = unlinkedPATemplateApi.CreateUnlinkedPATemplates(unlinkedPATemplateParametersRoot);
+            var unlinkedPATemplateParametersRoot = GetUnlinkedPATemplateParameters(paAccounts: paAccounts, paBenchmarks: paBenchmarks, paDates: paDates, columns: columns, groups: groups);
+            var unlinkedPATemplateApi = new UnlinkedPATemplatesApi(configuration: GetApiConfiguration());
+            var response = unlinkedPATemplateApi.CreateUnlinkedPATemplates(unlinkedPATemplateParametersRoot: unlinkedPATemplateParametersRoot);
 
             var parentTemplateId = response.Data.Id;
 
             var templatedPAComponentParametersRoot =
-                GetTemplatedPAComponentParametersRoot(paAccounts, paBenchmarks, paDates, columns, groups, parentTemplateId);
+                GetTemplatedPAComponentParametersRoot(paAccounts: paAccounts, paBenchmarks: paBenchmarks, paDates: paDates, columns: columns, groups: groups, parentTemplateId: parentTemplateId);
 
-            var templatedPAComponentsApi = new TemplatedPAComponentsApi(GetApiConfiguration());
+            var templatedPAComponentsApi = new TemplatedPAComponentsApi(configuration: GetApiConfiguration());
 
-            var templatedPAComponentsResponse = templatedPAComponentsApi.CreateTemplatedPAComponents(templatedPAComponentParametersRoot);
+            var templatedPAComponentsResponse = templatedPAComponentsApi.CreateTemplatedPAComponents(templatedPAComponentParametersRoot: templatedPAComponentParametersRoot);
 
             var paComponentId = templatedPAComponentsResponse.Data.Id;
 
             Console.WriteLine($"PA Component Id : {paComponentId}");
             
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
+            var paCalculation = new PACalculationParameters(componentid: paComponentId, accounts: paAccounts, benchmarks: paBenchmarks);
 
             var calculationParameters = new PACalculationParametersRoot
             {
@@ -211,7 +211,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             // converting the data to Package object
             var stachBuilder = StachExtensionFactory.GetRowOrganizedBuilder();
-            var stachExtension = stachBuilder.SetPackage(result.Data).Build();
+            var stachExtension = stachBuilder.SetPackage(package: result.Data).Build();
             // To convert package to 2D tables.
             var tables = stachExtension.ConvertToTable();
 
@@ -223,7 +223,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         {
             var mandatory = new List<string>() { "accounts", "benchmarks" };
             var optional = new List<string>() { "groups", "columns", "currencyisocode", "componentdetail", "dates" };
-            var unlinkedPATemplateContent = new TemplateContentTypes(mandatory, optional);
+            var unlinkedPATemplateContent = new TemplateContentTypes(mandatory: mandatory, optional: optional);
             var unlinkedPATemplateParameters = new UnlinkedPATemplateParameters(
                 directory: UnlinkedPATemplateDirectory,
                 templateTypeId: UnlinkedPATemplateTypeId,
@@ -238,7 +238,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 content: unlinkedPATemplateContent
             );
 
-            var unlinkedPATemplateParametersRoot = new UnlinkedPATemplateParametersRoot(unlinkedPATemplateParameters);
+            var unlinkedPATemplateParametersRoot = new UnlinkedPATemplateParametersRoot(data: unlinkedPATemplateParameters);
             return unlinkedPATemplateParametersRoot;
         }
 
@@ -264,7 +264,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             );
 
             var templatedPAComponentParametersRoot =
-                new TemplatedPAComponentParametersRoot(templatedPAComponentParameters);
+                new TemplatedPAComponentParametersRoot(data: templatedPAComponentParameters);
 
             return templatedPAComponentParametersRoot;
         }

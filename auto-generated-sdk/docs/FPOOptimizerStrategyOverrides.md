@@ -1,10 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.OptimizerStrategyOverrides
+# FactSet.AnalyticsAPI.Engines.Model.FPOOptimizerStrategyOverrides
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tax** | **string** | Tax | [optional] 
+**Objective** | [**FPOObjective**](FPOObjective.md) |  | [optional] 
 **Constraints** | **Dictionary&lt;string, string&gt;** | List of constraints | [optional] 
 **Alpha** | **string** | Alpha | [optional] 
 **TransactionCost** | **string** | Transaction cost | [optional] 

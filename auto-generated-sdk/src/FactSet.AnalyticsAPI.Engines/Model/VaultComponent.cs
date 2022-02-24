@@ -41,10 +41,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="currencyisocode">Currency iso code saved in the document.</param>
         /// <param name="dates">dates.</param>
         /// <param name="snapshot">Snapshot.</param>
+        /// <param name="path">The path to the document.</param>
         /// <param name="name">Component name..</param>
         /// <param name="category">Component category..</param>
-        /// <param name="type">Component type..</param>
-        public VaultComponent(string id = default(string), VaultIdentifier account = default(VaultIdentifier), VaultIdentifier benchmark = default(VaultIdentifier), string currencyisocode = default(string), VaultDateParameters dates = default(VaultDateParameters), bool snapshot = default(bool), string name = default(string), string category = default(string), string type = default(string))
+        public VaultComponent(string id = default(string), VaultIdentifier account = default(VaultIdentifier), VaultIdentifier benchmark = default(VaultIdentifier), string currencyisocode = default(string), VaultDateParameters dates = default(VaultDateParameters), bool snapshot = default(bool), string path = default(string), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Account = account;
@@ -52,9 +52,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Currencyisocode = currencyisocode;
             this.Dates = dates;
             this.Snapshot = snapshot;
+            this.Path = path;
             this.Name = name;
             this.Category = category;
-            this.Type = type;
         }
 
         /// <summary>
@@ -97,6 +97,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public bool Snapshot { get; set; }
 
         /// <summary>
+        /// The path to the document
+        /// </summary>
+        /// <value>The path to the document</value>
+        [DataMember(Name = "path", EmitDefaultValue = false)]
+        public string Path { get; set; }
+
+        /// <summary>
         /// Component name.
         /// </summary>
         /// <value>Component name.</value>
@@ -109,13 +116,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <value>Component category.</value>
         [DataMember(Name = "category", EmitDefaultValue = false)]
         public string Category { get; set; }
-
-        /// <summary>
-        /// Component type.
-        /// </summary>
-        /// <value>Component type.</value>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -131,9 +131,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -198,6 +198,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Snapshot.Equals(input.Snapshot)
                 ) && 
                 (
+                    this.Path == input.Path ||
+                    (this.Path != null &&
+                    this.Path.Equals(input.Path))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -206,11 +211,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Category == input.Category ||
                     (this.Category != null &&
                     this.Category.Equals(input.Category))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -234,12 +234,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 if (this.Dates != null)
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
                 hashCode = hashCode * 59 + this.Snapshot.GetHashCode();
+                if (this.Path != null)
+                    hashCode = hashCode * 59 + this.Path.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Category != null)
                     hashCode = hashCode * 59 + this.Category.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

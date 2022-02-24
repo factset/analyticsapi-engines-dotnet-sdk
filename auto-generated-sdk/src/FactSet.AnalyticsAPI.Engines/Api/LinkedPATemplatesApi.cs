@@ -31,23 +31,23 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>LinkedPATemplateSummaryRoot</returns>
-        LinkedPATemplateSummaryRoot CreateLinkedPATemplates(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot);
+        /// <returns>LinkedPATemplatePostSummaryRoot</returns>
+        LinkedPATemplatePostSummaryRoot CreateLinkedPATemplates(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot);
 
         /// <summary>
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        ApiResponse<LinkedPATemplateSummaryRoot> CreateLinkedPATemplatesWithHttpInfo(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot);
+        /// <returns>ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        ApiResponse<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesWithHttpInfo(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot);
         /// <summary>
         /// Delete a linked PA template.
         /// </summary>
@@ -119,25 +119,25 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>LinkedPATemplateSummaryRoot</returns>
-        LinkedPATemplateSummaryRoot UpdateLinkedPATemplates(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot);
+        /// <returns>LinkedPATemplatePostSummaryRoot</returns>
+        LinkedPATemplatePostSummaryRoot UpdateLinkedPATemplates(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot);
 
         /// <summary>
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        ApiResponse<LinkedPATemplateSummaryRoot> UpdateLinkedPATemplatesWithHttpInfo(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot);
+        /// <returns>ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        ApiResponse<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesWithHttpInfo(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot);
         #endregion Synchronous Operations
     }
 
@@ -151,25 +151,25 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<LinkedPATemplateSummaryRoot> CreateLinkedPATemplatesAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of LinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<LinkedPATemplatePostSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete a linked PA template.
         /// </summary>
@@ -247,27 +247,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<LinkedPATemplateSummaryRoot> UpdateLinkedPATemplatesAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of LinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update a linked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<LinkedPATemplateSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<LinkedPATemplatePostSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -389,24 +389,24 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>LinkedPATemplateSummaryRoot</returns>
-        public LinkedPATemplateSummaryRoot CreateLinkedPATemplates(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
+        /// <returns>LinkedPATemplatePostSummaryRoot</returns>
+        public LinkedPATemplatePostSummaryRoot CreateLinkedPATemplates(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot> localVarResponse = CreateLinkedPATemplatesWithHttpInfo(linkedPATemplateParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = CreateLinkedPATemplatesWithHttpInfo(linkedPATemplateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot> CreateLinkedPATemplatesWithHttpInfo(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
+        /// <returns>ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesWithHttpInfo(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
         {
             // verify the required parameter 'linkedPATemplateParametersRoot' is set
             if (linkedPATemplateParametersRoot == null)
@@ -425,7 +425,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 201, typeof(LinkedPATemplateSummaryRoot) },
+                { 201, typeof(LinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
             };
 
@@ -451,7 +451,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -463,26 +463,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<LinkedPATemplateSummaryRoot> CreateLinkedPATemplatesAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of LinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot> CreateLinkedPATemplatesAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot> localVarResponse = await CreateLinkedPATemplatesWithHttpInfoAsync(linkedPATemplateParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = await CreateLinkedPATemplatesWithHttpInfoAsync(linkedPATemplateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create a linked PA template This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot>> CreateLinkedPATemplatesWithHttpInfoAsync(LinkedPATemplateParametersRoot linkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'linkedPATemplateParametersRoot' is set
             if (linkedPATemplateParametersRoot == null)
@@ -502,7 +502,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 201, typeof(LinkedPATemplateSummaryRoot) },
+                { 201, typeof(LinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
             };
 
@@ -529,7 +529,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1019,26 +1019,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>LinkedPATemplateSummaryRoot</returns>
-        public LinkedPATemplateSummaryRoot UpdateLinkedPATemplates(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
+        /// <returns>LinkedPATemplatePostSummaryRoot</returns>
+        public LinkedPATemplatePostSummaryRoot UpdateLinkedPATemplates(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot> localVarResponse = UpdateLinkedPATemplatesWithHttpInfo(id, linkedPATemplateUpdateParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = UpdateLinkedPATemplatesWithHttpInfo(id, linkedPATemplateUpdateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot> UpdateLinkedPATemplatesWithHttpInfo(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
+        /// <returns>ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesWithHttpInfo(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1061,7 +1061,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 200, typeof(LinkedPATemplateSummaryRoot) },
+                { 200, typeof(LinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1089,7 +1089,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1101,28 +1101,28 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<LinkedPATemplateSummaryRoot> UpdateLinkedPATemplatesAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of LinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<LinkedPATemplatePostSummaryRoot> UpdateLinkedPATemplatesAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot> localVarResponse = await UpdateLinkedPATemplatesWithHttpInfoAsync(id, linkedPATemplateUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot> localVarResponse = await UpdateLinkedPATemplatesWithHttpInfoAsync(id, linkedPATemplateUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update a linked PA template This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a linked PA template</param>
         /// <param name="linkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of LinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplateSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of LinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<LinkedPATemplatePostSummaryRoot>> UpdateLinkedPATemplatesWithHttpInfoAsync(string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1146,7 +1146,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 200, typeof(LinkedPATemplateSummaryRoot) },
+                { 200, typeof(LinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1175,7 +1175,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<LinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<LinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/linked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

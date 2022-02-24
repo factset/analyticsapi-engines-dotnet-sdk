@@ -31,23 +31,23 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>UnlinkedPATemplateSummaryRoot</returns>
-        UnlinkedPATemplateSummaryRoot CreateUnlinkedPATemplates(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot);
+        /// <returns>UnlinkedPATemplatePostSummaryRoot</returns>
+        UnlinkedPATemplatePostSummaryRoot CreateUnlinkedPATemplates(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot);
 
         /// <summary>
         /// Create unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        ApiResponse<UnlinkedPATemplateSummaryRoot> CreateUnlinkedPATemplatesWithHttpInfo(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot);
+        /// <returns>ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        ApiResponse<UnlinkedPATemplatePostSummaryRoot> CreateUnlinkedPATemplatesWithHttpInfo(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot);
         /// <summary>
         /// Delete unlinked PA template
         /// </summary>
@@ -157,25 +157,25 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Update unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>UnlinkedPATemplateSummaryRoot</returns>
-        UnlinkedPATemplateSummaryRoot UpdateUnlinkedPATemplates(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot);
+        /// <returns>UnlinkedPATemplatePostSummaryRoot</returns>
+        UnlinkedPATemplatePostSummaryRoot UpdateUnlinkedPATemplates(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot);
 
         /// <summary>
         /// Update unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        ApiResponse<UnlinkedPATemplateSummaryRoot> UpdateUnlinkedPATemplatesWithHttpInfo(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot);
+        /// <returns>ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        ApiResponse<UnlinkedPATemplatePostSummaryRoot> UpdateUnlinkedPATemplatesWithHttpInfo(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot);
         #endregion Synchronous Operations
     }
 
@@ -189,25 +189,25 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UnlinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<UnlinkedPATemplateSummaryRoot> CreateUnlinkedPATemplatesAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of UnlinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<UnlinkedPATemplatePostSummaryRoot> CreateUnlinkedPATemplatesAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateSummaryRoot>> CreateUnlinkedPATemplatesWithHttpInfoAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplatePostSummaryRoot>> CreateUnlinkedPATemplatesWithHttpInfoAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete unlinked PA template
         /// </summary>
@@ -327,27 +327,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Update unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UnlinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<UnlinkedPATemplateSummaryRoot> UpdateUnlinkedPATemplatesAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of UnlinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<UnlinkedPATemplatePostSummaryRoot> UpdateUnlinkedPATemplatesAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update unlinked PA template
         /// </summary>
         /// <remarks>
-        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplateSummaryRoot>> UpdateUnlinkedPATemplatesWithHttpInfoAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<UnlinkedPATemplatePostSummaryRoot>> UpdateUnlinkedPATemplatesWithHttpInfoAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -469,24 +469,24 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>UnlinkedPATemplateSummaryRoot</returns>
-        public UnlinkedPATemplateSummaryRoot CreateUnlinkedPATemplates(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot)
+        /// <returns>UnlinkedPATemplatePostSummaryRoot</returns>
+        public UnlinkedPATemplatePostSummaryRoot CreateUnlinkedPATemplates(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot> localVarResponse = CreateUnlinkedPATemplatesWithHttpInfo(unlinkedPATemplateParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot> localVarResponse = CreateUnlinkedPATemplatesWithHttpInfo(unlinkedPATemplateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot> CreateUnlinkedPATemplatesWithHttpInfo(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot)
+        /// <returns>ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot> CreateUnlinkedPATemplatesWithHttpInfo(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot)
         {
             // verify the required parameter 'unlinkedPATemplateParametersRoot' is set
             if (unlinkedPATemplateParametersRoot == null)
@@ -505,7 +505,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 201, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 201, typeof(UnlinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
             };
 
@@ -531,7 +531,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<UnlinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<UnlinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -543,26 +543,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UnlinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<UnlinkedPATemplateSummaryRoot> CreateUnlinkedPATemplatesAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of UnlinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<UnlinkedPATemplatePostSummaryRoot> CreateUnlinkedPATemplatesAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot> localVarResponse = await CreateUnlinkedPATemplatesWithHttpInfoAsync(unlinkedPATemplateParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot> localVarResponse = await CreateUnlinkedPATemplatesWithHttpInfoAsync(unlinkedPATemplateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Create unlinked PA template This endpoint creates a template which is not linked to any specific PA3 tile.     Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unlinkedPATemplateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot>> CreateUnlinkedPATemplatesWithHttpInfoAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot>> CreateUnlinkedPATemplatesWithHttpInfoAsync(UnlinkedPATemplateParametersRoot unlinkedPATemplateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'unlinkedPATemplateParametersRoot' is set
             if (unlinkedPATemplateParametersRoot == null)
@@ -582,7 +582,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 201, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 201, typeof(UnlinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
             };
 
@@ -609,7 +609,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<UnlinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<UnlinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1367,26 +1367,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>UnlinkedPATemplateSummaryRoot</returns>
-        public UnlinkedPATemplateSummaryRoot UpdateUnlinkedPATemplates(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot)
+        /// <returns>UnlinkedPATemplatePostSummaryRoot</returns>
+        public UnlinkedPATemplatePostSummaryRoot UpdateUnlinkedPATemplates(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot> localVarResponse = UpdateUnlinkedPATemplatesWithHttpInfo(id, unlinkedPATemplateUpdateParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot> localVarResponse = UpdateUnlinkedPATemplatesWithHttpInfo(id, unlinkedPATemplateUpdateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot> UpdateUnlinkedPATemplatesWithHttpInfo(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot)
+        /// <returns>ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot> UpdateUnlinkedPATemplatesWithHttpInfo(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1409,7 +1409,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 200, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 200, typeof(UnlinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1437,7 +1437,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<UnlinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<UnlinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1449,28 +1449,28 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of UnlinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<UnlinkedPATemplateSummaryRoot> UpdateUnlinkedPATemplatesAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of UnlinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<UnlinkedPATemplatePostSummaryRoot> UpdateUnlinkedPATemplatesAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot> localVarResponse = await UpdateUnlinkedPATemplatesWithHttpInfoAsync(id, unlinkedPATemplateUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot> localVarResponse = await UpdateUnlinkedPATemplatesWithHttpInfoAsync(id, unlinkedPATemplateUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   Mandatory and locked strings are mutually exclusive.
+        /// Update unlinked PA template This endpoint updates an existing unlinked PA template.    Remarks:                *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \&quot;accounts\&quot;, \&quot;benchmarks\&quot;, \&quot;groups\&quot;, \&quot;columns\&quot;, \&quot;dates\&quot;, \&quot;currencyisocode\&quot; and \&quot;componentdetail\&quot;.    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for an unlinked PA template</param>
         /// <param name="unlinkedPATemplateUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of UnlinkedPATemplateSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplateSummaryRoot>> UpdateUnlinkedPATemplatesWithHttpInfoAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of UnlinkedPATemplatePostSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<UnlinkedPATemplatePostSummaryRoot>> UpdateUnlinkedPATemplatesWithHttpInfoAsync(string id, UnlinkedPATemplateUpdateParametersRoot unlinkedPATemplateUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1494,7 +1494,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 200, typeof(UnlinkedPATemplateSummaryRoot) },
+                { 200, typeof(UnlinkedPATemplatePostSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1523,7 +1523,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<UnlinkedPATemplateSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<UnlinkedPATemplatePostSummaryRoot>("/analytics/engines/pa/v3/unlinked-templates/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

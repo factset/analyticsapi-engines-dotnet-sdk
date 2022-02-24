@@ -108,19 +108,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="settlement">Settlement date.</param>
         /// <param name="callMethod">Call Method.</param>
-        /// <param name="calcFromMethod">Calculation from method.</param>
+        /// <param name="referenceSecurity">referenceSecurity.</param>
+        /// <param name="loss">loss.</param>
+        /// <param name="prepay">prepay.</param>
+        /// <param name="matrixSpreadAdjustment">Matrix Spread Adjustment.</param>
+        /// <param name="matrixMultiplier">Matrix Multiplier.</param>
+        /// <param name="calcFromMethod">Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix.</param>
         /// <param name="calcFromValue">Calculation from value (required).</param>
         /// <param name="face">Face (default to 1D).</param>
         /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
         /// <param name="symbol">Symbol (required).</param>
         /// <param name="discountCurve">Discount curve.</param>
-        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
+        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
         {
             this.CalcFromValue = calcFromValue;
             // to ensure "symbol" is required (not null)
             this.Symbol = symbol ?? throw new ArgumentNullException("symbol is a required property for FISecurity and cannot be null");
             this.Settlement = settlement;
             this.CallMethod = callMethod;
+            this.ReferenceSecurity = referenceSecurity;
+            this.Loss = loss;
+            this.Prepay = prepay;
+            this.MatrixSpreadAdjustment = matrixSpreadAdjustment;
+            this.MatrixMultiplier = matrixMultiplier;
             this.CalcFromMethod = calcFromMethod;
             this.Face = face;
             this.FaceType = faceType;
@@ -135,9 +145,41 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Settlement { get; set; }
 
         /// <summary>
-        /// Calculation from method
+        /// Gets or Sets ReferenceSecurity
         /// </summary>
-        /// <value>Calculation from method</value>
+        [DataMember(Name = "referenceSecurity", EmitDefaultValue = false)]
+        public FIReferenceSecurity ReferenceSecurity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Loss
+        /// </summary>
+        [DataMember(Name = "loss", EmitDefaultValue = false)]
+        public FILoss Loss { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Prepay
+        /// </summary>
+        [DataMember(Name = "prepay", EmitDefaultValue = false)]
+        public FIPrepay Prepay { get; set; }
+
+        /// <summary>
+        /// Matrix Spread Adjustment
+        /// </summary>
+        /// <value>Matrix Spread Adjustment</value>
+        [DataMember(Name = "matrixSpreadAdjustment", EmitDefaultValue = false)]
+        public double MatrixSpreadAdjustment { get; set; }
+
+        /// <summary>
+        /// Matrix Multiplier
+        /// </summary>
+        /// <value>Matrix Multiplier</value>
+        [DataMember(Name = "matrixMultiplier", EmitDefaultValue = false)]
+        public double MatrixMultiplier { get; set; }
+
+        /// <summary>
+        /// Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix
+        /// </summary>
+        /// <value>Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix</value>
         [DataMember(Name = "calcFromMethod", EmitDefaultValue = false)]
         public string CalcFromMethod { get; set; }
 
@@ -179,6 +221,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class FISecurity {\n");
             sb.Append("  Settlement: ").Append(Settlement).Append("\n");
             sb.Append("  CallMethod: ").Append(CallMethod).Append("\n");
+            sb.Append("  ReferenceSecurity: ").Append(ReferenceSecurity).Append("\n");
+            sb.Append("  Loss: ").Append(Loss).Append("\n");
+            sb.Append("  Prepay: ").Append(Prepay).Append("\n");
+            sb.Append("  MatrixSpreadAdjustment: ").Append(MatrixSpreadAdjustment).Append("\n");
+            sb.Append("  MatrixMultiplier: ").Append(MatrixMultiplier).Append("\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
             sb.Append("  CalcFromValue: ").Append(CalcFromValue).Append("\n");
             sb.Append("  Face: ").Append(Face).Append("\n");
@@ -229,6 +276,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.CallMethod.Equals(input.CallMethod)
                 ) && 
                 (
+                    this.ReferenceSecurity == input.ReferenceSecurity ||
+                    (this.ReferenceSecurity != null &&
+                    this.ReferenceSecurity.Equals(input.ReferenceSecurity))
+                ) && 
+                (
+                    this.Loss == input.Loss ||
+                    (this.Loss != null &&
+                    this.Loss.Equals(input.Loss))
+                ) && 
+                (
+                    this.Prepay == input.Prepay ||
+                    (this.Prepay != null &&
+                    this.Prepay.Equals(input.Prepay))
+                ) && 
+                (
+                    this.MatrixSpreadAdjustment == input.MatrixSpreadAdjustment ||
+                    this.MatrixSpreadAdjustment.Equals(input.MatrixSpreadAdjustment)
+                ) && 
+                (
+                    this.MatrixMultiplier == input.MatrixMultiplier ||
+                    this.MatrixMultiplier.Equals(input.MatrixMultiplier)
+                ) && 
+                (
                     this.CalcFromMethod == input.CalcFromMethod ||
                     (this.CalcFromMethod != null &&
                     this.CalcFromMethod.Equals(input.CalcFromMethod))
@@ -269,6 +339,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 if (this.Settlement != null)
                     hashCode = hashCode * 59 + this.Settlement.GetHashCode();
                 hashCode = hashCode * 59 + this.CallMethod.GetHashCode();
+                if (this.ReferenceSecurity != null)
+                    hashCode = hashCode * 59 + this.ReferenceSecurity.GetHashCode();
+                if (this.Loss != null)
+                    hashCode = hashCode * 59 + this.Loss.GetHashCode();
+                if (this.Prepay != null)
+                    hashCode = hashCode * 59 + this.Prepay.GetHashCode();
+                hashCode = hashCode * 59 + this.MatrixSpreadAdjustment.GetHashCode();
+                hashCode = hashCode * 59 + this.MatrixMultiplier.GetHashCode();
                 if (this.CalcFromMethod != null)
                     hashCode = hashCode * 59 + this.CalcFromMethod.GetHashCode();
                 hashCode = hashCode * 59 + this.CalcFromValue.GetHashCode();

@@ -83,7 +83,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="partialDurationMonths">Partial duration months.</param>
         /// <param name="callMethod">Call Method.</param>
         /// <param name="settlement">Settlement Date.</param>
-        /// <param name="calcFromMethod">Calculation from method.</param>
+        /// <param name="calcFromMethod">Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix.</param>
         public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string))
         {
             // to ensure "asOfDate" is required (not null)
@@ -116,9 +116,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Settlement { get; set; }
 
         /// <summary>
-        /// Calculation from method
+        /// Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix
         /// </summary>
-        /// <value>Calculation from method</value>
+        /// <value>Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix</value>
         [DataMember(Name = "calcFromMethod", EmitDefaultValue = false)]
         public string CalcFromMethod { get; set; }
 

@@ -27,40 +27,26 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// OptimizerStrategy
+    /// FILoss
     /// </summary>
-    [DataContract(Name = "OptimizerStrategy")]
-    public partial class OptimizerStrategy : IEquatable<OptimizerStrategy>, IValidatableObject
+    [DataContract(Name = "FILoss")]
+    public partial class FILoss : IEquatable<FILoss>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
+        /// Initializes a new instance of the <see cref="FILoss" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected OptimizerStrategy() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OptimizerStrategy" /> class.
-        /// </summary>
-        /// <param name="id">OptimizerStrategy document path (required).</param>
-        /// <param name="overrides">overrides.</param>
-        public OptimizerStrategy(string id = default(string), OptimizerStrategyOverrides overrides = default(OptimizerStrategyOverrides))
+        /// <param name="lossName">Loss Name.</param>
+        public FILoss(string lossName = default(string))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for OptimizerStrategy and cannot be null");
-            this.Overrides = overrides;
+            this.LossName = lossName;
         }
 
         /// <summary>
-        /// OptimizerStrategy document path
+        /// Loss Name
         /// </summary>
-        /// <value>OptimizerStrategy document path</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Overrides
-        /// </summary>
-        [DataMember(Name = "overrides", EmitDefaultValue = false)]
-        public OptimizerStrategyOverrides Overrides { get; set; }
+        /// <value>Loss Name</value>
+        [DataMember(Name = "lossName", EmitDefaultValue = false)]
+        public string LossName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +55,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OptimizerStrategy {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Overrides: ").Append(Overrides).Append("\n");
+            sb.Append("class FILoss {\n");
+            sb.Append("  LossName: ").Append(LossName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +77,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OptimizerStrategy);
+            return this.Equals(input as FILoss);
         }
 
         /// <summary>
-        /// Returns true if OptimizerStrategy instances are equal
+        /// Returns true if FILoss instances are equal
         /// </summary>
-        /// <param name="input">Instance of OptimizerStrategy to be compared</param>
+        /// <param name="input">Instance of FILoss to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OptimizerStrategy input)
+        public bool Equals(FILoss input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Overrides == input.Overrides ||
-                    (this.Overrides != null &&
-                    this.Overrides.Equals(input.Overrides))
+                    this.LossName == input.LossName ||
+                    (this.LossName != null &&
+                    this.LossName.Equals(input.LossName))
                 );
         }
 
@@ -127,10 +107,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Overrides != null)
-                    hashCode = hashCode * 59 + this.Overrides.GetHashCode();
+                if (this.LossName != null)
+                    hashCode = hashCode * 59 + this.LossName.GetHashCode();
                 return hashCode;
             }
         }

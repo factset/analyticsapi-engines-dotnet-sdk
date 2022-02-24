@@ -98,11 +98,11 @@ Name | Type | Description  | Notes
 
 <a name="getpacomponents"></a>
 # **GetPAComponents**
-> ComponentSummaryRoot GetPAComponents (string document = null, string directory = null)
+> ComponentSummaryRoot GetPAComponents (string document)
 
 Get PA components
 
-This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
+This endpoint returns the list of PA components in a given PA document.
 
 ### Example
 ```csharp
@@ -127,13 +127,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
-            var document = document_example;  // string | Document Name (optional) 
-            var directory = directory_example;  // string | Directory to get the components (optional) 
+            var document = document_example;  // string | Document Name
 
             try
             {
                 // Get PA components
-                ComponentSummaryRoot result = apiInstance.GetPAComponents(document, directory);
+                ComponentSummaryRoot result = apiInstance.GetPAComponents(document);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -151,8 +150,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **document** | **string**| Document Name | [optional] 
- **directory** | **string**| Directory to get the components | [optional] 
+ **document** | **string**| Document Name | 
 
 ### Return type
 

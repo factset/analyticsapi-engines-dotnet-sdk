@@ -31,23 +31,23 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
-        /// <returns>TemplatedPAComponentPostSummaryRoot</returns>
-        TemplatedPAComponentPostSummaryRoot CreateTemplatedPAComponents(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot);
+        /// <returns>TemplatedPAComponentSummaryRoot</returns>
+        TemplatedPAComponentSummaryRoot CreateTemplatedPAComponents(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot);
 
         /// <summary>
         /// Create templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        ApiResponse<TemplatedPAComponentPostSummaryRoot> CreateTemplatedPAComponentsWithHttpInfo(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot);
+        /// <returns>ApiResponse of TemplatedPAComponentSummaryRoot</returns>
+        ApiResponse<TemplatedPAComponentSummaryRoot> CreateTemplatedPAComponentsWithHttpInfo(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot);
         /// <summary>
         /// Delete templated PA component
         /// </summary>
@@ -70,70 +70,28 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <returns>ApiResponse of Object(null)</returns>
         ApiResponse<object> DeleteTemplatedPAComponentsWithHttpInfo(string id);
         /// <summary>
-        /// Get templated PA component by id
+        /// Update templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint fetches the templated PA component settings.
+        /// This endpoint allows the user to change the request body from an existing templated PA component.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <returns>TemplatedPAComponentRoot</returns>
-        TemplatedPAComponentRoot GetTemplatedPAComponentById(string id);
-
-        /// <summary>
-        /// Get templated PA component by id
-        /// </summary>
-        /// <remarks>
-        /// This endpoint fetches the templated PA component settings.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <returns>ApiResponse of TemplatedPAComponentRoot</returns>
-        ApiResponse<TemplatedPAComponentRoot> GetTemplatedPAComponentByIdWithHttpInfo(string id);
-        /// <summary>
-        /// Get templated PA components in path
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns the list of templated PA components in path.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
+        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <returns>TemplatedPAComponentSummaryRoot</returns>
-        TemplatedPAComponentSummaryRoot GetTemplatedPAComponentsInPath(string directory);
+        TemplatedPAComponentSummaryRoot UpdateTemplatedPAComponents(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot);
 
         /// <summary>
-        /// Get templated PA components in path
+        /// Update templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of templated PA components in path.
+        /// This endpoint allows the user to change the request body from an existing templated PA component.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
+        /// <param name="id">Unique identifier for a templated PA component</param>
+        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <returns>ApiResponse of TemplatedPAComponentSummaryRoot</returns>
-        ApiResponse<TemplatedPAComponentSummaryRoot> GetTemplatedPAComponentsInPathWithHttpInfo(string directory);
-        /// <summary>
-        /// Update templated PA component
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
-        /// <returns>TemplatedPAComponentPostSummaryRoot</returns>
-        TemplatedPAComponentPostSummaryRoot UpdateTemplatedPAComponents(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot);
-
-        /// <summary>
-        /// Update templated PA component
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        ApiResponse<TemplatedPAComponentPostSummaryRoot> UpdateTemplatedPAComponentsWithHttpInfo(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot);
+        ApiResponse<TemplatedPAComponentSummaryRoot> UpdateTemplatedPAComponentsWithHttpInfo(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot);
         #endregion Synchronous Operations
     }
 
@@ -147,25 +105,25 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentPostSummaryRoot</returns>
-        System.Threading.Tasks.Task<TemplatedPAComponentPostSummaryRoot> CreateTemplatedPAComponentsAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of TemplatedPAComponentSummaryRoot</returns>
+        System.Threading.Tasks.Task<TemplatedPAComponentSummaryRoot> CreateTemplatedPAComponentsAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatedPAComponentPostSummaryRoot>> CreateTemplatedPAComponentsWithHttpInfoAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse of TemplatedPAComponentSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<TemplatedPAComponentSummaryRoot>> CreateTemplatedPAComponentsWithHttpInfoAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete templated PA component
         /// </summary>
@@ -190,76 +148,30 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <returns>Task of ApiResponse of Object(null)</returns>
         System.Threading.Tasks.Task<ApiResponse<object>> DeleteTemplatedPAComponentsWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get templated PA component by id
+        /// Update templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint fetches the templated PA component settings.
+        /// This endpoint allows the user to change the request body from an existing templated PA component.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentRoot</returns>
-        System.Threading.Tasks.Task<TemplatedPAComponentRoot> GetTemplatedPAComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get templated PA component by id
-        /// </summary>
-        /// <remarks>
-        /// This endpoint fetches the templated PA component settings.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatedPAComponentRoot>> GetTemplatedPAComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Get templated PA components in path
-        /// </summary>
-        /// <remarks>
-        /// This endpoint returns the list of templated PA components in path.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
+        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatedPAComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<TemplatedPAComponentSummaryRoot> GetTemplatedPAComponentsInPathAsync(string directory, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplatedPAComponentSummaryRoot> UpdateTemplatedPAComponentsAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get templated PA components in path
+        /// Update templated PA component
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of templated PA components in path.
+        /// This endpoint allows the user to change the request body from an existing templated PA component.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
+        /// <param name="id">Unique identifier for a templated PA component</param>
+        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of TemplatedPAComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatedPAComponentSummaryRoot>> GetTemplatedPAComponentsInPathWithHttpInfoAsync(string directory, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Update templated PA component
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentPostSummaryRoot</returns>
-        System.Threading.Tasks.Task<TemplatedPAComponentPostSummaryRoot> UpdateTemplatedPAComponentsAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Update templated PA component
-        /// </summary>
-        /// <remarks>
-        /// This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
-        /// </remarks>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatedPAComponentPostSummaryRoot>> UpdateTemplatedPAComponentsWithHttpInfoAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplatedPAComponentSummaryRoot>> UpdateTemplatedPAComponentsWithHttpInfoAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -381,24 +293,24 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
-        /// <returns>TemplatedPAComponentPostSummaryRoot</returns>
-        public TemplatedPAComponentPostSummaryRoot CreateTemplatedPAComponents(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot)
+        /// <returns>TemplatedPAComponentSummaryRoot</returns>
+        public TemplatedPAComponentSummaryRoot CreateTemplatedPAComponents(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot> localVarResponse = CreateTemplatedPAComponentsWithHttpInfo(templatedPAComponentParametersRoot);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> localVarResponse = CreateTemplatedPAComponentsWithHttpInfo(templatedPAComponentParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot> CreateTemplatedPAComponentsWithHttpInfo(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot)
+        /// <returns>ApiResponse of TemplatedPAComponentSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> CreateTemplatedPAComponentsWithHttpInfo(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot)
         {
             // verify the required parameter 'templatedPAComponentParametersRoot' is set
             if (templatedPAComponentParametersRoot == null)
@@ -419,7 +331,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 201, typeof(TemplatedPAComponentPostSummaryRoot) },
+                { 201, typeof(TemplatedPAComponentSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
             };
 
@@ -445,7 +357,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TemplatedPAComponentPostSummaryRoot>("/analytics/engines/pa/v3/templated-components", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TemplatedPAComponentSummaryRoot>("/analytics/engines/pa/v3/templated-components", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -457,26 +369,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentPostSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<TemplatedPAComponentPostSummaryRoot> CreateTemplatedPAComponentsAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TemplatedPAComponentSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<TemplatedPAComponentSummaryRoot> CreateTemplatedPAComponentsAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot> localVarResponse = await CreateTemplatedPAComponentsWithHttpInfoAsync(templatedPAComponentParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> localVarResponse = await CreateTemplatedPAComponentsWithHttpInfoAsync(templatedPAComponentParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// Create templated PA component This endpoint creates new component based off of linked PA template or unlinked PA template.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatedPAComponentParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot>> CreateTemplatedPAComponentsWithHttpInfoAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of TemplatedPAComponentSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot>> CreateTemplatedPAComponentsWithHttpInfoAsync(TemplatedPAComponentParametersRoot templatedPAComponentParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'templatedPAComponentParametersRoot' is set
             if (templatedPAComponentParametersRoot == null)
@@ -498,7 +410,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 201, typeof(TemplatedPAComponentPostSummaryRoot) },
+                { 201, typeof(TemplatedPAComponentSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
             };
 
@@ -525,7 +437,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplatedPAComponentPostSummaryRoot>("/analytics/engines/pa/v3/templated-components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TemplatedPAComponentSummaryRoot>("/analytics/engines/pa/v3/templated-components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -689,328 +601,26 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get templated PA component by id This endpoint fetches the templated PA component settings.
+        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <returns>TemplatedPAComponentRoot</returns>
-        public TemplatedPAComponentRoot GetTemplatedPAComponentById(string id)
-        {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentRoot> localVarResponse = GetTemplatedPAComponentByIdWithHttpInfo(id);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get templated PA component by id This endpoint fetches the templated PA component settings.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <returns>ApiResponse of TemplatedPAComponentRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentRoot> GetTemplatedPAComponentByIdWithHttpInfo(string id)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'id' when calling TemplatedPAComponentsApi->GetTemplatedPAComponentById");
-
-            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(TemplatedPAComponentRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
-            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TemplatedPAComponentRoot>("/analytics/engines/pa/v3/templated-components/{id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTemplatedPAComponentById", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get templated PA component by id This endpoint fetches the templated PA component settings.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentRoot</returns>
-        public async System.Threading.Tasks.Task<TemplatedPAComponentRoot> GetTemplatedPAComponentByIdAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentRoot> localVarResponse = await GetTemplatedPAComponentByIdWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get templated PA component by id This endpoint fetches the templated PA component settings.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentRoot>> GetTemplatedPAComponentByIdWithHttpInfoAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'id' when calling TemplatedPAComponentsApi->GetTemplatedPAComponentById");
-
-
-            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(TemplatedPAComponentRoot) },
-                { 400, typeof(ClientErrorResponse) },
-                { 404, typeof(ClientErrorResponse) },
-            };
-
-            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(id)); // path parameter
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TemplatedPAComponentRoot>("/analytics/engines/pa/v3/templated-components/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTemplatedPAComponentById", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get templated PA components in path This endpoint returns the list of templated PA components in path.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
+        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <returns>TemplatedPAComponentSummaryRoot</returns>
-        public TemplatedPAComponentSummaryRoot GetTemplatedPAComponentsInPath(string directory)
+        public TemplatedPAComponentSummaryRoot UpdateTemplatedPAComponents(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot)
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> localVarResponse = GetTemplatedPAComponentsInPathWithHttpInfo(directory);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> localVarResponse = UpdateTemplatedPAComponentsWithHttpInfo(id, templatedPAComponentUpdateParametersRoot);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get templated PA components in path This endpoint returns the list of templated PA components in path.
+        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
+        /// <param name="id">Unique identifier for a templated PA component</param>
+        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <returns>ApiResponse of TemplatedPAComponentSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> GetTemplatedPAComponentsInPathWithHttpInfo(string directory)
-        {
-            // verify the required parameter 'directory' is set
-            if (directory == null)
-                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'directory' when calling TemplatedPAComponentsApi->GetTemplatedPAComponentsInPath");
-
-            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(TemplatedPAComponentSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-            };
-
-            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory));
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<TemplatedPAComponentSummaryRoot>("/analytics/engines/pa/v3/templated-components", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTemplatedPAComponentsInPath", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get templated PA components in path This endpoint returns the list of templated PA components in path.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<TemplatedPAComponentSummaryRoot> GetTemplatedPAComponentsInPathAsync(string directory, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> localVarResponse = await GetTemplatedPAComponentsInPathWithHttpInfoAsync(directory, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get templated PA components in path This endpoint returns the list of templated PA components in path.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="directory">Get templated PA components in path</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot>> GetTemplatedPAComponentsInPathWithHttpInfoAsync(string directory, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'directory' is set
-            if (directory == null)
-                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'directory' when calling TemplatedPAComponentsApi->GetTemplatedPAComponentsInPath");
-
-
-            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
-            {
-                { 200, typeof(TemplatedPAComponentSummaryRoot) },
-                { 400, typeof(ClientErrorResponse) },
-            };
-
-            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory));
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TemplatedPAComponentSummaryRoot>("/analytics/engines/pa/v3/templated-components", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetTemplatedPAComponentsInPath", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
-        /// <returns>TemplatedPAComponentPostSummaryRoot</returns>
-        public TemplatedPAComponentPostSummaryRoot UpdateTemplatedPAComponents(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot)
-        {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot> localVarResponse = UpdateTemplatedPAComponentsWithHttpInfo(id, templatedPAComponentUpdateParametersRoot);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
-        /// </summary>
-        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Unique identifier for a templated PA component</param>
-        /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
-        /// <returns>ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot> UpdateTemplatedPAComponentsWithHttpInfo(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> UpdateTemplatedPAComponentsWithHttpInfo(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1033,7 +643,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 200, typeof(TemplatedPAComponentPostSummaryRoot) },
+                { 200, typeof(TemplatedPAComponentSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1061,7 +671,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<TemplatedPAComponentPostSummaryRoot>("/analytics/engines/pa/v3/templated-components/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<TemplatedPAComponentSummaryRoot>("/analytics/engines/pa/v3/templated-components/{id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1073,28 +683,28 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a templated PA component</param>
         /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TemplatedPAComponentPostSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<TemplatedPAComponentPostSummaryRoot> UpdateTemplatedPAComponentsAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of TemplatedPAComponentSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<TemplatedPAComponentSummaryRoot> UpdateTemplatedPAComponentsAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot> localVarResponse = await UpdateTemplatedPAComponentsWithHttpInfoAsync(id, templatedPAComponentUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot> localVarResponse = await UpdateTemplatedPAComponentsWithHttpInfoAsync(id, templatedPAComponentUpdateParametersRoot, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.    Remarks:    *   Any settings in the POST body will act as a one-time override over the settings saved in the PA template.    *   Multi-horizon frequencies are not supported through this endpoint.    *   Componentdetail supports securities, groups, and totals as well but if we don&#39;t pass anything that defaults to securities.
+        /// Update templated PA component This endpoint allows the user to change the request body from an existing templated PA component.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Unique identifier for a templated PA component</param>
         /// <param name="templatedPAComponentUpdateParametersRoot">Request Parameters</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of TemplatedPAComponentPostSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentPostSummaryRoot>> UpdateTemplatedPAComponentsWithHttpInfoAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse of TemplatedPAComponentSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<TemplatedPAComponentSummaryRoot>> UpdateTemplatedPAComponentsWithHttpInfoAsync(string id, TemplatedPAComponentUpdateParametersRoot templatedPAComponentUpdateParametersRoot, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1118,7 +728,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 200, typeof(TemplatedPAComponentPostSummaryRoot) },
+                { 200, typeof(TemplatedPAComponentSummaryRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1147,7 +757,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<TemplatedPAComponentPostSummaryRoot>("/analytics/engines/pa/v3/templated-components/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<TemplatedPAComponentSummaryRoot>("/analytics/engines/pa/v3/templated-components/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

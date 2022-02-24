@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **Currencyisocode** | **string** |  | [optional] 
 **Dates** | [**PADateParameters**](PADateParameters.md) |  | [optional] 
 **Snapshot** | **bool** | Is the component type snapshot or subperiod. | [optional] 
-**Path** | **string** | The path to the document | [optional] 
 **Name** | **string** | Component name. | [optional] 
 **Category** | **string** | Component category. | [optional] 
+**Type** | **string** | Component type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

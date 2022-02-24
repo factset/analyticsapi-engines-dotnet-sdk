@@ -32,7 +32,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.1.0";
+        public const string Version = "5.2.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -102,7 +102,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "engines-api/5.2.0/csharp";
+            UserAgent = "engines-api/5.2.1/csharp";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -447,7 +447,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v3:[pa,spar,vault,pub,quant,fi,axp,afi,npo,bpm,fpo,others],v1:[fiab]\n";
-            report += "    SDK Package Version: 5.1.0\n";
+            report += "    SDK Package Version: 5.2.1\n";
 
             return report;
         }

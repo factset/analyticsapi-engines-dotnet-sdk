@@ -35,33 +35,81 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantCalculationParameters" /> class.
         /// </summary>
-        /// <param name="universe">universe.</param>
-        /// <param name="dates">dates.</param>
-        /// <param name="formulas">formulas.</param>
-        public QuantCalculationParameters(OneOfQuantUniverse universe = default(OneOfQuantUniverse), OneOfQuantDates dates = default(OneOfQuantDates), List<OneOfQuantFormulas> formulas = default(List<OneOfQuantFormulas>))
+        /// <param name="screeningExpressionUniverse">screeningExpressionUniverse.</param>
+        /// <param name="universalScreenUniverse">universalScreenUniverse.</param>
+        /// <param name="identifierUniverse">identifierUniverse.</param>
+        /// <param name="fdsDate">fdsDate.</param>
+        /// <param name="dateList">dateList.</param>
+        /// <param name="screeningExpression">screeningExpression.</param>
+        /// <param name="fqlExpression">fqlExpression.</param>
+        /// <param name="universalScreenParameter">universalScreenParameter.</param>
+        /// <param name="allUniversalScreenParameters">allUniversalScreenParameters.</param>
+        public QuantCalculationParameters(QuantScreeningExpressionUniverse screeningExpressionUniverse = default(QuantScreeningExpressionUniverse), QuantUniversalScreenUniverse universalScreenUniverse = default(QuantUniversalScreenUniverse), QuantIdentifierUniverse identifierUniverse = default(QuantIdentifierUniverse), QuantFdsDate fdsDate = default(QuantFdsDate), QuantDateList dateList = default(QuantDateList), List<QuantScreeningExpression> screeningExpression = default(List<QuantScreeningExpression>), List<QuantFqlExpression> fqlExpression = default(List<QuantFqlExpression>), List<QuantUniversalScreenParameter> universalScreenParameter = default(List<QuantUniversalScreenParameter>), List<Object> allUniversalScreenParameters = default(List<Object>))
         {
-            this.Universe = universe;
-            this.Dates = dates;
-            this.Formulas = formulas;
+            this.ScreeningExpressionUniverse = screeningExpressionUniverse;
+            this.UniversalScreenUniverse = universalScreenUniverse;
+            this.IdentifierUniverse = identifierUniverse;
+            this.FdsDate = fdsDate;
+            this.DateList = dateList;
+            this.ScreeningExpression = screeningExpression;
+            this.FqlExpression = fqlExpression;
+            this.UniversalScreenParameter = universalScreenParameter;
+            this.AllUniversalScreenParameters = allUniversalScreenParameters;
         }
 
         /// <summary>
-        /// Gets or Sets Universe
+        /// Gets or Sets ScreeningExpressionUniverse
         /// </summary>
-        [DataMember(Name = "universe", EmitDefaultValue = false)]
-        public OneOfQuantUniverse Universe { get; set; }
+        [DataMember(Name = "screeningExpressionUniverse", EmitDefaultValue = false)]
+        public QuantScreeningExpressionUniverse ScreeningExpressionUniverse { get; set; }
 
         /// <summary>
-        /// Gets or Sets Dates
+        /// Gets or Sets UniversalScreenUniverse
         /// </summary>
-        [DataMember(Name = "dates", EmitDefaultValue = false)]
-        public OneOfQuantDates Dates { get; set; }
+        [DataMember(Name = "universalScreenUniverse", EmitDefaultValue = false)]
+        public QuantUniversalScreenUniverse UniversalScreenUniverse { get; set; }
 
         /// <summary>
-        /// Gets or Sets Formulas
+        /// Gets or Sets IdentifierUniverse
         /// </summary>
-        [DataMember(Name = "formulas", EmitDefaultValue = false)]
-        public List<OneOfQuantFormulas> Formulas { get; set; }
+        [DataMember(Name = "identifierUniverse", EmitDefaultValue = false)]
+        public QuantIdentifierUniverse IdentifierUniverse { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FdsDate
+        /// </summary>
+        [DataMember(Name = "fdsDate", EmitDefaultValue = false)]
+        public QuantFdsDate FdsDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DateList
+        /// </summary>
+        [DataMember(Name = "dateList", EmitDefaultValue = false)]
+        public QuantDateList DateList { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ScreeningExpression
+        /// </summary>
+        [DataMember(Name = "screeningExpression", EmitDefaultValue = false)]
+        public List<QuantScreeningExpression> ScreeningExpression { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FqlExpression
+        /// </summary>
+        [DataMember(Name = "fqlExpression", EmitDefaultValue = false)]
+        public List<QuantFqlExpression> FqlExpression { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UniversalScreenParameter
+        /// </summary>
+        [DataMember(Name = "universalScreenParameter", EmitDefaultValue = false)]
+        public List<QuantUniversalScreenParameter> UniversalScreenParameter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllUniversalScreenParameters
+        /// </summary>
+        [DataMember(Name = "allUniversalScreenParameters", EmitDefaultValue = false)]
+        public List<Object> AllUniversalScreenParameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +119,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QuantCalculationParameters {\n");
-            sb.Append("  Universe: ").Append(Universe).Append("\n");
-            sb.Append("  Dates: ").Append(Dates).Append("\n");
-            sb.Append("  Formulas: ").Append(Formulas).Append("\n");
+            sb.Append("  ScreeningExpressionUniverse: ").Append(ScreeningExpressionUniverse).Append("\n");
+            sb.Append("  UniversalScreenUniverse: ").Append(UniversalScreenUniverse).Append("\n");
+            sb.Append("  IdentifierUniverse: ").Append(IdentifierUniverse).Append("\n");
+            sb.Append("  FdsDate: ").Append(FdsDate).Append("\n");
+            sb.Append("  DateList: ").Append(DateList).Append("\n");
+            sb.Append("  ScreeningExpression: ").Append(ScreeningExpression).Append("\n");
+            sb.Append("  FqlExpression: ").Append(FqlExpression).Append("\n");
+            sb.Append("  UniversalScreenParameter: ").Append(UniversalScreenParameter).Append("\n");
+            sb.Append("  AllUniversalScreenParameters: ").Append(AllUniversalScreenParameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,20 +163,53 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
             return 
                 (
-                    this.Universe == input.Universe ||
-                    (this.Universe != null &&
-                    this.Universe.Equals(input.Universe))
+                    this.ScreeningExpressionUniverse == input.ScreeningExpressionUniverse ||
+                    (this.ScreeningExpressionUniverse != null &&
+                    this.ScreeningExpressionUniverse.Equals(input.ScreeningExpressionUniverse))
                 ) && 
                 (
-                    this.Dates == input.Dates ||
-                    (this.Dates != null &&
-                    this.Dates.Equals(input.Dates))
+                    this.UniversalScreenUniverse == input.UniversalScreenUniverse ||
+                    (this.UniversalScreenUniverse != null &&
+                    this.UniversalScreenUniverse.Equals(input.UniversalScreenUniverse))
                 ) && 
                 (
-                    this.Formulas == input.Formulas ||
-                    this.Formulas != null &&
-                    input.Formulas != null &&
-                    this.Formulas.SequenceEqual(input.Formulas)
+                    this.IdentifierUniverse == input.IdentifierUniverse ||
+                    (this.IdentifierUniverse != null &&
+                    this.IdentifierUniverse.Equals(input.IdentifierUniverse))
+                ) && 
+                (
+                    this.FdsDate == input.FdsDate ||
+                    (this.FdsDate != null &&
+                    this.FdsDate.Equals(input.FdsDate))
+                ) && 
+                (
+                    this.DateList == input.DateList ||
+                    (this.DateList != null &&
+                    this.DateList.Equals(input.DateList))
+                ) && 
+                (
+                    this.ScreeningExpression == input.ScreeningExpression ||
+                    this.ScreeningExpression != null &&
+                    input.ScreeningExpression != null &&
+                    this.ScreeningExpression.SequenceEqual(input.ScreeningExpression)
+                ) && 
+                (
+                    this.FqlExpression == input.FqlExpression ||
+                    this.FqlExpression != null &&
+                    input.FqlExpression != null &&
+                    this.FqlExpression.SequenceEqual(input.FqlExpression)
+                ) && 
+                (
+                    this.UniversalScreenParameter == input.UniversalScreenParameter ||
+                    this.UniversalScreenParameter != null &&
+                    input.UniversalScreenParameter != null &&
+                    this.UniversalScreenParameter.SequenceEqual(input.UniversalScreenParameter)
+                ) && 
+                (
+                    this.AllUniversalScreenParameters == input.AllUniversalScreenParameters ||
+                    this.AllUniversalScreenParameters != null &&
+                    input.AllUniversalScreenParameters != null &&
+                    this.AllUniversalScreenParameters.SequenceEqual(input.AllUniversalScreenParameters)
                 );
         }
 
@@ -135,12 +222,24 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Universe != null)
-                    hashCode = hashCode * 59 + this.Universe.GetHashCode();
-                if (this.Dates != null)
-                    hashCode = hashCode * 59 + this.Dates.GetHashCode();
-                if (this.Formulas != null)
-                    hashCode = hashCode * 59 + this.Formulas.GetHashCode();
+                if (this.ScreeningExpressionUniverse != null)
+                    hashCode = hashCode * 59 + this.ScreeningExpressionUniverse.GetHashCode();
+                if (this.UniversalScreenUniverse != null)
+                    hashCode = hashCode * 59 + this.UniversalScreenUniverse.GetHashCode();
+                if (this.IdentifierUniverse != null)
+                    hashCode = hashCode * 59 + this.IdentifierUniverse.GetHashCode();
+                if (this.FdsDate != null)
+                    hashCode = hashCode * 59 + this.FdsDate.GetHashCode();
+                if (this.DateList != null)
+                    hashCode = hashCode * 59 + this.DateList.GetHashCode();
+                if (this.ScreeningExpression != null)
+                    hashCode = hashCode * 59 + this.ScreeningExpression.GetHashCode();
+                if (this.FqlExpression != null)
+                    hashCode = hashCode * 59 + this.FqlExpression.GetHashCode();
+                if (this.UniversalScreenParameter != null)
+                    hashCode = hashCode * 59 + this.UniversalScreenParameter.GetHashCode();
+                if (this.AllUniversalScreenParameters != null)
+                    hashCode = hashCode * 59 + this.AllUniversalScreenParameters.GetHashCode();
                 return hashCode;
             }
         }

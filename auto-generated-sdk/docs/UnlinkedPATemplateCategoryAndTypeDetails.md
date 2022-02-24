@@ -5,9 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Type Id | [optional] 
-**Columns** | [**List&lt;UnlinkedPATemplateColumnDetails&gt;**](UnlinkedPATemplateColumnDetails.md) | List of default columns | [optional] 
-**Groups** | [**List&lt;UnlinkedPATemplateGroupDetails&gt;**](UnlinkedPATemplateGroupDetails.md) | List of default groupings | [optional] 
-**Snapshot** | **bool** | Snapshot | [optional] 
 **Category** | **string** | Unlinked template category | [optional] 
 **Name** | **string** | Unlinked template type | [optional] 
 

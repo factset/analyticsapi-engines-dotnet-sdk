@@ -52,23 +52,25 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <returns>ComponentSummaryRoot</returns>
-        ComponentSummaryRoot GetPAComponents(string document);
+        ComponentSummaryRoot GetPAComponents(string document = default(string), string directory = default(string));
 
         /// <summary>
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo(string document);
+        ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo(string document = default(string), string directory = default(string));
         /// <summary>
         /// Get SPAR components
         /// </summary>
@@ -168,25 +170,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync(string document = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get PA components
         /// </summary>
         /// <remarks>
-        /// This endpoint returns the list of PA components in a given PA document.
+        /// This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of ComponentSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ComponentSummaryRoot>> GetPAComponentsWithHttpInfoAsync(string document = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get SPAR components
         /// </summary>
@@ -529,29 +533,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <returns>ComponentSummaryRoot</returns>
-        public ComponentSummaryRoot GetPAComponents(string document)
+        public ComponentSummaryRoot GetPAComponents(string document = default(string), string directory = default(string))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetPAComponentsWithHttpInfo(document);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = GetPAComponentsWithHttpInfo(document, directory);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <returns>ApiResponse of ComponentSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo(string document)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> GetPAComponentsWithHttpInfo(string document = default(string), string directory = default(string))
         {
-            // verify the required parameter 'document' is set
-            if (document == null)
-                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'document' when calling ComponentsApi->GetPAComponents");
-
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
@@ -575,7 +577,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
+            if (document != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
+            }
+            if (directory != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -603,31 +612,29 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ComponentSummaryRoot> GetPAComponentsAsync(string document = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetPAComponentsWithHttpInfoAsync(document, cancellationToken).ConfigureAwait(false);
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot> localVarResponse = await GetPAComponentsWithHttpInfoAsync(document, directory, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get PA components This endpoint returns the list of PA components in a given PA document.
+        /// Get PA components This endpoint returns      1.List of PA components in a given PA document if document name is provided.    2.List of components in given directory if directory is provided.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="document">Document Name</param>
+        /// <param name="document">Document Name (optional)</param>
+        /// <param name="directory">Directory to get the components (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of ComponentSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetPAComponentsWithHttpInfoAsync(string document, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<ComponentSummaryRoot>> GetPAComponentsWithHttpInfoAsync(string document = default(string), string directory = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'document' is set
-            if (document == null)
-                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'document' when calling ComponentsApi->GetPAComponents");
-
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -652,7 +659,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
+            if (document != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "document", document));
+            }
+            if (directory != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "directory", directory));
+            }
 
             // authentication (Basic) required
             // http basic authentication required

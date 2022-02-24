@@ -35,25 +35,25 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnlinkedPATemplate" /> class.
         /// </summary>
-        /// <param name="id">Template id..</param>
-        /// <param name="directory">Template directory..</param>
-        /// <param name="templateTypeId">Template type id.</param>
-        /// <param name="snapshot">snapshot..</param>
-        /// <param name="accounts">List of accounts.</param>
-        /// <param name="benchmarks">List of benchmarks.</param>
-        /// <param name="columns">List of columns for the PA calculation.</param>
+        /// <param name="directory">directory.</param>
+        /// <param name="id">id.</param>
+        /// <param name="templateTypeId">templateTypeId.</param>
+        /// <param name="snapshot">snapshot.</param>
+        /// <param name="accounts">accounts.</param>
+        /// <param name="benchmarks">benchmarks.</param>
+        /// <param name="columns">columns.</param>
         /// <param name="dates">dates.</param>
-        /// <param name="groups">List of groupings for the PA calculation.</param>
-        /// <param name="currencyisocode">Currency ISO code for calculation..</param>
-        /// <param name="componentdetail">PA storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
+        /// <param name="groups">groups.</param>
+        /// <param name="currencyisocode">currencyisocode.</param>
+        /// <param name="componentdetail">componentdetail.</param>
         /// <param name="content">content.</param>
-        /// <param name="description">Template description..</param>
-        /// <param name="name">Template name..</param>
-        /// <param name="category">Unlinked template category.</param>
-        public UnlinkedPATemplate(string id = default(string), string directory = default(string), string templateTypeId = default(string), bool snapshot = default(bool), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes), string description = default(string), string name = default(string), string category = default(string))
+        /// <param name="description">description.</param>
+        /// <param name="name">name.</param>
+        /// <param name="category">category.</param>
+        public UnlinkedPATemplate(string directory = default(string), string id = default(string), string templateTypeId = default(string), bool snapshot = default(bool), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes), string description = default(string), string name = default(string), string category = default(string))
         {
-            this.Id = id;
             this.Directory = directory;
+            this.Id = id;
             this.TemplateTypeId = templateTypeId;
             this.Snapshot = snapshot;
             this.Accounts = accounts;
@@ -70,51 +70,44 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Template id.
+        /// Gets or Sets Directory
         /// </summary>
-        /// <value>Template id.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Template directory.
-        /// </summary>
-        /// <value>Template directory.</value>
         [DataMember(Name = "directory", EmitDefaultValue = false)]
         public string Directory { get; set; }
 
         /// <summary>
-        /// Template type id
+        /// Gets or Sets Id
         /// </summary>
-        /// <value>Template type id</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TemplateTypeId
+        /// </summary>
         [DataMember(Name = "templateTypeId", EmitDefaultValue = false)]
         public string TemplateTypeId { get; set; }
 
         /// <summary>
-        /// snapshot.
+        /// Gets or Sets Snapshot
         /// </summary>
-        /// <value>snapshot.</value>
         [DataMember(Name = "snapshot", EmitDefaultValue = false)]
         public bool Snapshot { get; set; }
 
         /// <summary>
-        /// List of accounts
+        /// Gets or Sets Accounts
         /// </summary>
-        /// <value>List of accounts</value>
         [DataMember(Name = "accounts", EmitDefaultValue = false)]
         public List<PAIdentifier> Accounts { get; set; }
 
         /// <summary>
-        /// List of benchmarks
+        /// Gets or Sets Benchmarks
         /// </summary>
-        /// <value>List of benchmarks</value>
         [DataMember(Name = "benchmarks", EmitDefaultValue = false)]
         public List<PAIdentifier> Benchmarks { get; set; }
 
         /// <summary>
-        /// List of columns for the PA calculation
+        /// Gets or Sets Columns
         /// </summary>
-        /// <value>List of columns for the PA calculation</value>
         [DataMember(Name = "columns", EmitDefaultValue = false)]
         public List<PACalculationColumn> Columns { get; set; }
 
@@ -125,23 +118,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PADateParameters Dates { get; set; }
 
         /// <summary>
-        /// List of groupings for the PA calculation
+        /// Gets or Sets Groups
         /// </summary>
-        /// <value>List of groupings for the PA calculation</value>
         [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<PACalculationGroup> Groups { get; set; }
 
         /// <summary>
-        /// Currency ISO code for calculation.
+        /// Gets or Sets Currencyisocode
         /// </summary>
-        /// <value>Currency ISO code for calculation.</value>
         [DataMember(Name = "currencyisocode", EmitDefaultValue = false)]
         public string Currencyisocode { get; set; }
 
         /// <summary>
-        /// PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+        /// Gets or Sets Componentdetail
         /// </summary>
-        /// <value>PA storage type. It can be GROUPS or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 
@@ -152,23 +142,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public TemplateContentTypes Content { get; set; }
 
         /// <summary>
-        /// Template description.
+        /// Gets or Sets Description
         /// </summary>
-        /// <value>Template description.</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Template name.
+        /// Gets or Sets Name
         /// </summary>
-        /// <value>Template name.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Unlinked template category
+        /// Gets or Sets Category
         /// </summary>
-        /// <value>Unlinked template category</value>
         [DataMember(Name = "category", EmitDefaultValue = false)]
         public string Category { get; set; }
 
@@ -180,8 +167,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UnlinkedPATemplate {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Directory: ").Append(Directory).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  TemplateTypeId: ").Append(TemplateTypeId).Append("\n");
             sb.Append("  Snapshot: ").Append(Snapshot).Append("\n");
             sb.Append("  Accounts: ").Append(Accounts).Append("\n");
@@ -230,14 +217,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.Directory == input.Directory ||
                     (this.Directory != null &&
                     this.Directory.Equals(input.Directory))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
                     this.TemplateTypeId == input.TemplateTypeId ||
@@ -318,10 +305,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Directory != null)
                     hashCode = hashCode * 59 + this.Directory.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.TemplateTypeId != null)
                     hashCode = hashCode * 59 + this.TemplateTypeId.GetHashCode();
                 hashCode = hashCode * 59 + this.Snapshot.GetHashCode();

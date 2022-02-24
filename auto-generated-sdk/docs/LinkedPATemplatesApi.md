@@ -13,11 +13,11 @@ Method | HTTP request | Description
 
 <a name="createlinkedpatemplates"></a>
 # **CreateLinkedPATemplates**
-> LinkedPATemplatePostSummaryRoot CreateLinkedPATemplates (LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
+> LinkedPATemplateSummaryRoot CreateLinkedPATemplates (LinkedPATemplateParametersRoot linkedPATemplateParametersRoot)
 
 Create a linked PA template
 
-This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+This endpoint creates a template from an **existing portfolio analysis tile**, allowing the user to replicate and fetch reports settings.    Remarks:    *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   Mandatory and locked strings are mutually exclusive.
 
 ### Example
 ```csharp
@@ -47,7 +47,7 @@ namespace Example
             try
             {
                 // Create a linked PA template
-                LinkedPATemplatePostSummaryRoot result = apiInstance.CreateLinkedPATemplates(linkedPATemplateParametersRoot);
+                LinkedPATemplateSummaryRoot result = apiInstance.CreateLinkedPATemplates(linkedPATemplateParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LinkedPATemplatePostSummaryRoot**](LinkedPATemplatePostSummaryRoot.md)
+[**LinkedPATemplateSummaryRoot**](LinkedPATemplateSummaryRoot.md)
 
 ### Authorization
 
@@ -356,11 +356,11 @@ Name | Type | Description  | Notes
 
 <a name="updatelinkedpatemplates"></a>
 # **UpdateLinkedPATemplates**
-> LinkedPATemplatePostSummaryRoot UpdateLinkedPATemplates (string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
+> LinkedPATemplateSummaryRoot UpdateLinkedPATemplates (string id, LinkedPATemplateUpdateParametersRoot linkedPATemplateUpdateParametersRoot)
 
 Update a linked PA template
 
-This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory fields are required to be passed in POST requests and Optional fields are not necessary.       If no mandatory fields are passed, then we can use the template as a component and skip the component creation.        *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   We cannot override the Locked fields when creating the Component.    *   Mandatory and locked strings are mutually exclusive.    *   Multi-horizon frequencies are not supported through this endpoint.
+This endpoint allows the user to change the request body and description from an existing template.    Remarks:    *   Mandatory, optional and locked fields can be  \"accounts\", \"benchmarks\", \"groups\", \"columns\", \"dates\", \"currencyisocode\" and \"componentdetail\".    *   Mandatory and locked strings are mutually exclusive.
 
 ### Example
 ```csharp
@@ -391,7 +391,7 @@ namespace Example
             try
             {
                 // Update a linked PA template
-                LinkedPATemplatePostSummaryRoot result = apiInstance.UpdateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot);
+                LinkedPATemplateSummaryRoot result = apiInstance.UpdateLinkedPATemplates(id, linkedPATemplateUpdateParametersRoot);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LinkedPATemplatePostSummaryRoot**](LinkedPATemplatePostSummaryRoot.md)
+[**LinkedPATemplateSummaryRoot**](LinkedPATemplateSummaryRoot.md)
 
 ### Authorization
 

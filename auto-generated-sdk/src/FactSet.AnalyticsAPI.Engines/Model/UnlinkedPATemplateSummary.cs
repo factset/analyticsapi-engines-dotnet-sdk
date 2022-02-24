@@ -35,9 +35,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnlinkedPATemplateSummary" /> class.
         /// </summary>
-        /// <param name="description">Template description..</param>
-        /// <param name="name">Template name..</param>
-        /// <param name="category">Unlinked template category.</param>
+        /// <param name="description">description.</param>
+        /// <param name="name">name.</param>
+        /// <param name="category">category.</param>
         public UnlinkedPATemplateSummary(string description = default(string), string name = default(string), string category = default(string))
         {
             this.Description = description;
@@ -46,23 +46,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Template description.
+        /// Gets or Sets Description
         /// </summary>
-        /// <value>Template description.</value>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Template name.
+        /// Gets or Sets Name
         /// </summary>
-        /// <value>Template name.</value>
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Unlinked template category
+        /// Gets or Sets Category
         /// </summary>
-        /// <value>Unlinked template category</value>
         [DataMember(Name = "category", EmitDefaultValue = false)]
         public string Category { get; set; }
 

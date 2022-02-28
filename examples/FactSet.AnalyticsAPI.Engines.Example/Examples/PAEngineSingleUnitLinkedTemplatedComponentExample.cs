@@ -18,6 +18,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private static readonly string BasePath = Environment.GetEnvironmentVariable("FACTSET_HOST");
         private static readonly string UserName = Environment.GetEnvironmentVariable("FACTSET_USERNAME");
         private static readonly string Password = Environment.GetEnvironmentVariable("FACTSET_PASSWORD");
+        private static readonly string ProxyUrl = Environment.GetEnvironmentVariable("PROXY_URL");
 
         private const string ComponentName = "Weights";
         private const string ComponentCategory = "Weights / Exposures";
@@ -104,6 +105,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     if (calculation.Value.Status == CalculationUnitStatus.StatusEnum.Success)
                     {
                         var resultResponse = calculationApi.GetCalculationUnitResultByIdWithHttpInfo(id: calculationId, unitId: calculation.Key);
+                        Console.WriteLine($"Calculation Id: {calculationId} with Unit Id: {calculation.Key} Succeeded!!!");
                         PrintResult(result: resultResponse.Data);
                     }
                     else
@@ -142,9 +144,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                 Username = UserName,
                 Password = Password
             };
-            
+
             // Uncomment below lines for adding the proxy configuration
-            //System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
+            //System.Net.WebProxy webProxy = new System.Net.WebProxy(Address: ProxyUrl);
             //webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
             //_engineApiConfiguration.Proxy = webProxy;
 

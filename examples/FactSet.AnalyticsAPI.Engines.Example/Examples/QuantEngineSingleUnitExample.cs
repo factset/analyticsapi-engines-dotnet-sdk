@@ -125,7 +125,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private static QuantCalculationParametersRoot GetQuantCalculationParameters()
         {
             var universe = new OneOfQuantUniverse(new QuantScreeningExpressionUniverse(universeExpr: "ISON_DOW", universeType: QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, securityExpr: "TICKER", source: QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse));
-            var dates = new OneOfQuantDates(new QuantFdsDate(startDate: "0", endDate: "-5D", source: QuantFdsDate.SourceEnum.FdsDate, frequency: "D", calendar: "FIVEDAY"));
+            var dates = new OneOfQuantDates(new QuantFdsDate(startDate: "0", endDate: "-5D", source: QuantFdsDate.SourceEnum.FdsDate, frequency: "D", calendar: "FIVEDAY", true));
             var formulas = new List<OneOfQuantFormulas>()
             {
                 new OneOfQuantFormulas(new QuantScreeningExpression(expr: "P_PRICE", name: "Price (SCR)", source: QuantScreeningExpression.SourceEnum.ScreeningExpression)),

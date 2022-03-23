@@ -60,7 +60,12 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     "Effective Convexity"
                 };
 
-                var fiJobSettings = new FIJobSettings("20201201");
+                var ratePath = new FIMarketEnvironment
+                {
+                    RatePath = FIMarketEnvironment.RatePathEnum.FLATFORWARD
+                };
+
+                var fiJobSettings = new FIJobSettings("20201201", marketEnvironment: ratePath);
 
                 var fiCalculationParameters = new FICalculationParameters(fiSecurities, fiCalculations, fiJobSettings);
                 var fiCalculationParameterseRoot = new FICalculationParametersRoot(data: fiCalculationParameters);

@@ -1,13 +1,12 @@
-# FactSet.AnalyticsAPI.Engines.Model.QuantDateListObsolete
+# FactSet.AnalyticsAPI.Engines.Model.FIDiscountCurveInfo
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Dates** | **List&lt;string&gt;** |  | [optional] 
-**Frequency** | **string** |  | 
-**Calendar** | **string** |  | 
-**OverrideUniversalScreenCalendar** | **bool** |  | [optional] 
+**Category** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**Currency** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

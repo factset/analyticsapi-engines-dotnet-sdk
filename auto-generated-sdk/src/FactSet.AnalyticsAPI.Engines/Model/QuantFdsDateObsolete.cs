@@ -44,7 +44,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="endDate">endDate (required).</param>
         /// <param name="frequency">frequency (required).</param>
         /// <param name="calendar">calendar (required).</param>
-        public QuantFdsDateObsolete(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string))
+        /// <param name="overrideUniversalScreenCalendar">overrideUniversalScreenCalendar.</param>
+        public QuantFdsDateObsolete(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), bool overrideUniversalScreenCalendar = default(bool))
         {
             // to ensure "startDate" is required (not null)
             this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for QuantFdsDateObsolete and cannot be null");
@@ -54,6 +55,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantFdsDateObsolete and cannot be null");
             // to ensure "calendar" is required (not null)
             this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantFdsDateObsolete and cannot be null");
+            this.OverrideUniversalScreenCalendar = overrideUniversalScreenCalendar;
         }
 
         /// <summary>
@@ -81,6 +83,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Calendar { get; set; }
 
         /// <summary>
+        /// Gets or Sets OverrideUniversalScreenCalendar
+        /// </summary>
+        [DataMember(Name = "overrideUniversalScreenCalendar", EmitDefaultValue = false)]
+        public bool OverrideUniversalScreenCalendar { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +100,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("  Calendar: ").Append(Calendar).Append("\n");
+            sb.Append("  OverrideUniversalScreenCalendar: ").Append(OverrideUniversalScreenCalendar).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,6 +154,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Calendar == input.Calendar ||
                     (this.Calendar != null &&
                     this.Calendar.Equals(input.Calendar))
+                ) && 
+                (
+                    this.OverrideUniversalScreenCalendar == input.OverrideUniversalScreenCalendar ||
+                    this.OverrideUniversalScreenCalendar.Equals(input.OverrideUniversalScreenCalendar)
                 );
         }
 
@@ -165,6 +178,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Frequency.GetHashCode();
                 if (this.Calendar != null)
                     hashCode = hashCode * 59 + this.Calendar.GetHashCode();
+                hashCode = hashCode * 59 + this.OverrideUniversalScreenCalendar.GetHashCode();
                 return hashCode;
             }
         }

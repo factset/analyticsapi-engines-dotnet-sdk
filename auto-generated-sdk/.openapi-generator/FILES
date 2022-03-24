@@ -53,6 +53,7 @@ docs/CurrencyRoot.md
 docs/DateParametersSummary.md
 docs/DateParametersSummaryRoot.md
 docs/DatesApi.md
+docs/DiscountCurvesApi.md
 docs/DocumentDirectories.md
 docs/DocumentDirectoriesRoot.md
 docs/DocumentsApi.md
@@ -68,8 +69,11 @@ docs/FIABIdentifier.md
 docs/FICalculationParameters.md
 docs/FICalculationParametersRoot.md
 docs/FICalculationsApi.md
+docs/FIDiscountCurveInfo.md
+docs/FIDiscountCurveInfoRoot.md
 docs/FIJobSettings.md
 docs/FILoss.md
+docs/FIMarketEnvironment.md
 docs/FIPrepay.md
 docs/FIReferencePrepay.md
 docs/FIReferenceSecurity.md
@@ -217,6 +221,7 @@ src/FactSet.AnalyticsAPI.Engines/Api/ComponentsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/ConfigurationsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/CurrenciesApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/DatesApi.cs
+src/FactSet.AnalyticsAPI.Engines/Api/DiscountCurvesApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/DocumentsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/FIABCalculationsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/FICalculationsApi.cs
@@ -302,8 +307,11 @@ src/FactSet.AnalyticsAPI.Engines/Model/FIABDateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIABIdentifier.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FICalculationParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FICalculationParametersRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/FIDiscountCurveInfo.cs
+src/FactSet.AnalyticsAPI.Engines/Model/FIDiscountCurveInfoRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIJobSettings.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FILoss.cs
+src/FactSet.AnalyticsAPI.Engines/Model/FIMarketEnvironment.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIPrepay.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIReferencePrepay.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIReferenceSecurity.cs

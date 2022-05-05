@@ -40,9 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             var postAndOptimizeHttpResponse = fpoOptimizerApi.PostAndOptimizeWithHttpInfo(null,null,fpoCalculationParameterRoot);
 
-            postAndOptimizeHttpResponse.StatusCode
-    .Should()
-    .Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
+            postAndOptimizeHttpResponse.StatusCode.Should().Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
 
             switch (postAndOptimizeHttpResponse.StatusCode)
             {

@@ -22,7 +22,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
 
         [TestMethod]
-        public void OptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
+        public void BPMOptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
         {
             const string strategyId = "CLIENT:/Aapi/Optimizers/BPMAPISIMPLE";
             const string accountId = "BENCH:SP50";

@@ -22,7 +22,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
 
         [TestMethod]
-        public void OptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
+        public void FPOOptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
         {
             const string strategyId = "Client:/analytics_api/dbui_simple_strategy";
             const string accountId = "CLIENT:/FPO/1K_MAC_AMZN_AAPL.ACCT";

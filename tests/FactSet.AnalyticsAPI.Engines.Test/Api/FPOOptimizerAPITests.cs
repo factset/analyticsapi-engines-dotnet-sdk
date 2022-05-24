@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -9,38 +9,38 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {
+
     [TestClass]
-    public class AxpCalculationsApiTests
+    public class FpoCalculationsApiTests
     {
-        private AXPOptimizerApi axpOptimizerApi;
+        private FPOOptimizerApi fpoOptimizerApi;
 
         [TestInitialize]
         public void Init()
         {
-            axpOptimizerApi = new AXPOptimizerApi(CommonFunctions.BuildConfiguration());
+            fpoOptimizerApi = new FPOOptimizerApi(CommonFunctions.BuildConfiguration());
         }
 
         [TestMethod]
-        public void AXPOptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
+        public void FPOOptimizerWorkflow_Should_Succeed_When_GivenValidInputs()
         {
-            const string strategyId = "Client:/Optimizer/TAXTEST";
-            const string accountId = "BENCH:SP50";
-            const string riskModelDate = "09/01/2020";
-            const string backtestDate = "09/01/2020";
-            var axpStrategy = new AxiomaEquityOptimizerStrategy(null, strategyId);
-            var axpAccount = new OptimizerAccount(accountId);
+            const string strategyId = "Client:/analytics_api/dbui_simple_strategy";
+            const string accountId = "CLIENT:/FPO/1K_MAC_AMZN_AAPL.ACCT";
+            const string riskModelDate = "0M";
+            const string backtestDate = "0M";
+            var fpoPaDoc = new PaDoc("CLIENT:/FPO/FPO_MASTER");
+            var fpoStrategy = new FPOOptimizerStrategy(null, strategyId);
+            var fpoAccount = new FPOAccount(fpoPaDoc,accountId);
             var optimization = new Optimization(riskModelDate, backtestDate);
             var tradesList = new OptimizerTradesList(OptimizerTradesList.IdentifierTypeEnum.SedolChk, false);
             var outputTypes = new OptimizerOutputTypes(tradesList);
 
-            var axpCalculationParameters = new AxiomaEquityOptimizationParameters(axpStrategy, axpAccount, optimization, outputTypes);
-            var axpCalculationParameterRoot = new AxiomaEquityOptimizationParametersRoot(axpCalculationParameters);
+            var fpoCalculationParameters = new FPOOptimizationParameters(fpoAccount, fpoStrategy,  optimization, outputTypes);
+            var fpoCalculationParameterRoot = new FPOOptimizationParametersRoot(fpoCalculationParameters);
 
-            var postAndOptimizeHttpResponse = axpOptimizerApi.PostAndOptimizeWithHttpInfo(axiomaEquityOptimizationParametersRoot : axpCalculationParameterRoot);
+            var postAndOptimizeHttpResponse = fpoOptimizerApi.PostAndOptimizeWithHttpInfo(null,null,fpoCalculationParameterRoot);
 
-            postAndOptimizeHttpResponse.StatusCode
-                .Should()
-                .Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
+            postAndOptimizeHttpResponse.StatusCode.Should().Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
 
             switch (postAndOptimizeHttpResponse.StatusCode)
             {
@@ -49,7 +49,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                     bool shouldPoll;
                     do
                     {
-                        var pollingResponse = axpOptimizerApi.GetOptimizationStatusByIdWithHttpInfo(optimizationId);
+                        var pollingResponse = fpoOptimizerApi.GetOptimizationStatusByIdWithHttpInfo(optimizationId);
                         pollingResponse.StatusCode
                             .Should()
                             .Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
                     } while (shouldPoll);
 
-                    var getResultResponse = axpOptimizerApi.GetOptimizationResultWithHttpInfo(optimizationId);
+                    var getResultResponse = fpoOptimizerApi.GetOptimizationResultWithHttpInfo(optimizationId);
                     getResultResponse.StatusCode.Should().Be(HttpStatusCode.OK);
                     getResultResponse.Data.Should().NotBeNull();
                     break;
@@ -88,3 +88,5 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
     }
 }
+
+        

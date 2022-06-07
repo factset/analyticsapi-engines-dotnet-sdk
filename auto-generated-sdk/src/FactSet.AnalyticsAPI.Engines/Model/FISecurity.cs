@@ -109,6 +109,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="settlement">Settlement date.</param>
         /// <param name="callMethod">Call Method.</param>
         /// <param name="referenceSecurity">referenceSecurity.</param>
+        /// <param name="bankLoans">bankLoans.</param>
+        /// <param name="municipalBonds">municipalBonds.</param>
         /// <param name="loss">loss.</param>
         /// <param name="prepay">prepay.</param>
         /// <param name="matrixSpreadAdjustment">Matrix Spread Adjustment.</param>
@@ -119,7 +121,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
         /// <param name="symbol">Symbol (required).</param>
         /// <param name="discountCurve">Discount curve.</param>
-        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
+        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FIBankLoans bankLoans = default(FIBankLoans), FIMunicipalBonds municipalBonds = default(FIMunicipalBonds), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
         {
             this.CalcFromValue = calcFromValue;
             // to ensure "symbol" is required (not null)
@@ -127,6 +129,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Settlement = settlement;
             this.CallMethod = callMethod;
             this.ReferenceSecurity = referenceSecurity;
+            this.BankLoans = bankLoans;
+            this.MunicipalBonds = municipalBonds;
             this.Loss = loss;
             this.Prepay = prepay;
             this.MatrixSpreadAdjustment = matrixSpreadAdjustment;
@@ -149,6 +153,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         [DataMember(Name = "referenceSecurity", EmitDefaultValue = false)]
         public FIReferenceSecurity ReferenceSecurity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BankLoans
+        /// </summary>
+        [DataMember(Name = "bankLoans", EmitDefaultValue = false)]
+        public FIBankLoans BankLoans { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MunicipalBonds
+        /// </summary>
+        [DataMember(Name = "municipalBonds", EmitDefaultValue = false)]
+        public FIMunicipalBonds MunicipalBonds { get; set; }
 
         /// <summary>
         /// Gets or Sets Loss
@@ -222,6 +238,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Settlement: ").Append(Settlement).Append("\n");
             sb.Append("  CallMethod: ").Append(CallMethod).Append("\n");
             sb.Append("  ReferenceSecurity: ").Append(ReferenceSecurity).Append("\n");
+            sb.Append("  BankLoans: ").Append(BankLoans).Append("\n");
+            sb.Append("  MunicipalBonds: ").Append(MunicipalBonds).Append("\n");
             sb.Append("  Loss: ").Append(Loss).Append("\n");
             sb.Append("  Prepay: ").Append(Prepay).Append("\n");
             sb.Append("  MatrixSpreadAdjustment: ").Append(MatrixSpreadAdjustment).Append("\n");
@@ -279,6 +297,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.ReferenceSecurity == input.ReferenceSecurity ||
                     (this.ReferenceSecurity != null &&
                     this.ReferenceSecurity.Equals(input.ReferenceSecurity))
+                ) && 
+                (
+                    this.BankLoans == input.BankLoans ||
+                    (this.BankLoans != null &&
+                    this.BankLoans.Equals(input.BankLoans))
+                ) && 
+                (
+                    this.MunicipalBonds == input.MunicipalBonds ||
+                    (this.MunicipalBonds != null &&
+                    this.MunicipalBonds.Equals(input.MunicipalBonds))
                 ) && 
                 (
                     this.Loss == input.Loss ||
@@ -341,6 +369,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 hashCode = hashCode * 59 + this.CallMethod.GetHashCode();
                 if (this.ReferenceSecurity != null)
                     hashCode = hashCode * 59 + this.ReferenceSecurity.GetHashCode();
+                if (this.BankLoans != null)
+                    hashCode = hashCode * 59 + this.BankLoans.GetHashCode();
+                if (this.MunicipalBonds != null)
+                    hashCode = hashCode * 59 + this.MunicipalBonds.GetHashCode();
                 if (this.Loss != null)
                     hashCode = hashCode * 59 + this.Loss.GetHashCode();
                 if (this.Prepay != null)

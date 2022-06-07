@@ -84,8 +84,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="callMethod">Call Method.</param>
         /// <param name="settlement">Settlement Date.</param>
         /// <param name="calcFromMethod">Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix.</param>
+        /// <param name="bankLoans">bankLoans.</param>
+        /// <param name="municipalBonds">municipalBonds.</param>
         /// <param name="marketEnvironment">marketEnvironment.</param>
-        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string), FIMarketEnvironment marketEnvironment = default(FIMarketEnvironment))
+        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string), FIBankLoans bankLoans = default(FIBankLoans), FIMunicipalBondsForJobSettings municipalBonds = default(FIMunicipalBondsForJobSettings), FIMarketEnvironment marketEnvironment = default(FIMarketEnvironment))
         {
             // to ensure "asOfDate" is required (not null)
             this.AsOfDate = asOfDate ?? throw new ArgumentNullException("asOfDate is a required property for FIJobSettings and cannot be null");
@@ -93,6 +95,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.CallMethod = callMethod;
             this.Settlement = settlement;
             this.CalcFromMethod = calcFromMethod;
+            this.BankLoans = bankLoans;
+            this.MunicipalBonds = municipalBonds;
             this.MarketEnvironment = marketEnvironment;
         }
 
@@ -125,6 +129,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string CalcFromMethod { get; set; }
 
         /// <summary>
+        /// Gets or Sets BankLoans
+        /// </summary>
+        [DataMember(Name = "bankLoans", EmitDefaultValue = false)]
+        public FIBankLoans BankLoans { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MunicipalBonds
+        /// </summary>
+        [DataMember(Name = "municipalBonds", EmitDefaultValue = false)]
+        public FIMunicipalBondsForJobSettings MunicipalBonds { get; set; }
+
+        /// <summary>
         /// Gets or Sets MarketEnvironment
         /// </summary>
         [DataMember(Name = "marketEnvironment", EmitDefaultValue = false)]
@@ -143,6 +159,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  CallMethod: ").Append(CallMethod).Append("\n");
             sb.Append("  Settlement: ").Append(Settlement).Append("\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
+            sb.Append("  BankLoans: ").Append(BankLoans).Append("\n");
+            sb.Append("  MunicipalBonds: ").Append(MunicipalBonds).Append("\n");
             sb.Append("  MarketEnvironment: ").Append(MarketEnvironment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -204,6 +222,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.CalcFromMethod.Equals(input.CalcFromMethod))
                 ) && 
                 (
+                    this.BankLoans == input.BankLoans ||
+                    (this.BankLoans != null &&
+                    this.BankLoans.Equals(input.BankLoans))
+                ) && 
+                (
+                    this.MunicipalBonds == input.MunicipalBonds ||
+                    (this.MunicipalBonds != null &&
+                    this.MunicipalBonds.Equals(input.MunicipalBonds))
+                ) && 
+                (
                     this.MarketEnvironment == input.MarketEnvironment ||
                     (this.MarketEnvironment != null &&
                     this.MarketEnvironment.Equals(input.MarketEnvironment))
@@ -228,6 +256,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Settlement.GetHashCode();
                 if (this.CalcFromMethod != null)
                     hashCode = hashCode * 59 + this.CalcFromMethod.GetHashCode();
+                if (this.BankLoans != null)
+                    hashCode = hashCode * 59 + this.BankLoans.GetHashCode();
+                if (this.MunicipalBonds != null)
+                    hashCode = hashCode * 59 + this.MunicipalBonds.GetHashCode();
                 if (this.MarketEnvironment != null)
                     hashCode = hashCode * 59 + this.MarketEnvironment.GetHashCode();
                 return hashCode;

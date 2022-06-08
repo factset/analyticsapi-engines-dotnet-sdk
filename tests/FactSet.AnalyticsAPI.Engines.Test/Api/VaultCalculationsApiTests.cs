@@ -141,6 +141,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         {
             var calculationsResponse = vaultCalculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
             Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
+
         }
     }
 }

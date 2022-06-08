@@ -16,11 +16,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     public class QuantCalculationsApiTests
     {
         private QuantCalculationsApi calculationsApi;
+        private int pageNumber;
 
         [TestInitialize]
         public void Init()
         {
             calculationsApi = new QuantCalculationsApi(CommonFunctions.BuildConfiguration());
+            pageNumber = 1;
         }
 
         private ApiResponse<object> RunCalculation()
@@ -29,8 +31,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
             var oneOfQuantFormulases = new List<OneOfQuantFormulas>()
             {
-                new OneOfQuantFormulas(new QuantScreeningExpression("P_PRICE", "Price (SCR)", QuantScreeningExpression.SourceEnum.ScreeningExpression)),
-                new OneOfQuantFormulas(new QuantFqlExpression("P_PRICE", "Price (SCR)", QuantFqlExpression.SourceEnum.FqlExpression))
+                new OneOfQuantFormulas(new QuantScreeningExpression(expr : "P_PRICE", name : "Price (SCR)", source : QuantScreeningExpression.SourceEnum.ScreeningExpression)),
+                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE", name : "Price (SCR)",  source : QuantFqlExpression.SourceEnum.FqlExpression))
             };
 
             var quantCalculation = new QuantCalculationParameters(universe: oneOfQuantUniverse, dates: oneOfQuantDates, formulas: oneOfQuantFormulases);
@@ -113,6 +115,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
                 Assert.IsInstanceOfType(resultResponse.Data, typeof(Stream), "Result response data should be of type Stream.");
             }
+        }
+
+        [TestMethod]
+        public void EnginesAPi_Quant_GetAll_Calculations_Success()
+        {
+            var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
+            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
         }
     }
 }

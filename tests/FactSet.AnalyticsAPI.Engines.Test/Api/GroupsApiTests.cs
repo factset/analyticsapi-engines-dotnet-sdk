@@ -28,5 +28,15 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             Assert.IsTrue(groupResponse.Data.Data.GetType() == typeof(Dictionary<string, Group>), "Response result should be a Group Dictionary.");
             Assert.IsTrue(groupResponse.Data.Data.Count > 0, "Response result should not be an empty Dictionary.");
         }
+
+        [TestMethod]
+        public void GroupingFrequenciesApi_Get_Success()
+        {
+            var groupResponse = groupsApi.GetPAGroupingFrequenciesWithHttpInfo();
+
+            Assert.IsTrue(groupResponse.StatusCode == HttpStatusCode.OK, "Response Should be 200 - OK");
+            Assert.IsTrue(groupResponse.Data.Data.GetType() == typeof(Dictionary<string, Frequency>), "Response result should be a Frequency Dictionary.");
+            Assert.IsTrue(groupResponse.Data.Data.Count > 0, "Response result should not be an empty Dictionary.");
+        }
     }
 }

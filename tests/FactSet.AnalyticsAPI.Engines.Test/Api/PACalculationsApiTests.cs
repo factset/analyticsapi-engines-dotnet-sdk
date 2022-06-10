@@ -137,7 +137,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public void EnginesAPi_GetAll_PA_Calculations_Success()
         {
             var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
-            Assert.IsTrue(calculationsResponse.Result.StatusCode== HttpStatusCode.OK, "Result response status code should be 200 - OK.");
+            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
         }
     }
 }

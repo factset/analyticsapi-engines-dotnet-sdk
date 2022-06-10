@@ -26,9 +26,37 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public void CalculationsWorkflow_Should_Succeed_When_GivenValidInputs()
         {
             var calculations = new List<string>();
+            calculations.Add("Effective Duration");
+            calculations.Add("Yield");
+            calculations.Add("Yield To Worst Call");
+            calculations.Add("Actual Spread");
+            calculations.Add("OAS");
+            calculations.Add("Settlement Date");
+            calculations.Add("Security Type");
+            calculations.Add("Security Name");
+            calculations.Add("Run Status");
+            calculations.Add("Price");
             var securities = new List<FISecurity>();
 
-            var jobSettings = new FIJobSettings(asOfDate: "20201201");
+            securities.Add
+            (
+                new FISecurity
+                    (
+                        symbol: "LX176322",
+                        calcFromMethod: "Price",
+                        calcFromValue: 99.554,
+                        settlement: "20120128",
+                        bankLoans: new FIBankLoans(ignoreSinkingFund: true),
+                        municipalBonds: new FIMunicipalBonds(ignoreSinkingFund: true)
+                    )
+            );
+
+            var jobSettings = new FIJobSettings
+            (
+                asOfDate: "20120128", 
+                bankLoans: new FIBankLoans(ignoreSinkingFund: true),
+                municipalBonds: new FIMunicipalBondsForJobSettings(ignoreSinkingFund: true)
+            );
 
             var fiCalculationParameters = new FICalculationParameters(securities, calculations, jobSettings);
             var fiCalculationParametersRoot = new FICalculationParametersRoot(data: fiCalculationParameters);
@@ -37,13 +65,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             try
             {
-
                 var postAndOptimizeHttpResponse =
                     fiCalculationsApi.PostAndCalculateWithHttpInfo(fICalculationParametersRoot: fiCalculationParametersRoot);
 
                 postAndOptimizeHttpResponse.StatusCode
-                    .Should()
-                    .Match<HttpStatusCode>(c => c == HttpStatusCode.Created || c == HttpStatusCode.Accepted || c == HttpStatusCode.OK);
+                               .Should()
+                               .Match<HttpStatusCode>(c =>
+                                   c == HttpStatusCode.Created || c == HttpStatusCode.Accepted);
 
                 switch (postAndOptimizeHttpResponse.StatusCode)
                 {
@@ -86,6 +114,9 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                         var getResultResponse = fiCalculationsApi.GetCalculationResultWithHttpInfo(optimizationId);
                         getResultResponse.StatusCode.Should().Be(HttpStatusCode.OK);
                         getResultResponse.Data.Should().NotBeNull();
+                        break;
+                    case HttpStatusCode.Created:
+                        postAndOptimizeHttpResponse.Data.Should().NotBeNull();
                         break;
                 }
             }

@@ -37,10 +37,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="name">Unlinked template group name.</param>
         /// <param name="id">FactSet-defined or User-defined Group identifier..</param>
-        public UnlinkedPATemplateGroupDetails(string name = default(string), string id = default(string))
+        /// <param name="frequency">Grouping frequency.</param>
+        public UnlinkedPATemplateGroupDetails(string name = default(string), string id = default(string), string frequency = default(string))
         {
             this.Name = name;
             this.Id = id;
+            this.Frequency = frequency;
         }
 
         /// <summary>
@@ -58,6 +60,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Grouping frequency
+        /// </summary>
+        /// <value>Grouping frequency</value>
+        [DataMember(Name = "frequency", EmitDefaultValue = false)]
+        public string Frequency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -67,6 +76,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class UnlinkedPATemplateGroupDetails {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +120,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Frequency == input.Frequency ||
+                    (this.Frequency != null &&
+                    this.Frequency.Equals(input.Frequency))
                 );
         }
 
@@ -126,6 +141,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Frequency != null)
+                    hashCode = hashCode * 59 + this.Frequency.GetHashCode();
                 return hashCode;
             }
         }

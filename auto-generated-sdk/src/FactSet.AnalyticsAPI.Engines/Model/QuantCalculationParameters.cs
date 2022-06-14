@@ -38,11 +38,13 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="universe">universe.</param>
         /// <param name="dates">dates.</param>
         /// <param name="formulas">formulas.</param>
-        public QuantCalculationParameters(OneOfQuantUniverse universe = default(OneOfQuantUniverse), OneOfQuantDates dates = default(OneOfQuantDates), List<OneOfQuantFormulas> formulas = default(List<OneOfQuantFormulas>))
+        /// <param name="jobDescription">jobDescription.</param>
+        public QuantCalculationParameters(OneOfQuantUniverse universe = default(OneOfQuantUniverse), OneOfQuantDates dates = default(OneOfQuantDates), List<OneOfQuantFormulas> formulas = default(List<OneOfQuantFormulas>), string jobDescription = default(string))
         {
             this.Universe = universe;
             this.Dates = dates;
             this.Formulas = formulas;
+            this.JobDescription = jobDescription;
         }
 
         /// <summary>
@@ -64,6 +66,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public List<OneOfQuantFormulas> Formulas { get; set; }
 
         /// <summary>
+        /// Gets or Sets JobDescription
+        /// </summary>
+        [DataMember(Name = "jobDescription", EmitDefaultValue = false)]
+        public string JobDescription { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,6 +82,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Universe: ").Append(Universe).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Formulas: ").Append(Formulas).Append("\n");
+            sb.Append("  JobDescription: ").Append(JobDescription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +132,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Formulas != null &&
                     input.Formulas != null &&
                     this.Formulas.SequenceEqual(input.Formulas)
+                ) && 
+                (
+                    this.JobDescription == input.JobDescription ||
+                    (this.JobDescription != null &&
+                    this.JobDescription.Equals(input.JobDescription))
                 );
         }
 
@@ -141,6 +155,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
                 if (this.Formulas != null)
                     hashCode = hashCode * 59 + this.Formulas.GetHashCode();
+                if (this.JobDescription != null)
+                    hashCode = hashCode * 59 + this.JobDescription.GetHashCode();
                 return hashCode;
             }
         }

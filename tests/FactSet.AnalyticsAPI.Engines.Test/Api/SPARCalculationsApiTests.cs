@@ -19,12 +19,14 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     {
         private SPARCalculationsApi sparCalculationsApi;
         private ComponentsApi componentsApi;
+        private int pageNumber;
 
         [TestInitialize]
         public void Init()
         {
             sparCalculationsApi = new SPARCalculationsApi(CommonFunctions.BuildConfiguration());
             componentsApi = new ComponentsApi(CommonFunctions.BuildConfiguration());
+            pageNumber = 1;
         }
 
         private ApiResponse<object> RunCalculation()
@@ -129,6 +131,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(deleteResponse.StatusCode == HttpStatusCode.NoContent, "Delete response status code should be 204 - No Content.");
             Assert.IsTrue(deleteResponse.Data == null, "Response data should be null.");
+        }
+
+        [TestMethod]
+        public void EnginesAPi_GetAll_SPAR_Calculations_Success()
+        {
+            var calculationsResponse = sparCalculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
+            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
         }
     }
 }

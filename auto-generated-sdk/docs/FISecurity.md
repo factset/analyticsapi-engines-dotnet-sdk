@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Settlement** | **string** | Settlement date | [optional] 
 **CallMethod** | **string** | Call Method | [optional] 
 **ReferenceSecurity** | [**FIReferenceSecurity**](FIReferenceSecurity.md) |  | [optional] 
+**BankLoans** | [**FIBankLoans**](FIBankLoans.md) |  | [optional] 
+**MunicipalBonds** | [**FIMunicipalBonds**](FIMunicipalBonds.md) |  | [optional] 
 **Loss** | [**FILoss**](FILoss.md) |  | [optional] 
 **Prepay** | [**FIPrepay**](FIPrepay.md) |  | [optional] 
 **MatrixSpreadAdjustment** | **double** | Matrix Spread Adjustment | [optional] 

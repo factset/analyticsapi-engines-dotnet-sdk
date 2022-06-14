@@ -16,11 +16,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
     public class PubCalculationsApiTests
     {
         private PubCalculationsApi calculationsApi;
+        private int pageNumber;
 
         [TestInitialize]
         public void Init()
         {
             calculationsApi = new PubCalculationsApi(CommonFunctions.BuildConfiguration());
+            pageNumber = 1;
         }
 
         private ApiResponse<object> RunCalculation()
@@ -117,6 +119,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(deleteResponse.StatusCode == HttpStatusCode.NoContent, "Delete response status code should be 204 - No Content.");
             Assert.IsTrue(deleteResponse.Data == null, "Response data should be null.");
+        }
+
+        [TestMethod]
+        public void EnginesAPi_GetAll_Pub_Calculations_Success()
+        {
+            var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
+            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
         }
     }
 }

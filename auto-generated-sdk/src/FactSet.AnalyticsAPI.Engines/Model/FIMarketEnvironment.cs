@@ -33,8 +33,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
     public partial class FIMarketEnvironment : IEquatable<FIMarketEnvironment>, IValidatableObject
     {
         /// <summary>
-        /// Defines RatePath
+        /// Rate Path
         /// </summary>
+        /// <value>Rate Path</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum RatePathEnum
         {
@@ -59,14 +60,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         }
 
         /// <summary>
-        /// Gets or Sets RatePath
+        /// Rate Path
         /// </summary>
+        /// <value>Rate Path</value>
         [DataMember(Name = "ratePath", EmitDefaultValue = false)]
         public RatePathEnum? RatePath { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FIMarketEnvironment" /> class.
         /// </summary>
-        /// <param name="ratePath">ratePath (default to RatePathEnum.FLATFORWARD).</param>
+        /// <param name="ratePath">Rate Path (default to RatePathEnum.FLATFORWARD).</param>
         public FIMarketEnvironment(RatePathEnum? ratePath = RatePathEnum.FLATFORWARD)
         {
             this.RatePath = ratePath;

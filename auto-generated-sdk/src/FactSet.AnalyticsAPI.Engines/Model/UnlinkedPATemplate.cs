@@ -44,13 +44,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="columns">List of columns for the PA calculation.</param>
         /// <param name="dates">dates.</param>
         /// <param name="groups">List of groupings for the PA calculation.</param>
+        /// <param name="datasources">datasources.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="componentdetail">PA storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
         /// <param name="content">content.</param>
         /// <param name="description">Template description..</param>
         /// <param name="name">Template name..</param>
         /// <param name="category">Unlinked template category.</param>
-        public UnlinkedPATemplate(string id = default(string), string directory = default(string), string templateTypeId = default(string), bool snapshot = default(bool), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes), string description = default(string), string name = default(string), string category = default(string))
+        public UnlinkedPATemplate(string id = default(string), string directory = default(string), string templateTypeId = default(string), bool snapshot = default(bool), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string), TemplateContentTypes content = default(TemplateContentTypes), string description = default(string), string name = default(string), string category = default(string))
         {
             this.Id = id;
             this.Directory = directory;
@@ -61,6 +62,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Columns = columns;
             this.Dates = dates;
             this.Groups = groups;
+            this.Datasources = datasources;
             this.Currencyisocode = currencyisocode;
             this.Componentdetail = componentdetail;
             this.Content = content;
@@ -132,6 +134,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public List<PACalculationGroup> Groups { get; set; }
 
         /// <summary>
+        /// Gets or Sets Datasources
+        /// </summary>
+        [DataMember(Name = "datasources", EmitDefaultValue = false)]
+        public PACalculationDataSources Datasources { get; set; }
+
+        /// <summary>
         /// Currency ISO code for calculation.
         /// </summary>
         /// <value>Currency ISO code for calculation.</value>
@@ -189,6 +197,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Columns: ").Append(Columns).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
+            sb.Append("  Datasources: ").Append(Datasources).Append("\n");
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
@@ -278,6 +287,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Groups.SequenceEqual(input.Groups)
                 ) && 
                 (
+                    this.Datasources == input.Datasources ||
+                    (this.Datasources != null &&
+                    this.Datasources.Equals(input.Datasources))
+                ) && 
+                (
                     this.Currencyisocode == input.Currencyisocode ||
                     (this.Currencyisocode != null &&
                     this.Currencyisocode.Equals(input.Currencyisocode))
@@ -335,6 +349,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
                 if (this.Groups != null)
                     hashCode = hashCode * 59 + this.Groups.GetHashCode();
+                if (this.Datasources != null)
+                    hashCode = hashCode * 59 + this.Datasources.GetHashCode();
                 if (this.Currencyisocode != null)
                     hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
                 if (this.Componentdetail != null)

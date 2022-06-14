@@ -79,14 +79,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
+        /// <param name="dateOffset">dateOffset.</param>
         /// <param name="source">source (required).</param>
-        public QuantFqlExpression(string expr = default(string), string name = default(string), SourceEnum source = default(SourceEnum))
+        public QuantFqlExpression(string expr = default(string), string name = default(string), string dateOffset = default(string), SourceEnum source = default(SourceEnum))
         {
             // to ensure "expr" is required (not null)
             this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpression and cannot be null");
             this.Source = source;
+            this.DateOffset = dateOffset;
         }
 
         /// <summary>
@@ -102,6 +104,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets DateOffset
+        /// </summary>
+        [DataMember(Name = "dateOffset", EmitDefaultValue = false)]
+        public string DateOffset { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +119,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("class QuantFqlExpression {\n");
             sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DateOffset: ").Append(DateOffset).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -157,6 +166,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.DateOffset == input.DateOffset ||
+                    (this.DateOffset != null &&
+                    this.DateOffset.Equals(input.DateOffset))
+                ) && 
+                (
                     this.Source == input.Source ||
                     this.Source.Equals(input.Source)
                 );
@@ -175,6 +189,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Expr.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.DateOffset != null)
+                    hashCode = hashCode * 59 + this.DateOffset.GetHashCode();
                 hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;
             }

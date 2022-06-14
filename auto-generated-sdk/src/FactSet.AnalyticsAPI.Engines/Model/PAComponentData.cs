@@ -40,15 +40,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="groups">List of groupings for the PA calculation. This will take precedence over the groupings saved in the PA document..</param>
         /// <param name="columns">List of columns for the PA calculation. This will take precedence over the columns saved in the PA document..</param>
         /// <param name="dates">dates.</param>
+        /// <param name="datasources">datasources.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="componentdetail">PA Storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
-        public PAComponentData(List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationGroup> groups = default(List<PACalculationGroup>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), string currencyisocode = default(string), string componentdetail = default(string))
+        public PAComponentData(List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationGroup> groups = default(List<PACalculationGroup>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string))
         {
             this.Accounts = accounts;
             this.Benchmarks = benchmarks;
             this.Groups = groups;
             this.Columns = columns;
             this.Dates = dates;
+            this.Datasources = datasources;
             this.Currencyisocode = currencyisocode;
             this.Componentdetail = componentdetail;
         }
@@ -88,6 +90,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PADateParameters Dates { get; set; }
 
         /// <summary>
+        /// Gets or Sets Datasources
+        /// </summary>
+        [DataMember(Name = "datasources", EmitDefaultValue = false)]
+        public PACalculationDataSources Datasources { get; set; }
+
+        /// <summary>
         /// Currency ISO code for calculation.
         /// </summary>
         /// <value>Currency ISO code for calculation.</value>
@@ -114,6 +122,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Columns: ").Append(Columns).Append("\n");
             sb.Append("  Dates: ").Append(Dates).Append("\n");
+            sb.Append("  Datasources: ").Append(Datasources).Append("\n");
             sb.Append("  Currencyisocode: ").Append(Currencyisocode).Append("\n");
             sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("}\n");
@@ -180,6 +189,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Dates.Equals(input.Dates))
                 ) && 
                 (
+                    this.Datasources == input.Datasources ||
+                    (this.Datasources != null &&
+                    this.Datasources.Equals(input.Datasources))
+                ) && 
+                (
                     this.Currencyisocode == input.Currencyisocode ||
                     (this.Currencyisocode != null &&
                     this.Currencyisocode.Equals(input.Currencyisocode))
@@ -210,6 +224,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Columns.GetHashCode();
                 if (this.Dates != null)
                     hashCode = hashCode * 59 + this.Dates.GetHashCode();
+                if (this.Datasources != null)
+                    hashCode = hashCode * 59 + this.Datasources.GetHashCode();
                 if (this.Currencyisocode != null)
                     hashCode = hashCode * 59 + this.Currencyisocode.GetHashCode();
                 if (this.Componentdetail != null)

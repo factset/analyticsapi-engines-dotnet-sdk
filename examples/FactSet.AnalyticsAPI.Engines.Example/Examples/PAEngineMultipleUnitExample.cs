@@ -150,9 +150,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
 
             var paPortfolioPricingSources = new List<PACalculationPricingSource> { new PACalculationPricingSource(id: paPricingSourceId) };
 
-            var paCalculationDataSources = new PACalculationDataSources(portfoliopricingsources: paPortfolioPricingSources, useportfoliopricingsourcesforbenchmark: true);
+            var paDataSources = new PACalculationDataSources(portfoliopricingsources: paPortfolioPricingSources, useportfoliopricingsourcesforbenchmark: true);
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks, datasources: paCalculationDataSources);
+            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks, datasources: paDataSources);
 
             var calculationParameters = new PACalculationParametersRoot
             {

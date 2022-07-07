@@ -22,6 +22,16 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         {
             try
             {
+                var fiBankLoansForSecurities = new FIBankLoans
+                {
+                    IgnoreSinkingFund = true
+                };
+
+                var fiMunicipalBondsForSecurities = new FIMunicipalBonds
+                {
+                    IgnoreSinkingFund = true
+                };
+
                 var fiSecurities = new List<FISecurity>
                 {
                     new FISecurity(
@@ -30,7 +40,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         face: 10000.0,
                         symbol: "912828ZG8",
                         settlement: "20201202",
-                        discountCurve: "UST"
+                        discountCurve: "UST",
+                        bankLoans: fiBankLoansForSecurities,
+                        municipalBonds: fiMunicipalBondsForSecurities
                         ),
                     new FISecurity(
                         calcFromMethod: "Price",
@@ -38,7 +50,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                         face: 200000.0,
                         symbol: "US037833AR12",
                         settlement: "20201203",
-                        discountCurve: "UST"
+                        discountCurve: "UST",
+                        bankLoans: fiBankLoansForSecurities,
+                        municipalBonds: fiMunicipalBondsForSecurities
                         )
                 };
 
@@ -65,7 +79,17 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     RatePath = FIMarketEnvironment.RatePathEnum.FLATFORWARD
                 };
 
-                var fiJobSettings = new FIJobSettings("20201201", marketEnvironment: ratePath);
+                var fiBankLoansForJobSettings = new FIBankLoans
+                {
+                    IgnoreSinkingFund = true
+                };
+
+                var fiMunicipalBondsForJobSettings = new FIMunicipalBondsForJobSettings
+                {
+                    IgnoreSinkingFund = true
+                };
+
+                var fiJobSettings = new FIJobSettings("20201201", marketEnvironment: ratePath, bankLoans: fiBankLoansForJobSettings, municipalBonds: fiMunicipalBondsForJobSettings);
 
                 var fiCalculationParameters = new FICalculationParameters(fiSecurities, fiCalculations, fiJobSettings);
                 var fiCalculationParameterseRoot = new FICalculationParametersRoot(data: fiCalculationParameters);

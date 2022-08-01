@@ -141,7 +141,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var pricingSourcesResponse = pricingSourcesApi.GetPAPricingSources(PricingSourceName, PricingSourceCategory, PricingSourceDirectory);
 
             var paPricingSourceId = pricingSourcesResponse.Data.FirstOrDefault(pricingSource => (pricingSource.Value.Name == PricingSourceName && pricingSource.Value.Category == PricingSourceCategory && pricingSource.Value.Directory == PricingSourceDirectory)).Key;
-            Console.WriteLine($"PA PricingSource Id : {paPricingSourceId}");
+            Console.WriteLine($"PA Pricing Source Id : {paPricingSourceId}");
 
             var paAccountIdentifier = new PAIdentifier(Portfolio);
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };

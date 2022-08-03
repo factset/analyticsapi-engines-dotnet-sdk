@@ -52,7 +52,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations
         /// </summary>
         /// <remarks>
-        /// This endpoints returns all active calculation requests.
+        /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -63,7 +63,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations
         /// </summary>
         /// <remarks>
-        /// This endpoints returns all active calculation requests.
+        /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -234,7 +234,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations
         /// </summary>
         /// <remarks>
-        /// This endpoints returns all active calculation requests.
+        /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -246,7 +246,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations
         /// </summary>
         /// <remarks>
-        /// This endpoints returns all active calculation requests.
+        /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -665,7 +665,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get all calculations This endpoints returns all active calculation requests.
+        /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -677,7 +677,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get all calculations This endpoints returns all active calculation requests.
+        /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -735,7 +735,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get all calculations This endpoints returns all active calculation requests.
+        /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>
@@ -748,7 +748,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         }
 
         /// <summary>
-        /// Get all calculations This endpoints returns all active calculation requests.
+        /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageNumber"></param>

@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **Datasources** | [**PACalculationDataSources**](PACalculationDataSources.md) |  | [optional] 
 **Componentdetail** | **string** | Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
 **PeriodicMultipliers** | **List&lt;double&gt;** |  | [optional] 
-**NperiodicMultipliers** | **List&lt;double&gt;** |  | [optional] 
+**NperiodicMultipliers** | **List&lt;Object&gt;** |  | [optional] 
 **IperiodicMultipliers** | **List&lt;int&gt;** |  | [optional] 
-**InperiodicMultipliers** | **List&lt;int&gt;** |  | [optional] 
+**InperiodicMultipliers** | **List&lt;Object&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

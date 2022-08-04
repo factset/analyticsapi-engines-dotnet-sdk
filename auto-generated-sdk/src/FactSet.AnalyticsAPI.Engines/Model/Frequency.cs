@@ -40,7 +40,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="nperiodicMultipliers">nperiodicMultipliers.</param>
         /// <param name="iperiodicMultipliers">iperiodicMultipliers.</param>
         /// <param name="inperiodicMultipliers">inperiodicMultipliers.</param>
-        public Frequency(string name = default(string), List<double> periodicMultipliers = default(List<double>), List<double> nperiodicMultipliers = default(List<double>), List<int> iperiodicMultipliers = default(List<int>), List<int> inperiodicMultipliers = default(List<int>))
+        public Frequency(string name = default(string), List<double> periodicMultipliers = default(List<double>), List<Object> nperiodicMultipliers = default(List<Object>), List<int> iperiodicMultipliers = default(List<int>), List<Object> inperiodicMultipliers = default(List<Object>))
         {
             this.Name = name;
             this.PeriodicMultipliers = periodicMultipliers;
@@ -66,7 +66,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets NperiodicMultipliers
         /// </summary>
         [DataMember(Name = "nperiodicMultipliers", EmitDefaultValue = false)]
-        public List<double> NperiodicMultipliers { get; set; }
+        public List<Object> NperiodicMultipliers { get; set; }
 
         /// <summary>
         /// Gets or Sets IperiodicMultipliers
@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets InperiodicMultipliers
         /// </summary>
         [DataMember(Name = "inperiodicMultipliers", EmitDefaultValue = false)]
-        public List<int> InperiodicMultipliers { get; set; }
+        public List<Object> InperiodicMultipliers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

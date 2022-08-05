@@ -51,10 +51,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES..</param>
         /// <param name="periodicMultipliers">periodicMultipliers.</param>
         /// <param name="nperiodicMultipliers">nperiodicMultipliers.</param>
-        /// <param name="histCoupons">histCoupons.</param>
+        /// <param name="histRcvAssumpRates">histRcvAssumpRates.</param>
         /// <param name="iperiodicMultipliers">iperiodicMultipliers.</param>
         /// <param name="inperiodicMultipliers">inperiodicMultipliers.</param>
-        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PACalculationDataSources datasources = default(PACalculationDataSources), string componentdetail = default(string), List<double> periodicMultipliers = default(List<double>), List<Object> nperiodicMultipliers = default(List<Object>), List<OneOfAnyType> histCoupons = default(List<OneOfAnyType>), List<int> iperiodicMultipliers = default(List<int>), List<Object> inperiodicMultipliers = default(List<Object>))
+        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PACalculationDataSources datasources = default(PACalculationDataSources), string componentdetail = default(string), List<double> periodicMultipliers = default(List<double>), List<Object> nperiodicMultipliers = default(List<Object>), List<decimal?> histRcvAssumpRates = default(List<decimal?>), List<int> iperiodicMultipliers = default(List<int>), List<Object> inperiodicMultipliers = default(List<Object>))
         {
             // to ensure "componentid" is required (not null)
             this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for PACalculationParameters and cannot be null");
@@ -68,7 +68,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Componentdetail = componentdetail;
             this.PeriodicMultipliers = periodicMultipliers;
             this.NperiodicMultipliers = nperiodicMultipliers;
-            this.HistCoupons = histCoupons;
+            this.HistRcvAssumpRates = histRcvAssumpRates;
             this.IperiodicMultipliers = iperiodicMultipliers;
             this.InperiodicMultipliers = inperiodicMultipliers;
         }
@@ -147,10 +147,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public List<Object> NperiodicMultipliers { get; set; }
 
         /// <summary>
-        /// Gets or Sets HistCoupons
+        /// Gets or Sets HistRcvAssumpRates
         /// </summary>
-        [DataMember(Name = "histCoupons", EmitDefaultValue = false)]
-        public List<OneOfAnyType> HistCoupons { get; set; }
+        [DataMember(Name = "histRcvAssumpRates", EmitDefaultValue = false)]
+        public List<decimal?> HistRcvAssumpRates { get; set; }
 
         /// <summary>
         /// Gets or Sets IperiodicMultipliers
@@ -183,7 +183,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Componentdetail: ").Append(Componentdetail).Append("\n");
             sb.Append("  PeriodicMultipliers: ").Append(PeriodicMultipliers).Append("\n");
             sb.Append("  NperiodicMultipliers: ").Append(NperiodicMultipliers).Append("\n");
-            sb.Append("  HistCoupons: ").Append(HistCoupons).Append("\n");
+            sb.Append("  HistRcvAssumpRates: ").Append(HistRcvAssumpRates).Append("\n");
             sb.Append("  IperiodicMultipliers: ").Append(IperiodicMultipliers).Append("\n");
             sb.Append("  InperiodicMultipliers: ").Append(InperiodicMultipliers).Append("\n");
             sb.Append("}\n");
@@ -282,10 +282,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.NperiodicMultipliers.SequenceEqual(input.NperiodicMultipliers)
                 ) && 
                 (
-                    this.HistCoupons == input.HistCoupons ||
-                    this.HistCoupons != null &&
-                    input.HistCoupons != null &&
-                    this.HistCoupons.SequenceEqual(input.HistCoupons)
+                    this.HistRcvAssumpRates == input.HistRcvAssumpRates ||
+                    this.HistRcvAssumpRates != null &&
+                    input.HistRcvAssumpRates != null &&
+                    this.HistRcvAssumpRates.SequenceEqual(input.HistRcvAssumpRates)
                 ) && 
                 (
                     this.IperiodicMultipliers == input.IperiodicMultipliers ||
@@ -332,8 +332,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.PeriodicMultipliers.GetHashCode();
                 if (this.NperiodicMultipliers != null)
                     hashCode = hashCode * 59 + this.NperiodicMultipliers.GetHashCode();
-                if (this.HistCoupons != null)
-                    hashCode = hashCode * 59 + this.HistCoupons.GetHashCode();
+                if (this.HistRcvAssumpRates != null)
+                    hashCode = hashCode * 59 + this.HistRcvAssumpRates.GetHashCode();
                 if (this.IperiodicMultipliers != null)
                     hashCode = hashCode * 59 + this.IperiodicMultipliers.GetHashCode();
                 if (this.InperiodicMultipliers != null)

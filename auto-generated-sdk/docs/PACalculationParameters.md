@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Componentdetail** | **string** | Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES. | [optional] 
 **PeriodicMultipliers** | **List&lt;double&gt;** |  | [optional] 
 **NperiodicMultipliers** | **List&lt;Object&gt;** |  | [optional] 
-**HistCoupons** | [**List&lt;OneOfAnyType&gt;**](OneOfAnyType.md) |  | [optional] 
+**HistRcvAssumpRates** | **List&lt;decimal?&gt;** |  | [optional] 
 **IperiodicMultipliers** | **List&lt;int&gt;** |  | [optional] 
 **InperiodicMultipliers** | **List&lt;Object&gt;** |  | [optional] 
 

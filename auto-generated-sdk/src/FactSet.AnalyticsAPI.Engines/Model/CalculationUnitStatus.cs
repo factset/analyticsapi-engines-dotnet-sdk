@@ -87,7 +87,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="points">The points for the calculation unit..</param>
         /// <param name="dhistRcvAssumpRates">dhistRcvAssumpRates.</param>
         /// <param name="ihistRcvAssumpRates">ihistRcvAssumpRates.</param>
-        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), List<Error> errors = default(List<Error>), string result = default(string), string progress = default(string), int points = default(int), List<double?> dhistRcvAssumpRates = default(List<double?>), List<int?> ihistRcvAssumpRates = default(List<int?>))
+        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), List<Error> errors = default(List<Error>), string result = default(string), string progress = default(string), int points = default(int), List<double> dhistRcvAssumpRates = default(List<double>), List<int> ihistRcvAssumpRates = default(List<int>))
         {
             this.Status = status;
             this.Errors = errors;
@@ -129,14 +129,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Gets or Sets DhistRcvAssumpRates
         /// </summary>
-        [DataMember(Name = "dhistRcvAssumpRates", EmitDefaultValue = false)]
-        public List<double?> DhistRcvAssumpRates { get; set; }
+        [DataMember(Name = "dhistRcvAssumpRates", EmitDefaultValue = true)]
+        public List<double> DhistRcvAssumpRates { get; set; }
 
         /// <summary>
         /// Gets or Sets IhistRcvAssumpRates
         /// </summary>
-        [DataMember(Name = "ihistRcvAssumpRates", EmitDefaultValue = false)]
-        public List<int?> IhistRcvAssumpRates { get; set; }
+        [DataMember(Name = "ihistRcvAssumpRates", EmitDefaultValue = true)]
+        public List<int> IhistRcvAssumpRates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **PeriodicMultipliers** | **List&lt;double&gt;** |  | [optional] 
 **NperiodicMultipliers** | **List&lt;Object&gt;** |  | [optional] 
 **DhistRcvAssumpRates** | **List&lt;double?&gt;** |  | [optional] 
-**IhistRcvAssumpRates** | **List&lt;decimal?&gt;** |  | [optional] 
+**IhistRcvAssumpRates** | **List&lt;int?&gt;** |  | [optional] 
 **IperiodicMultipliers** | **List&lt;int&gt;** |  | [optional] 
 **InperiodicMultipliers** | **List&lt;Object&gt;** |  | [optional] 
 

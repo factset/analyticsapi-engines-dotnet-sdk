@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Progress** | **string** | The progress of the calculation unit. | [optional] 
 **Points** | **int** | The points for the calculation unit. | [optional] 
 **DhistRcvAssumpRates** | **List&lt;double?&gt;** |  | [optional] 
-**IhistRcvAssumpRates** | **List&lt;decimal?&gt;** |  | [optional] 
+**IhistRcvAssumpRates** | **List&lt;int?&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

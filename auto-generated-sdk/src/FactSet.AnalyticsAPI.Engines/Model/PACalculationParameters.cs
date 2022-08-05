@@ -55,7 +55,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="ihistRcvAssumpRates">ihistRcvAssumpRates.</param>
         /// <param name="iperiodicMultipliers">iperiodicMultipliers.</param>
         /// <param name="inperiodicMultipliers">inperiodicMultipliers.</param>
-        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PACalculationDataSources datasources = default(PACalculationDataSources), string componentdetail = default(string), List<double> periodicMultipliers = default(List<double>), List<Object> nperiodicMultipliers = default(List<Object>), List<double?> dhistRcvAssumpRates = default(List<double?>), List<decimal?> ihistRcvAssumpRates = default(List<decimal?>), List<int> iperiodicMultipliers = default(List<int>), List<Object> inperiodicMultipliers = default(List<Object>))
+        public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PACalculationDataSources datasources = default(PACalculationDataSources), string componentdetail = default(string), List<double> periodicMultipliers = default(List<double>), List<Object> nperiodicMultipliers = default(List<Object>), List<double?> dhistRcvAssumpRates = default(List<double?>), List<int?> ihistRcvAssumpRates = default(List<int?>), List<int> iperiodicMultipliers = default(List<int>), List<Object> inperiodicMultipliers = default(List<Object>))
         {
             // to ensure "componentid" is required (not null)
             this.Componentid = componentid ?? throw new ArgumentNullException("componentid is a required property for PACalculationParameters and cannot be null");
@@ -158,7 +158,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets IhistRcvAssumpRates
         /// </summary>
         [DataMember(Name = "ihistRcvAssumpRates", EmitDefaultValue = false)]
-        public List<decimal?> IhistRcvAssumpRates { get; set; }
+        public List<int?> IhistRcvAssumpRates { get; set; }
 
         /// <summary>
         /// Gets or Sets IperiodicMultipliers

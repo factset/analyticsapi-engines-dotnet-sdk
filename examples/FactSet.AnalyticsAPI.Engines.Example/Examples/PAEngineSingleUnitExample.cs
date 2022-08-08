@@ -24,6 +24,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string ComponentCategory = "Weights / Exposures";
         private const string Portfolio = "BENCH:SP50";
         private const string Benchmark = "BENCH:R.1000";
+        private const string Holdings = "B&H";
       
 
         public static void Main(string[] args)
@@ -142,9 +143,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
-            var paAccountIdentifier = new PAIdentifier(Portfolio);
+            var paAccountIdentifier = new PAIdentifier(Portfolio, Holdings);
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(Benchmark);
+            var paBenchmarkIdentifier = new PAIdentifier(Benchmark,Holdings);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);

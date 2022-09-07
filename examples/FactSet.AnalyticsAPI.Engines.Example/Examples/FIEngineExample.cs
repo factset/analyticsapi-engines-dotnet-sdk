@@ -89,9 +89,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
                     IgnoreSinkingFund = true
                 };
 
-                var fiJobSettings = new FIJobSettings("20201201", marketEnvironment: ratePath, bankLoans: fiBankLoansForJobSettings, municipalBonds: fiMunicipalBondsForJobSettings);
+                var fiJobSettings = new FIJobSettings(asOfDate: "20201201", marketEnvironment: ratePath, bankLoans: fiBankLoansForJobSettings, municipalBonds: fiMunicipalBondsForJobSettings);
 
-                var fiCalculationParameters = new FICalculationParameters(fiSecurities, fiCalculations, fiJobSettings);
+                var fiCalculationParameters = new FICalculationParameters(securities: fiSecurities, calculations: fiCalculations, jobSettings: fiJobSettings);
                 var fiCalculationParameterseRoot = new FICalculationParametersRoot(data: fiCalculationParameters);
 
 

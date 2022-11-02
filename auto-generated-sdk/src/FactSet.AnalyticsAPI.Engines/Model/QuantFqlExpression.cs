@@ -80,8 +80,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="expr">expr (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="dateOffset">dateOffset.</param>
+        /// <param name="isArrayReturnType">isArrayReturnType.</param>
         /// <param name="source">source (required).</param>
-        public QuantFqlExpression(string expr = default(string), string name = default(string), string dateOffset = default(string), SourceEnum source = default(SourceEnum))
+        public QuantFqlExpression(string expr = default(string), string name = default(string), string dateOffset = default(string), bool isArrayReturnType = default(bool), SourceEnum source = default(SourceEnum))
         {
             // to ensure "expr" is required (not null)
             this.Expr = expr ?? throw new ArgumentNullException("expr is a required property for QuantFqlExpression and cannot be null");
@@ -89,6 +90,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantFqlExpression and cannot be null");
             this.Source = source;
             this.DateOffset = dateOffset;
+            this.IsArrayReturnType = isArrayReturnType;
         }
 
         /// <summary>
@@ -110,6 +112,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string DateOffset { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsArrayReturnType
+        /// </summary>
+        [DataMember(Name = "isArrayReturnType", EmitDefaultValue = false)]
+        public bool IsArrayReturnType { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +128,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Expr: ").Append(Expr).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  DateOffset: ").Append(DateOffset).Append("\n");
+            sb.Append("  IsArrayReturnType: ").Append(IsArrayReturnType).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -171,6 +180,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.DateOffset.Equals(input.DateOffset))
                 ) && 
                 (
+                    this.IsArrayReturnType == input.IsArrayReturnType ||
+                    this.IsArrayReturnType.Equals(input.IsArrayReturnType)
+                ) && 
+                (
                     this.Source == input.Source ||
                     this.Source.Equals(input.Source)
                 );
@@ -191,6 +204,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.DateOffset != null)
                     hashCode = hashCode * 59 + this.DateOffset.GetHashCode();
+                hashCode = hashCode * 59 + this.IsArrayReturnType.GetHashCode();
                 hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;
             }

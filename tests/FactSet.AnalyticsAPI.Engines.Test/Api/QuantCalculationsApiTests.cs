@@ -24,8 +24,29 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             calculationsApi = new QuantCalculationsApi(CommonFunctions.BuildConfiguration());
             pageNumber = 1;
         }
+                
+        [TestMethod]
+        public void EnginesApi_Quant_Get_Calculation_Success()
+        {
+            var calculationResponse = EnginesApi_Quant_RunCalculation();
+            ProcessCalculations(calculationResponse);
+        }
 
-        private ApiResponse<object> RunCalculation()
+        [TestMethod]
+        public void EnginesAPi_Quant_GetAll_Calculations_Success()
+        {
+            var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
+            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
+        }              
+        
+        [TestMethod]
+        public void EnginesApi_Quant_IsArrayReturnType_Get_Calculation_Success()
+        {
+            var calculationResponse = EnginesApi_Quant_IsArrayReturnType_RunCalculation();
+            ProcessCalculations(calculationResponse);
+        }
+
+        private ApiResponse<object> EnginesApi_Quant_RunCalculation()
         {
             var oneOfQuantUniverse = new OneOfQuantUniverse(new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER", QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse));
             var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
@@ -50,86 +71,12 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             return response;
         }
-        
-        [TestMethod]
-        public void EnginesApi_Quant_Get_Calculation_Success()
-        {
-            var calculationResponse = RunCalculation();
-
-            Assert.IsTrue(calculationResponse.StatusCode == HttpStatusCode.Accepted, "Create response status code should be 202 - Accepted.");
-
-            CalculationStatusRoot calculationStatus = (CalculationStatusRoot)calculationResponse.Data;
-
-            var calculationId = calculationStatus.Data.Calculationid;
-
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(calculationId), "Create response calculation id should be present.");
-
-            ApiResponse<CalculationStatusRoot> getStatusResponse = null;
-
-            while (calculationStatus.Data.Status == CalculationStatus.StatusEnum.Queued || calculationStatus.Data.Status == CalculationStatus.StatusEnum.Executing)
-            {
-                if (getStatusResponse != null)
-                {
-                    Assert.IsTrue(getStatusResponse.Data != null, "Response Data should not be null.");
-                    Assert.IsTrue(getStatusResponse.Data.Data.Status == CalculationStatus.StatusEnum.Executing || getStatusResponse.Data.Data.Status == CalculationStatus.StatusEnum.Queued, "Response Data should have batch status as processing or queued.");
-
-                    if (getStatusResponse.Headers.ContainsKey("Cache-Control"))
-                    {
-                        var maxAge = getStatusResponse.Headers["Cache-Control"][0];
-                        if (string.IsNullOrWhiteSpace(maxAge))
-                        {
-                            Console.WriteLine("Sleeping for 2 seconds");
-                            // Sleep for at least 2 seconds.
-                            Thread.Sleep(2000);
-                        }
-                        else
-                        {
-                            var age = int.Parse(maxAge.Replace("max-age=", ""));
-                            Console.WriteLine($"Sleeping for {age} seconds");
-                            Thread.Sleep(age * 1000);
-                        }
-                    }
-                }
-
-                getStatusResponse = calculationsApi.GetCalculationStatusByIdWithHttpInfo(calculationId);
-                calculationStatus = getStatusResponse.Data;
-            }
-
-            Assert.IsTrue(calculationStatus.Data.Status == CalculationStatus.StatusEnum.Completed, "Response Data should have calculation status as completed.");
-            Assert.IsTrue(calculationStatus.Data.Units.Values.All(p => p.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all calculations status as completed.");
-
-            Assert.IsTrue(calculationStatus.Data.Units.Values.All(p => p.Result != null), "Response Data should have all Calculation results.");
-
-            foreach (var calculation in calculationStatus.Data.Units)
-            {
-                var resultResponse = calculationsApi.GetCalculationUnitResultByIdWithHttpInfo(calculationId, calculation.Key);
-
-                Assert.IsTrue(resultResponse.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
-                Assert.IsTrue(resultResponse.Data != null, "Result response data should not be null.");
-
-                Assert.IsInstanceOfType(resultResponse.Data, typeof(Stream), "Result response data should be of type Stream.");
-
-                var infoResponse = calculationsApi.GetCalculationUnitInfoByIdWithHttpInfo(calculationId, calculation.Key);
-
-                Assert.IsTrue(resultResponse.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
-                Assert.IsTrue(resultResponse.Data != null, "Result response data should not be null.");
-
-                Assert.IsInstanceOfType(resultResponse.Data, typeof(Stream), "Result response data should be of type Stream.");
-            }
-        }
-        
-        [TestMethod]
-        public void EnginesAPi_Quant_GetAll_Calculations_Success()
-        {
-            var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
-            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
-        }
 
         private ApiResponse<object> EnginesApi_Quant_IsArrayReturnType_RunCalculation()
         {
             var oneOfQuantUniverse = new OneOfQuantUniverse(new QuantIdentifierUniverse(
                 QuantIdentifierUniverse.UniverseTypeEnum.Equity,
-                new List<string> {  "03748R74", "S8112735" },
+                new List<string> { "03748R74", "S8112735" },
                 QuantIdentifierUniverse.SourceEnum.IdentifierUniverse));
             var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
             var oneOfQuantFormulases = new List<OneOfQuantFormulas>()
@@ -153,12 +100,9 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             return response;
         }
-        
-        [TestMethod]
-        public void EnginesApi_Quant_IsArrayReturnType_Get_Calculation_Success()
-        {
-            var calculationResponse = EnginesApi_Quant_IsArrayReturnType_RunCalculation();
 
+        private void ProcessCalculations(ApiResponse<object> calculationResponse)
+        {
             Assert.IsTrue(calculationResponse.StatusCode == HttpStatusCode.Accepted, "Create response status code should be 202 - Accepted.");
 
             CalculationStatusRoot calculationStatus = (CalculationStatusRoot)calculationResponse.Data;

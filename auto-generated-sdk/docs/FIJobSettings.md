@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **BankLoans** | [**FIBankLoans**](FIBankLoans.md) |  | [optional] 
 **MunicipalBonds** | [**FIMunicipalBondsForJobSettings**](FIMunicipalBondsForJobSettings.md) |  | [optional] 
 **MarketEnvironment** | [**FIMarketEnvironment**](FIMarketEnvironment.md) |  | [optional] 
+**StructuredProducts** | [**FIStructuredProductsForJobSettings**](FIStructuredProductsForJobSettings.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,8 +24,14 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string ComponentCategory = "Weights / Exposures";
         private const string Portfolio = "BENCH:SP50";
         private const string Benchmark = "BENCH:R.1000";
+
         private const string Holdings = "B&H";
       
+
+        private const string PricingSourceName = "MSCI - Gross";
+        private const string PricingSourceCategory = "MSCI";
+        private const string PricingSourceDirectory = "Equity";
+
 
         public static void Main(string[] args)
         {
@@ -144,11 +150,25 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
             var paAccountIdentifier = new PAIdentifier(Portfolio, Holdings);
+
+            var pricingSourcesApi = new PricingSourcesApi(GetApiConfiguration());
+
+            var pricingSourcesResponse = pricingSourcesApi.GetPAPricingSources(PricingSourceName, PricingSourceCategory, PricingSourceDirectory);
+
+            var paPricingSourceId = pricingSourcesResponse.Data.FirstOrDefault(pricingSource => (pricingSource.Value.Name == PricingSourceName && pricingSource.Value.Category == PricingSourceCategory && pricingSource.Value.Directory == PricingSourceDirectory)).Key;
+            Console.WriteLine($"PA Pricing Source Id : {paPricingSourceId}");
+
+            var paAccountIdentifier = new PAIdentifier(Portfolio);
+
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
             var paBenchmarkIdentifier = new PAIdentifier(Benchmark,Holdings);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
-            var paCalculation = new PACalculationParameters(paComponentId, paAccounts, paBenchmarks);
+            var paPortfolioPricingSources = new List<PACalculationPricingSource> { new PACalculationPricingSource(id: paPricingSourceId) };
+
+            var paDataSources = new PACalculationDataSources(portfoliopricingsources: paPortfolioPricingSources, useportfoliopricingsourcesforbenchmark: true); 
+
+            var paCalculation = new PACalculationParameters(componentid: paComponentId, accounts: paAccounts, benchmarks: paBenchmarks, datasources: paDataSources);
 
             var calculationParameters = new PACalculationParametersRoot
             {

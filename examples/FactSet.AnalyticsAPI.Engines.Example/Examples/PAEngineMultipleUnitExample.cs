@@ -23,6 +23,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string ComponentCategory = "Weights / Exposures";
         private const string Portfolio= "BENCH:SP50";
         private const string Benchmark = "BENCH:R.1000";
+        private const string Holdings = "B&H";
         private const string PricingSourceName = "MSCI - Gross";
         private const string PricingSourceCategory = "MSCI";
         private const string PricingSourceDirectory = "Equity";
@@ -136,6 +137,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
+
+            var paAccountIdentifier = new PAIdentifier(Portfolio, Holdings);
+
             var pricingSourcesApi = new PricingSourcesApi(GetApiConfiguration());
 
             var pricingSourcesResponse = pricingSourcesApi.GetPAPricingSources(PricingSourceName, PricingSourceCategory, PricingSourceDirectory);
@@ -144,8 +148,9 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             Console.WriteLine($"PA Pricing Source Id : {paPricingSourceId}");
 
             var paAccountIdentifier = new PAIdentifier(Portfolio);
+
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(Benchmark);
+            var paBenchmarkIdentifier = new PAIdentifier(Benchmark, Holdings);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paPortfolioPricingSources = new List<PACalculationPricingSource> { new PACalculationPricingSource(id: paPricingSourceId) };

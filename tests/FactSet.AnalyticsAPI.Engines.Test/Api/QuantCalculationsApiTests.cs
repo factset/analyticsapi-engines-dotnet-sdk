@@ -24,15 +24,37 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             calculationsApi = new QuantCalculationsApi(CommonFunctions.BuildConfiguration());
             pageNumber = 1;
         }
+                
+        [TestMethod]
+        public void EnginesApi_Quant_Get_Calculation_Success()
+        {
+            var calculationResponse = EnginesApi_Quant_RunCalculation();
+            ProcessCalculations(calculationResponse);
+        }
 
-        private ApiResponse<object> RunCalculation()
+        [TestMethod]
+        public void EnginesAPi_Quant_GetAll_Calculations_Success()
+        {
+            var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
+            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
+        }              
+        
+        [TestMethod]
+        public void EnginesApi_Quant_IsArrayReturnType_Get_Calculation_Success()
+        {
+            var calculationResponse = EnginesApi_Quant_IsArrayReturnType_RunCalculation();
+            ProcessCalculations(calculationResponse);
+        }
+
+        private ApiResponse<object> EnginesApi_Quant_RunCalculation()
         {
             var oneOfQuantUniverse = new OneOfQuantUniverse(new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER", QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse));
             var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
             var oneOfQuantFormulases = new List<OneOfQuantFormulas>()
             {
                 new OneOfQuantFormulas(new QuantScreeningExpression(expr : "P_PRICE", name : "Price (SCR)", source : QuantScreeningExpression.SourceEnum.ScreeningExpression)),
-                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE", name : "Price (SCR)",  source : QuantFqlExpression.SourceEnum.FqlExpression))
+                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE", name : "Price (SCR)",  source : QuantFqlExpression.SourceEnum.FqlExpression)),
+                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE(#DATE,#DATE-5D,#FREQ)", name : "Price", isArrayReturnType : false,  source : QuantFqlExpression.SourceEnum.FqlExpression))
             };
 
             var quantCalculation = new QuantCalculationParameters(universe: oneOfQuantUniverse, dates: oneOfQuantDates, formulas: oneOfQuantFormulases);
@@ -50,11 +72,37 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             return response;
         }
 
-        [TestMethod]
-        public void EnginesApi_Quant_Get_Calculation_Success()
+        private ApiResponse<object> EnginesApi_Quant_IsArrayReturnType_RunCalculation()
         {
-            var calculationResponse = RunCalculation();
+            var oneOfQuantUniverse = new OneOfQuantUniverse(new QuantIdentifierUniverse(
+                QuantIdentifierUniverse.UniverseTypeEnum.Equity,
+                new List<string> { "03748R74", "S8112735" },
+                QuantIdentifierUniverse.SourceEnum.IdentifierUniverse));
+            var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
+            var oneOfQuantFormulases = new List<OneOfQuantFormulas>()
+            {
+                new OneOfQuantFormulas(new QuantScreeningExpression(expr : "P_PRICE", name : "Price (SCR)", source : QuantScreeningExpression.SourceEnum.ScreeningExpression)),
+                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE", name : "Price (SCR)",  source : QuantFqlExpression.SourceEnum.FqlExpression)),
+                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE(#DATE,#DATE-5D,#FREQ)", name : "Price", isArrayReturnType : true,  source : QuantFqlExpression.SourceEnum.FqlExpression))
+            };
 
+            var quantCalculation = new QuantCalculationParameters(universe: oneOfQuantUniverse, dates: oneOfQuantDates, formulas: oneOfQuantFormulases);
+
+            var quantCalculationsMeta = new QuantCalculationMeta(format: QuantCalculationMeta.FormatEnum.Feather);
+
+            var calculationParameters = new QuantCalculationParametersRoot
+            {
+                Data = new Dictionary<string, QuantCalculationParameters> { { "1", quantCalculation } },
+                Meta = quantCalculationsMeta
+            };
+
+            var response = calculationsApi.PostAndCalculateWithHttpInfo("max-stale=0", calculationParameters);
+
+            return response;
+        }
+
+        private void ProcessCalculations(ApiResponse<object> calculationResponse)
+        {
             Assert.IsTrue(calculationResponse.StatusCode == HttpStatusCode.Accepted, "Create response status code should be 202 - Accepted.");
 
             CalculationStatusRoot calculationStatus = (CalculationStatusRoot)calculationResponse.Data;
@@ -115,13 +163,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
                 Assert.IsInstanceOfType(resultResponse.Data, typeof(Stream), "Result response data should be of type Stream.");
             }
-        }
-
-        [TestMethod]
-        public void EnginesAPi_Quant_GetAll_Calculations_Success()
-        {
-            var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
-            Assert.IsTrue(calculationsResponse.Result.StatusCode == HttpStatusCode.OK, "Result response status code should be 200 - OK.");
         }
     }
 }

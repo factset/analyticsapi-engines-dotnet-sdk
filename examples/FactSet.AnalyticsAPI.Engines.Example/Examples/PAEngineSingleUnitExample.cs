@@ -24,10 +24,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string ComponentCategory = "Weights / Exposures";
         private const string Portfolio = "BENCH:SP50";
         private const string Benchmark = "BENCH:R.1000";
-
         private const string Holdings = "B&H";
-      
-
         private const string PricingSourceName = "MSCI - Gross";
         private const string PricingSourceCategory = "MSCI";
         private const string PricingSourceDirectory = "Equity";

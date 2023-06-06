@@ -28,7 +28,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
         private const string Directory = "Factset";
         private const string ColumnStatisticName = "Active Weights";
 
-        private const string GroupCategory = "JP Morgan CEMBI ";
+        private const string GroupCategory = "Country & Region/JP Morgan/JP Morgan CEMBI ";
         private const string GroupName = "Country - JP Morgan CEMBI ";
 
         private const string UnlinkedPATemplateDirectory = "Personal:UnlinkedPATemplates";

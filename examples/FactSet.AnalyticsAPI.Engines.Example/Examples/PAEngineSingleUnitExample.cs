@@ -156,7 +156,7 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             Console.WriteLine($"PA Pricing Source Id : {paPricingSourceId}");
 
             var paAccounts = new List<PAIdentifier> { paAccountIdentifier };
-            var paBenchmarkIdentifier = new PAIdentifier(Benchmark,Holdings);
+            var paBenchmarkIdentifier = new PAIdentifier(Benchmark, Holdings);
             var paBenchmarks = new List<PAIdentifier> { paBenchmarkIdentifier };
 
             var paPortfolioPricingSources = new List<PACalculationPricingSource> { new PACalculationPricingSource(id: paPricingSourceId) };

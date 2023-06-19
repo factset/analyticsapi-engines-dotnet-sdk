@@ -39,7 +39,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ColumnsApi(config);
-            var id = id_example;  // string | Unique identifier for a column
+            var id = 2DBD317E3C235BC96E2FF8CA36CE036AF2F7F55525479B524AE78FD7D6BBC4A7;  // string | Unique identifier for a column
 
             try
             {
@@ -124,9 +124,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ColumnsApi(config);
-            var name = name_example;  // string | Column name (optional)  (default to "")
+            var name = Security Name;  // string | Column name (optional)  (default to "")
             var category = category_example;  // string | Column category (optional)  (default to "")
-            var directory = directory_example;  // string | The directory to get the columns in (optional)  (default to "")
+            var directory = Client;  // string | The directory to get the columns in (optional)  (default to "")
 
             try
             {

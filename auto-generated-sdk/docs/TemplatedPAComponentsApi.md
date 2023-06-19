@@ -127,7 +127,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
-            var id = id_example;  // string | Unique identifier for a templated PA component
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for a templated PA component
 
             try
             {
@@ -211,7 +211,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
-            var id = id_example;  // string | Unique identifier for a templated PA component
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for a templated PA component
 
             try
             {
@@ -296,7 +296,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
-            var directory = directory_example;  // string | Get templated PA components in path
+            var directory = Personal:TemplatedPAComponents/;  // string | Get templated PA components in path
 
             try
             {
@@ -380,7 +380,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new TemplatedPAComponentsApi(config);
-            var id = id_example;  // string | Unique identifier for a templated PA component
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for a templated PA component
             var templatedPAComponentUpdateParametersRoot = new TemplatedPAComponentUpdateParametersRoot(); // TemplatedPAComponentUpdateParametersRoot | Request Parameters
 
             try

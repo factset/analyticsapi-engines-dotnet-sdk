@@ -128,7 +128,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for an unlinked PA template
 
             try
             {
@@ -376,8 +376,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var directory = directory_example;  // string | Get unlinked PA templates in path. (optional) 
-            var category = category_example;  // string | Get unlinked PA templates by category. (optional) 
+            var directory = Personal:UninkedPATemplates/;  // string | Get unlinked PA templates in path. (optional) 
+            var category = Weights;  // string | Get unlinked PA templates by category. (optional) 
 
             try
             {
@@ -462,7 +462,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for an unlinked PA template
 
             try
             {
@@ -547,7 +547,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new UnlinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for an unlinked PA template
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for an unlinked PA template
             var unlinkedPATemplateUpdateParametersRoot = new UnlinkedPATemplateUpdateParametersRoot(); // UnlinkedPATemplateUpdateParametersRoot | Request Parameters
 
             try

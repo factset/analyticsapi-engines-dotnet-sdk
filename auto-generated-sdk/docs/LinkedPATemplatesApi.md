@@ -127,7 +127,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for a linked PA template
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for a linked PA template
 
             try
             {
@@ -211,7 +211,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var directory = directory_example;  // string | Get linked PA templates in path. (optional) 
+            var directory = Personal:LinkedPATemplates/;  // string | Get linked PA templates in path. (optional) 
             var documentDirectory = documentDirectory_example;  // string | Get linked PA templates for documents in document path (optional) 
             var documentName = documentName_example;  // string | Get linked PA templates for documents by document name (optional) 
 
@@ -300,7 +300,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for a linked PA template
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for a linked PA template
 
             try
             {
@@ -385,7 +385,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LinkedPATemplatesApi(config);
-            var id = id_example;  // string | Unique identifier for a linked PA template
+            var id = 01234567890123456789012345678901;  // string | Unique identifier for a linked PA template
             var linkedPATemplateUpdateParametersRoot = new LinkedPATemplateUpdateParametersRoot(); // LinkedPATemplateUpdateParametersRoot | Request Parameters
 
             try

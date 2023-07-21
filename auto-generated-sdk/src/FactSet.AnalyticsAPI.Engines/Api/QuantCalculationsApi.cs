@@ -166,9 +166,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
+        /// <returns>File for 201 status</returns>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         object PostAndCalculate(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
 
@@ -181,9 +181,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>ApiResponse of File for 201 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         ApiResponse<object> PostAndCalculateWithHttpInfo(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
         /// <summary>
@@ -196,9 +196,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
+        /// <returns>File for 201 status</returns>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         object PutAndCalculate(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
 
@@ -212,9 +212,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
+        /// <returns>ApiResponse of File for 201 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         ApiResponse<object> PutAndCalculateWithHttpInfo(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot));
         #endregion Synchronous Operations
@@ -378,9 +378,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of File for 201 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<object> PostAndCalculateAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -394,9 +394,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ApiResponse of File for 201 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
@@ -410,9 +410,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
+        /// <returns>Task of File for 201 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -427,9 +427,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
+        /// <returns>Task of ApiResponse of File for 201 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
@@ -1191,9 +1191,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
-                "application/x-protobuf",
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1277,9 +1276,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
-                "application/x-protobuf",
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1361,9 +1359,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
-                "application/x-protobuf",
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1447,9 +1444,8 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
-                "application/x-protobuf",
-                "application/octet-stream"
+                "application/octet-stream",
+                "application/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1500,9 +1496,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
+        /// <returns>File for 201 status</returns>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         public object PostAndCalculate(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
@@ -1516,9 +1512,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>ApiResponse of File for 201 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PostAndCalculateWithHttpInfo(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
@@ -1531,16 +1527,17 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/octet-stream"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 202, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
                 { 200, typeof(CalculationStatusRoot) },
+                { 201, typeof(System.IO.Stream) },
+                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1587,9 +1584,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of File for 201 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<object> PostAndCalculateAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1604,9 +1601,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
+        /// <returns>Task of ApiResponse of File for 201 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1620,16 +1617,17 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/octet-stream"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 202, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
                 { 200, typeof(CalculationStatusRoot) },
+                { 201, typeof(System.IO.Stream) },
+                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1677,9 +1675,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
-        /// <returns>ObjectRoot for 201 status</returns>
+        /// <returns>File for 201 status</returns>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         public object PutAndCalculate(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
@@ -1694,9 +1692,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="id">from url, provided from the location header in the Create and Run Quant Engine calculation endpoint</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>ApiResponse of ObjectRoot for 201 status</returns>
+        /// <returns>ApiResponse of File for 201 status</returns>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PutAndCalculateWithHttpInfo(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot))
         {
@@ -1713,17 +1711,18 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/octet-stream"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 202, typeof(CalculationStatusRoot) },
                 { 200, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
+                { 201, typeof(System.IO.Stream) },
+                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
                 { 409, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1772,9 +1771,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ObjectRoot for 201 status</returns>
+        /// <returns>Task of File for 201 status</returns>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1790,9 +1789,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts no-store, max-age, max-stale. (optional)</param>
         /// <param name="quantCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
-        /// <returns>Task of ApiResponse of ObjectRoot for 201 status</returns>
+        /// <returns>Task of ApiResponse of File for 201 status</returns>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, string cacheControl = default(string), QuantCalculationParametersRoot quantCalculationParametersRoot = default(QuantCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1810,17 +1809,18 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             // to determine the Accept header
             String[] _accepts = new String[] {
                 "application/json",
-                "application/x-protobuf"
+                "application/octet-stream"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
-                { 202, typeof(CalculationStatusRoot) },
                 { 200, typeof(CalculationStatusRoot) },
-                { 201, typeof(ObjectRoot) },
+                { 201, typeof(System.IO.Stream) },
+                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
                 { 409, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);

@@ -68,6 +68,8 @@ docs/FIABCalculationStatusSummary.md
 docs/FIABCalculationsApi.md
 docs/FIABDateParameters.md
 docs/FIABIdentifier.md
+docs/FIAttributionForJobSettings.md
+docs/FIAttributionForSecurities.md
 docs/FIBalloonExtension.md
 docs/FIBankLoans.md
 docs/FICalculationParameters.md
@@ -185,6 +187,8 @@ docs/SPARBenchmarkRoot.md
 docs/SPARCalculationParameters.md
 docs/SPARCalculationParametersRoot.md
 docs/SPARCalculationsApi.md
+docs/SPARComponent.md
+docs/SPARComponentRoot.md
 docs/SPARDateParameters.md
 docs/SPARIdentifier.md
 docs/StrategyDocumentsApi.md
@@ -217,6 +221,9 @@ docs/UnlinkedPATemplateSummaryRoot.md
 docs/UnlinkedPATemplateUpdateParameters.md
 docs/UnlinkedPATemplateUpdateParametersRoot.md
 docs/UnlinkedPATemplatesApi.md
+docs/VaultAttributionLoaderApi.md
+docs/VaultAttributionLoaderResponse.md
+docs/VaultAttributionLoaderResponseRoot.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
 docs/VaultCalculationsApi.md
@@ -257,6 +264,7 @@ src/FactSet.AnalyticsAPI.Engines/Api/SPARCalculationsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/StrategyDocumentsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/TemplatedPAComponentsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/UnlinkedPATemplatesApi.cs
+src/FactSet.AnalyticsAPI.Engines/Api/VaultAttributionLoaderApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/VaultCalculationsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Client/ApiClient.cs
 src/FactSet.AnalyticsAPI.Engines/Client/ApiException.cs
@@ -327,6 +335,8 @@ src/FactSet.AnalyticsAPI.Engines/Model/FIABCalculationStatus.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIABCalculationStatusSummary.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIABDateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIABIdentifier.cs
+src/FactSet.AnalyticsAPI.Engines/Model/FIAttributionForJobSettings.cs
+src/FactSet.AnalyticsAPI.Engines/Model/FIAttributionForSecurities.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIBalloonExtension.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FIBankLoans.cs
 src/FactSet.AnalyticsAPI.Engines/Model/FICalculationParameters.cs
@@ -433,6 +443,8 @@ src/FactSet.AnalyticsAPI.Engines/Model/SPARBenchmark.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARBenchmarkRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARCalculationParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARCalculationParametersRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/SPARComponent.cs
+src/FactSet.AnalyticsAPI.Engines/Model/SPARComponentRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARDateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/SPARIdentifier.cs
 src/FactSet.AnalyticsAPI.Engines/Model/TemplateContentTypes.cs
@@ -462,6 +474,8 @@ src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateSummary.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateSummaryRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateUpdateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateUpdateParametersRoot.cs
+src/FactSet.AnalyticsAPI.Engines/Model/VaultAttributionLoaderResponse.cs
+src/FactSet.AnalyticsAPI.Engines/Model/VaultAttributionLoaderResponseRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultCalculationParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultCalculationParametersRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultComponent.cs

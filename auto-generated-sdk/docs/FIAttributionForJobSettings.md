@@ -1,14 +1,11 @@
-# FactSet.AnalyticsAPI.Engines.Model.Error
+# FactSet.AnalyticsAPI.Engines.Model.FIAttributionForJobSettings
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] 
-**Code** | **string** |  | [optional] 
-**Title** | **string** |  | [optional] 
-**Detail** | **string** |  | [optional] 
-**Source** | [**ErrorSource**](ErrorSource.md) |  | [optional] 
+**StartDate** | **string** | Start Date | [optional] 
+**EndDate** | **string** | End Date | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

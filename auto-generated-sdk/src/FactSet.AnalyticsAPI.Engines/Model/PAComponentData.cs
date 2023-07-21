@@ -42,7 +42,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="dates">dates.</param>
         /// <param name="datasources">datasources.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
-        /// <param name="componentdetail">PA Storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
+        /// <param name="componentdetail">PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES..</param>
         public PAComponentData(List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), List<PACalculationGroup> groups = default(List<PACalculationGroup>), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PADateParameters dates = default(PADateParameters), PACalculationDataSources datasources = default(PACalculationDataSources), string currencyisocode = default(string), string componentdetail = default(string))
         {
             this.Accounts = accounts;
@@ -103,9 +103,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Currencyisocode { get; set; }
 
         /// <summary>
-        /// PA Storage type. It can be GROUPS or TOTALS or SECURITIES.
+        /// PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.
         /// </summary>
-        /// <value>PA Storage type. It can be GROUPS or TOTALS or SECURITIES.</value>
+        /// <value>PA Storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 

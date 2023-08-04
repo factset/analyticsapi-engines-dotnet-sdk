@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="FactSet.Protobuf.Stach.Extensions" Version="1.2.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Polly" Version="7.2.1" />
     <PackageReference Include="RestSharp" Version="106.11.7" />
   </ItemGroup>

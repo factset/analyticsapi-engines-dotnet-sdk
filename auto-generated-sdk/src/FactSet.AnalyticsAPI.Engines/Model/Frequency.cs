@@ -36,9 +36,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="Frequency" /> class.
         /// </summary>
         /// <param name="name">Frequency name..</param>
-        public Frequency(string name = default(string))
+        /// <param name="periodicMultipliers">periodicMultipliers.</param>
+        /// <param name="nperiodicMultipliers">nperiodicMultipliers.</param>
+        /// <param name="iperiodicMultipliers">iperiodicMultipliers.</param>
+        /// <param name="inperiodicMultipliers">inperiodicMultipliers.</param>
+        public Frequency(string name = default(string), List<double> periodicMultipliers = default(List<double>), List<Object> nperiodicMultipliers = default(List<Object>), List<int> iperiodicMultipliers = default(List<int>), List<Object> inperiodicMultipliers = default(List<Object>))
         {
             this.Name = name;
+            this.PeriodicMultipliers = periodicMultipliers;
+            this.NperiodicMultipliers = nperiodicMultipliers;
+            this.IperiodicMultipliers = iperiodicMultipliers;
+            this.InperiodicMultipliers = inperiodicMultipliers;
         }
 
         /// <summary>
@@ -49,6 +57,30 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or Sets PeriodicMultipliers
+        /// </summary>
+        [DataMember(Name = "periodicMultipliers", EmitDefaultValue = false)]
+        public List<double> PeriodicMultipliers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NperiodicMultipliers
+        /// </summary>
+        [DataMember(Name = "nperiodicMultipliers", EmitDefaultValue = false)]
+        public List<Object> NperiodicMultipliers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IperiodicMultipliers
+        /// </summary>
+        [DataMember(Name = "iperiodicMultipliers", EmitDefaultValue = false)]
+        public List<int> IperiodicMultipliers { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InperiodicMultipliers
+        /// </summary>
+        [DataMember(Name = "inperiodicMultipliers", EmitDefaultValue = false)]
+        public List<Object> InperiodicMultipliers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -57,6 +89,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class Frequency {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  PeriodicMultipliers: ").Append(PeriodicMultipliers).Append("\n");
+            sb.Append("  NperiodicMultipliers: ").Append(NperiodicMultipliers).Append("\n");
+            sb.Append("  IperiodicMultipliers: ").Append(IperiodicMultipliers).Append("\n");
+            sb.Append("  InperiodicMultipliers: ").Append(InperiodicMultipliers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +131,30 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.PeriodicMultipliers == input.PeriodicMultipliers ||
+                    this.PeriodicMultipliers != null &&
+                    input.PeriodicMultipliers != null &&
+                    this.PeriodicMultipliers.SequenceEqual(input.PeriodicMultipliers)
+                ) && 
+                (
+                    this.NperiodicMultipliers == input.NperiodicMultipliers ||
+                    this.NperiodicMultipliers != null &&
+                    input.NperiodicMultipliers != null &&
+                    this.NperiodicMultipliers.SequenceEqual(input.NperiodicMultipliers)
+                ) && 
+                (
+                    this.IperiodicMultipliers == input.IperiodicMultipliers ||
+                    this.IperiodicMultipliers != null &&
+                    input.IperiodicMultipliers != null &&
+                    this.IperiodicMultipliers.SequenceEqual(input.IperiodicMultipliers)
+                ) && 
+                (
+                    this.InperiodicMultipliers == input.InperiodicMultipliers ||
+                    this.InperiodicMultipliers != null &&
+                    input.InperiodicMultipliers != null &&
+                    this.InperiodicMultipliers.SequenceEqual(input.InperiodicMultipliers)
                 );
         }
 
@@ -109,6 +169,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.PeriodicMultipliers != null)
+                    hashCode = hashCode * 59 + this.PeriodicMultipliers.GetHashCode();
+                if (this.NperiodicMultipliers != null)
+                    hashCode = hashCode * 59 + this.NperiodicMultipliers.GetHashCode();
+                if (this.IperiodicMultipliers != null)
+                    hashCode = hashCode * 59 + this.IperiodicMultipliers.GetHashCode();
+                if (this.InperiodicMultipliers != null)
+                    hashCode = hashCode * 59 + this.InperiodicMultipliers.GetHashCode();
                 return hashCode;
             }
         }

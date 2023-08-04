@@ -85,13 +85,17 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="result">The result URL of the calculation..</param>
         /// <param name="progress">The progress of the calculation unit..</param>
         /// <param name="points">The points for the calculation unit..</param>
-        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), List<Error> errors = default(List<Error>), string result = default(string), string progress = default(string), int points = default(int))
+        /// <param name="dhistRcvAssumpRates">dhistRcvAssumpRates.</param>
+        /// <param name="ihistRcvAssumpRates">ihistRcvAssumpRates.</param>
+        public CalculationUnitStatus(StatusEnum? status = default(StatusEnum?), List<Error> errors = default(List<Error>), string result = default(string), string progress = default(string), int points = default(int), List<double> dhistRcvAssumpRates = default(List<double>), List<int> ihistRcvAssumpRates = default(List<int>))
         {
             this.Status = status;
             this.Errors = errors;
             this.Result = result;
             this.Progress = progress;
             this.Points = points;
+            this.DhistRcvAssumpRates = dhistRcvAssumpRates;
+            this.IhistRcvAssumpRates = ihistRcvAssumpRates;
         }
 
         /// <summary>
@@ -123,6 +127,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public int Points { get; set; }
 
         /// <summary>
+        /// Gets or Sets DhistRcvAssumpRates
+        /// </summary>
+        [DataMember(Name = "dhistRcvAssumpRates", EmitDefaultValue = true)]
+        public List<double> DhistRcvAssumpRates { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IhistRcvAssumpRates
+        /// </summary>
+        [DataMember(Name = "ihistRcvAssumpRates", EmitDefaultValue = true)]
+        public List<int> IhistRcvAssumpRates { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +151,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
+            sb.Append("  DhistRcvAssumpRates: ").Append(DhistRcvAssumpRates).Append("\n");
+            sb.Append("  IhistRcvAssumpRates: ").Append(IhistRcvAssumpRates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -192,6 +210,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 (
                     this.Points == input.Points ||
                     this.Points.Equals(input.Points)
+                ) && 
+                (
+                    this.DhistRcvAssumpRates == input.DhistRcvAssumpRates ||
+                    this.DhistRcvAssumpRates != null &&
+                    input.DhistRcvAssumpRates != null &&
+                    this.DhistRcvAssumpRates.SequenceEqual(input.DhistRcvAssumpRates)
+                ) && 
+                (
+                    this.IhistRcvAssumpRates == input.IhistRcvAssumpRates ||
+                    this.IhistRcvAssumpRates != null &&
+                    input.IhistRcvAssumpRates != null &&
+                    this.IhistRcvAssumpRates.SequenceEqual(input.IhistRcvAssumpRates)
                 );
         }
 
@@ -212,6 +242,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 if (this.Progress != null)
                     hashCode = hashCode * 59 + this.Progress.GetHashCode();
                 hashCode = hashCode * 59 + this.Points.GetHashCode();
+                if (this.DhistRcvAssumpRates != null)
+                    hashCode = hashCode * 59 + this.DhistRcvAssumpRates.GetHashCode();
+                if (this.IhistRcvAssumpRates != null)
+                    hashCode = hashCode * 59 + this.IhistRcvAssumpRates.GetHashCode();
                 return hashCode;
             }
         }

@@ -97,7 +97,7 @@ void (empty response body)
 
 <a name="getallcalculations"></a>
 # **GetAllCalculations**
-> CalculationsSummaryRoot GetAllCalculations (int pageNumber)
+> CalculationsSummaryRoot GetAllCalculations (int? pageNumber = null)
 
 Get all calculations
 
@@ -126,7 +126,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new VaultCalculationsApi(config);
-            var pageNumber = 56;  // int |  (default to 1)
+            var pageNumber = 56;  // int? |  (optional)  (default to 1)
 
             try
             {
@@ -149,7 +149,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageNumber** | **int**|  | [default to 1]
+ **pageNumber** | **int?**|  | [optional] [default to 1]
 
 ### Return type
 

@@ -1,14 +1,10 @@
-# FactSet.AnalyticsAPI.Engines.Model.Error
+# FactSet.AnalyticsAPI.Engines.Model.SPARComponentRoot
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] 
-**Code** | **string** |  | [optional] 
-**Title** | **string** |  | [optional] 
-**Detail** | **string** |  | [optional] 
-**Source** | [**ErrorSource**](ErrorSource.md) |  | [optional] 
+**Data** | [**SPARComponent**](SPARComponent.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

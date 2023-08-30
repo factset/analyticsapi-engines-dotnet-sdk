@@ -221,9 +221,6 @@ docs/UnlinkedPATemplateSummaryRoot.md
 docs/UnlinkedPATemplateUpdateParameters.md
 docs/UnlinkedPATemplateUpdateParametersRoot.md
 docs/UnlinkedPATemplatesApi.md
-docs/VaultAttributionLoaderApi.md
-docs/VaultAttributionLoaderResponse.md
-docs/VaultAttributionLoaderResponseRoot.md
 docs/VaultCalculationParameters.md
 docs/VaultCalculationParametersRoot.md
 docs/VaultCalculationsApi.md
@@ -264,7 +261,6 @@ src/FactSet.AnalyticsAPI.Engines/Api/SPARCalculationsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/StrategyDocumentsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/TemplatedPAComponentsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/UnlinkedPATemplatesApi.cs
-src/FactSet.AnalyticsAPI.Engines/Api/VaultAttributionLoaderApi.cs
 src/FactSet.AnalyticsAPI.Engines/Api/VaultCalculationsApi.cs
 src/FactSet.AnalyticsAPI.Engines/Client/ApiClient.cs
 src/FactSet.AnalyticsAPI.Engines/Client/ApiException.cs
@@ -474,8 +470,6 @@ src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateSummary.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateSummaryRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateUpdateParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/UnlinkedPATemplateUpdateParametersRoot.cs
-src/FactSet.AnalyticsAPI.Engines/Model/VaultAttributionLoaderResponse.cs
-src/FactSet.AnalyticsAPI.Engines/Model/VaultAttributionLoaderResponseRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultCalculationParameters.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultCalculationParametersRoot.cs
 src/FactSet.AnalyticsAPI.Engines/Model/VaultComponent.cs

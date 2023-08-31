@@ -8,6 +8,7 @@ using FactSet.AnalyticsAPI.Engines.Model;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using static FactSet.AnalyticsAPI.Engines.Model.FIAttributionForSecurities;
 
 namespace FactSet.AnalyticsAPI.Engines.Test.Api
 {
@@ -47,7 +48,10 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                         calcFromValue: 99.554,
                         settlement: "20120128",
                         bankLoans: new FIBankLoans(ignoreSinkingFund: true),
-                        municipalBonds: new FIMunicipalBonds(ignoreSinkingFund: true)
+                        municipalBonds: new FIMunicipalBonds(ignoreSinkingFund: true),
+                        attribution : new FIAttributionForSecurities
+                                    (startPrice:100, endPrice:100.3668,
+                                     pricingMethod: PricingMethodEnum.InputtedPrice)
                     )
             );
 
@@ -55,7 +59,8 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             (
                 asOfDate: "20120128", 
                 bankLoans: new FIBankLoans(ignoreSinkingFund: true),
-                municipalBonds: new FIMunicipalBondsForJobSettings(ignoreSinkingFund: true)
+                municipalBonds: new FIMunicipalBondsForJobSettings(ignoreSinkingFund: true),
+                attribution: new FIAttributionForJobSettings(startDate: "20210611", endDate: "20210611")
             );
 
             var fiCalculationParameters = new FICalculationParameters(securities, calculations, jobSettings);

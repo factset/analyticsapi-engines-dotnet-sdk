@@ -33,6 +33,13 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         }
 
         [TestMethod]
+        public void EnginesApi_Quant_Single_Unit_Calculation_With_Warnings()
+        {
+            var calculationResponse = EnginesApi_Quant_RunCalculation(expectedWarningsInResponse: true);
+            ProcessCalculations(calculationResponse);
+        }
+
+        [TestMethod]
         public void EnginesAPi_Quant_GetAll_Calculations_Success()
         {
             var calculationsResponse = calculationsApi.GetAllCalculationsWithHttpInfoAsync(pageNumber);
@@ -46,15 +53,18 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             ProcessCalculations(calculationResponse);
         }
 
-        private ApiResponse<object> EnginesApi_Quant_RunCalculation()
+        private ApiResponse<object> EnginesApi_Quant_RunCalculation(bool expectedWarningsInResponse = false)
         {
             var oneOfQuantUniverse = new OneOfQuantUniverse(new QuantScreeningExpressionUniverse("ISON_DOW", QuantScreeningExpressionUniverse.UniverseTypeEnum.Equity, "TICKER", QuantScreeningExpressionUniverse.SourceEnum.ScreeningExpressionUniverse));
             var oneOfQuantDates = new OneOfQuantDates(new QuantFdsDate("0", "-5D", QuantFdsDate.SourceEnum.FdsDate, "D", "FIVEDAY"));
+
+            string expr = expectedWarningsInResponse ? "FF_MKT_VAL(AN_R,0,RP,USD)" : "P_PRICE(#DATE,#DATE-5D,#FREQ)" ;
+            
             var oneOfQuantFormulases = new List<OneOfQuantFormulas>()
             {
                 new OneOfQuantFormulas(new QuantScreeningExpression(expr : "P_PRICE", name : "Price (SCR)", source : QuantScreeningExpression.SourceEnum.ScreeningExpression)),
                 new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE", name : "Price (SCR)",  source : QuantFqlExpression.SourceEnum.FqlExpression)),
-                new OneOfQuantFormulas(new QuantFqlExpression(expr : "P_PRICE(#DATE,#DATE-5D,#FREQ)", name : "Price", isArrayReturnType : false,  source : QuantFqlExpression.SourceEnum.FqlExpression))
+                new OneOfQuantFormulas(new QuantFqlExpression(expr : expr, name : "Price", isArrayReturnType : false,  source : QuantFqlExpression.SourceEnum.FqlExpression))
             };
 
             var quantCalculation = new QuantCalculationParameters(universe: oneOfQuantUniverse, dates: oneOfQuantDates, formulas: oneOfQuantFormulases);
@@ -144,6 +154,14 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(calculationStatus.Data.Status == CalculationStatus.StatusEnum.Completed, "Response Data should have calculation status as completed.");
             Assert.IsTrue(calculationStatus.Data.Units.Values.All(p => p.Status == CalculationUnitStatus.StatusEnum.Success), "Response Data should have all calculations status as completed.");
+            
+            // When unit response contains warnings.
+            calculationStatus.Data.Units.TryGetValue("1", out CalculationUnitStatus calculationUnitStatus);
+            if (calculationUnitStatus.Warnings != null)
+            {
+                Assert.IsTrue(calculationStatus.Data.Units.Values.All(p => p.Warnings.Count != 0), "Unit Status should have warnings.");
+                Assert.IsTrue(calculationStatus.Data.Units.Values.All(p => p.Warnings[0] != null), "Unit Status with warnings should have a reason.");
+            }
 
             Assert.IsTrue(calculationStatus.Data.Units.Values.All(p => p.Result != null), "Response Data should have all Calculation results.");
 

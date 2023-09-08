@@ -85,7 +85,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
 
             Assert.IsTrue(componentGetByIdResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
             Assert.IsTrue(componentGetByIdResponse.Data.Data != null, "Response data should not be null");
-            Assert.IsTrue(componentGetByIdResponse.Data.Data.GetType() == typeof(SPARComponent), "Response result should be of PAComponent type");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data.GetType() == typeof(SPARComponent), "Response result should be of SPARComponent type");
         }
     }
 }

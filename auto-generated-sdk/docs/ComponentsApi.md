@@ -213,7 +213,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
-            var id = id_example;  // string | Unique identifier for a SPAR component
+            var id = 067F5DE2E2A11F9AD734594AA8957E11B633438D0FADFCCE0F423ABEF2FC5F1D;  // string | Unique identifier for a SPAR component
 
             try
             {

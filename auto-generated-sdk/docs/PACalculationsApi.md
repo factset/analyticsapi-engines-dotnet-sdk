@@ -555,7 +555,7 @@ namespace Example
 
             var apiInstance = new PACalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run PA calculation endpoint
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var pACalculationParametersRoot = new PACalculationParametersRoot(); // PACalculationParametersRoot | Calculation Parameters (optional) 
 

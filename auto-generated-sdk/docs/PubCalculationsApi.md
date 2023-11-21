@@ -463,7 +463,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new PubCalculationsApi(config);
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the POST body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
 
@@ -555,7 +555,7 @@ namespace Example
 
             var apiInstance = new PubCalculationsApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run Pub calculation endpoint
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds when only one unit is passed in the PUT body. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var pubCalculationParametersRoot = new PubCalculationParametersRoot(); // PubCalculationParametersRoot | Calculation Parameters (optional) 
 

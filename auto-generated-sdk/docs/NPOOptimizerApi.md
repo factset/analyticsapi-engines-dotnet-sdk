@@ -375,7 +375,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new NPOOptimizerApi(config);
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var nPOOptimizationParametersRoot = new NPOOptimizationParametersRoot(); // NPOOptimizationParametersRoot | Optimization Parameters (optional) 
 
@@ -466,7 +466,7 @@ namespace Example
 
             var apiInstance = new NPOOptimizerApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run NPO optimization endpoint
-            var xFactSetApiLongRunningDeadline = 56;  // int? | Long running deadline in seconds. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var nPOOptimizationParametersRoot = new NPOOptimizationParametersRoot(); // NPOOptimizationParametersRoot | Optimization Parameters (optional) 
 

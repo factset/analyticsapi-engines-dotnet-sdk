@@ -375,7 +375,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new AFIOptimizerApi(config);
-            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var aFIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters (optional) 
 
@@ -400,7 +400,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **aFIOptimizationParametersRoot** | [**AFIOptimizationParametersRoot**](AFIOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 
@@ -466,7 +466,7 @@ namespace Example
 
             var apiInstance = new AFIOptimizerApi(config);
             var id = id_example;  // string | from url, provided from the location header in the Create and Run AFI optimization endpoint
-            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. (optional) 
+            var xFactSetApiLongRunningDeadline = 10;  // int? | Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional) 
             var cacheControl = cacheControl_example;  // string | Standard HTTP header.  Accepts max-stale. (optional) 
             var aFIOptimizationParametersRoot = new AFIOptimizationParametersRoot(); // AFIOptimizationParametersRoot | Optimization Parameters (optional) 
 
@@ -492,7 +492,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| from url, provided from the location header in the Create and Run AFI optimization endpoint | 
- **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. | [optional] 
+ **xFactSetApiLongRunningDeadline** | **int?**| Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. | [optional] 
  **cacheControl** | **string**| Standard HTTP header.  Accepts max-stale. | [optional] 
  **aFIOptimizationParametersRoot** | [**AFIOptimizationParametersRoot**](AFIOptimizationParametersRoot.md)| Optimization Parameters | [optional] 
 

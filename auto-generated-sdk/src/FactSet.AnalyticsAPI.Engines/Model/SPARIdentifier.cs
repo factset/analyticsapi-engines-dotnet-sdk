@@ -41,8 +41,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="SPARIdentifier" /> class.
         /// </summary>
         /// <param name="id">User&#39;s FactSet account OR benchmark id. (required).</param>
-        /// <param name="returntype">Benchmark return type..</param>
-        /// <param name="prefix">Benchmark prefix..</param>
+        /// <param name="returntype">Account or benchmark return type..</param>
+        /// <param name="prefix">Account or benchmark prefix..</param>
         public SPARIdentifier(string id = default(string), string returntype = default(string), string prefix = default(string))
         {
             // to ensure "id" is required (not null)
@@ -59,16 +59,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Benchmark return type.
+        /// Account or benchmark return type.
         /// </summary>
-        /// <value>Benchmark return type.</value>
+        /// <value>Account or benchmark return type.</value>
         [DataMember(Name = "returntype", EmitDefaultValue = false)]
         public string Returntype { get; set; }
 
         /// <summary>
-        /// Benchmark prefix.
+        /// Account or benchmark prefix.
         /// </summary>
-        /// <value>Benchmark prefix.</value>
+        /// <value>Account or benchmark prefix.</value>
         [DataMember(Name = "prefix", EmitDefaultValue = false)]
         public string Prefix { get; set; }
 

@@ -1,4 +1,4 @@
-5.5.0 (16/01/2023)
+6.0.0 (29/01/2023)
 
 Supported API versions:
 
@@ -15,12 +15,11 @@ Functionality Additions:
 * Added new Get Component details by Id endpoint for SPAR.
 
 Breaking changes:
-* No changes.
+* Updated the response schema for GetAllCalculations End Point for pa,spar,vault,pub and quant..
 
 Bug Fixes:
 * Removed requiredfield attribute for pagenumber field parameter in GetAllCalculations End Point for pa,spar,vault,pub and quant.
 * Removed default values when the parameter field is required for lookup end points for pa,spar,vault and strategy document end points for optimizers.
-* Updated the schema for GetAllCalculations End Point for pa,spar,vault,pub and quant.
 
 -----------------------
 

@@ -102,7 +102,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "engines-api/5.5.0/csharp";
+            UserAgent = "engines-api/6.0.0/csharp";
             BasePath = "https://api.factset.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();

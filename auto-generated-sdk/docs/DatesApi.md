@@ -39,10 +39,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DatesApi(config);
-            var enddate = enddate_example;  // string | End Date
-            var componentid = componentid_example;  // string | Component Id
-            var account = account_example;  // string | Account
-            var startdate = startdate_example;  // string | Start Date (optional) 
+            var enddate = -1AY;  // string | End Date
+            var componentid = 801B800245E468A52AEBEC4BE31CFF5AF82F371DAEF5F158AC2E98C2FA324B46;  // string | Component Id
+            var account = Client:/Folder1/Folder2/AccountName.ACCT;  // string | Account ( Account Name ending with .ACCT or .ACTM )
+            var startdate = -3AY;  // string | Start Date (optional) 
 
             try
             {
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **enddate** | **string**| End Date | 
  **componentid** | **string**| Component Id | 
- **account** | **string**| Account | 
+ **account** | **string**| Account ( Account Name ending with .ACCT or .ACTM ) | 
  **startdate** | **string**| Start Date | [optional] 
 
 ### Return type

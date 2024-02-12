@@ -46,7 +46,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="groups">List of groupings for the PA calculation.</param>
         /// <param name="datasources">datasources.</param>
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
-        /// <param name="componentdetail">PA storage type. It can be GROUPS or TOTALS or SECURITIES..</param>
+        /// <param name="componentdetail">PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES..</param>
         /// <param name="content">content.</param>
         /// <param name="description">Template description..</param>
         /// <param name="name">Template name..</param>
@@ -147,9 +147,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Currencyisocode { get; set; }
 
         /// <summary>
-        /// PA storage type. It can be GROUPS or TOTALS or SECURITIES.
+        /// PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.
         /// </summary>
-        /// <value>PA storage type. It can be GROUPS or TOTALS or SECURITIES.</value>
+        /// <value>PA storage type. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 

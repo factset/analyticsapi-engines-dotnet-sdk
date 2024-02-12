@@ -55,9 +55,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <returns>CalculationsSummaryRoot</returns>
-        CalculationsSummaryRoot GetAllCalculations(int pageNumber);
+        CalculationsSummaryRoot GetAllCalculations(int? pageNumber = default(int?));
 
         /// <summary>
         /// Get all calculations
@@ -66,9 +66,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <returns>ApiResponse of CalculationsSummaryRoot</returns>
-        ApiResponse<CalculationsSummaryRoot> GetAllCalculationsWithHttpInfo(int pageNumber);
+        ApiResponse<CalculationsSummaryRoot> GetAllCalculationsWithHttpInfo(int? pageNumber = default(int?));
         /// <summary>
         /// Get Quant Engine calculation parameters by id
         /// </summary>
@@ -256,10 +256,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationsSummaryRoot</returns>
-        System.Threading.Tasks.Task<CalculationsSummaryRoot> GetAllCalculationsAsync(int pageNumber, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CalculationsSummaryRoot> GetAllCalculationsAsync(int? pageNumber = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all calculations
@@ -268,10 +268,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoints returns all calculation requests.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of CalculationsSummaryRoot</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalculationsSummaryRoot>> GetAllCalculationsWithHttpInfoAsync(int pageNumber, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CalculationsSummaryRoot>> GetAllCalculationsWithHttpInfoAsync(int? pageNumber = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Quant Engine calculation parameters by id
         /// </summary>
@@ -708,9 +708,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <returns>CalculationsSummaryRoot</returns>
-        public CalculationsSummaryRoot GetAllCalculations(int pageNumber)
+        public CalculationsSummaryRoot GetAllCalculations(int? pageNumber = default(int?))
         {
             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationsSummaryRoot> localVarResponse = GetAllCalculationsWithHttpInfo(pageNumber);
             return localVarResponse.Data;
@@ -720,9 +720,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <returns>ApiResponse of CalculationsSummaryRoot</returns>
-        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationsSummaryRoot> GetAllCalculationsWithHttpInfo(int pageNumber)
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationsSummaryRoot> GetAllCalculationsWithHttpInfo(int? pageNumber = default(int?))
         {
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
 
@@ -747,7 +747,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+            if (pageNumber != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -778,10 +781,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalculationsSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<CalculationsSummaryRoot> GetAllCalculationsAsync(int pageNumber, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CalculationsSummaryRoot> GetAllCalculationsAsync(int? pageNumber = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationsSummaryRoot> localVarResponse = await GetAllCalculationsWithHttpInfoAsync(pageNumber, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -791,10 +794,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get all calculations This endpoints returns all calculation requests.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageNumber"></param>
+        /// <param name="pageNumber"> (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of CalculationsSummaryRoot</returns>
-        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationsSummaryRoot>> GetAllCalculationsWithHttpInfoAsync(int pageNumber, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<CalculationsSummaryRoot>> GetAllCalculationsWithHttpInfoAsync(int? pageNumber = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
@@ -820,7 +823,10 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+            if (pageNumber != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "pageNumber", pageNumber));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1541,6 +1547,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 { 200, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1630,6 +1637,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 { 200, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1724,6 +1732,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
                 { 409, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -1821,6 +1830,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
                 { 409, typeof(ClientErrorResponse) },
+                { 413, typeof(ClientErrorResponse) },
             };
 
             var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);

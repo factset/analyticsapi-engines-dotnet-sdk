@@ -124,7 +124,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -139,7 +139,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -154,7 +154,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -170,7 +170,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -291,7 +291,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -307,7 +307,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -323,7 +323,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -340,7 +340,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1100,7 +1100,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FPO optimization This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -1116,7 +1116,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FPO optimization This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -1188,7 +1188,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FPO optimization This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1205,7 +1205,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FPO optimization This endpoint runs FPO optimization specified in the POST body parameters.                Remarks:                * Any settings in POST body will act as a one-time override over the settings saved in the strategy document.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1281,7 +1281,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -1298,7 +1298,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -1377,7 +1377,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1395,7 +1395,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FPO optimization endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fPOOptimizationParametersRoot">Optimization Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

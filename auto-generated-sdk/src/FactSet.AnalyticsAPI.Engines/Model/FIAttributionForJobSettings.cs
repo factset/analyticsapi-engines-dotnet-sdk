@@ -27,40 +27,35 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// QuantUniversalScreenParameterObsolete
+    /// FIAttributionForJobSettings
     /// </summary>
-    [DataContract(Name = "QuantUniversalScreenParameterObsolete")]
-    public partial class QuantUniversalScreenParameterObsolete : IEquatable<QuantUniversalScreenParameterObsolete>, IValidatableObject
+    [DataContract(Name = "FIAttributionForJobSettings")]
+    public partial class FIAttributionForJobSettings : IEquatable<FIAttributionForJobSettings>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameterObsolete" /> class.
+        /// Initializes a new instance of the <see cref="FIAttributionForJobSettings" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected QuantUniversalScreenParameterObsolete() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameterObsolete" /> class.
-        /// </summary>
-        /// <param name="referenceName">referenceName (required).</param>
-        /// <param name="name">name (required).</param>
-        public QuantUniversalScreenParameterObsolete(string referenceName = default(string), string name = default(string))
+        /// <param name="startDate">Start Date.</param>
+        /// <param name="endDate">End Date.</param>
+        public FIAttributionForJobSettings(string startDate = default(string), string endDate = default(string))
         {
-            // to ensure "referenceName" is required (not null)
-            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameterObsolete and cannot be null");
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameterObsolete and cannot be null");
+            this.StartDate = startDate;
+            this.EndDate = endDate;
         }
 
         /// <summary>
-        /// Gets or Sets ReferenceName
+        /// Start Date
         /// </summary>
-        [DataMember(Name = "referenceName", IsRequired = true, EmitDefaultValue = false)]
-        public string ReferenceName { get; set; }
+        /// <value>Start Date</value>
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
+        public string StartDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// End Date
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
+        /// <value>End Date</value>
+        [DataMember(Name = "endDate", EmitDefaultValue = false)]
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +64,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class QuantUniversalScreenParameterObsolete {\n");
-            sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("class FIAttributionForJobSettings {\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +87,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as QuantUniversalScreenParameterObsolete);
+            return this.Equals(input as FIAttributionForJobSettings);
         }
 
         /// <summary>
-        /// Returns true if QuantUniversalScreenParameterObsolete instances are equal
+        /// Returns true if FIAttributionForJobSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of QuantUniversalScreenParameterObsolete to be compared</param>
+        /// <param name="input">Instance of FIAttributionForJobSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(QuantUniversalScreenParameterObsolete input)
+        public bool Equals(FIAttributionForJobSettings input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReferenceName == input.ReferenceName ||
-                    (this.ReferenceName != null &&
-                    this.ReferenceName.Equals(input.ReferenceName))
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
                 );
         }
 
@@ -127,10 +122,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ReferenceName != null)
-                    hashCode = hashCode * 59 + this.ReferenceName.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                if (this.EndDate != null)
+                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -27,41 +27,39 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// PAIdentifier
+    /// VaultAttributionLoaderResponseRoot
     /// </summary>
-    [DataContract(Name = "PAIdentifier")]
-    public partial class PAIdentifier : IEquatable<PAIdentifier>, IValidatableObject
+    [DataContract(Name = "VaultAttributionLoaderResponseRoot")]
+    public partial class VaultAttributionLoaderResponseRoot : IEquatable<VaultAttributionLoaderResponseRoot>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PAIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="VaultAttributionLoaderResponseRoot" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PAIdentifier() { }
+        protected VaultAttributionLoaderResponseRoot() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PAIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="VaultAttributionLoaderResponseRoot" /> class.
         /// </summary>
-        /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR, OMS , EXT or VLT..</param>
-        public PAIdentifier(string id = default(string), string holdingsmode = default(string))
+        /// <param name="data">data (required).</param>
+        /// <param name="meta">meta.</param>
+        public VaultAttributionLoaderResponseRoot(VaultAttributionLoaderResponse data = default(VaultAttributionLoaderResponse), Object meta = default(Object))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for PAIdentifier and cannot be null");
-            this.Holdingsmode = holdingsmode;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for VaultAttributionLoaderResponseRoot and cannot be null");
+            this.Meta = meta;
         }
 
         /// <summary>
-        /// User&#39;s FactSet account path OR benchmark.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>User&#39;s FactSet account path OR benchmark.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        public VaultAttributionLoaderResponse Data { get; set; }
 
         /// <summary>
-        /// Holdings Mode can be B&amp;H, TBR, OMS , EXT or VLT.
+        /// Gets or Sets Meta
         /// </summary>
-        /// <value>Holdings Mode can be B&amp;H, TBR, OMS , EXT or VLT.</value>
-        [DataMember(Name = "holdingsmode", EmitDefaultValue = false)]
-        public string Holdingsmode { get; set; }
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +68,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PAIdentifier {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Holdingsmode: ").Append(Holdingsmode).Append("\n");
+            sb.Append("class VaultAttributionLoaderResponseRoot {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,29 +91,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PAIdentifier);
+            return this.Equals(input as VaultAttributionLoaderResponseRoot);
         }
 
         /// <summary>
-        /// Returns true if PAIdentifier instances are equal
+        /// Returns true if VaultAttributionLoaderResponseRoot instances are equal
         /// </summary>
-        /// <param name="input">Instance of PAIdentifier to be compared</param>
+        /// <param name="input">Instance of VaultAttributionLoaderResponseRoot to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PAIdentifier input)
+        public bool Equals(VaultAttributionLoaderResponseRoot input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
-                    this.Holdingsmode == input.Holdingsmode ||
-                    (this.Holdingsmode != null &&
-                    this.Holdingsmode.Equals(input.Holdingsmode))
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -128,10 +126,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Holdingsmode != null)
-                    hashCode = hashCode * 59 + this.Holdingsmode.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Meta != null)
+                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 return hashCode;
             }
         }

@@ -116,13 +116,14 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="matrixSpreadAdjustment">Matrix Spread Adjustment.</param>
         /// <param name="matrixMultiplier">Matrix Multiplier.</param>
         /// <param name="structuredProducts">structuredProducts.</param>
+        /// <param name="attribution">attribution.</param>
         /// <param name="calcFromMethod">Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix.</param>
         /// <param name="calcFromValue">Calculation from value (required).</param>
         /// <param name="face">Face (default to 1D).</param>
         /// <param name="faceType">Face type (default to FaceTypeEnum.Current).</param>
         /// <param name="symbol">Symbol (required).</param>
         /// <param name="discountCurve">Discount curve.</param>
-        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FIBankLoans bankLoans = default(FIBankLoans), FIMunicipalBonds municipalBonds = default(FIMunicipalBonds), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), FIStructuredProductsForSecurities structuredProducts = default(FIStructuredProductsForSecurities), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
+        public FISecurity(string settlement = default(string), CallMethodEnum? callMethod = default(CallMethodEnum?), FIReferenceSecurity referenceSecurity = default(FIReferenceSecurity), FIBankLoans bankLoans = default(FIBankLoans), FIMunicipalBonds municipalBonds = default(FIMunicipalBonds), FILoss loss = default(FILoss), FIPrepay prepay = default(FIPrepay), double matrixSpreadAdjustment = default(double), double matrixMultiplier = default(double), FIStructuredProductsForSecurities structuredProducts = default(FIStructuredProductsForSecurities), FIAttributionForSecurities attribution = default(FIAttributionForSecurities), string calcFromMethod = default(string), double calcFromValue = default(double), double face = 1D, FaceTypeEnum? faceType = FaceTypeEnum.Current, string symbol = default(string), string discountCurve = default(string))
         {
             this.CalcFromValue = calcFromValue;
             // to ensure "symbol" is required (not null)
@@ -137,6 +138,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.MatrixSpreadAdjustment = matrixSpreadAdjustment;
             this.MatrixMultiplier = matrixMultiplier;
             this.StructuredProducts = structuredProducts;
+            this.Attribution = attribution;
             this.CalcFromMethod = calcFromMethod;
             this.Face = face;
             this.FaceType = faceType;
@@ -201,6 +203,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FIStructuredProductsForSecurities StructuredProducts { get; set; }
 
         /// <summary>
+        /// Gets or Sets Attribution
+        /// </summary>
+        [DataMember(Name = "attribution", EmitDefaultValue = false)]
+        public FIAttributionForSecurities Attribution { get; set; }
+
+        /// <summary>
         /// Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix
         /// </summary>
         /// <value>Calculation Method.  Methods : Active Spread, Actual Spread, Actual Spread To Worst Call, OAS, Price, Yield, Yield To No Call, Act/Act Yield To No Call, Bond Equivalent Yield,  Yield To Worst Call, Discount Yield, Discount Margin, Implied Volatility, Bullet Spread, Bullet Spread To Worst Call, Pricing Matrix</value>
@@ -253,6 +261,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  MatrixSpreadAdjustment: ").Append(MatrixSpreadAdjustment).Append("\n");
             sb.Append("  MatrixMultiplier: ").Append(MatrixMultiplier).Append("\n");
             sb.Append("  StructuredProducts: ").Append(StructuredProducts).Append("\n");
+            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
             sb.Append("  CalcFromMethod: ").Append(CalcFromMethod).Append("\n");
             sb.Append("  CalcFromValue: ").Append(CalcFromValue).Append("\n");
             sb.Append("  Face: ").Append(Face).Append("\n");
@@ -341,6 +350,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.StructuredProducts.Equals(input.StructuredProducts))
                 ) && 
                 (
+                    this.Attribution == input.Attribution ||
+                    (this.Attribution != null &&
+                    this.Attribution.Equals(input.Attribution))
+                ) && 
+                (
                     this.CalcFromMethod == input.CalcFromMethod ||
                     (this.CalcFromMethod != null &&
                     this.CalcFromMethod.Equals(input.CalcFromMethod))
@@ -395,6 +409,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 hashCode = hashCode * 59 + this.MatrixMultiplier.GetHashCode();
                 if (this.StructuredProducts != null)
                     hashCode = hashCode * 59 + this.StructuredProducts.GetHashCode();
+                if (this.Attribution != null)
+                    hashCode = hashCode * 59 + this.Attribution.GetHashCode();
                 if (this.CalcFromMethod != null)
                     hashCode = hashCode * 59 + this.CalcFromMethod.GetHashCode();
                 hashCode = hashCode * 59 + this.CalcFromValue.GetHashCode();

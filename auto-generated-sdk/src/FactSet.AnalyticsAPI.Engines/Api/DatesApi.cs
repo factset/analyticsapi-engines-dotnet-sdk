@@ -36,7 +36,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <returns>DateParametersSummaryRoot</returns>
         DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat(string enddate, string componentid, string account, string startdate = default(string));
@@ -50,7 +50,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <returns>ApiResponse of DateParametersSummaryRoot</returns>
         ApiResponse<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string));
@@ -99,7 +99,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DateParametersSummaryRoot</returns>
@@ -114,7 +114,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
@@ -274,7 +274,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <returns>DateParametersSummaryRoot</returns>
         public DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat(string enddate, string componentid, string account, string startdate = default(string))
@@ -289,7 +289,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <returns>ApiResponse of DateParametersSummaryRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string))
@@ -368,7 +368,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DateParametersSummaryRoot</returns>
@@ -384,7 +384,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="enddate">End Date</param>
         /// <param name="componentid">Component Id</param>
-        /// <param name="account">Account</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
         /// <param name="startdate">Start Date (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>

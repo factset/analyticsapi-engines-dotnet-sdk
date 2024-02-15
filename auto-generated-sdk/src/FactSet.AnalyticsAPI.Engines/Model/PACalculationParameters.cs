@@ -48,7 +48,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="currencyisocode">Currency ISO code for calculation..</param>
         /// <param name="columns">List of columns for the PA calculation. This will take precedence over the columns saved in the PA document..</param>
         /// <param name="datasources">datasources.</param>
-        /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES..</param>
+        /// <param name="componentdetail">Component detail type for the PA component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES..</param>
         public PACalculationParameters(string componentid = default(string), List<PAIdentifier> accounts = default(List<PAIdentifier>), List<PAIdentifier> benchmarks = default(List<PAIdentifier>), PADateParameters dates = default(PADateParameters), List<PACalculationGroup> groups = default(List<PACalculationGroup>), string currencyisocode = default(string), List<PACalculationColumn> columns = default(List<PACalculationColumn>), PACalculationDataSources datasources = default(PACalculationDataSources), string componentdetail = default(string))
         {
             // to ensure "componentid" is required (not null)
@@ -118,9 +118,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public PACalculationDataSources Datasources { get; set; }
 
         /// <summary>
-        /// Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES.
+        /// Component detail type for the PA component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.
         /// </summary>
-        /// <value>Component detail type for the PA component. It can be GROUPS or TOTALS or SECURITIES.</value>
+        /// <value>Component detail type for the PA component. It can be GROUPS or GROUPSALL or TOTALS or SECURITIES.</value>
         [DataMember(Name = "componentdetail", EmitDefaultValue = false)]
         public string Componentdetail { get; set; }
 

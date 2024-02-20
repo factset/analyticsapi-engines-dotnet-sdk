@@ -32,7 +32,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "5.4.0-rc.1";
+        public const string Version = "5.4.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -447,7 +447,7 @@ namespace FactSet.AnalyticsAPI.Engines.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v3:[pa,spar,vault,pub,quant,fi,axp,afi,npo,bpm,fpo,others],v1:[fiab]\n";
-            report += "    SDK Package Version: 5.4.0-rc.1\n";
+            report += "    SDK Package Version: 5.4.1\n";
 
             return report;
         }

@@ -41,7 +41,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DocumentsApi(config);
-            var path = path_example;  // string | The directory to get the documents and sub-directories in (default to "")
+            var path = Client:;  // string | The directory to get the documents and sub-directories in
 
             try
             {
@@ -64,7 +64,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents and sub-directories in | [default to &quot;&quot;]
+ **path** | **string**| The directory to get the documents and sub-directories in | 
 
 ### Return type
 
@@ -126,7 +126,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DocumentsApi(config);
-            var path = path_example;  // string | The directory to get the documents in (default to "")
+            var path = Client:;  // string | The directory to get the documents in
 
             try
             {
@@ -149,7 +149,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents in | [default to &quot;&quot;]
+ **path** | **string**| The directory to get the documents in | 
 
 ### Return type
 
@@ -211,7 +211,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DocumentsApi(config);
-            var path = path_example;  // string | The directory to get the documents in (default to "")
+            var path = Client:;  // string | The directory to get the documents in
 
             try
             {
@@ -234,7 +234,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents in | [default to &quot;&quot;]
+ **path** | **string**| The directory to get the documents in | 
 
 ### Return type
 
@@ -296,7 +296,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new DocumentsApi(config);
-            var path = path_example;  // string | The directory to get the documents in (default to "")
+            var path = Client:;  // string | The directory to get the documents in
 
             try
             {
@@ -319,7 +319,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the documents in | [default to &quot;&quot;]
+ **path** | **string**| The directory to get the documents in | 
 
 ### Return type
 

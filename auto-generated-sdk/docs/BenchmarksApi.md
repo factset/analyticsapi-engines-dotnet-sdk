@@ -38,7 +38,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new BenchmarksApi(config);
-            var id = id_example;  // string | Benchmark Identifier
+            var id = R.1000;  // string | Benchmark Identifier
 
             try
             {

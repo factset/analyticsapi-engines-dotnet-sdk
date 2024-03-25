@@ -27,41 +27,35 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// PAIdentifier
+    /// FIAttributionForJobSettings
     /// </summary>
-    [DataContract(Name = "PAIdentifier")]
-    public partial class PAIdentifier : IEquatable<PAIdentifier>, IValidatableObject
+    [DataContract(Name = "FIAttributionForJobSettings")]
+    public partial class FIAttributionForJobSettings : IEquatable<FIAttributionForJobSettings>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PAIdentifier" /> class.
+        /// Initializes a new instance of the <see cref="FIAttributionForJobSettings" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PAIdentifier() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PAIdentifier" /> class.
-        /// </summary>
-        /// <param name="id">User&#39;s FactSet account path OR benchmark. (required).</param>
-        /// <param name="holdingsmode">Holdings Mode can be B&amp;H, TBR, OMS , EXT or VLT..</param>
-        public PAIdentifier(string id = default(string), string holdingsmode = default(string))
+        /// <param name="startDate">Start Date.</param>
+        /// <param name="endDate">End Date.</param>
+        public FIAttributionForJobSettings(string startDate = default(string), string endDate = default(string))
         {
-            // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for PAIdentifier and cannot be null");
-            this.Holdingsmode = holdingsmode;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
         }
 
         /// <summary>
-        /// User&#39;s FactSet account path OR benchmark.
+        /// Start Date
         /// </summary>
-        /// <value>User&#39;s FactSet account path OR benchmark.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
+        /// <value>Start Date</value>
+        [DataMember(Name = "startDate", EmitDefaultValue = false)]
+        public string StartDate { get; set; }
 
         /// <summary>
-        /// Holdings Mode can be B&amp;H, TBR, OMS , EXT or VLT.
+        /// End Date
         /// </summary>
-        /// <value>Holdings Mode can be B&amp;H, TBR, OMS , EXT or VLT.</value>
-        [DataMember(Name = "holdingsmode", EmitDefaultValue = false)]
-        public string Holdingsmode { get; set; }
+        /// <value>End Date</value>
+        [DataMember(Name = "endDate", EmitDefaultValue = false)]
+        public string EndDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,9 +64,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PAIdentifier {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Holdingsmode: ").Append(Holdingsmode).Append("\n");
+            sb.Append("class FIAttributionForJobSettings {\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,29 +87,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PAIdentifier);
+            return this.Equals(input as FIAttributionForJobSettings);
         }
 
         /// <summary>
-        /// Returns true if PAIdentifier instances are equal
+        /// Returns true if FIAttributionForJobSettings instances are equal
         /// </summary>
-        /// <param name="input">Instance of PAIdentifier to be compared</param>
+        /// <param name="input">Instance of FIAttributionForJobSettings to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PAIdentifier input)
+        public bool Equals(FIAttributionForJobSettings input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
                 ) && 
                 (
-                    this.Holdingsmode == input.Holdingsmode ||
-                    (this.Holdingsmode != null &&
-                    this.Holdingsmode.Equals(input.Holdingsmode))
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
                 );
         }
 
@@ -128,10 +122,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Holdingsmode != null)
-                    hashCode = hashCode * 59 + this.Holdingsmode.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                if (this.EndDate != null)
+                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 return hashCode;
             }
         }

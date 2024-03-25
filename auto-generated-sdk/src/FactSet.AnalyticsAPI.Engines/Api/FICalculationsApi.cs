@@ -122,7 +122,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates and runs a new FI calculation specified in the post body.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -137,7 +137,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates and runs a new FI calculation specified in the post body.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -152,7 +152,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -168,7 +168,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -287,7 +287,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates and runs a new FI calculation specified in the post body.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -303,7 +303,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint creates and runs a new FI calculation specified in the post body.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -319,7 +319,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -336,7 +336,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1088,7 +1088,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FI calculation This endpoint creates and runs a new FI calculation specified in the post body.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -1104,7 +1104,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FI calculation This endpoint creates and runs a new FI calculation specified in the post body.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -1177,7 +1177,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FI calculation This endpoint creates and runs a new FI calculation specified in the post body.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1194,7 +1194,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Create and Run FI calculation This endpoint creates and runs a new FI calculation specified in the post body.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1271,7 +1271,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>CalculationInfoRoot for 202 status</returns>
@@ -1288,7 +1288,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <returns>ApiResponse of CalculationInfoRoot for 202 status</returns>
@@ -1368,7 +1368,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1386,7 +1386,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">from url, provided from the location header in the Create and Run FI calculation endpoint</param>
-        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. (optional)</param>
+        /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="fICalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

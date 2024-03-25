@@ -74,5 +74,18 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
             Assert.IsTrue(componentGetAllResponse.Data.Data.GetType() == typeof(Dictionary<string, ComponentSummary>), "Response result should be of ComponentSummary Dictionary type.");
             Assert.IsTrue(componentGetAllResponse.Data.Data.Count != 0, "Response data should not be null.");
         }
+
+        [TestMethod]
+        public void ComponentsApi_Get_SPARComponentById_Success()
+        {
+            var sparComponents = componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
+            var sparComponentId = sparComponents.Data.Data.Keys.First();
+
+            var componentGetByIdResponse = componentsApi.GetSPARComponentByIdWithHttpInfo(sparComponentId);
+
+            Assert.IsTrue(componentGetByIdResponse.StatusCode == HttpStatusCode.OK, "Response should be 200 - OK");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data != null, "Response data should not be null");
+            Assert.IsTrue(componentGetByIdResponse.Data.Data.GetType() == typeof(SPARComponent), "Response result should be of SPARComponent type");
+        }
     }
 }

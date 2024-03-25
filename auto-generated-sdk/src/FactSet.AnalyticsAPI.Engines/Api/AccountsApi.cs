@@ -34,7 +34,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <returns>AccountDirectoriesRoot</returns>
         AccountDirectoriesRoot GetAccounts(string path);
 
@@ -45,7 +45,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <returns>ApiResponse of AccountDirectoriesRoot</returns>
         ApiResponse<AccountDirectoriesRoot> GetAccountsWithHttpInfo(string path);
         /// <summary>
@@ -85,7 +85,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountDirectoriesRoot</returns>
         System.Threading.Tasks.Task<AccountDirectoriesRoot> GetAccountsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -97,7 +97,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </remarks>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of AccountDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -248,7 +248,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get accounts and sub-directories in a directory This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <returns>AccountDirectoriesRoot</returns>
         public AccountDirectoriesRoot GetAccounts(string path)
         {
@@ -260,7 +260,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get accounts and sub-directories in a directory This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <returns>ApiResponse of AccountDirectoriesRoot</returns>
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<AccountDirectoriesRoot> GetAccountsWithHttpInfo(string path)
         {
@@ -322,7 +322,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get accounts and sub-directories in a directory This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of AccountDirectoriesRoot</returns>
         public async System.Threading.Tasks.Task<AccountDirectoriesRoot> GetAccountsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -335,7 +335,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// Get accounts and sub-directories in a directory This endpoint looks up all ACCT and ACTM files and sub-directories in a given directory.
         /// </summary>
         /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="path">The directory to get the accounts and sub-directories in</param>
+        /// <param name="path">The directory to get the accounts and sub-directories.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of AccountDirectoriesRoot</returns>
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<AccountDirectoriesRoot>> GetAccountsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))

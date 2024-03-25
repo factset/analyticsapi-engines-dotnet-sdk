@@ -39,7 +39,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new AccountsApi(config);
-            var path = path_example;  // string | The directory to get the accounts and sub-directories in (default to "")
+            var path = Client:;  // string | The directory to get the accounts and sub-directories.
 
             try
             {
@@ -62,7 +62,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The directory to get the accounts and sub-directories in | [default to &quot;&quot;]
+ **path** | **string**| The directory to get the accounts and sub-directories. | 
 
 ### Return type
 

@@ -88,7 +88,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="municipalBonds">municipalBonds.</param>
         /// <param name="marketEnvironment">marketEnvironment.</param>
         /// <param name="structuredProducts">structuredProducts.</param>
-        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string), FIBankLoans bankLoans = default(FIBankLoans), FIMunicipalBondsForJobSettings municipalBonds = default(FIMunicipalBondsForJobSettings), FIMarketEnvironment marketEnvironment = default(FIMarketEnvironment), FIStructuredProductsForJobSettings structuredProducts = default(FIStructuredProductsForJobSettings))
+        /// <param name="attribution">attribution.</param>
+        public FIJobSettings(string asOfDate = default(string), List<int> partialDurationMonths = default(List<int>), CallMethodEnum? callMethod = default(CallMethodEnum?), string settlement = default(string), string calcFromMethod = default(string), FIBankLoans bankLoans = default(FIBankLoans), FIMunicipalBondsForJobSettings municipalBonds = default(FIMunicipalBondsForJobSettings), FIMarketEnvironment marketEnvironment = default(FIMarketEnvironment), FIStructuredProductsForJobSettings structuredProducts = default(FIStructuredProductsForJobSettings), FIAttributionForJobSettings attribution = default(FIAttributionForJobSettings))
         {
             // to ensure "asOfDate" is required (not null)
             this.AsOfDate = asOfDate ?? throw new ArgumentNullException("asOfDate is a required property for FIJobSettings and cannot be null");
@@ -100,6 +101,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.MunicipalBonds = municipalBonds;
             this.MarketEnvironment = marketEnvironment;
             this.StructuredProducts = structuredProducts;
+            this.Attribution = attribution;
         }
 
         /// <summary>
@@ -155,6 +157,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public FIStructuredProductsForJobSettings StructuredProducts { get; set; }
 
         /// <summary>
+        /// Gets or Sets Attribution
+        /// </summary>
+        [DataMember(Name = "attribution", EmitDefaultValue = false)]
+        public FIAttributionForJobSettings Attribution { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +179,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  MunicipalBonds: ").Append(MunicipalBonds).Append("\n");
             sb.Append("  MarketEnvironment: ").Append(MarketEnvironment).Append("\n");
             sb.Append("  StructuredProducts: ").Append(StructuredProducts).Append("\n");
+            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -249,6 +258,11 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.StructuredProducts == input.StructuredProducts ||
                     (this.StructuredProducts != null &&
                     this.StructuredProducts.Equals(input.StructuredProducts))
+                ) && 
+                (
+                    this.Attribution == input.Attribution ||
+                    (this.Attribution != null &&
+                    this.Attribution.Equals(input.Attribution))
                 );
         }
 
@@ -278,6 +292,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.MarketEnvironment.GetHashCode();
                 if (this.StructuredProducts != null)
                     hashCode = hashCode * 59 + this.StructuredProducts.GetHashCode();
+                if (this.Attribution != null)
+                    hashCode = hashCode * 59 + this.Attribution.GetHashCode();
                 return hashCode;
             }
         }

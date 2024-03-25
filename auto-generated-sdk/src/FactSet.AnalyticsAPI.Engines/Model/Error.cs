@@ -36,11 +36,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
         /// <param name="id">id.</param>
+        /// <param name="code">code.</param>
+        /// <param name="title">title.</param>
         /// <param name="detail">detail.</param>
         /// <param name="source">source.</param>
-        public Error(string id = default(string), string detail = default(string), ErrorSource source = default(ErrorSource))
+        public Error(string id = default(string), string code = default(string), string title = default(string), string detail = default(string), ErrorSource source = default(ErrorSource))
         {
             this.Id = id;
+            this.Code = code;
+            this.Title = title;
             this.Detail = detail;
             this.Source = source;
         }
@@ -50,6 +54,18 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Code
+        /// </summary>
+        [DataMember(Name = "code", EmitDefaultValue = false)]
+        public string Code { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Title
+        /// </summary>
+        [DataMember(Name = "title", EmitDefaultValue = false)]
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets Detail
@@ -72,6 +88,8 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             var sb = new StringBuilder();
             sb.Append("class Error {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
@@ -114,6 +132,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
                     this.Detail == input.Detail ||
                     (this.Detail != null &&
                     this.Detail.Equals(input.Detail))
@@ -136,6 +164,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Code != null)
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
+                if (this.Title != null)
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Detail != null)
                     hashCode = hashCode * 59 + this.Detail.GetHashCode();
                 if (this.Source != null)

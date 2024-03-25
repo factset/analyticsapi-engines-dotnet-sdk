@@ -42,7 +42,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// </summary>
         /// <param name="data">data (required).</param>
         /// <param name="meta">meta.</param>
-        public CalculationsSummaryRoot(CalculationsSummary data = default(CalculationsSummary), PaginationMeta meta = default(PaginationMeta))
+        public CalculationsSummaryRoot(Dictionary<string, CalculationsSummary> data = default(Dictionary<string, CalculationsSummary>), PaginationMeta meta = default(PaginationMeta))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for CalculationsSummaryRoot and cannot be null");
@@ -53,7 +53,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public CalculationsSummary Data { get; set; }
+        public Dictionary<string, CalculationsSummary> Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Meta
@@ -107,8 +107,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             return 
                 (
                     this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
                     this.Meta == input.Meta ||

@@ -135,13 +135,18 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                         var maxAge = getStatusResponse.Headers["Cache-Control"][0];
                         if (string.IsNullOrWhiteSpace(maxAge))
                         {
-                            Console.WriteLine("Sleeping for 2 seconds");
-                            // Sleep for at least 2 seconds.
-                            Thread.Sleep(2000);
+                            var age = int.TryParse(CommonParameters.Quant_Custom_Max_Age, out int ageValue) ? ageValue : 2;
+                            
+                            Console.WriteLine($"Sleeping for {age} seconds");
+                            Thread.Sleep(age * 1000);
                         }
                         else
                         {
                             var age = int.Parse(maxAge.Replace("max-age=", ""));
+
+                            // setting minimum sleep time to 10 seconds.
+                            age = age <= 10 ? 10 : age;
+
                             Console.WriteLine($"Sleeping for {age} seconds");
                             Thread.Sleep(age * 1000);
                         }

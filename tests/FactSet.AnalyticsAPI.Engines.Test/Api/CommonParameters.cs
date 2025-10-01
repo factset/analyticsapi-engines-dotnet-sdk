@@ -38,5 +38,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public const string DefaultDatesDrequency = "Monthly";
         public const string DefaultDatesAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
         public const string DefaultLookupDirectory = "client:";
+        public static readonly string Quant_Custom_Max_Age = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("QUANT_CUSTOM_MAX_AGE")) 
+            ? Environment.GetEnvironmentVariable("QUANT_CUSTOM_MAX_AGE") : "5";
     }
 }

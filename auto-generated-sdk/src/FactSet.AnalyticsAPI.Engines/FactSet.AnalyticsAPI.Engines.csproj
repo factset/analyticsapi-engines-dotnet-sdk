@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>FactSet.AnalyticsAPI.Engines</AssemblyName>
     <PackageId>FactSet.AnalyticsAPI.Engines</PackageId>
     <OutputType>Library</OutputType>

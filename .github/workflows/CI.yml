@@ -22,13 +22,13 @@ jobs:
       with:         
           ref: feat/snalkari/dotnet_asdk_deprecate
 
-    - name: Install libssl3
-      run: sudo apt-get update && sudo apt-get install -y libssl3
+    # - name: Install libssl3
+    #   run: sudo apt-get update && sudo apt-get install -y libssl3
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '8.0.x' #2.2
+        dotnet-version: 2.2
     
     - name: Build new SDK
       run: cd auto-generated-sdk && dotnet build --configuration Release

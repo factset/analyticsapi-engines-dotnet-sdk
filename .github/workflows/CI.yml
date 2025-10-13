@@ -17,12 +17,9 @@ jobs:
     steps:
     #- uses: actions/checkout@v2
     
-    - name: Check out ${{ github.repository }}
+    - name: Check specific branch
       uses: actions/checkout@v2
-      with:
-          repository: ${{ github.repository }}
-          path: ${{ github.event.repository.name }}
-          fetch-depth: 0
+      with:         
           ref: feat/snalkari/dotnet_asdk_deprecate
 
     - name: Install libssl

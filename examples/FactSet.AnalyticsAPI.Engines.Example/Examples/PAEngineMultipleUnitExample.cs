@@ -137,9 +137,6 @@ namespace FactSet.AnalyticsAPI.Engines.Example.Examples
             var paComponentId = componentsResponse.Data.FirstOrDefault(component => (component.Value.Name == ComponentName && component.Value.Category == ComponentCategory)).Key;
             Console.WriteLine($"PA Component Id : {paComponentId}");
 
-
-            var paAccountIdentifier = new PAIdentifier(Portfolio, Holdings);
-
             var pricingSourcesApi = new PricingSourcesApi(GetApiConfiguration());
 
             var pricingSourcesResponse = pricingSourcesApi.GetPAPricingSources(PricingSourceName, PricingSourceCategory, PricingSourceDirectory);

@@ -274,6 +274,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
+    [Obsolete("This library is deprecated. Please use Esdk's (https://www.nuget.org/packages?q=FactSet.SDK)")]
     public partial class TemplatedPAComponentsApi : ITemplatedPAComponentsApi
     {
         private FactSet.AnalyticsAPI.Engines.Client.ExceptionFactory _exceptionFactory = (name, response) => null;

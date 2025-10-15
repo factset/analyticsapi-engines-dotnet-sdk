@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// CalculationUnitStatusMeta
+    /// Meta of the calculation unit.
     /// </summary>
     [DataContract(Name = "CalculationUnitStatusMeta")]
     public partial class CalculationUnitStatusMeta : IEquatable<CalculationUnitStatusMeta>, IValidatableObject

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Currency
+    /// Details of the currency.
     /// </summary>
     [DataContract(Name = "Currency")]
     public partial class Currency : IEquatable<Currency>, IValidatableObject

@@ -27,26 +27,39 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Meta of calculation units in batch.
+    /// VaultAttributionLoaderResponseRoot
     /// </summary>
-    [DataContract(Name = "CalculationStatusMeta")]
-    public partial class CalculationStatusMeta : IEquatable<CalculationStatusMeta>, IValidatableObject
+    [DataContract(Name = "VaultAttributionLoaderResponseRoot")]
+    public partial class VaultAttributionLoaderResponseRoot : IEquatable<VaultAttributionLoaderResponseRoot>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalculationStatusMeta" /> class.
+        /// Initializes a new instance of the <see cref="VaultAttributionLoaderResponseRoot" /> class.
         /// </summary>
-        /// <param name="units">List of calculation units in batch..</param>
-        public CalculationStatusMeta(Dictionary<string, CalculationUnitStatusMeta> units = default(Dictionary<string, CalculationUnitStatusMeta>))
+        [JsonConstructorAttribute]
+        protected VaultAttributionLoaderResponseRoot() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VaultAttributionLoaderResponseRoot" /> class.
+        /// </summary>
+        /// <param name="data">data (required).</param>
+        /// <param name="meta">meta.</param>
+        public VaultAttributionLoaderResponseRoot(VaultAttributionLoaderResponse data = default(VaultAttributionLoaderResponse), Object meta = default(Object))
         {
-            this.Units = units;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for VaultAttributionLoaderResponseRoot and cannot be null");
+            this.Meta = meta;
         }
 
         /// <summary>
-        /// List of calculation units in batch.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>List of calculation units in batch.</value>
-        [DataMember(Name = "units", EmitDefaultValue = false)]
-        public Dictionary<string, CalculationUnitStatusMeta> Units { get; set; }
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
+        public VaultAttributionLoaderResponse Data { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Meta
+        /// </summary>
+        [DataMember(Name = "meta", EmitDefaultValue = false)]
+        public Object Meta { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,8 +68,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CalculationStatusMeta {\n");
-            sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("class VaultAttributionLoaderResponseRoot {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Meta: ").Append(Meta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,25 +91,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CalculationStatusMeta);
+            return this.Equals(input as VaultAttributionLoaderResponseRoot);
         }
 
         /// <summary>
-        /// Returns true if CalculationStatusMeta instances are equal
+        /// Returns true if VaultAttributionLoaderResponseRoot instances are equal
         /// </summary>
-        /// <param name="input">Instance of CalculationStatusMeta to be compared</param>
+        /// <param name="input">Instance of VaultAttributionLoaderResponseRoot to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CalculationStatusMeta input)
+        public bool Equals(VaultAttributionLoaderResponseRoot input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Units == input.Units ||
-                    this.Units != null &&
-                    input.Units != null &&
-                    this.Units.SequenceEqual(input.Units)
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
+                ) && 
+                (
+                    this.Meta == input.Meta ||
+                    (this.Meta != null &&
+                    this.Meta.Equals(input.Meta))
                 );
         }
 
@@ -108,8 +126,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Units != null)
-                    hashCode = hashCode * 59 + this.Units.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Meta != null)
+                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
                 return hashCode;
             }
         }

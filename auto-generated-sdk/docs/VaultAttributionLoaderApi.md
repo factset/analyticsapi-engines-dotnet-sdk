@@ -1,19 +1,19 @@
-# FactSet.AnalyticsAPI.Engines.Api.DatesApi
+# FactSet.AnalyticsAPI.Engines.Api.VaultAttributionLoaderApi
 
 All URIs are relative to *https://api.factset.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ConvertVaultDatesToAbsoluteFormat**](DatesApi.md#convertvaultdatestoabsoluteformat) | **GET** /analytics/engines/vault/v3/dates | Convert Vault dates to absolute format
+[**VaultAttributionLoader**](VaultAttributionLoaderApi.md#vaultattributionloader) | **POST** /analytics/engines/vault/v3/load/{batchId} | Vault - External Attribution Loader
 
 
-<a name="convertvaultdatestoabsoluteformat"></a>
-# **ConvertVaultDatesToAbsoluteFormat**
-> DateParametersSummaryRoot ConvertVaultDatesToAbsoluteFormat (string enddate, string componentid, string account, string startdate = null)
+<a name="vaultattributionloader"></a>
+# **VaultAttributionLoader**
+> VaultAttributionLoaderResponseRoot VaultAttributionLoader (string batchId, System.IO.Stream file = null)
 
-Convert Vault dates to absolute format
+Vault - External Attribution Loader
 
-This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a Vault calculation. For more information on FactSet date format, please refer to the Vault API documentation under the 'API Documentation' section in the developer portal.
+This endpoint loads Vault External Attributions.
 
 ### Example
 ```csharp
@@ -25,7 +25,7 @@ using FactSet.AnalyticsAPI.Engines.Model;
 
 namespace Example
 {
-    public class ConvertVaultDatesToAbsoluteFormatExample
+    public class VaultAttributionLoaderExample
     {
         public static void Main()
         {
@@ -37,21 +37,19 @@ namespace Example
             // Configure Bearer token for authorization: Bearer
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
-            var apiInstance = new DatesApi(config);
-            var enddate = enddate_example;  // string | End Date
-            var componentid = componentid_example;  // string | Vault Component Id
-            var account = account_example;  // string | Account
-            var startdate = startdate_example;  // string | Start Date (optional) 
+            var apiInstance = new VaultAttributionLoaderApi(config);
+            var batchId = batchId_example;  // string | 
+            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
 
             try
             {
-                // Convert Vault dates to absolute format
-                DateParametersSummaryRoot result = apiInstance.ConvertVaultDatesToAbsoluteFormat(enddate, componentid, account, startdate);
+                // Vault - External Attribution Loader
+                VaultAttributionLoaderResponseRoot result = apiInstance.VaultAttributionLoader(batchId, file);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling DatesApi.ConvertVaultDatesToAbsoluteFormat: " + e.Message );
+                Debug.Print("Exception when calling VaultAttributionLoaderApi.VaultAttributionLoader: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -64,14 +62,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enddate** | **string**| End Date | 
- **componentid** | **string**| Vault Component Id | 
- **account** | **string**| Account | 
- **startdate** | **string**| Start Date | [optional] 
+ **batchId** | **string**|  | 
+ **file** | **System.IO.Stream****System.IO.Stream**|  | [optional] 
 
 ### Return type
 
-[**DateParametersSummaryRoot**](DateParametersSummaryRoot.md)
+[**VaultAttributionLoaderResponseRoot**](VaultAttributionLoaderResponseRoot.md)
 
 ### Authorization
 
@@ -79,16 +75,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Expected response, returns the converted dates in yyyymmdd format. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
-| **400** | Invalid query parameter or value is provided. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
-| **404** | vault Document or account not found. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **200** | Expected response, returns a status of operation along with errors and warnings if found any. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
+| **400** | Bad Request |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **401** | Missing or invalid authentication. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  |
 | **403** | User is forbidden with current credentials |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |
 | **406** | Unsupported Accept header. Header needs to be set to application/json. |  * X-DataDirect-Request-Key - FactSet&#39;s request key header. <br>  * X-FactSet-Api-Request-Key - Key to uniquely identify an Analytics API request. Only available after successful authentication. <br>  * X-FactSet-Api-RateLimit-Limit - Number of allowed requests for the time window. <br>  * X-FactSet-Api-RateLimit-Remaining - Number of requests left for the time window. <br>  * X-FactSet-Api-RateLimit-Reset - Number of seconds remaining till rate limit resets. <br>  |

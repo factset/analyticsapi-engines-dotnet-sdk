@@ -39,7 +39,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ConfigurationsApi(config);
-            var id = id_example;  // string | Vault configuration id to get the details of
+            var id = e95ef921-b4d4-4bb7-93ba-60eca8e3247a;  // string | Vault configuration id to get the details of
 
             try
             {
@@ -124,7 +124,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ConfigurationsApi(config);
-            var account = account_example;  // string | Required account query parameter to filter configurations for a specific account
+            var account = CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT;  // string | Required account query parameter to filter configurations for a specific account
 
             try
             {

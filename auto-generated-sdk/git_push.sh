@@ -24,7 +24,7 @@ if [ "$git_repo_id" = "" ]; then
 fi
 
 if [ "$release_note" = "" ]; then
-    release_note="Refer to Changelog on GitHub source repository"
+    release_note="This library is no longer maintained. Please use https://www.nuget.org/packages?q=FactSet.SDK instead."
     echo "[INFO] No command line input provided. Set \$release_note to $release_note"
 fi
 

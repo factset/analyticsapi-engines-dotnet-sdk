@@ -1,4 +1,5 @@
 # FactSet.AnalyticsAPI.Engines.Model.AccountDirectories
+List of the accounts and directories.
 
 ## Properties
 

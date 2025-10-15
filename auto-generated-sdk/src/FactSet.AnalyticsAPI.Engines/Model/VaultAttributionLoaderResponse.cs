@@ -27,26 +27,44 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Meta of calculation units in batch.
+    /// VaultAttributionLoaderResponse
     /// </summary>
-    [DataContract(Name = "CalculationStatusMeta")]
-    public partial class CalculationStatusMeta : IEquatable<CalculationStatusMeta>, IValidatableObject
+    [DataContract(Name = "VaultAttributionLoaderResponse")]
+    public partial class VaultAttributionLoaderResponse : IEquatable<VaultAttributionLoaderResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CalculationStatusMeta" /> class.
+        /// Initializes a new instance of the <see cref="VaultAttributionLoaderResponse" /> class.
         /// </summary>
-        /// <param name="units">List of calculation units in batch..</param>
-        public CalculationStatusMeta(Dictionary<string, CalculationUnitStatusMeta> units = default(Dictionary<string, CalculationUnitStatusMeta>))
+        /// <param name="processId">ProcessId..</param>
+        /// <param name="groupId">GroupId..</param>
+        /// <param name="objectId">ObjectId..</param>
+        public VaultAttributionLoaderResponse(string processId = default(string), string groupId = default(string), string objectId = default(string))
         {
-            this.Units = units;
+            this.ProcessId = processId;
+            this.GroupId = groupId;
+            this.ObjectId = objectId;
         }
 
         /// <summary>
-        /// List of calculation units in batch.
+        /// ProcessId.
         /// </summary>
-        /// <value>List of calculation units in batch.</value>
-        [DataMember(Name = "units", EmitDefaultValue = false)]
-        public Dictionary<string, CalculationUnitStatusMeta> Units { get; set; }
+        /// <value>ProcessId.</value>
+        [DataMember(Name = "processId", EmitDefaultValue = false)]
+        public string ProcessId { get; set; }
+
+        /// <summary>
+        /// GroupId.
+        /// </summary>
+        /// <value>GroupId.</value>
+        [DataMember(Name = "groupId", EmitDefaultValue = false)]
+        public string GroupId { get; set; }
+
+        /// <summary>
+        /// ObjectId.
+        /// </summary>
+        /// <value>ObjectId.</value>
+        [DataMember(Name = "objectId", EmitDefaultValue = false)]
+        public string ObjectId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,8 +73,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CalculationStatusMeta {\n");
-            sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("class VaultAttributionLoaderResponse {\n");
+            sb.Append("  ProcessId: ").Append(ProcessId).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,25 +97,34 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CalculationStatusMeta);
+            return this.Equals(input as VaultAttributionLoaderResponse);
         }
 
         /// <summary>
-        /// Returns true if CalculationStatusMeta instances are equal
+        /// Returns true if VaultAttributionLoaderResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of CalculationStatusMeta to be compared</param>
+        /// <param name="input">Instance of VaultAttributionLoaderResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CalculationStatusMeta input)
+        public bool Equals(VaultAttributionLoaderResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Units == input.Units ||
-                    this.Units != null &&
-                    input.Units != null &&
-                    this.Units.SequenceEqual(input.Units)
+                    this.ProcessId == input.ProcessId ||
+                    (this.ProcessId != null &&
+                    this.ProcessId.Equals(input.ProcessId))
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.ObjectId == input.ObjectId ||
+                    (this.ObjectId != null &&
+                    this.ObjectId.Equals(input.ObjectId))
                 );
         }
 
@@ -108,8 +137,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Units != null)
-                    hashCode = hashCode * 59 + this.Units.GetHashCode();
+                if (this.ProcessId != null)
+                    hashCode = hashCode * 59 + this.ProcessId.GetHashCode();
+                if (this.GroupId != null)
+                    hashCode = hashCode * 59 + this.GroupId.GetHashCode();
+                if (this.ObjectId != null)
+                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
                 return hashCode;
             }
         }

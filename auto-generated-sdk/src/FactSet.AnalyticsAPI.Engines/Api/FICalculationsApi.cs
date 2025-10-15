@@ -494,9 +494,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
+                "application/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -571,9 +569,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "text/plain",
-                "application/json",
-                "text/json"
+                "application/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>

@@ -28,6 +28,33 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Convert PA dates to absolute format
+        /// </summary>
+        /// <remarks>
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <returns>DateParametersSummaryRoot</returns>
+        DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat(string enddate, string componentid, string account, string startdate = default(string));
+
+        /// <summary>
+        /// Convert PA dates to absolute format
+        /// </summary>
+        /// <remarks>
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <returns>ApiResponse of DateParametersSummaryRoot</returns>
+        ApiResponse<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string));
+        /// <summary>
         /// Convert Vault dates to absolute format
         /// </summary>
         /// <remarks>
@@ -63,6 +90,35 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     public interface IDatesApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Convert PA dates to absolute format
+        /// </summary>
+        /// <remarks>
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DateParametersSummaryRoot</returns>
+        System.Threading.Tasks.Task<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Convert PA dates to absolute format
+        /// </summary>
+        /// <remarks>
+        /// This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<DateParametersSummaryRoot>> ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Convert Vault dates to absolute format
         /// </summary>
@@ -210,6 +266,198 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <returns>DateParametersSummaryRoot</returns>
+        public DateParametersSummaryRoot ConvertPADatesToAbsoluteFormat(string enddate, string componentid, string account, string startdate = default(string))
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot> localVarResponse = ConvertPADatesToAbsoluteFormatWithHttpInfo(enddate, componentid, account, startdate);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <returns>ApiResponse of DateParametersSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatWithHttpInfo(string enddate, string componentid, string account, string startdate = default(string))
+        {
+            // verify the required parameter 'enddate' is set
+            if (enddate == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'enddate' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+
+            // verify the required parameter 'componentid' is set
+            if (componentid == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'componentid' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+
+            // verify the required parameter 'account' is set
+            if (account == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'account' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DateParametersSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (startdate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate));
+            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account));
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<DateParametersSummaryRoot>("/analytics/engines/pa/v3/dates", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConvertPADatesToAbsoluteFormat", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DateParametersSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<DateParametersSummaryRoot> ConvertPADatesToAbsoluteFormatAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot> localVarResponse = await ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(enddate, componentid, account, startdate, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Convert PA dates to absolute format This endpoint converts the given start and end dates in FactSet date format to yyyymmdd format for a PA calculation. For more information on FactSet date format, please refer to the PA Engine API documentation under the &#39;API Documentation&#39; section in the developer portal.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="enddate">End Date</param>
+        /// <param name="componentid">Component Id</param>
+        /// <param name="account">Account ( Account Name ending with .ACCT or .ACTM )</param>
+        /// <param name="startdate">Start Date (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of DateParametersSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DateParametersSummaryRoot>> ConvertPADatesToAbsoluteFormatWithHttpInfoAsync(string enddate, string componentid, string account, string startdate = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'enddate' is set
+            if (enddate == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'enddate' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+
+            // verify the required parameter 'componentid' is set
+            if (componentid == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'componentid' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+
+            // verify the required parameter 'account' is set
+            if (account == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'account' when calling DatesApi->ConvertPADatesToAbsoluteFormat");
+
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DateParametersSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (startdate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "startdate", startdate));
+            }
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "enddate", enddate));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "componentid", componentid));
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "account", account));
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DateParametersSummaryRoot>("/analytics/engines/pa/v3/dates", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ConvertPADatesToAbsoluteFormat", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

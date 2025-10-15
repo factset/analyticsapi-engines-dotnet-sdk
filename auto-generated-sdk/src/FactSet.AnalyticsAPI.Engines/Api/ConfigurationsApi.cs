@@ -28,6 +28,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get PA commentary configurations in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns all PA commentary configurations in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <returns>PACommentaryConfigurationSummaryRoot</returns>
+        PACommentaryConfigurationSummaryRoot GetPACommentaryConfigurations(string path);
+
+        /// <summary>
+        /// Get PA commentary configurations in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns all PA commentary configurations in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <returns>ApiResponse of PACommentaryConfigurationSummaryRoot</returns>
+        ApiResponse<PACommentaryConfigurationSummaryRoot> GetPACommentaryConfigurationsWithHttpInfo(string path);
+        /// <summary>
         /// Get Vault configuration by id
         /// </summary>
         /// <remarks>
@@ -78,6 +99,29 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     public interface IConfigurationsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Get PA commentary configurations in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns all PA commentary configurations in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PACommentaryConfigurationSummaryRoot</returns>
+        System.Threading.Tasks.Task<PACommentaryConfigurationSummaryRoot> GetPACommentaryConfigurationsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get PA commentary configurations in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint returns all PA commentary configurations in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of PACommentaryConfigurationSummaryRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<PACommentaryConfigurationSummaryRoot>> GetPACommentaryConfigurationsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Vault configuration by id
         /// </summary>
@@ -242,6 +286,156 @@ namespace FactSet.AnalyticsAPI.Engines.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Get PA commentary configurations in a directory This endpoint returns all PA commentary configurations in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <returns>PACommentaryConfigurationSummaryRoot</returns>
+        public PACommentaryConfigurationSummaryRoot GetPACommentaryConfigurations(string path)
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PACommentaryConfigurationSummaryRoot> localVarResponse = GetPACommentaryConfigurationsWithHttpInfo(path);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get PA commentary configurations in a directory This endpoint returns all PA commentary configurations in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <returns>ApiResponse of PACommentaryConfigurationSummaryRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PACommentaryConfigurationSummaryRoot> GetPACommentaryConfigurationsWithHttpInfo(string path)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'path' when calling ConfigurationsApi->GetPACommentaryConfigurations");
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(PACommentaryConfigurationSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "path", path));
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<PACommentaryConfigurationSummaryRoot>("/analytics/engines/pa/v3/commentary/configurations", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPACommentaryConfigurations", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get PA commentary configurations in a directory This endpoint returns all PA commentary configurations in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PACommentaryConfigurationSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<PACommentaryConfigurationSummaryRoot> GetPACommentaryConfigurationsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PACommentaryConfigurationSummaryRoot> localVarResponse = await GetPACommentaryConfigurationsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get PA commentary configurations in a directory This endpoint returns all PA commentary configurations in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the PA commentary configurations</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of PACommentaryConfigurationSummaryRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<PACommentaryConfigurationSummaryRoot>> GetPACommentaryConfigurationsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'path' when calling ConfigurationsApi->GetPACommentaryConfigurations");
+
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(PACommentaryConfigurationSummaryRoot) },
+                { 400, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToMultiMap("", "path", path));
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PACommentaryConfigurationSummaryRoot>("/analytics/engines/pa/v3/commentary/configurations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPACommentaryConfigurations", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

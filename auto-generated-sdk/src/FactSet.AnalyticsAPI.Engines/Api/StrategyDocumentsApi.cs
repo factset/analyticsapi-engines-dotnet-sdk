@@ -91,6 +91,27 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <returns>ApiResponse of DocumentDirectoriesRoot</returns>
         ApiResponse<DocumentDirectoriesRoot> GetBarraStrategyDocumentsWithHttpInfo(string path);
         /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <returns>DocumentDirectoriesRoot</returns>
+        DocumentDirectoriesRoot GetFPOStrategyDocuments(string path);
+
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <returns>ApiResponse of DocumentDirectoriesRoot</returns>
+        ApiResponse<DocumentDirectoriesRoot> GetFPOStrategyDocumentsWithHttpInfo(string path);
+        /// <summary>
         /// Get Northfield strategy documents and sub-directories in a directory
         /// </summary>
         /// <remarks>
@@ -189,6 +210,29 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
         System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetBarraStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DocumentDirectoriesRoot</returns>
+        System.Threading.Tasks.Task<DocumentDirectoriesRoot> GetFPOStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory
+        /// </summary>
+        /// <remarks>
+        /// This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </remarks>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
+        System.Threading.Tasks.Task<ApiResponse<DocumentDirectoriesRoot>> GetFPOStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Northfield strategy documents and sub-directories in a directory
         /// </summary>
@@ -782,6 +826,158 @@ namespace FactSet.AnalyticsAPI.Engines.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBarraStrategyDocuments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <returns>DocumentDirectoriesRoot</returns>
+        public DocumentDirectoriesRoot GetFPOStrategyDocuments(string path)
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot> localVarResponse = GetFPOStrategyDocumentsWithHttpInfo(path);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <returns>ApiResponse of DocumentDirectoriesRoot</returns>
+        public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot> GetFPOStrategyDocumentsWithHttpInfo(string path)
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'path' when calling StrategyDocumentsApi->GetFPOStrategyDocuments");
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<DocumentDirectoriesRoot>("/analytics/engines/fpo/v3/strategies/{path}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFPOStrategyDocuments", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DocumentDirectoriesRoot</returns>
+        public async System.Threading.Tasks.Task<DocumentDirectoriesRoot> GetFPOStrategyDocumentsAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot> localVarResponse = await GetFPOStrategyDocumentsWithHttpInfoAsync(path, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get FactSet Portfolio Optimizer strategy documents and sub-directories in a directory This endpoint looks up all FactSet Portfolio Optimizer strategy documents and sub-directories in a given directory.
+        /// </summary>
+        /// <exception cref="FactSet.AnalyticsAPI.Engines.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">The directory to get the strategy documents and sub-directories in</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of DocumentDirectoriesRoot</returns>
+        public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<DocumentDirectoriesRoot>> GetFPOStrategyDocumentsWithHttpInfoAsync(string path, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'path' is set
+            if (path == null)
+                throw new FactSet.AnalyticsAPI.Engines.Client.ApiException(400, "Missing required parameter 'path' when calling StrategyDocumentsApi->GetFPOStrategyDocuments");
+
+
+            FactSet.AnalyticsAPI.Engines.Client.RequestOptions localVarRequestOptions = new FactSet.AnalyticsAPI.Engines.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
+            {
+                { 200, typeof(DocumentDirectoriesRoot) },
+                { 400, typeof(ClientErrorResponse) },
+                { 404, typeof(ClientErrorResponse) },
+            };
+
+            var localVarContentType = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = FactSet.AnalyticsAPI.Engines.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("path", FactSet.AnalyticsAPI.Engines.Client.ClientUtils.ParameterToString(path)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + FactSet.AnalyticsAPI.Engines.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<DocumentDirectoriesRoot>("/analytics/engines/fpo/v3/strategies/{path}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetFPOStrategyDocuments", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

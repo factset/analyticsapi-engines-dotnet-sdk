@@ -14,7 +14,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         // Add 'ANALYTICS_API_URL' environment variable with api url as value
         public static readonly string BaseUrl = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ANALYTICS_API_URL")) ? Environment.GetEnvironmentVariable("ANALYTICS_API_URL") : "https://api.factset.com";
 
-        public const string PADefaultDocument = "PA_DOCUMENTS:DEFAULT";
+        public const string PADefaultDocument = "PA3_DOCUMENTS:PA_API_DEFAULT_DOCUMENT-RBICS";
         public const string PADefaultComponentName = "Weights";
         public const string PADefaultComponentCategory = "Weights / Exposures";
         public const string PABenchmarkSP50  = "BENCH:SP50";
@@ -25,11 +25,11 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public const string SPARBenchmarkRussellPR1000 = "RUSSELL_P:R.2000";
         public const string SPARBenchmarkRussellPrefix = "RUSSELL";
         public const string SPARBenchmarkRussellReturnType = "GTR";
-        public const string VaultDefaultDocument = "Client:/aapi/VAULT_QA_PI_DEFAULT_LOCKED";
-        public const string VaultDefaultAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
-        public const string VaultStartDate = "20180101";
-        public const string VaultEndDate = "20180329";
-        public const string PubDocumentName = "Client:/AAPI/Puma Test Doc.PUB_BRIDGE_PDF";
+        public const string VaultDefaultDocument = "CLIENT:/YETI/YETI-API-TEST";
+        public const string VaultDefaultAccount = "CLIENT:/YETI/YETI-API-TEST.ACCT";
+        public const string VaultStartDate = "20211231";
+        public const string VaultEndDate = "20220131";
+        public const string PubDocumentName = "Client:/AAPI/Puma Narrative Test.PUB_BRIDGE_PDF";
         public const string PubAccountName = "BENCH:SP50";
         public const string PubStartDate = "-1M";
         public const string PubEndDate = "0M";
@@ -38,5 +38,6 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         public const string DefaultDatesDrequency = "Monthly";
         public const string DefaultDatesAccount = "CLIENT:/BISAM/REPOSITORY/QA/SMALL_PORT.ACCT";
         public const string DefaultLookupDirectory = "client:";
+        public const string SPARAccount = "client:/aapi/spar3_qa_test_document";
     }
 }

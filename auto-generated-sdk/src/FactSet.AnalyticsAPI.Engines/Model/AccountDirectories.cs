@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// List of the accounts and directories.
+    /// AccountDirectories
     /// </summary>
     [DataContract(Name = "AccountDirectories")]
     public partial class AccountDirectories : IEquatable<AccountDirectories>, IValidatableObject

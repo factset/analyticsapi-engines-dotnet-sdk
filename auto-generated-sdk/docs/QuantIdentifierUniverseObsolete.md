@@ -1,11 +1,12 @@
-# FactSet.AnalyticsAPI.Engines.Model.PACommentaryStatusRoot
+# FactSet.AnalyticsAPI.Engines.Model.QuantIdentifierUniverseObsolete
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**PACommentaryStatus**](PACommentaryStatus.md) |  | 
-**Meta** | **Object** |  | [optional] 
+**UniverseType** | **string** |  | 
+**Identifiers** | **List&lt;string&gt;** |  | 
+**Source** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

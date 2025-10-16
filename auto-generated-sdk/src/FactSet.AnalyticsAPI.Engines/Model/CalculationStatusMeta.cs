@@ -27,7 +27,7 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Meta of calculation units in batch.
+    /// CalculationStatusMeta
     /// </summary>
     [DataContract(Name = "CalculationStatusMeta")]
     public partial class CalculationStatusMeta : IEquatable<CalculationStatusMeta>, IValidatableObject
@@ -35,16 +35,16 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CalculationStatusMeta" /> class.
         /// </summary>
-        /// <param name="units">List of calculation units in batch..</param>
+        /// <param name="units">Meta of calculation units in batch..</param>
         public CalculationStatusMeta(Dictionary<string, CalculationUnitStatusMeta> units = default(Dictionary<string, CalculationUnitStatusMeta>))
         {
             this.Units = units;
         }
 
         /// <summary>
-        /// List of calculation units in batch.
+        /// Meta of calculation units in batch.
         /// </summary>
-        /// <value>List of calculation units in batch.</value>
+        /// <value>Meta of calculation units in batch.</value>
         [DataMember(Name = "units", EmitDefaultValue = false)]
         public Dictionary<string, CalculationUnitStatusMeta> Units { get; set; }
 

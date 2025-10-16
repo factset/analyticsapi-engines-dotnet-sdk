@@ -144,9 +144,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
         /// <returns>File for 201 status</returns>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         object PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot));
 
@@ -160,9 +160,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>ApiResponse of File for 201 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         ApiResponse<object> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot));
         /// <summary>
@@ -176,9 +176,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
         /// <returns>File for 201 status</returns>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         object PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot));
 
@@ -193,9 +193,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>ApiResponse of File for 201 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         ApiResponse<object> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot));
         #endregion Synchronous Operations
@@ -335,9 +335,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of File for 201 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<object> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -352,9 +352,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of ApiResponse of File for 201 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
@@ -369,9 +369,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of File for 201 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -387,9 +387,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of ApiResponse of File for 201 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         System.Threading.Tasks.Task<ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
@@ -542,7 +542,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json"
+                "text/plain",
+                "application/json",
+                "text/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -617,7 +619,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json"
+                "text/plain",
+                "application/json",
+                "text/json"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1153,9 +1157,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/pdf",
-                "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-                "application/json"
+                "application/json",
+                "application/x-protobuf",
+                "application/pdf"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1239,9 +1243,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/pdf",
-                "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-                "application/json"
+                "application/json",
+                "application/x-protobuf",
+                "application/pdf"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
@@ -1293,9 +1297,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
         /// <returns>File for 201 status</returns>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         public object PostAndCalculate(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot))
         {
@@ -1310,9 +1314,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the POST body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>ApiResponse of File for 201 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PostAndCalculateWithHttpInfo(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot))
         {
@@ -1324,16 +1328,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
                 "application/pdf",
                 "application/vnd.openxmlformats-officedocument.presentationml.presentation"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
+                { 202, typeof(CalculationStatusRoot) },
                 { 200, typeof(CalculationStatusRoot) },
                 { 201, typeof(System.IO.Stream) },
-                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1387,9 +1390,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of File for 201 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<object> PostAndCalculateAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1405,9 +1408,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of ApiResponse of File for 201 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PostAndCalculateWithHttpInfoAsync(int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1420,16 +1423,15 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
                 "application/pdf",
                 "application/vnd.openxmlformats-officedocument.presentationml.presentation"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
+                { 202, typeof(CalculationStatusRoot) },
                 { 200, typeof(CalculationStatusRoot) },
                 { 201, typeof(System.IO.Stream) },
-                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
             };
@@ -1484,9 +1486,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>CalculationStatusRoot for 202 status</returns>
         /// <returns>CalculationStatusRoot for 200 status</returns>
         /// <returns>File for 201 status</returns>
-        /// <returns>CalculationStatusRoot for 202 status</returns>
         
         public object PutAndCalculate(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot))
         {
@@ -1502,9 +1504,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="xFactSetApiLongRunningDeadline">Long running deadline in seconds when only one unit is passed in the PUT body. Example value is set to 10s. Please update it as per requirement before triggering a calculation. (optional)</param>
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
+        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>ApiResponse of File for 201 status</returns>
-        /// <returns>ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object> PutAndCalculateWithHttpInfo(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot))
         {
@@ -1520,16 +1522,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
-                "application/pdf",
-                "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+                "application/pdf"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
+                { 202, typeof(CalculationStatusRoot) },
                 { 200, typeof(CalculationStatusRoot) },
                 { 201, typeof(System.IO.Stream) },
-                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
                 { 409, typeof(ClientErrorResponse) },
@@ -1586,9 +1586,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of File for 201 status</returns>
-        /// <returns>Task of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<object> PutAndCalculateAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1605,9 +1605,9 @@ namespace FactSet.AnalyticsAPI.Engines.Api
         /// <param name="cacheControl">Standard HTTP header.  Accepts max-stale. (optional)</param>
         /// <param name="pubCalculationParametersRoot">Calculation Parameters (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         /// <returns>Task of ApiResponse of CalculationStatusRoot for 200 status</returns>
         /// <returns>Task of ApiResponse of File for 201 status</returns>
-        /// <returns>Task of ApiResponse of CalculationStatusRoot for 202 status</returns>
         
         public async System.Threading.Tasks.Task<FactSet.AnalyticsAPI.Engines.Client.ApiResponse<object>> PutAndCalculateWithHttpInfoAsync(string id, int? xFactSetApiLongRunningDeadline = default(int?), string cacheControl = default(string), PubCalculationParametersRoot pubCalculationParametersRoot = default(PubCalculationParametersRoot), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
@@ -1624,16 +1624,14 @@ namespace FactSet.AnalyticsAPI.Engines.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json",
-                "application/pdf",
-                "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+                "application/pdf"
             };
 
             localVarRequestOptions.ResponseReturnTypes = new Dictionary<int, Type>
             {
+                { 202, typeof(CalculationStatusRoot) },
                 { 200, typeof(CalculationStatusRoot) },
                 { 201, typeof(System.IO.Stream) },
-                { 202, typeof(CalculationStatusRoot) },
                 { 400, typeof(ClientErrorResponse) },
                 { 404, typeof(ClientErrorResponse) },
                 { 409, typeof(ClientErrorResponse) },

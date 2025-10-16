@@ -1,5 +1,4 @@
 # FactSet.AnalyticsAPI.Engines.Model.CalculationUnitStatusMeta
-Meta of the calculation unit.
 
 ## Properties
 

@@ -1,11 +1,14 @@
-# FactSet.AnalyticsAPI.Engines.Model.PACommentaryRoot
+# FactSet.AnalyticsAPI.Engines.Model.QuantFdsDateObsolete
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**PACommentary**](PACommentary.md) |  | 
-**Meta** | **Object** |  | [optional] 
+**StartDate** | **string** |  | 
+**EndDate** | **string** |  | 
+**Frequency** | **string** |  | 
+**Calendar** | **string** |  | 
+**OverrideUniversalScreenCalendar** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

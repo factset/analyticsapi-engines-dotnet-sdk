@@ -1,11 +1,13 @@
-# FactSet.AnalyticsAPI.Engines.Model.VaultAttributionLoaderResponseRoot
+# FactSet.AnalyticsAPI.Engines.Model.QuantScreeningExpressionUniverseObsolete
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**VaultAttributionLoaderResponse**](VaultAttributionLoaderResponse.md) |  | 
-**Meta** | **Object** |  | [optional] 
+**UniverseExpr** | **string** |  | 
+**UniverseType** | **string** |  | 
+**SecurityExpr** | **string** |  | [optional] 
+**Source** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

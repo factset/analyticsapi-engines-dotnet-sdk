@@ -43,8 +43,7 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <param name="startdate">Calculation&#39;s start date. (required).</param>
         /// <param name="enddate">Calculation&#39;s end date. (required).</param>
         /// <param name="frequency">Calculation&#39;s frequency. (required).</param>
-        /// <param name="useeachportfolioinception">Use Each Portfolio Inception.</param>
-        public SPARDateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string), bool useeachportfolioinception = default(bool))
+        public SPARDateParameters(string startdate = default(string), string enddate = default(string), string frequency = default(string))
         {
             // to ensure "startdate" is required (not null)
             this.Startdate = startdate ?? throw new ArgumentNullException("startdate is a required property for SPARDateParameters and cannot be null");
@@ -52,7 +51,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             this.Enddate = enddate ?? throw new ArgumentNullException("enddate is a required property for SPARDateParameters and cannot be null");
             // to ensure "frequency" is required (not null)
             this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for SPARDateParameters and cannot be null");
-            this.Useeachportfolioinception = useeachportfolioinception;
         }
 
         /// <summary>
@@ -77,13 +75,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public string Frequency { get; set; }
 
         /// <summary>
-        /// Use Each Portfolio Inception
-        /// </summary>
-        /// <value>Use Each Portfolio Inception</value>
-        [DataMember(Name = "useeachportfolioinception", EmitDefaultValue = false)]
-        public bool Useeachportfolioinception { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,7 +85,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             sb.Append("  Startdate: ").Append(Startdate).Append("\n");
             sb.Append("  Enddate: ").Append(Enddate).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
-            sb.Append("  Useeachportfolioinception: ").Append(Useeachportfolioinception).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,10 +133,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Frequency == input.Frequency ||
                     (this.Frequency != null &&
                     this.Frequency.Equals(input.Frequency))
-                ) && 
-                (
-                    this.Useeachportfolioinception == input.Useeachportfolioinception ||
-                    this.Useeachportfolioinception.Equals(input.Useeachportfolioinception)
                 );
         }
 
@@ -165,7 +151,6 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     hashCode = hashCode * 59 + this.Enddate.GetHashCode();
                 if (this.Frequency != null)
                     hashCode = hashCode * 59 + this.Frequency.GetHashCode();
-                hashCode = hashCode * 59 + this.Useeachportfolioinception.GetHashCode();
                 return hashCode;
             }
         }

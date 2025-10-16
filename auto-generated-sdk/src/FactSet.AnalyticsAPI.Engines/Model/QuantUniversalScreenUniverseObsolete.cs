@@ -27,64 +27,64 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// PACommentaryGetStatus
+    /// QuantUniversalScreenUniverseObsolete
     /// </summary>
-    [DataContract(Name = "PACommentaryGetStatus")]
-    public partial class PACommentaryGetStatus : IEquatable<PACommentaryGetStatus>, IValidatableObject
+    [DataContract(Name = "QuantUniversalScreenUniverseObsolete")]
+    public partial class QuantUniversalScreenUniverseObsolete : IEquatable<QuantUniversalScreenUniverseObsolete>, IValidatableObject
     {
         /// <summary>
-        /// The status of commentary generation.
+        /// Defines Source
         /// </summary>
-        /// <value>The status of commentary generation.</value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum StatusEnum
+        public enum SourceEnum
         {
             /// <summary>
-            /// Enum Executing for value: Executing
+            /// Enum ScreeningExpressionUniverse for value: ScreeningExpressionUniverse
             /// </summary>
-            [EnumMember(Value = "Executing")]
-            Executing = 1,
+            [EnumMember(Value = "ScreeningExpressionUniverse")]
+            ScreeningExpressionUniverse = 1,
 
             /// <summary>
-            /// Enum Success for value: Success
+            /// Enum UniversalScreenUniverse for value: UniversalScreenUniverse
             /// </summary>
-            [EnumMember(Value = "Success")]
-            Success = 2
+            [EnumMember(Value = "UniversalScreenUniverse")]
+            UniversalScreenUniverse = 2,
+
+            /// <summary>
+            /// Enum IdentifierUniverse for value: IdentifierUniverse
+            /// </summary>
+            [EnumMember(Value = "IdentifierUniverse")]
+            IdentifierUniverse = 3
 
         }
 
         /// <summary>
-        /// The status of commentary generation.
+        /// Gets or Sets Source
         /// </summary>
-        /// <value>The status of commentary generation.</value>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public StatusEnum? Status { get; set; }
+        [DataMember(Name = "source", EmitDefaultValue = false)]
+        public SourceEnum? Source { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PACommentaryGetStatus" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverseObsolete" /> class.
         /// </summary>
-        /// <param name="calculationid">Calculation id..</param>
-        /// <param name="unitid">Calculation unit id..</param>
-        /// <param name="status">The status of commentary generation..</param>
-        public PACommentaryGetStatus(string calculationid = default(string), string unitid = default(string), StatusEnum? status = default(StatusEnum?))
+        [JsonConstructorAttribute]
+        protected QuantUniversalScreenUniverseObsolete() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenUniverseObsolete" /> class.
+        /// </summary>
+        /// <param name="screen">screen (required).</param>
+        /// <param name="source">source.</param>
+        public QuantUniversalScreenUniverseObsolete(string screen = default(string), SourceEnum? source = default(SourceEnum?))
         {
-            this.Calculationid = calculationid;
-            this.Unitid = unitid;
-            this.Status = status;
+            // to ensure "screen" is required (not null)
+            this.Screen = screen ?? throw new ArgumentNullException("screen is a required property for QuantUniversalScreenUniverseObsolete and cannot be null");
+            this.Source = source;
         }
 
         /// <summary>
-        /// Calculation id.
+        /// Gets or Sets Screen
         /// </summary>
-        /// <value>Calculation id.</value>
-        [DataMember(Name = "calculationid", EmitDefaultValue = false)]
-        public string Calculationid { get; set; }
-
-        /// <summary>
-        /// Calculation unit id.
-        /// </summary>
-        /// <value>Calculation unit id.</value>
-        [DataMember(Name = "unitid", EmitDefaultValue = false)]
-        public string Unitid { get; set; }
+        [DataMember(Name = "screen", IsRequired = true, EmitDefaultValue = false)]
+        public string Screen { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,10 +93,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PACommentaryGetStatus {\n");
-            sb.Append("  Calculationid: ").Append(Calculationid).Append("\n");
-            sb.Append("  Unitid: ").Append(Unitid).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("class QuantUniversalScreenUniverseObsolete {\n");
+            sb.Append("  Screen: ").Append(Screen).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -117,33 +116,28 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PACommentaryGetStatus);
+            return this.Equals(input as QuantUniversalScreenUniverseObsolete);
         }
 
         /// <summary>
-        /// Returns true if PACommentaryGetStatus instances are equal
+        /// Returns true if QuantUniversalScreenUniverseObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of PACommentaryGetStatus to be compared</param>
+        /// <param name="input">Instance of QuantUniversalScreenUniverseObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PACommentaryGetStatus input)
+        public bool Equals(QuantUniversalScreenUniverseObsolete input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Calculationid == input.Calculationid ||
-                    (this.Calculationid != null &&
-                    this.Calculationid.Equals(input.Calculationid))
+                    this.Screen == input.Screen ||
+                    (this.Screen != null &&
+                    this.Screen.Equals(input.Screen))
                 ) && 
                 (
-                    this.Unitid == input.Unitid ||
-                    (this.Unitid != null &&
-                    this.Unitid.Equals(input.Unitid))
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
                 );
         }
 
@@ -156,11 +150,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Calculationid != null)
-                    hashCode = hashCode * 59 + this.Calculationid.GetHashCode();
-                if (this.Unitid != null)
-                    hashCode = hashCode * 59 + this.Unitid.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Screen != null)
+                    hashCode = hashCode * 59 + this.Screen.GetHashCode();
+                hashCode = hashCode * 59 + this.Source.GetHashCode();
                 return hashCode;
             }
         }

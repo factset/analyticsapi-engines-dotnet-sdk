@@ -27,39 +27,40 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// PACommentaryParametersRoot
+    /// QuantUniversalScreenParameterObsolete
     /// </summary>
-    [DataContract(Name = "PACommentaryParametersRoot")]
-    public partial class PACommentaryParametersRoot : IEquatable<PACommentaryParametersRoot>, IValidatableObject
+    [DataContract(Name = "QuantUniversalScreenParameterObsolete")]
+    public partial class QuantUniversalScreenParameterObsolete : IEquatable<QuantUniversalScreenParameterObsolete>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PACommentaryParametersRoot" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameterObsolete" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected PACommentaryParametersRoot() { }
+        protected QuantUniversalScreenParameterObsolete() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="PACommentaryParametersRoot" /> class.
+        /// Initializes a new instance of the <see cref="QuantUniversalScreenParameterObsolete" /> class.
         /// </summary>
-        /// <param name="data">data (required).</param>
-        /// <param name="meta">meta.</param>
-        public PACommentaryParametersRoot(PACommentaryParameters data = default(PACommentaryParameters), Object meta = default(Object))
+        /// <param name="referenceName">referenceName (required).</param>
+        /// <param name="name">name (required).</param>
+        public QuantUniversalScreenParameterObsolete(string referenceName = default(string), string name = default(string))
         {
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for PACommentaryParametersRoot and cannot be null");
-            this.Meta = meta;
+            // to ensure "referenceName" is required (not null)
+            this.ReferenceName = referenceName ?? throw new ArgumentNullException("referenceName is a required property for QuantUniversalScreenParameterObsolete and cannot be null");
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for QuantUniversalScreenParameterObsolete and cannot be null");
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets ReferenceName
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = false)]
-        public PACommentaryParameters Data { get; set; }
+        [DataMember(Name = "referenceName", IsRequired = true, EmitDefaultValue = false)]
+        public string ReferenceName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Meta
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "meta", EmitDefaultValue = false)]
-        public Object Meta { get; set; }
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +69,9 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PACommentaryParametersRoot {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Meta: ").Append(Meta).Append("\n");
+            sb.Append("class QuantUniversalScreenParameterObsolete {\n");
+            sb.Append("  ReferenceName: ").Append(ReferenceName).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,29 +92,29 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PACommentaryParametersRoot);
+            return this.Equals(input as QuantUniversalScreenParameterObsolete);
         }
 
         /// <summary>
-        /// Returns true if PACommentaryParametersRoot instances are equal
+        /// Returns true if QuantUniversalScreenParameterObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of PACommentaryParametersRoot to be compared</param>
+        /// <param name="input">Instance of QuantUniversalScreenParameterObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PACommentaryParametersRoot input)
+        public bool Equals(QuantUniversalScreenParameterObsolete input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.ReferenceName == input.ReferenceName ||
+                    (this.ReferenceName != null &&
+                    this.ReferenceName.Equals(input.ReferenceName))
                 ) && 
                 (
-                    this.Meta == input.Meta ||
-                    (this.Meta != null &&
-                    this.Meta.Equals(input.Meta))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -126,10 +127,10 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
-                if (this.Meta != null)
-                    hashCode = hashCode * 59 + this.Meta.GetHashCode();
+                if (this.ReferenceName != null)
+                    hashCode = hashCode * 59 + this.ReferenceName.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

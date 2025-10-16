@@ -383,7 +383,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
-            var id = AFB43C61A6651B87988FEA62ED333638595AE7D8D7345A33AB9994CF23AFCC5D;  // string | Unique identifier for a vault component
+            var id = id_example;  // string | Unique identifier for a vault component
 
             try
             {
@@ -468,7 +468,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new ComponentsApi(config);
-            var document = CLIENT:/MAC/DEMO/DEMO_PS_EQ_EM_COUNTRY_ALPHA.ACCT;  // string | Document Name
+            var document = document_example;  // string | Document Name
 
             try
             {

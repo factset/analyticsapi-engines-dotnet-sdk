@@ -27,69 +27,66 @@ using OpenAPIDateConverter = FactSet.AnalyticsAPI.Engines.Client.OpenAPIDateConv
 namespace FactSet.AnalyticsAPI.Engines.Model
 {
     /// <summary>
-    /// Metadata
+    /// QuantFdsDateObsolete
     /// </summary>
-    [DataContract(Name = "Metadata")]
-    public partial class Metadata : IEquatable<Metadata>, IValidatableObject
+    [DataContract(Name = "QuantFdsDateObsolete")]
+    public partial class QuantFdsDateObsolete : IEquatable<QuantFdsDateObsolete>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Metadata" /> class.
+        /// Initializes a new instance of the <see cref="QuantFdsDateObsolete" /> class.
         /// </summary>
-        /// <param name="tileName">PA Tile name associated with the component.</param>
-        /// <param name="portfolioDescription">Portfolio name used in generating commentary.</param>
-        /// <param name="benchmarkDescription">Benchmark name used in generating commentary.</param>
-        /// <param name="startDate">startDate.</param>
-        /// <param name="endDate">endDate.</param>
-        /// <param name="frequency">Date frequency.</param>
-        public Metadata(string tileName = default(string), string portfolioDescription = default(string), string benchmarkDescription = default(string), PACommentaryDate startDate = default(PACommentaryDate), PACommentaryDate endDate = default(PACommentaryDate), string frequency = default(string))
+        [JsonConstructorAttribute]
+        protected QuantFdsDateObsolete() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="QuantFdsDateObsolete" /> class.
+        /// </summary>
+        /// <param name="startDate">startDate (required).</param>
+        /// <param name="endDate">endDate (required).</param>
+        /// <param name="frequency">frequency (required).</param>
+        /// <param name="calendar">calendar (required).</param>
+        /// <param name="overrideUniversalScreenCalendar">overrideUniversalScreenCalendar.</param>
+        public QuantFdsDateObsolete(string startDate = default(string), string endDate = default(string), string frequency = default(string), string calendar = default(string), bool overrideUniversalScreenCalendar = default(bool))
         {
-            this.TileName = tileName;
-            this.PortfolioDescription = portfolioDescription;
-            this.BenchmarkDescription = benchmarkDescription;
-            this.StartDate = startDate;
-            this.EndDate = endDate;
-            this.Frequency = frequency;
+            // to ensure "startDate" is required (not null)
+            this.StartDate = startDate ?? throw new ArgumentNullException("startDate is a required property for QuantFdsDateObsolete and cannot be null");
+            // to ensure "endDate" is required (not null)
+            this.EndDate = endDate ?? throw new ArgumentNullException("endDate is a required property for QuantFdsDateObsolete and cannot be null");
+            // to ensure "frequency" is required (not null)
+            this.Frequency = frequency ?? throw new ArgumentNullException("frequency is a required property for QuantFdsDateObsolete and cannot be null");
+            // to ensure "calendar" is required (not null)
+            this.Calendar = calendar ?? throw new ArgumentNullException("calendar is a required property for QuantFdsDateObsolete and cannot be null");
+            this.OverrideUniversalScreenCalendar = overrideUniversalScreenCalendar;
         }
-
-        /// <summary>
-        /// PA Tile name associated with the component
-        /// </summary>
-        /// <value>PA Tile name associated with the component</value>
-        [DataMember(Name = "tileName", EmitDefaultValue = false)]
-        public string TileName { get; set; }
-
-        /// <summary>
-        /// Portfolio name used in generating commentary
-        /// </summary>
-        /// <value>Portfolio name used in generating commentary</value>
-        [DataMember(Name = "portfolioDescription", EmitDefaultValue = false)]
-        public string PortfolioDescription { get; set; }
-
-        /// <summary>
-        /// Benchmark name used in generating commentary
-        /// </summary>
-        /// <value>Benchmark name used in generating commentary</value>
-        [DataMember(Name = "benchmarkDescription", EmitDefaultValue = false)]
-        public string BenchmarkDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets StartDate
         /// </summary>
-        [DataMember(Name = "startDate", EmitDefaultValue = false)]
-        public PACommentaryDate StartDate { get; set; }
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = false)]
+        public string StartDate { get; set; }
 
         /// <summary>
         /// Gets or Sets EndDate
         /// </summary>
-        [DataMember(Name = "endDate", EmitDefaultValue = false)]
-        public PACommentaryDate EndDate { get; set; }
+        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = false)]
+        public string EndDate { get; set; }
 
         /// <summary>
-        /// Date frequency
+        /// Gets or Sets Frequency
         /// </summary>
-        /// <value>Date frequency</value>
-        [DataMember(Name = "frequency", EmitDefaultValue = false)]
+        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = false)]
         public string Frequency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Calendar
+        /// </summary>
+        [DataMember(Name = "calendar", IsRequired = true, EmitDefaultValue = false)]
+        public string Calendar { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OverrideUniversalScreenCalendar
+        /// </summary>
+        [DataMember(Name = "overrideUniversalScreenCalendar", EmitDefaultValue = false)]
+        public bool OverrideUniversalScreenCalendar { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,13 +95,12 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Metadata {\n");
-            sb.Append("  TileName: ").Append(TileName).Append("\n");
-            sb.Append("  PortfolioDescription: ").Append(PortfolioDescription).Append("\n");
-            sb.Append("  BenchmarkDescription: ").Append(BenchmarkDescription).Append("\n");
+            sb.Append("class QuantFdsDateObsolete {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  Calendar: ").Append(Calendar).Append("\n");
+            sb.Append("  OverrideUniversalScreenCalendar: ").Append(OverrideUniversalScreenCalendar).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,35 +121,20 @@ namespace FactSet.AnalyticsAPI.Engines.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Metadata);
+            return this.Equals(input as QuantFdsDateObsolete);
         }
 
         /// <summary>
-        /// Returns true if Metadata instances are equal
+        /// Returns true if QuantFdsDateObsolete instances are equal
         /// </summary>
-        /// <param name="input">Instance of Metadata to be compared</param>
+        /// <param name="input">Instance of QuantFdsDateObsolete to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Metadata input)
+        public bool Equals(QuantFdsDateObsolete input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.TileName == input.TileName ||
-                    (this.TileName != null &&
-                    this.TileName.Equals(input.TileName))
-                ) && 
-                (
-                    this.PortfolioDescription == input.PortfolioDescription ||
-                    (this.PortfolioDescription != null &&
-                    this.PortfolioDescription.Equals(input.PortfolioDescription))
-                ) && 
-                (
-                    this.BenchmarkDescription == input.BenchmarkDescription ||
-                    (this.BenchmarkDescription != null &&
-                    this.BenchmarkDescription.Equals(input.BenchmarkDescription))
-                ) && 
                 (
                     this.StartDate == input.StartDate ||
                     (this.StartDate != null &&
@@ -168,6 +149,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
                     this.Frequency == input.Frequency ||
                     (this.Frequency != null &&
                     this.Frequency.Equals(input.Frequency))
+                ) && 
+                (
+                    this.Calendar == input.Calendar ||
+                    (this.Calendar != null &&
+                    this.Calendar.Equals(input.Calendar))
+                ) && 
+                (
+                    this.OverrideUniversalScreenCalendar == input.OverrideUniversalScreenCalendar ||
+                    this.OverrideUniversalScreenCalendar.Equals(input.OverrideUniversalScreenCalendar)
                 );
         }
 
@@ -180,18 +170,15 @@ namespace FactSet.AnalyticsAPI.Engines.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TileName != null)
-                    hashCode = hashCode * 59 + this.TileName.GetHashCode();
-                if (this.PortfolioDescription != null)
-                    hashCode = hashCode * 59 + this.PortfolioDescription.GetHashCode();
-                if (this.BenchmarkDescription != null)
-                    hashCode = hashCode * 59 + this.BenchmarkDescription.GetHashCode();
                 if (this.StartDate != null)
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 if (this.Frequency != null)
                     hashCode = hashCode * 59 + this.Frequency.GetHashCode();
+                if (this.Calendar != null)
+                    hashCode = hashCode * 59 + this.Calendar.GetHashCode();
+                hashCode = hashCode * 59 + this.OverrideUniversalScreenCalendar.GetHashCode();
                 return hashCode;
             }
         }

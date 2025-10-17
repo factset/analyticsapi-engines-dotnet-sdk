@@ -1,3 +1,6 @@
+## 🚨 THIS PACKAGE IS DEPRECATED!
+Please use <https://www.nuget.org/packages?q=FactSet.SDK> instead.
+
 # FactSet.AnalyticsAPI.Engines - the C# library for the Engines API
 
 Allow clients to fetch Analytics through APIs.

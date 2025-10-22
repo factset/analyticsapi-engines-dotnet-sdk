@@ -133,15 +133,20 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
                     if (getStatusResponse.Headers.ContainsKey("Cache-Control"))
                     {
                         var maxAge = getStatusResponse.Headers["Cache-Control"][0];
+                        var customQuantAgeInterval = int.TryParse(CommonParameters.Quant_Custom_Max_Age, out int ageValue) ? ageValue : 2;
+
                         if (string.IsNullOrWhiteSpace(maxAge))
-                        {
-                            Console.WriteLine("Sleeping for 2 seconds");
-                            // Sleep for at least 2 seconds.
-                            Thread.Sleep(2000);
+                        {   
+                            Console.WriteLine($"Sleeping for {customQuantAgeInterval} seconds");
+                            Thread.Sleep(customQuantAgeInterval * 1000);
                         }
                         else
                         {
                             var age = int.Parse(maxAge.Replace("max-age=", ""));
+
+                            // setting minimum sleep time to 10 seconds.
+                            age = (age <= 10 ? customQuantAgeInterval : age);
+
                             Console.WriteLine($"Sleeping for {age} seconds");
                             Thread.Sleep(age * 1000);
                         }

@@ -78,7 +78,7 @@ namespace FactSet.AnalyticsAPI.Engines.Test.Api
         [TestMethod]
         public void ComponentsApi_Get_SPARComponentById_Success()
         {
-            var sparComponents = componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARDefaultDocument);
+            var sparComponents = componentsApi.GetSPARComponentsWithHttpInfo(CommonParameters.SPARAccount);
             var sparComponentId = sparComponents.Data.Data.Keys.First();
 
             var componentGetByIdResponse = componentsApi.GetSPARComponentByIdWithHttpInfo(sparComponentId);

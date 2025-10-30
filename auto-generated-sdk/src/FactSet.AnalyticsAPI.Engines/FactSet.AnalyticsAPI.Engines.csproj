@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -9,15 +9,15 @@
     <Authors>FactSet</Authors>
     <Company>FactSet Research Systems Inc.</Company>
     <AssemblyTitle>FactSet Analytics Engines API</AssemblyTitle>
-    <Description>Allow clients to fetch Engines Analytics through APIs.</Description>
+    <Description>DEPRECATED: This package is deprecated. Please use https://www.nuget.org/packages?q&#x3D;FactSet.SDK instead.</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.AnalyticsAPI.Engines</RootNamespace>
-    <Version>6.0.0</Version>
+    <Version>6.1.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FactSet.AnalyticsAPI.Engines.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/analyticsapi-engines-dotnet-sdk.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Refer to Changelog on GitHub source repository</PackageReleaseNotes>
+    <PackageReleaseNotes>DEPRECATED: This package is deprecated. Please use https://www.nuget.org/packages?q&#x3D;FactSet.SDK instead.</PackageReleaseNotes>
     <PackageTags>PA;Vault;SPAR;Engines;FactSet;FDS;API;Analytics;AnalyticsAPI</PackageTags>
   </PropertyGroup>
 

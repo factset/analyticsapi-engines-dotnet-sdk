@@ -226,6 +226,7 @@ namespace FactSet.AnalyticsAPI.Engines.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
+    [Obsolete("This library is deprecated. Please use (https://www.nuget.org/packages?q=FactSet.SDK) instead.")]
     public partial class DocumentsApi : IDocumentsApi
     {
         private FactSet.AnalyticsAPI.Engines.Client.ExceptionFactory _exceptionFactory = (name, response) => null;

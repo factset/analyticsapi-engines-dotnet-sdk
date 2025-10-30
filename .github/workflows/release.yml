@@ -4,8 +4,11 @@ env:
   NUGET_API: ${{ secrets.NUGET_API }}
 
 on:
-  release:
-    types: [ published ]
+  workflow_dispatch:
+
+#on:
+#  release:
+#    types: [ published ]
 
 jobs:
   build:

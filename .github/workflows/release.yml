@@ -36,7 +36,8 @@ jobs:
       run: nuget restore auto-generated-sdk/FactSet.AnalyticsAPI.Engines.sln
       
     - name: Build and create the package
-      run: dotnet pack --configuration Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
-
+      #run: dotnet pack --configuration Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
+      run: dotnet pack --configuration Release --output auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
+    
     - name: Publish the package to Nuget
       run: nuget push auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.*.nupkg -Source https://api.nuget.org/v3/index.json

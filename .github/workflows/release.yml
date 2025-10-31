@@ -49,4 +49,4 @@ jobs:
       run: dir auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release
 
     - name: Publish the package to Nuget
-      run: nuget push analyticsapi-engines-dotnet-sdk/analyticsapi-engines-dotnet-sdk/auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.*.nupkg -Source https://api.nuget.org/v3/index.json
+      run: nuget push auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.6.1.0.nupkg -Source https://api.nuget.org/v3/index.json

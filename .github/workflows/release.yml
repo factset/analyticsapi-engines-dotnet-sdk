@@ -27,7 +27,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.2
+        dotnet-version: 3.1
         source-url: https://api.nuget.org/v3/index.json
       env:
         NUGET_AUTH_TOKEN: ${{ env.NUGET_API }}
@@ -39,5 +39,8 @@ jobs:
       #run: dotnet pack --configuration Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
       run: dotnet pack --configuration Release --output auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
     
+    - name: List output directory
+      run: dir auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release
+
     - name: Publish the package to Nuget
       run: nuget push auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.*.nupkg -Source https://api.nuget.org/v3/index.json

@@ -36,10 +36,10 @@ jobs:
       run: nuget restore auto-generated-sdk/FactSet.AnalyticsAPI.Engines.sln
 
     - name: Build project
-      run: dotnet build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj -c Release
+      run: dotnet build auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj -c Release -o auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release
 
     - name: Pack NuGet package
-      run: dotnet pack auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj -c Release
+      run: dotnet pack auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj -c Release -o auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release
 
     #- name: Build and create the package
       #run: dotnet pack --configuration Release auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/FactSet.AnalyticsAPI.Engines.csproj
@@ -49,4 +49,4 @@ jobs:
       run: dir auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release
 
     - name: Publish the package to Nuget
-      run: nuget push auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.*.nupkg -Source https://api.nuget.org/v3/index.json
+      run: nuget push auto-generated-sdk/src/FactSet.AnalyticsAPI.Engines/bin/Release/FactSet.AnalyticsAPI.Engines.6.1.0.nupkg -Source https://api.nuget.org/v3/index.json

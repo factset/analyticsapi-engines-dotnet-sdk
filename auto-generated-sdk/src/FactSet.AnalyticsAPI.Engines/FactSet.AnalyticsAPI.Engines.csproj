@@ -9,7 +9,7 @@
     <Authors>FactSet</Authors>
     <Company>FactSet Research Systems Inc.</Company>
     <AssemblyTitle>FactSet Analytics Engines API</AssemblyTitle>
-    <Description>The Analytics SDK will be deprecated effective 31-Aug-2026. While we intend to provide limited security fixes till 31-Aug-2026, this SDK will be archived thereafter and will no longer receive updates or security patches. Please migrate to our Enterprise SDK, which is the long-term supported solution from FactSet. Please choose the appropriate API-specific Enterprise SDK from these search results: https://www.nuget.org/packages?q&#x3D;FactSet.SDK</Description>
+    <Description>The Analytics SDK will be deprecated effective 31-Aug-2026. While we intend to provide limited security fixes till 31-Aug-2026, this SDK will be archived thereafter and will no longer receive updates or security patches. Please migrate to our Enterprise SDK, which is the long-term supported solution from FactSet. Please choose the appropriate API-specific Enterprise SDK from these search results: [enterprise-sdk](https://www.nuget.org/packages?q&#x3D;FactSet.SDK)</Description>
     <Copyright></Copyright>
     <RootNamespace>FactSet.AnalyticsAPI.Engines</RootNamespace>
     <Version>6.1.1</Version>
@@ -17,7 +17,7 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/analyticsapi-engines-dotnet-sdk.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>The Analytics SDK will be deprecated effective 31-Aug-2026. While we intend to provide limited security fixes till 31-Aug-2026, this SDK will be archived thereafter and will no longer receive updates or security patches. Please migrate to our Enterprise SDK, which is the long-term supported solution from FactSet. Please choose the appropriate API-specific Enterprise SDK from these search results: https://www.nuget.org/packages?q&#x3D;FactSet.SDK</PackageReleaseNotes>
+    <PackageReleaseNotes>The Analytics SDK will be deprecated effective 31-Aug-2026. While we intend to provide limited security fixes till 31-Aug-2026, this SDK will be archived thereafter and will no longer receive updates or security patches. Please migrate to our Enterprise SDK, which is the long-term supported solution from FactSet. Please choose the appropriate API-specific Enterprise SDK from these search results: [enterprise-sdk](https://www.nuget.org/packages?q&#x3D;FactSet.SDK)</PackageReleaseNotes>
     <PackageTags>PA;Vault;SPAR;Engines;FactSet;FDS;API;Analytics;AnalyticsAPI</PackageTags>
   </PropertyGroup>
 
